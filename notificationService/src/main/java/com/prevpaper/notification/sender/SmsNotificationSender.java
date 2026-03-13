@@ -1,6 +1,6 @@
 package com.prevpaper.notification.sender;
 
-import com.prevpaper.notification.enums.NotificationType;
+import com.prevpaper.comman.enums.NotificationType;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

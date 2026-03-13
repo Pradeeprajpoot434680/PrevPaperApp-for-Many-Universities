@@ -1,7 +1,7 @@
 package com.prevpaper.notification.sender;
 
 
-import com.prevpaper.notification.enums.NotificationType;
+import com.prevpaper.comman.enums.NotificationType;
 
 import java.util.UUID;
 

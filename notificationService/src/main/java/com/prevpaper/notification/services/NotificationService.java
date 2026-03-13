@@ -1,13 +1,11 @@
 package com.prevpaper.notification.services;
 
-import com.prevpaper.notification.dto.NotificationRequest;
-
+import com.prevpaper.comman.dto.CommonNotificationRequest;
 import java.util.UUID;
 
 public interface NotificationService {
 
-
-    void sendNotification(NotificationRequest request);
+    void sendNotification(CommonNotificationRequest request);
 
     void markAsRead(UUID notificationId);
 }

@@ -10,6 +10,7 @@ public class SignupRequest {
 
     private String email; // Removed @NotBlank for flexibility
 
+
     private String phoneNumber; // Added for flexible login
 
     @NotBlank

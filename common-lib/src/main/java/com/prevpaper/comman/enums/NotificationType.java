@@ -1,4 +1,4 @@
-package com.prevpaper.notification.enums;
+package com.prevpaper.comman.enums;
 
 public enum NotificationType {
     EMAIL,

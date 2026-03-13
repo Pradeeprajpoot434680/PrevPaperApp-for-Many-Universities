@@ -1,8 +1,6 @@
 package com.prevpaper.auth.controllers;
 
-import com.prevpaper.auth.dto.LoginRequest;
-import com.prevpaper.auth.dto.SignupRequest;
-import com.prevpaper.auth.dto.VerifyOtpRequest;
+import com.prevpaper.auth.dto.*;
 import com.prevpaper.auth.services.AuthService;
 import com.prevpaper.comman.dto.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -59,21 +57,29 @@ public class AuthController {
             @RequestBody VerifyOtpRequest request,
             HttpServletRequest httpRequest) {
 
-        System.out.println(request);
+         System.out.println(request);
         return authService.verifyOtp(request, httpRequest);
     }
 
 
     //forget-password
+    @PostMapping("/forgot-password")
+    public ApiResponse<Map<String, String>> forgotPassword(
+            @RequestBody ForgotPasswordRequest request,
+            HttpServletRequest httpRequest) {
+
+        return authService.forgotPassword(request, httpRequest);
+    }
 
 
     //reset-password
+    @PostMapping("/reset-password")
+    public ApiResponse<Map<String, String>> resetPassword(
+            @RequestBody ResetPasswordRequest request,
+            HttpServletRequest httpRequest) {
 
-
-
-
-    //verify-otp
-
+        return authService.resetPassword(request, httpRequest);
+    }
 
 
 }

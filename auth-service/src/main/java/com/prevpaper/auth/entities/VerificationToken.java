@@ -30,4 +30,8 @@ public class VerificationToken {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean verified = false;
 }

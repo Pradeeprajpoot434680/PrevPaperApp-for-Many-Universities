@@ -35,6 +35,20 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(ex.getMessage()));
     }
 
+    @ExceptionHandler(EmptyInputBoxException.class)
+    public ResponseEntity<ApiResponse<Object>> handleEmptyInputBox(
+            EmptyInputBoxException ex) {
+
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .body(ApiResponse.error(ex.getMessage()));
+    }
+
+    @ExceptionHandler(WrongCredentialsException.class)
+    public ResponseEntity<ApiResponse<Object>> badCredentialsHandler(WrongCredentialsException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(ex.getMessage()));
+    }
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiResponse<Object>> handleBusiness(

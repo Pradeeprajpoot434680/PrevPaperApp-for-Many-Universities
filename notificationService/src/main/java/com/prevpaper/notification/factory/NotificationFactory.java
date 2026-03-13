@@ -2,7 +2,7 @@ package com.prevpaper.notification.factory;
 
 
 
-import com.prevpaper.notification.enums.NotificationType;
+import com.prevpaper.comman.enums.NotificationType;
 import com.prevpaper.notification.sender.NotificationSender;
 import org.springframework.stereotype.Component;
 

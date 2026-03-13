@@ -1,7 +1,7 @@
 package com.prevpaper.notification.entities;
 
+import com.prevpaper.comman.enums.NotificationType;
 import com.prevpaper.notification.enums.DeliveryStatus;
-import com.prevpaper.notification.enums.NotificationType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
