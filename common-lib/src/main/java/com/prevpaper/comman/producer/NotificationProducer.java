@@ -17,6 +17,7 @@ public class NotificationProducer {
     private static final String BULK_TOPIC = "bulk-notifications";
 
     public void sendOtpNotification(String key, CommonNotificationRequest request) {
+        System.out.println("Reached");
         kafkaTemplate.send(HIGH_PRIORITY_TOPIC, key, request);
     }
 

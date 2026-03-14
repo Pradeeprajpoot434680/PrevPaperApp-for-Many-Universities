@@ -25,6 +25,12 @@ public class EmailNotificationSender implements NotificationSender {
 
     @Override
     public void sendNotification(UUID userId, String recipientEmail, String title, String message) {
+
+        if (recipientEmail == null || !recipientEmail.contains("@")) {
+            System.err.println("SKIPPING EMAIL: Recipient [" + recipientEmail + "] is not a valid email address.");
+            return; // Return early so Kafka marks this message as "Completed"
+        }
+
         String url = "https://api.resend.com/emails";
         Map<String, Object> body = new HashMap<>();
 

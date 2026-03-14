@@ -67,7 +67,7 @@ public class AuthController {
     public ApiResponse<Map<String, String>> forgotPassword(
             @RequestBody ForgotPasswordRequest request,
             HttpServletRequest httpRequest) {
-
+        System.out.println("Reached controller");
         return authService.forgotPassword(request, httpRequest);
     }
 

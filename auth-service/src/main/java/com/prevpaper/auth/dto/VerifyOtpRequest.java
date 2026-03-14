@@ -1,5 +1,6 @@
 package com.prevpaper.auth.dto;
 
+import com.prevpaper.comman.enums.TokenType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VerifyOtpRequest {
-    private String email;
+    private String recipient;
     private String otp;
+    private TokenType type;
 }
