@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # UNIVERSITY SERVICE ROUTE
+        - id: university-service
+          uri: lb://university-service # lb = load balancer
+          predicates:
+            - Path=/api/v1/universities/**
+          filters:
+            - AuthenticationFilter # We will create this class next
+
+        # AUTH SERVICE ROUTE (Public)
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/v1/auth/**

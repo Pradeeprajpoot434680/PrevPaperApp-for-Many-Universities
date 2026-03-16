@@ -27,6 +27,8 @@
         <module>common-lib</module>
         <module>university-service</module>
         <module>notificationService</module>
+        <module>api-gateway</module>
+        <module>service-registry</module>
     </modules>
 
     <dependencyManagement>
