@@ -21,6 +21,6 @@ public interface AuthService {
             @RequestBody ResetPasswordRequest request,
             HttpServletRequest httpRequest) ;
 
-
+    Map<String, String> refreshToken(String refreshToken);
     ApiResponse<Map<String,String>> forgotPassword(ForgotPasswordRequest request,HttpServletRequest httpRequest);
 }

@@ -1,5 +1,4 @@
-package com.prevpaper.notification.services.impl;
-
+package com.prevpaper.notification.services.Impl;
 import com.prevpaper.comman.dto.CommonNotificationRequest;
 import com.prevpaper.comman.enums.NotificationType;
 import com.prevpaper.notification.entities.Notification;

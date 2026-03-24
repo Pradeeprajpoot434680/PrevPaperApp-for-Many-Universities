@@ -11,33 +11,73 @@ import com.prevpaper.university.repository.DepartmentRepository;
 import com.prevpaper.university.service.UniversityRepresentativeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
-
 @RestController
-@RequestMapping("/api/v1/university-rep")
-@RequiredArgsConstructor
+@RequestMapping("/api/v1/university-rep/{universityId}")
 public class UniversityRepresentativeController {
 
-    private final UniversityRepresentativeService universityRepService;
+    private final UniversityRepresentativeService universityRepresentativeService;
 
-    @PostMapping("/department/create")
-    public ResponseEntity<ApiResponse<Department>> createDepartment(@RequestBody DepartmentRequest request) {
-
-        Department savedDept = universityRepService.createDepartment(request);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Department created successfully", savedDept, System.currentTimeMillis()));
+    public UniversityRepresentativeController(UniversityRepresentativeService universityRepresentativeService) {
+        this.universityRepresentativeService = universityRepresentativeService;
     }
 
-    @PostMapping("/department/assign-rep")
-    public ResponseEntity<ApiResponse<Void>> assignDeptRep(@RequestBody AssignRepRequest request) {
-        // TODO: Extract the University Rep's userId from JWT to use as 'assignedBy'
-        UUID currentAdminId = UUID.randomUUID();
 
-        universityRepService.assignDepartmentRep(request, currentAdminId);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Department Representative assigned", null, System.currentTimeMillis()));
+    // CREATE DEPARTMENT
+    @PostMapping("/create-department")
+    public ResponseEntity<ApiResponse<Department>> createDepartment(
+            @PathVariable UUID universityId,
+            @RequestBody DepartmentRequest request) {
+
+        Department savedDept =
+                universityRepresentativeService.createDepartment(universityId, request);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Department created successfully",
+                        savedDept,
+                        System.currentTimeMillis()
+                )
+        );
+    }
+
+
+    // ASSIGN DEPARTMENT REPRESENTATIVE
+    @PostMapping("/assign-rep")
+    public ResponseEntity<ApiResponse<Void>> assignDeptRep(
+            @PathVariable UUID universityId,
+            @RequestBody AssignRepRequest request,
+            @RequestHeader("X-User-Id") String adminIdHeader) {
+
+        UUID adminId = UUID.fromString(adminIdHeader);
+
+        universityRepresentativeService.assignDepartmentRep(
+
+                request,
+                adminId
+        );
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Department Representative assigned successfully",
+                        null,
+                        System.currentTimeMillis()
+                )
+        );
+    }
+
+
+    // CHECK UNIVERSITY EXISTS
+    @GetMapping("/exists")
+    public ResponseEntity<Boolean> checkUniversityExists(
+            @PathVariable UUID universityId) {
+
+        boolean exists = universityRepresentativeService.existsById(universityId);
+
+        return ResponseEntity.ok(exists);
     }
 }

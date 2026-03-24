@@ -25,6 +25,9 @@ public class Department {
     @Column(nullable = false)
     private String name; // [cite: 5]
 
+    @Column(nullable = false)
+    private String code;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id", nullable = false)
     private University university; // Reference to University [cite: 5]

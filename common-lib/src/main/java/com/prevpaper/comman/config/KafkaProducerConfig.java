@@ -22,7 +22,7 @@ public class KafkaProducerConfig {
     private final String bootstrapServers = "localhost:9092";
 
     @Bean
-    public ProducerFactory<String, CommonNotificationRequest> producerFactory(){
+    public ProducerFactory<String, Object> producerFactory(){
         Map<String,Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -32,7 +32,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String,CommonNotificationRequest> kafkaTemplate(){
+    public KafkaTemplate<String,Object> kafkaTemplate(){
         return new KafkaTemplate<>(producerFactory());
     }
 
@@ -41,6 +41,14 @@ public class KafkaProducerConfig {
         return TopicBuilder.name("high-priority-notifications")
                 .partitions(3)
                 .replicas(1)
+                .build();
+    }
+
+    @Bean
+    public NewTopic roleChangeTopic() {
+        return TopicBuilder.name("role-change-events")
+                .partitions(3)    // 3 partitions for better scalability
+                .replicas(1)      // 1 replica for local development
                 .build();
     }
 

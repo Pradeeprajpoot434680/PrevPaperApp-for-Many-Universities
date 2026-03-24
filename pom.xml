@@ -29,6 +29,8 @@
         <module>notificationService</module>
         <module>api-gateway</module>
         <module>service-registry</module>
+        <module>upload-service</module>
+        <module>content-service</module>
     </modules>
 
     <dependencyManagement>

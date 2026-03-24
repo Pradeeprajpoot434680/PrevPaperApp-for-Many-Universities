@@ -7,5 +7,5 @@ import java.util.UUID;
 @Data
 public class ProgramRequest {
     private String name;
-    private UUID departmentId;
+    private String code;
 }

@@ -18,6 +18,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class RepresentativeAssignment {
 
     @Id
@@ -35,7 +36,8 @@ public class RepresentativeAssignment {
             joinColumns = @JoinColumn(name = "assignment_id")
     )
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_name", nullable = false)
+    // Add 'length = 50' to ensure enough space for "DEPARTMENT_REP", etc.
+    @Column(name = "role_name", nullable = false, length = 50)
     private Set<UserRole> roles;
 
     @Enumerated(EnumType.STRING)

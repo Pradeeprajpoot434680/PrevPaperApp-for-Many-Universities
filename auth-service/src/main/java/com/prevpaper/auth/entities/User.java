@@ -45,6 +45,10 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String phoneNumber;
 
+
+    private UUID assignedScopeId;
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",

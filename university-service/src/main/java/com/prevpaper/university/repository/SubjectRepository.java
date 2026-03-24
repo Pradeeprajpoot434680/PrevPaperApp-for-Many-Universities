@@ -6,4 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 
 public interface SubjectRepository extends JpaRepository<Subject, UUID> {
+    boolean existsBySubjectCode(String subjectCode);
+
+    // Check uniqueness of name within one specific semester
+    boolean existsByNameIgnoreCaseAndSemesterId(String name, UUID semesterId);
 }

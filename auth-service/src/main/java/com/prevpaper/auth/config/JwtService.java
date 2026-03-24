@@ -42,7 +42,7 @@ public class JwtService {
                 .map(role -> role.getRoleName().name())
                 .collect(Collectors.toList()));
         claims.put("universityId", user.getUniversityId());
-
+        claims.put("scopeId", user.getAssignedScopeId());
         return buildToken(claims, user.getEmail(), accessExpiration);
     }
 
@@ -67,6 +67,18 @@ public class JwtService {
                 .parseSignedClaims(token)
                 .getPayload();
     }
+
+    public boolean validateTokenOnly(String token) {
+        try {
+            // This will throw an exception if the signature is invalid or token is expired
+            extractAllClaims(token);
+            return !isTokenExpired(token);
+        } catch (Exception e) {
+            // Log error if needed: "Token validation failed: " + e.getMessage()
+            return false;
+        }
+    }
+
 
     public String extractUsername(String token) {
         return extractAllClaims(token).getSubject();

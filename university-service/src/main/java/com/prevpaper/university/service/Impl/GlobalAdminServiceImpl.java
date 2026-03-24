@@ -2,6 +2,7 @@ package com.prevpaper.university.service.Impl;
 
 import com.prevpaper.comman.enums.ScopeType;
 import com.prevpaper.comman.enums.UserRole;
+import com.prevpaper.comman.producer.RoleEventProducer;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.UniversityRequest;
 import com.prevpaper.university.entities.RepresentativeAssignment;
@@ -9,20 +10,30 @@ import com.prevpaper.university.entities.University;
 import com.prevpaper.university.repository.RepresentativeRepository;
 import com.prevpaper.university.repository.UniversityRepository;
 import com.prevpaper.university.service.GlobalAdminService;
+import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
-@RequiredArgsConstructor
 @Service
 public class GlobalAdminServiceImpl implements GlobalAdminService {
 
     private final UniversityRepository universityRepository;
     private final RepresentativeRepository representativeRepository;
+    private  final RoleEventProducer roleEventProducer;
+    private final EmitRoleAssignment emitRoleAssignment;
+    public GlobalAdminServiceImpl(UniversityRepository universityRepository, RepresentativeRepository representativeRepository, RoleEventProducer roleEventProducer, EmitRoleAssignment emitRoleAssignment) {
+        this.universityRepository = universityRepository;
+        this.representativeRepository = representativeRepository;
+        this.roleEventProducer = roleEventProducer;
+        this.emitRoleAssignment = emitRoleAssignment;
+    }
 
     @Override
     @Transactional
@@ -57,8 +68,10 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
     }
 
     @Override
-    @Transactional
+
     public void assignUniversityRep(AssignRepRequest request, UUID adminId) {
+
+
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                 .userId(request.getUserId())
                 .roles(Set.of(UserRole.UNIVERSITY_ADMIN))
@@ -70,5 +83,7 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .build();
 
         representativeRepository.save(assignment);
+        int universityRoleId = 2;
+        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),universityRoleId,request.getScopeId());
     }
 }

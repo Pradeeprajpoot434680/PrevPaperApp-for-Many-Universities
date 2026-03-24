@@ -1,5 +1,6 @@
 package com.prevpaper.auth.services.Impl;
 
+import com.prevpaper.auth.client.UniversityClient;
 import com.prevpaper.auth.config.JwtService;
 import com.prevpaper.auth.dto.*;
 import com.prevpaper.auth.entities.Session;
@@ -53,6 +54,7 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final NotificationProducer producer;
     private  final  SendNotification sendNotification;
+    private  final UniversityClient universityClient;
 
     @Value("${jwt.refresh-expiration}")
     private long refreshExpiration;
@@ -77,7 +79,6 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public ApiResponse<Map<String, String>> registerUser(SignupRequest request, HttpServletRequest req) {
 
-        // 1️⃣ Validate input
         if ((request.getEmail() == null || request.getEmail().isBlank()) &&
                 (request.getPhoneNumber() == null || request.getPhoneNumber().isBlank())) {
             return new ApiResponse<>(false, "Email or Phone Number is required", null, System.currentTimeMillis());
@@ -95,7 +96,21 @@ public class AuthServiceImpl implements AuthService {
             }
         }
 
-        // 2️⃣ Assign default role
+        if (request.getUniversityId() == null) {
+            return new ApiResponse<>(false, "University selection is mandatory.", null, System.currentTimeMillis());
+        }
+
+        // 2. REMOTE CALL via Feign
+        try {
+            Boolean exists = universityClient.checkUniversityExists(request.getUniversityId());
+            if (exists == null || !exists) {
+                return new ApiResponse<>(false, "Invalid University: This institution is not registered.", null, System.currentTimeMillis());
+            }
+        } catch (Exception e) {
+            // Handle case where University Service is down
+            return new ApiResponse<>(false, "University validation failed. Please try again later.", null, System.currentTimeMillis());
+        }
+
         Role studentRole = roleRepository.findByRoleName(UserRole.STUDENT)
                 .orElseThrow(() -> new RoleExceptionHandler("Default Role not found"));
 
@@ -171,8 +186,8 @@ public class AuthServiceImpl implements AuthService {
         );
 
         Map<String, String> tokens = new HashMap<>();
-        tokens.put("accessToken", accessToken);
-        tokens.put("refreshToken", refreshToken);
+        tokens.put("Success", "true");
+//        tokens.put("refreshToken", refreshToken);
 
         auditService.logAction(user, "SIGNUP", user.getUserId().toString(), req);
 
@@ -184,18 +199,36 @@ public class AuthServiceImpl implements AuthService {
                                                       HttpServletRequest req,
                                                       HttpServletResponse response) {
         String id = loginRequest.getIdentifier();
-        if (id == null || id.isBlank()) {
-            return new ApiResponse<>(false, "Email or Phone Number is required", null, System.currentTimeMillis());
+
+        // 1. Generic Error Message to prevent enumeration
+        String genericError = "Invalid email/phone or password";
+
+        // 2. Find User
+        Optional<User> userOpt = userRepository.findByEmail(id)
+                .or(() -> userRepository.findByPhoneNumber(id));
+
+        if (userOpt.isEmpty()) {
+            // We still run a dummy password check or a slight delay here
+            // to prevent Timing Attacks (detecting existence by response speed)
+            return new ApiResponse<>(false, genericError, null, System.currentTimeMillis());
         }
 
-        // Find User
-        User user = userRepository.findByEmail(id)
-                .or(() -> userRepository.findByPhoneNumber(id))
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        User user = userOpt.get();
 
-        // Verify Password
+        // 3. Status Check (Existing)
+        if (user.getAccountStatus() == AccountStatus.BANNED ) {
+            return new ApiResponse<>(false, "Account is " + user.getAccountStatus(), null, System.currentTimeMillis());
+        }
+
+        // Special handling for PENDING (optional: allow login but redirect to OTP page)
+        if (user.getAccountStatus() == AccountStatus.PENDING) {
+            return new ApiResponse<>(false, "Please verify your account first", null, System.currentTimeMillis());
+        }
+
+        // 4. Password Check
         if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash())) {
-            return new ApiResponse<>(false, "Incorrect password", null, System.currentTimeMillis());
+            // Update failed attempts here if you implement locking!
+            return new ApiResponse<>(false, genericError, null, System.currentTimeMillis());
         }
 
         // Generate Tokens
@@ -236,7 +269,6 @@ public class AuthServiceImpl implements AuthService {
         String otp = request.getOtp().trim();
         TokenType type = request.getType(); // EMAIL_VERIFY or PASSWORD_RESET
 
-        // 1️⃣ Identify User
         User user = userRepository.findByEmail(recipient)
                 .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
@@ -428,6 +460,29 @@ public class AuthServiceImpl implements AuthService {
         return ApiResponse.success(
                 "Password reset successfully",
                 Map.of("passwordReset", "true")
+        );
+    }
+
+
+    @Override
+    public Map<String, String> refreshToken(String refreshToken) {
+        // 1. Check expiration
+        if (jwtService.isTokenExpired(refreshToken)) {
+            throw new RuntimeException("Refresh token expired. Please login again.");
+        }
+
+        // 2. Extract and Find User
+        String email = jwtService.extractUsername(refreshToken);
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // 3. Generate New Pair
+        String newAccessToken = jwtService.generateAccessToken(user);
+        String newRefreshToken = jwtService.generateRefreshToken(user);
+
+        return Map.of(
+                "accessToken", newAccessToken,
+                "refreshToken", newRefreshToken
         );
     }
 }

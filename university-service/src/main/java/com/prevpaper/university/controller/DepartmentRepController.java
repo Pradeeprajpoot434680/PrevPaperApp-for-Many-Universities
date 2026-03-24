@@ -12,42 +12,44 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+
 @RestController
-@RequestMapping("/api/v1/department-rep")
+@RequestMapping("/api/v1/department-rep/{departmentId}") // Scoped Mapping
 @RequiredArgsConstructor
 public class DepartmentRepController {
 
     private final DepartmentRepService departmentRepService;
 
-    @PostMapping("/program/create")
-    public ResponseEntity<ApiResponse<Program>> createProgram(@RequestBody ProgramRequest request) {
+    @PostMapping("/create-program")
+    public ResponseEntity<ApiResponse<Program>> createProgram(
+            @PathVariable UUID departmentId, // From URL for Gateway validation
+            @RequestBody ProgramRequest request,
+            @RequestHeader("X-User-Id") String adminIdStr) {
 
-        Program program = Program.builder()
-                .name(request.getName())
-                .department(Department.builder()
-                        .id(request.getDepartmentId())
-                        .build())
-                .build();
+        UUID currentAdminId = UUID.fromString(adminIdStr);
 
-        Program savedProgram = departmentRepService.createProgram(program);
+
+        Program savedProgram = departmentRepService.createProgram(departmentId,request);
 
         return ResponseEntity.ok(
-                new ApiResponse<>(true, "Program created successfully",
-                        savedProgram, System.currentTimeMillis())
+                ApiResponse.success("Program created successfully", savedProgram)
         );
     }
 
-    @PostMapping("/program/assign-rep")
-    public ResponseEntity<ApiResponse<Void>> assignProgramRep(@RequestBody AssignRepRequest request) {
+    @PostMapping("/assign-rep")
+    public ResponseEntity<ApiResponse<Void>> assignProgramRep(
+            @PathVariable UUID departmentId,
+            @RequestBody AssignRepRequest request,
+            @RequestHeader("X-User-Id") String adminIdStr) {
 
-        // TODO: Extract Department Rep ID from JWT
-        UUID currentAdminId = UUID.randomUUID();
+        UUID currentAdminId = UUID.fromString(adminIdStr);
 
+        // Ensure the scopeId in the request matches the URL path
+        // (Optional check, but good for data integrity)
         departmentRepService.assignProgramRep(request, currentAdminId);
 
         return ResponseEntity.ok(
-                new ApiResponse<>(true, "Program Representative assigned",
-                        null, System.currentTimeMillis())
+                ApiResponse.success("Program Representative assigned", null)
         );
     }
 }

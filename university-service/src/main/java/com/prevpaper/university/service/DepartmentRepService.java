@@ -8,7 +8,7 @@ import com.prevpaper.university.entities.Program;
 import java.util.UUID;
 
 public interface DepartmentRepService {
-    Program createProgram(Program request);
+    Program createProgram(UUID departmentId,ProgramRequest request);
     void assignProgramRep(AssignRepRequest request, UUID adminId);
 
 }

@@ -26,6 +26,15 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(ex.getMessage()));
     }
 
+    @ExceptionHandler(ResourceAlreadyExist.class)
+    public ResponseEntity<ApiResponse<String>> handleResourcealreadyExist(
+            ResourceAlreadyExist ex) {
+
+        return ResponseEntity
+                .status(HttpStatus.FOUND)
+                .body(ApiResponse.error(ex.getMessage()));
+    }
+
     @ExceptionHandler(InvalidOtpException.class)
     public ResponseEntity<ApiResponse<Object>> handleInvalidOTP(
             InvalidOtpException ex) {
@@ -72,7 +81,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ApiResponse.error("Something went wrong"));
+                .body(ApiResponse.error("Something went wrong" + ex));
     }
 
 }

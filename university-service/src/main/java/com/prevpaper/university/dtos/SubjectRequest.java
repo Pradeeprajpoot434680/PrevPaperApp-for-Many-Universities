@@ -6,6 +6,8 @@ import java.util.UUID;
 
 @Data
 public class SubjectRequest {
+
     private String name;
-    private UUID semesterId;
+    private String subjectCode;
+
 }

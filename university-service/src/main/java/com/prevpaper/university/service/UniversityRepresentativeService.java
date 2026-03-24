@@ -9,10 +9,14 @@ import jakarta.transaction.Transactional;
 import java.util.UUID;
 
 public interface UniversityRepresentativeService {
-    Department createDepartment(DepartmentRequest request);
+    Department createDepartment(UUID universityId,DepartmentRequest request);
 
 //    void assignUniversityRep(AssignRepRequest request, UUID adminId);
 
-    @Transactional
+
     void assignDepartmentRep(AssignRepRequest request, UUID adminId);
+
+    boolean existsById(UUID universityId);
+
+
 }

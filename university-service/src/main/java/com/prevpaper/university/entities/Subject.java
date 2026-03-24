@@ -23,6 +23,9 @@ public class Subject {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, unique = true)
+    private String subjectCode;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 

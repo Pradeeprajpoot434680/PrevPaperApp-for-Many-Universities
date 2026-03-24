@@ -10,6 +10,7 @@ import com.prevpaper.university.entities.RepresentativeAssignment;
 import com.prevpaper.university.repository.AcademicSessionRepository;
 import com.prevpaper.university.repository.RepresentativeRepository;
 import com.prevpaper.university.service.ProgramRepService;
+import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,18 +22,33 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class ProgramRepServiceImpl implements ProgramRepService {
+
     private final AcademicSessionRepository sessionRepository;
     private final RepresentativeRepository representativeRepository;
+    private final EmitRoleAssignment emitRoleAssignment;
 
     @Override
     @Transactional
-    public AcademicSession createSession(SessionRequest request) {
+    public AcademicSession createSession(UUID programId,SessionRequest request) {
+
+        boolean exists = sessionRepository.existsByProgramIdAndStartYearAndEndYear(
+               programId,
+                request.getStartYear(),
+                request.getEndYear()
+        );
+
+        if (exists) {
+            throw new RuntimeException("Session " + request.getStartYear() + "-" +
+                    request.getEndYear() + " already exists for this program.");
+        }
+
         AcademicSession session = AcademicSession.builder()
-                .program(Program.builder().id(request.getProgramId()).build())
+                .program(Program.builder().id(programId).build())
                 .startYear(request.getStartYear())
                 .endYear(request.getEndYear())
                 .isActive(true)
                 .build();
+
         return sessionRepository.save(session);
     }
 
@@ -49,5 +65,10 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                 .assignedAt(LocalDateTime.now())
                 .build();
         representativeRepository.save(assignment);
+
+        int programRoleId = 5;
+
+        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),programRoleId,request.getScopeId());
+
     }
 }

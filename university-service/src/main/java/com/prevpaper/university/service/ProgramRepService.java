@@ -8,6 +8,6 @@ import com.prevpaper.university.entities.Program;
 import java.util.UUID;
 
 public interface ProgramRepService  {
-    AcademicSession createSession(SessionRequest request);
+    AcademicSession createSession(UUID programId,SessionRequest request);
     void assignSessionRep(AssignRepRequest request, UUID adminId);
 }

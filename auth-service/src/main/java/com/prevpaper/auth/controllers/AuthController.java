@@ -1,5 +1,6 @@
 package com.prevpaper.auth.controllers;
 
+import com.prevpaper.auth.config.JwtService;
 import com.prevpaper.auth.dto.*;
 import com.prevpaper.auth.services.AuthService;
 import com.prevpaper.comman.dto.ApiResponse;
@@ -16,10 +17,11 @@ import java.util.Map;
 public class AuthController {
 
     private  final AuthService authService;
-
-    public AuthController(AuthService authService) {
+    private final JwtService jwtService;
+    public AuthController(AuthService authService, JwtService jwtService) {
         this.authService = authService;
 
+        this.jwtService = jwtService;
     }
     @GetMapping("/hello")
     String saHello(){
@@ -82,5 +84,15 @@ public class AuthController {
         return authService.resetPassword(request, httpRequest);
     }
 
+    @PostMapping("/refresh")
+    public ResponseEntity<ApiResponse<Map<String, String>>> refresh(@RequestBody RefreshTokenRequest request) {
+        try {
+            Map<String, String> tokens = authService.refreshToken(request.getRefreshToken());
+            return ResponseEntity.ok(ApiResponse.success("Token refreshed successfully", tokens));
+        } catch (RuntimeException e) {
+            // Handle expired token or user not found
+            return ResponseEntity.status(401).body(ApiResponse.error(e.getMessage()));
+        }
+    }
 
 }

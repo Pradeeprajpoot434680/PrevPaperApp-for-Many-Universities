@@ -8,4 +8,7 @@ import java.util.UUID;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, UUID> {
+    boolean existsByCodeAndUniversityId(String code, UUID universityId);
+
+    boolean existsByNameIgnoreCaseAndUniversityId(String name, UUID universityId);
 }

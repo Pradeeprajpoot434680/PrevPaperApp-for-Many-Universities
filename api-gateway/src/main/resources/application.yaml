@@ -3,20 +3,26 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: API-GATEWAY
   cloud:
     gateway:
-      routes:
-        # UNIVERSITY SERVICE ROUTE
-        - id: university-service
-          uri: lb://university-service # lb = load balancer
-          predicates:
-            - Path=/api/v1/universities/**
-          filters:
-            - AuthenticationFilter # We will create this class next
+      server: # 'server' is required for WebMVC Gateway
+        webmvc:
+          routes:
+            - id: auth-service
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/api/v1/auth/**
+            - id: notification-service
+              uri: lb://NOTIFICATION-SERVICE
+              predicates:
+                - Path=/api/v1/notifications/**
+            - id: university-service
+              uri: lb://UNIVERSITY-SERVICE
+              predicates:
+                - Path=/api/v1/global-admin/**,/api/v1/university-rep/**, /api/v1/department-rep/**, /api/v1/program-rep/**,/api/v1/session-rep/**
 
-        # AUTH SERVICE ROUTE (Public)
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/api/v1/auth/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

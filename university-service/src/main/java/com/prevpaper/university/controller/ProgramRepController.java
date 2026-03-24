@@ -13,26 +13,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/program-rep")
+@RequestMapping("/api/v1/program-rep/{programId}")
 @RequiredArgsConstructor
 public class ProgramRepController {
 
     private final ProgramRepService programRepService;
 
-    @PostMapping("/session/create")
-    public ResponseEntity<ApiResponse<AcademicSession>> createSession(@RequestBody SessionRequest request) {
-
-//        AcademicSession session = AcademicSession.builder()
-//                .program(Program.builder()
-//                        .id(request.getProgramId())
-//                        .build())
-//                .startYear(request.getStartYear())
-//                .endYear(request.getEndYear())
-//                .isActive(true) // or request.getIsActive()
-//                .build();
+    @PostMapping("/create-session")
+    public ResponseEntity<ApiResponse<AcademicSession>> createSession(@RequestBody SessionRequest request,
+                                                                      @PathVariable UUID programId) {
 
 
-        AcademicSession savedSession = programRepService.createSession(request);
+
+        AcademicSession savedSession = programRepService.createSession(programId,request);
 
         return ResponseEntity.ok(
                 new ApiResponse<>(true,
@@ -42,11 +35,10 @@ public class ProgramRepController {
         );
     }
 
-    @PostMapping("/session/assign-rep")
-    public ResponseEntity<ApiResponse<Void>> assignSessionRep(@RequestBody AssignRepRequest request) {
-
-        // TODO: Extract Program Rep ID from JWT
-        UUID currentAdminId = UUID.randomUUID();
+    @PostMapping("/assign-rep")
+    public ResponseEntity<ApiResponse<Void>> assignSessionRep(@RequestBody AssignRepRequest request,
+                                                              @RequestHeader("X-User-Id") String adminIdStr) {
+        UUID currentAdminId = UUID.fromString(adminIdStr);
 
         programRepService.assignSessionRep(request, currentAdminId);
 

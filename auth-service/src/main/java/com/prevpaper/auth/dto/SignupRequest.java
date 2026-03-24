@@ -21,4 +21,6 @@ public class SignupRequest {
     private String fullName;
 
     private UUID universityId; // Reference to external University Service
+
+
 }

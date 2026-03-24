@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: university-service
+    name: UNIVERSITY-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/university_db
     username: root
@@ -16,3 +16,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
