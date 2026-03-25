@@ -59,4 +59,12 @@ public class KafkaProducerConfig {
                 .replicas(1)
                 .build();
     }
+
+    @Bean
+    public NewTopic uploadTaskTopic() {
+        return TopicBuilder.name("file-upload-task")
+                .partitions(3)
+                .replicas(1)
+                .build();
+    }
 }

@@ -23,3 +23,11 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+
+
+
+app:
+  kafka:
+    topics:
+      upload-task: file-upload-task

@@ -2,6 +2,7 @@ package com.prevpaper.comman.config;
 
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.prevpaper.comman.dto.CommonNotificationRequest;
+import com.prevpaper.comman.dto.FileTaskEvent;
 import com.prevpaper.comman.dto.RoleChangedEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -27,12 +28,18 @@ public class KafkaConsumerConfig {
         JsonDeserializer<Object> deserializer = new JsonDeserializer<>(Object.class, false);
 
         // 2. IMPORTANT: Add trusted packages
-        deserializer.addTrustedPackages("com.prevpaper.comman.dto", "com.prevpaper.auth.dto", "*");
+        deserializer.addTrustedPackages("com.prevpaper.comman.dto", "com.prevpaper.auth.dto", "com.prevpaper.upload.dto",
+                "com.prevpaper.content.dto","*");
 
         // 3. Fix the "LinkedHashMap" issue by telling it to use headers for type info
         // If the producer and consumer are in the same project structure, this works:
         deserializer.setTypeResolver((topic, data, headers) -> {
             // You can manually force it for specific topics if headers are missing
+
+            if (topic.equals("file-upload-task")) {
+                return TypeFactory.defaultInstance().constructType(FileTaskEvent.class);
+            }
+
             if (topic.equals("high-priority-notifications")) {
                 return TypeFactory.defaultInstance().constructType(CommonNotificationRequest.class);
             }

@@ -1,0 +1,4 @@
+app:
+  kafka:
+    topics:
+      upload-task: file-upload-task

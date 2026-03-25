@@ -174,10 +174,10 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                 }
             };
 
-            log.info("Gateway Auth Success User={} Roles={} Scope={}",
-                    authInfo.userId(),
-                    authInfo.roles(),
-                    authInfo.scopeId());
+//            log.info("Gateway Auth Success User={} Roles={} Scope={}",
+//                    authInfo.userId(),
+//                    authInfo.roles(),
+//                    authInfo.scopeId());
 
             filterChain.doFilter(wrappedRequest, response);
 
@@ -185,7 +185,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         catch (Exception e) {
 
-            log.error("Security Gateway Error: {}", e.getMessage());
+//            log.error("Security Gateway Error: {}", e.getMessage());
 
             handleError(response,
                     "Security Service Unavailable",
