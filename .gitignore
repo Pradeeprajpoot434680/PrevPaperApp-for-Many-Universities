@@ -3,6 +3,6 @@
 target/
 .DS_Store
 out/
-application.yml
-application.yaml
+application*.yml
+application*.yaml
 application.properties
