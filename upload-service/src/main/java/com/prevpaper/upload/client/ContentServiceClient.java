@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.UUID;
 
-@FeignClient(name = "CONTENT-SERVICE")
+// Change this line to include the hardcoded URL for local development
+@FeignClient(name = "CONTENT-SERVICE", url = "http://localhost:8090")
 public interface ContentServiceClient {
+
     @PatchMapping("/api/v1/content/internal/status/{contentId}")
-    void updateUploadStatus(@PathVariable UUID contentId, @RequestBody UploadResultDTO result);
+    void updateUploadStatus(
+            @PathVariable("contentId") UUID contentId,
+            @RequestBody UploadResultDTO result
+    );
 }

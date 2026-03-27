@@ -5,5 +5,7 @@ public enum NotificationEventType {
     CONTENT_VERIFIED,
     CONTENT_REJECTED,
     UNIVERSITY_UPDATE,
-    ADMIN_ALERT
+    ADMIN_ALERT,
+    UPLOAD_FAILURE,
+    UPLOAD_SUCCESS
 }

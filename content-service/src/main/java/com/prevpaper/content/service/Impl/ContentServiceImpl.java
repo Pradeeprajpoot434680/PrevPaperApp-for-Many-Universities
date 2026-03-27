@@ -1,7 +1,13 @@
 package com.prevpaper.content.service.Impl;
 
 import com.prevpaper.comman.dto.FileTaskEvent;
+import com.prevpaper.comman.dto.SummarizedContentDTO;
 import com.prevpaper.comman.dto.UploadResultDTO;
+import com.prevpaper.comman.dto.UserInternalInfoDTO;
+import com.prevpaper.comman.enums.NotificationEventType;
+import com.prevpaper.comman.enums.NotificationType;
+import com.prevpaper.comman.producer.NotificationProducer;
+import com.prevpaper.content.client.AuthServiceClient;
 import com.prevpaper.content.dto.ContentUploadRequest;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
@@ -16,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,6 +32,8 @@ public class ContentServiceImpl implements ContentService {
 
     private final ContentRepository contentRepository;
     private final KafkaTemplate<String, Object> kafkaTemplate;
+    private  final NotificationProducer notificationProducer;
+    private  final AuthServiceClient authServiceClient;
 
     @Value("${app.kafka.topics.upload-task}")
     private String uploadTaskTopic;
@@ -76,7 +85,7 @@ public class ContentServiceImpl implements ContentService {
             // 2. SUCCESS: Update URL and set status for Admin Review
             content.setFileUrl(result.getFileUrl());
             content.setVerificationStatus(VerificationStatus.PENDING);
-            log.info("✅ Content ID {} is now PENDING review with URL: {}", contentId, result.getFileUrl());
+            log.info(" Content ID {} is now PENDING review with URL: {}", contentId, result.getFileUrl());
 
             // 3. Step 7: Trigger Notification to Admin/User
             // notificationProducer.sendUploadSuccessEvent(content);
@@ -84,11 +93,38 @@ public class ContentServiceImpl implements ContentService {
         } else {
             // 4. FAILURE: Mark as rejected and log the error from Upload Service
             content.setVerificationStatus(VerificationStatus.REJECTED);
-            log.error("❌ Content ID {} upload failed: {}", contentId, result.getErrorMessage());
+            log.error("Content ID {} upload failed: {}", contentId, result.getErrorMessage());
 
             // notificationProducer.sendUploadFailureEvent(content, result.getErrorMessage());
         }
 
         contentRepository.save(content);
+
+        try {
+            //UserInternalInfoDTO userInfo = authServiceClient.getUserDetails(content.getUploadedBy());
+
+            SummarizedContentDTO summary = SummarizedContentDTO.builder()
+                    .contentId(content.getId()) // [cite: 11]
+                    .title(content.getTitle()) // [cite: 12]
+                    .fileUrl(content.getFileUrl())
+                    .universityId(content.getUniversityId())
+                    .status(content.getVerificationStatus().name())
+                    .recipient("prrajpoot12234@gmail.com") // The target Gmail
+                    .userId(UUID.fromString("8d56e92b-32c8-4aea-8511-75e74f7c6710"))
+                    .eventType(result.isSuccess() ?
+                            NotificationEventType.UPLOAD_SUCCESS :
+                            NotificationEventType.UPLOAD_FAILURE)
+                    .notificationTypes(List.of(NotificationType.EMAIL))
+                    .build();
+
+
+
+            notificationProducer.sendContentUploadNotification(summary,result.isSuccess());
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

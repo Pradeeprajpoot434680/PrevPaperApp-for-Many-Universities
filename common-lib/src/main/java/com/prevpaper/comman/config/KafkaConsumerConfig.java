@@ -6,6 +6,7 @@ import com.prevpaper.comman.dto.FileTaskEvent;
 import com.prevpaper.comman.dto.RoleChangedEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -16,31 +17,34 @@ import org.springframework.util.backoff.FixedBackOff;
 
 import java.util.HashMap;
 import java.util.Map;
-
 @Configuration
 public class KafkaConsumerConfig {
 
-    private final String bootstrapServers = "localhost:9092";
+    @Value("${spring.kafka.bootstrap-servers:localhost:9092}")
+    private String bootstrapServers;
+
+    @Value("${spring.kafka.consumer.group-id:default-group}")
+    private String groupId;
 
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
-        // 1. Create the deserializer for Object
-        JsonDeserializer<Object> deserializer = new JsonDeserializer<>(Object.class, false);
+        JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<>(Object.class, false);
 
-        // 2. IMPORTANT: Add trusted packages
-        deserializer.addTrustedPackages("com.prevpaper.comman.dto", "com.prevpaper.auth.dto", "com.prevpaper.upload.dto",
-                "com.prevpaper.content.dto","*");
+        // 1. Trust all relevant packages
+        jsonDeserializer.addTrustedPackages(
+                "com.prevpaper.comman.dto",
+                "com.prevpaper.upload.dto",
+                "com.prevpaper.content.dto",
+                "*"
+        );
 
-        // 3. Fix the "LinkedHashMap" issue by telling it to use headers for type info
-        // If the producer and consumer are in the same project structure, this works:
-        deserializer.setTypeResolver((topic, data, headers) -> {
-            // You can manually force it for specific topics if headers are missing
-
+        // 2. Enhanced Type Resolver for all topics
+        jsonDeserializer.setTypeResolver((topic, data, headers) -> {
             if (topic.equals("file-upload-task")) {
                 return TypeFactory.defaultInstance().constructType(FileTaskEvent.class);
             }
-
-            if (topic.equals("high-priority-notifications")) {
+            // Fix: Both notification topics should map to CommonNotificationRequest
+            if (topic.equals("high-priority-notifications") || topic.equals("bulk-notifications")) {
                 return TypeFactory.defaultInstance().constructType(CommonNotificationRequest.class);
             }
             if (topic.equals("role-change-events")) {
@@ -51,11 +55,11 @@ public class KafkaConsumerConfig {
 
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "notification-group");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, groupId); // Use the injected groupId
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), deserializer);
+        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), jsonDeserializer);
     }
 
     @Bean(name = "kafkaListenerContainerFactory")
@@ -63,9 +67,7 @@ public class KafkaConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-
         factory.setCommonErrorHandler(new DefaultErrorHandler(new FixedBackOff(1000L, 2L)));
-
         return factory;
     }
 }
