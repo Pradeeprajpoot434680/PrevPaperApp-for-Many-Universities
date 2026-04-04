@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -40,6 +41,10 @@ public class University {
     private String country;
     private String state;
     private String city;
+
+    // Inside your University.java
+    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ExamConfiguration> examFormats;
 
     // Brand & Web Info
     private String logoUrl;

@@ -4,6 +4,7 @@ import com.prevpaper.university.entities.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -11,4 +12,8 @@ public interface DepartmentRepository extends JpaRepository<Department, UUID> {
     boolean existsByCodeAndUniversityId(String code, UUID universityId);
 
     boolean existsByNameIgnoreCaseAndUniversityId(String name, UUID universityId);
+
+
+
+    List<Department> findByUniversityId(UUID universityId);
 }

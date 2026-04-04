@@ -4,6 +4,10 @@ import com.prevpaper.comman.enums.AccountStatus;
 import com.prevpaper.comman.enums.AuthProvider;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,10 +29,16 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID userId;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email is required")
     private String email;
 
-    private String passwordHash; // Nullable for Google OAuth
+
+
+    @Size(min = 8, message = "Password must be at least 8 characters")
+    private String passwordHash;
+
 
     private String fullName;
 
@@ -43,6 +53,7 @@ public class User implements UserDetails {
     private AccountStatus accountStatus; // PENDING, ACTIVE, BANNED
 
     @Column(unique = true)
+    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
     private String phoneNumber;
 
 

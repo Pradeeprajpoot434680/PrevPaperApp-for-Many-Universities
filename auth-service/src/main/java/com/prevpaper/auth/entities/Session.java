@@ -1,6 +1,7 @@
 package com.prevpaper.auth.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -27,6 +28,10 @@ public class Session {
 
     private String userAgent;
 
+    @Pattern(
+            regexp = "^(?:\\d{1,3}\\.){3}\\d{1,3}$",
+            message = "Invalid IPv4 address"
+    )
     private String ipAddress;
 
     private LocalDateTime expiresAt;

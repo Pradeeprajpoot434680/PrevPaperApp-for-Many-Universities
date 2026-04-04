@@ -208,10 +208,11 @@ public class AuthServiceImpl implements AuthService {
                 .or(() -> userRepository.findByPhoneNumber(id));
 
         if (userOpt.isEmpty()) {
-            // We still run a dummy password check or a slight delay here
-            // to prevent Timing Attacks (detecting existence by response speed)
-            return new ApiResponse<>(false, genericError, null, System.currentTimeMillis());
+            // User not signed up
+            // Optional: Add slight delay or dummy password hash check to prevent timing attacks
+            return new ApiResponse<>(false, "User not registered. Please sign up first.", null, System.currentTimeMillis());
         }
+
 
         User user = userOpt.get();
 
@@ -235,6 +236,7 @@ public class AuthServiceImpl implements AuthService {
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
 
+
         // Save Session
         sessionRepository.save(
                 Session.builder()
@@ -245,26 +247,39 @@ public class AuthServiceImpl implements AuthService {
                         .build()
         );
 
-        // Set Refresh Token in Cookie
-        Cookie cookie = new Cookie("refreshToken", refreshToken);
-        cookie.setHttpOnly(true);
-        cookie.setSecure(false); // true if HTTPS
-        cookie.setPath("/");
-        cookie.setMaxAge((int) (refreshExpiration / 1000));
-        response.addCookie(cookie);
+//        // Set Refresh Token in Cookie
+//        Cookie cookie = new Cookie("refreshToken", refreshToken);
+//        cookie.setHttpOnly(true);
+//        cookie.setSecure(false); // true if HTTPS
+//        cookie.setPath("/");
+//        cookie.setMaxAge((int) (refreshExpiration / 1000));
+//        response.addCookie(cookie);
+        addRefreshTokenCookie(response,refreshToken);
 
-        Map<String, String> tokens = new HashMap<>();
-        tokens.put("accessToken", accessToken);
+        Map<String, String> responseData = new HashMap<>();
+        responseData.put("accessToken", accessToken);
+        responseData.put("userId", String.valueOf(user.getUserId()));
+        responseData.put("email", user.getEmail());
+        responseData.put("fullName", user.getFullName());
+        responseData.put("universityId", String.valueOf(user.getUniversityId()));
+
+        // Convert Roles Set to a comma-separated string: "STUDENT,ADMIN"
+        String rolesString = user.getRoles().stream()
+                .map(role -> role.getRoleName().name()) // Assumes Role entity has getRoleName() returning an Enum
+                .reduce((a, b) -> a + "," + b)
+                .orElse("");
+        responseData.put("roles", rolesString);
+
 
         // Audit log
         auditService.logAction(user, "LOGIN", user.getUserId().toString(), req);
 
-        return new ApiResponse<>(true, "Login successful", tokens, System.currentTimeMillis());
+        return new ApiResponse<>(true, "Login successful", responseData, System.currentTimeMillis());
     }
 
     @Override
     @Transactional
-    public ApiResponse<Map<String, String>> verifyOtp(VerifyOtpRequest request, HttpServletRequest httpRequest) {
+    public ApiResponse<Map<String, String>> verifyOtp(VerifyOtpRequest request, HttpServletRequest httpRequest,HttpServletResponse httpResponse) {
         String recipient = request.getRecipient().trim();
         String otp = request.getOtp().trim();
         TokenType type = request.getType(); // EMAIL_VERIFY or PASSWORD_RESET
@@ -275,7 +290,6 @@ public class AuthServiceImpl implements AuthService {
 
         boolean isVerified = false;
 
-        // 2️⃣ Logic Branching
         if (recipient.contains("@")) {
             // --- EMAIL VERIFICATION (Local DB Check) ---
             VerificationToken otpToken = verificationTokenRepository
@@ -350,13 +364,20 @@ public class AuthServiceImpl implements AuthService {
             }
         }
 
-        // 3️⃣ Return response
         Map<String, String> responseMap = new HashMap<>();
+
         if (isVerified && type == TokenType.EMAIL_VERIFY) {
             String accessToken = jwtService.generateAccessToken(user);
             String refreshToken = jwtService.generateRefreshToken(user);
+
+            addRefreshTokenCookie(httpResponse, refreshToken);
+
+
             responseMap.put("accessToken", accessToken);
-            responseMap.put("refreshToken", refreshToken);
+            // Convert ID to String to avoid Map type errors
+            responseMap.put("userId", String.valueOf(user.getUserId()));
+            responseMap.put("email", user.getEmail());
+
             return ApiResponse.success("Account activated successfully", responseMap);
         } else if (isVerified && type == TokenType.PASSWORD_RESET) {
             return ApiResponse.success("User verified for password reset", Map.of("verified", "true"));
@@ -465,24 +486,112 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public Map<String, String> refreshToken(String refreshToken) {
-        // 1. Check expiration
-        if (jwtService.isTokenExpired(refreshToken)) {
-            throw new RuntimeException("Refresh token expired. Please login again.");
+    // Update your AuthService interface and this implementation to accept HttpServletRequest/Response
+    public ApiResponse<Map<String, String>> handleRefresh(HttpServletRequest request, HttpServletResponse response) {
+        // 1. Get token from cookies
+        String refreshToken = null;
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if ("refreshToken".equals(cookie.getName())) {
+                    refreshToken = cookie.getValue();
+                }
+            }
         }
 
-        // 2. Extract and Find User
-        String email = jwtService.extractUsername(refreshToken);
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        if (refreshToken == null || jwtService.isTokenExpired(refreshToken)) {
+            throw new RuntimeException("Refresh token missing or expired");
+        }
 
-        // 3. Generate New Pair
+        // 2. Find User and generate new pair
+        String email = jwtService.extractUsername(refreshToken);
+        User user = userRepository.findByEmail(email).orElseThrow();
+
         String newAccessToken = jwtService.generateAccessToken(user);
         String newRefreshToken = jwtService.generateRefreshToken(user);
 
-        return Map.of(
-                "accessToken", newAccessToken,
-                "refreshToken", newRefreshToken
-        );
+        // 3. Update the Cookie with the new Refresh Token
+        Cookie cookie = new Cookie("refreshToken", newRefreshToken);
+        cookie.setHttpOnly(true);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        return ApiResponse.success("Token refreshed", Map.of("accessToken", newAccessToken));
+
+    }
+
+
+
+    @Override
+    @Transactional
+    public ApiResponse<Map<String, String>> resendOTP(ResendOtpRequest request) {
+        String recipient = request.getRecipient().trim();
+        TokenType type = request.getType(); // EMAIL_VERIFY or PASSWORD_RESET
+
+        // 1. Find User
+        User user = userRepository.findByEmail(recipient)
+                .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        // 2. Safety Check: If account is already active and this is an EMAIL_VERIFY request
+        if (type == TokenType.EMAIL_VERIFY && user.getAccountStatus() == AccountStatus.ACTIVE) {
+            return new ApiResponse<>(false, "Account is already verified. Please login.", null, System.currentTimeMillis());
+        }
+
+        NotificationType channelType;
+        String otpMessage;
+        boolean isEmail = recipient.contains("@");
+
+        if (isEmail) {
+            channelType = NotificationType.EMAIL;
+
+            // 3. EMAIL LOGIC: Clean up old tokens first
+            verificationTokenRepository.deleteByUserAndType(user, type);
+
+            // 4. Generate New OTP
+            String otp = GererateOtp.getOTP();
+            String hashedOtp = passwordEncoder.encode(otp);
+
+            verificationTokenRepository.save(
+                    VerificationToken.builder()
+                            .token(hashedOtp)
+                            .user(user)
+                            .type(type)
+                            .expiryDate(LocalDateTime.now().plusMinutes(10))
+                            .verified(false)
+                            .build()
+            );
+
+            otpMessage = "Your new verification OTP is " + otp + ". It expires in 10 minutes.";
+        } else {
+            // 5. SMS LOGIC: Twilio handles the generation/storage internally
+            channelType = NotificationType.SMS;
+            otpMessage = "A new OTP has been sent via SMS";
+        }
+
+        // 6. Send Notification (Common logic for both)
+        CommonNotificationRequest notificationRequest = CommonNotificationRequest.builder()
+                .userId(user.getUserId())
+                .recipient(recipient)
+                .title(type == TokenType.PASSWORD_RESET ? "Password Reset" : "Account Verification")
+                .message(otpMessage)
+                .notificationTypes(List.of(channelType))
+                .eventType(NotificationEventType.OTP_SENT)
+                .build();
+
+        sendNotification.sendOTP(notificationRequest);
+
+        return new ApiResponse<>(true, "Verification code resent successfully!",
+                Map.of("recipient", recipient), System.currentTimeMillis());
+    }
+
+    private void addRefreshTokenCookie(HttpServletResponse response, String refreshToken) {
+        Cookie cookie = new Cookie("refreshToken", refreshToken);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(false); // Set to true in production with HTTPS
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge((int) (refreshExpiration / 1000));
+        // Optional: cookie.setAttribute("SameSite", "Lax");
+        response.addCookie(cookie);
     }
 }

@@ -2,26 +2,32 @@ package com.prevpaper.university.controller;
 
 
 import com.prevpaper.comman.dto.ApiResponse;
-import com.prevpaper.university.dtos.AssignRepRequest;
-import com.prevpaper.university.dtos.DepartmentRequest;
-import com.prevpaper.university.dtos.UniversityRequest;
+import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.Department;
+import com.prevpaper.university.entities.ExamConfiguration;
 import com.prevpaper.university.entities.University;
 import com.prevpaper.university.repository.DepartmentRepository;
+import com.prevpaper.university.service.DepartmentRepService;
+import com.prevpaper.university.service.RepresentativeService;
 import com.prevpaper.university.service.UniversityRepresentativeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/university-rep/{universityId}")
 public class UniversityRepresentativeController {
 
     private final UniversityRepresentativeService universityRepresentativeService;
+    private final RepresentativeService representativeService;
+    private final DepartmentRepService departmentRepService;
 
-    public UniversityRepresentativeController(UniversityRepresentativeService universityRepresentativeService) {
+    public UniversityRepresentativeController(UniversityRepresentativeService universityRepresentativeService, RepresentativeService representativeService, DepartmentRepService departmentRepService) {
         this.universityRepresentativeService = universityRepresentativeService;
+        this.representativeService = representativeService;
+        this.departmentRepService = departmentRepService;
     }
 
 
@@ -80,4 +86,52 @@ public class UniversityRepresentativeController {
 
         return ResponseEntity.ok(exists);
     }
+
+    @GetMapping("/exam-formats")
+    public ResponseEntity<ApiResponse<List<ExamConfigurationDTO>>> getExamTypes(@PathVariable UUID universityId){
+        ApiResponse<List<ExamConfigurationDTO>> examTypes = universityRepresentativeService.getExamTypes(universityId);
+        return ResponseEntity.ok(examTypes);
+    }
+
+    @PostMapping("/exam-formats")
+    public ResponseEntity<ApiResponse<String>> configureExams(
+            @PathVariable UUID universityId,
+            @RequestBody ExamFormatRequest format) { // single object now
+
+        ApiResponse<String> response = universityRepresentativeService.addExamFormat(universityId, format);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/department-rep")
+    public ResponseEntity<ApiResponse<List<DepartmentRepResponse>>> getDepartmentRepresentatives(
+            @PathVariable UUID universityId) {
+
+        List<DepartmentRepResponse> deptRepsByUniversity =
+                representativeService.getDeptRepsByUniversity(universityId);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Department representatives fetched successfully",
+                        deptRepsByUniversity,
+                        System.currentTimeMillis()
+                )
+        );
+    }
+
+    @GetMapping("/departments")
+    public ResponseEntity<ApiResponse<List<DepartmentTinyDTO>>> getAllDepartments(@PathVariable UUID universityId){
+
+        List<DepartmentTinyDTO> allDepts = departmentRepService.findDepartmentsByUniversityId(universityId);
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Department fetched successfully",
+                        allDepts,
+                        System.currentTimeMillis()
+                )
+        );
+    }
+
+
 }

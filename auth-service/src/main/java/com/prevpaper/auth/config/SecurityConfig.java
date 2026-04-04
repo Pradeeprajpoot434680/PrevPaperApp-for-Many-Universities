@@ -48,6 +48,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/home").permitAll()
                         .requestMatchers("/check").authenticated()
+                        .requestMatchers("/api/v1/get/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
@@ -65,16 +66,35 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5500", "http://127.0.0.1:5500","*")); // Match your frontend port
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+//    @Bean
+//    public CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//
+//        // Only allowed origins (do NOT use "*")
+//        configuration.setAllowedOrigins(Arrays.asList(
+//                "http://localhost:5173",
+//                "http://localhost:5500",
+//                "https://hoppscotch.io"
+//        ));
+//        // Methods
+//        configuration.setAllowedMethods(Arrays.asList(
+//                "GET","POST","PUT","DELETE","OPTIONS"
+//        ));
+//
+//        // Allow headers
+//        configuration.setAllowedHeaders(Arrays.asList(
+//                "Authorization", "Content-Type", "Accept"
+//        ));
+//
+//        // If using JWT / credentials
+//        configuration.setAllowCredentials(true);
+//
+//        // Apply CORS to all endpoints
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//
+//        return source;
+//    }
 
 
     @Bean

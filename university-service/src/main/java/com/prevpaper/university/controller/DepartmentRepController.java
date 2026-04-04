@@ -1,15 +1,18 @@
 package com.prevpaper.university.controller;
 
 import com.prevpaper.comman.dto.ApiResponse;
+import com.prevpaper.comman.dto.StudentDTO;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.ProgramRequest;
 import com.prevpaper.university.entities.Program;
 import com.prevpaper.university.entities.Department;
 import com.prevpaper.university.service.DepartmentRepService;
+import com.prevpaper.university.service.RepresentativeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -19,6 +22,7 @@ import java.util.UUID;
 public class DepartmentRepController {
 
     private final DepartmentRepService departmentRepService;
+    private  final RepresentativeService representativeService;
 
     @PostMapping("/create-program")
     public ResponseEntity<ApiResponse<Program>> createProgram(
@@ -52,4 +56,6 @@ public class DepartmentRepController {
                 ApiResponse.success("Program Representative assigned", null)
         );
     }
+
+
 }

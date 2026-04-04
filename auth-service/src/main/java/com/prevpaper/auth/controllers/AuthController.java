@@ -58,10 +58,10 @@ public class AuthController {
     @PostMapping("/verify-otp")
     public ApiResponse<Map<String, String>> verifyOtp(
             @RequestBody VerifyOtpRequest request,
-            HttpServletRequest httpRequest) {
+            HttpServletRequest httpRequest,HttpServletResponse httpResponse){
 
          System.out.println(request);
-        return authService.verifyOtp(request, httpRequest);
+        return authService.verifyOtp(request, httpRequest,httpResponse);
     }
 
 
@@ -74,6 +74,11 @@ public class AuthController {
         return authService.forgotPassword(request, httpRequest);
     }
 
+    @PostMapping("/resend-otp")
+    public ResponseEntity<ApiResponse<Map<String, String>>> resendOTP(@RequestBody ResendOtpRequest request) {
+        System.out.println("Resend OTP request for: " + request.getRecipient());
+        return ResponseEntity.ok(authService.resendOTP(request));
+    }
 
     //reset-password
     @PostMapping("/reset-password")
@@ -85,12 +90,16 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<ApiResponse<Map<String, String>>> refresh(@RequestBody RefreshTokenRequest request) {
+    public ResponseEntity<ApiResponse<Map<String, String>>> refresh(
+            HttpServletRequest request,
+            HttpServletResponse response) {
         try {
-            Map<String, String> tokens = authService.refreshToken(request.getRefreshToken());
-            return ResponseEntity.ok(ApiResponse.success("Token refreshed successfully", tokens));
+            // The service now handles extracting from cookie and setting new cookie
+            ApiResponse<Map<String, String>> res = authService.handleRefresh(request, response);
+
+            return ResponseEntity.ok(res);
         } catch (RuntimeException e) {
-            // Handle expired token or user not found
+            // If refresh fails, we return 401 so the frontend interceptor knows to log out
             return ResponseEntity.status(401).body(ApiResponse.error(e.getMessage()));
         }
     }

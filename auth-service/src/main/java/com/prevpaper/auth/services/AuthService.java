@@ -14,13 +14,17 @@ public interface AuthService {
     ApiResponse<Map<String, String>> loginUser(LoginRequest loginRequest,
                                                HttpServletRequest req,
                                                HttpServletResponse response);
-    ApiResponse<Map<String, String>> verifyOtp(VerifyOtpRequest request, HttpServletRequest httpRequest);
+    // In AuthService.java
+    ApiResponse<Map<String, String>> verifyOtp(VerifyOtpRequest request,
+                                               HttpServletRequest httpRequest,
+                                               HttpServletResponse httpResponse);
 
 
     ApiResponse<Map<String, String>> resetPassword(
             @RequestBody ResetPasswordRequest request,
             HttpServletRequest httpRequest) ;
 
-    Map<String, String> refreshToken(String refreshToken);
+    ApiResponse<Map<String, String>> handleRefresh(HttpServletRequest request, HttpServletResponse response);
     ApiResponse<Map<String,String>> forgotPassword(ForgotPasswordRequest request,HttpServletRequest httpRequest);
+    ApiResponse<Map<String, String>> resendOTP(ResendOtpRequest request);
 }
