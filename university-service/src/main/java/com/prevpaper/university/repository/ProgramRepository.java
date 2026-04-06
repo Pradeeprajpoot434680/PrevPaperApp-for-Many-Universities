@@ -11,5 +11,6 @@ public interface ProgramRepository extends JpaRepository<Program, UUID> {
     boolean existsByCodeAndDepartmentId(String code, UUID departmentId);
 
     boolean existsByNameIgnoreCaseAndDepartmentId(String name, UUID departmentId);
-    List<ProgramDTO> findByDepartmentId(UUID departmentId);
+    List<Program> findByDepartmentId(UUID departmentId);
+
 }

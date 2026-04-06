@@ -10,6 +10,7 @@ import com.prevpaper.comman.dto.UserDetailDTO;
 import com.prevpaper.comman.dto.UserInternalInfoDTO;
 import com.prevpaper.comman.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,16 +47,13 @@ public class InternalAuthController {
         user.setFullName(fullName);
     }
 
-    @GetMapping("/{universityId}/students")
+    @RequestMapping(value = "/{universityId}/students", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public ResponseEntity<ApiResponse<List<StudentsOfUniversityDTO>>> findAllStudents(
             @PathVariable String universityId) {
-
-        // InternalSync calls the User-Service via Feign or RestTemplate
         List<StudentsOfUniversityDTO> allStudents = internalSync.findAllStudents(universityId);
-
         return ResponseEntity.ok(ApiResponse.success("Students fetched successfully", allStudents));
     }
-
 
     @PostMapping("/users/details-batch")
     public List<UserDetailDTO> getUserDetailsBatch(@RequestBody UserBatchRequest request) {
@@ -70,6 +68,8 @@ public class InternalAuthController {
                 ))
                 .toList();
     }
+
+
 
 
 }

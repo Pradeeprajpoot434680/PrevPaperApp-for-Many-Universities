@@ -8,4 +8,7 @@ import java.util.UUID;
 public class ProgramRequest {
     private String name;
     private String code;
+    private Integer durationYears;
+    private Integer totalSemesters;
+    private String description;
 }

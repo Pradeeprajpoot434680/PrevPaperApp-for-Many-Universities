@@ -27,7 +27,8 @@ public class GatewayRoutesConfig {
                 .nest(RequestPredicates.path("/api/v1/get/**")
                                 .or(RequestPredicates.path("/api/v1/global-admin/**"))
                                 .or(RequestPredicates.path("/api/v1/university-rep/**"))
-                                .or(RequestPredicates.path("/api/v1/department-rep/**")),
+                                .or(RequestPredicates.path("/api/v1/department-rep/**"))
+                                .or(RequestPredicates.path("/api/v1/program-rep/**")),
                         builder -> builder
                                 // Crucial: You must call route() or GET() inside the nest
                                 .route(RequestPredicates.all(), HandlerFunctions.http())

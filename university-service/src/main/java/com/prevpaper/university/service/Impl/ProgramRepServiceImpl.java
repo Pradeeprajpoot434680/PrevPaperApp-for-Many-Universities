@@ -1,8 +1,12 @@
 package com.prevpaper.university.service.Impl;
 
+import com.prevpaper.comman.dto.UserInternalInfoDTO;
 import com.prevpaper.comman.enums.ScopeType;
 import com.prevpaper.comman.enums.UserRole;
+import com.prevpaper.university.client.AuthClient;
+import com.prevpaper.university.client.UserServiceClient;
 import com.prevpaper.university.dtos.AssignRepRequest;
+import com.prevpaper.university.dtos.SessionDashboardDTO;
 import com.prevpaper.university.dtos.SessionRequest;
 import com.prevpaper.university.entities.AcademicSession;
 import com.prevpaper.university.entities.Program;
@@ -16,6 +20,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -26,6 +32,9 @@ public class ProgramRepServiceImpl implements ProgramRepService {
     private final AcademicSessionRepository sessionRepository;
     private final RepresentativeRepository representativeRepository;
     private final EmitRoleAssignment emitRoleAssignment;
+    private final UserServiceClient userServiceClient;
+    private final  AcademicSessionRepository academicSessionRepository;
+    private final AuthClient authClient;
 
     @Override
     @Transactional
@@ -70,5 +79,44 @@ public class ProgramRepServiceImpl implements ProgramRepService {
 
         emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),programRoleId,request.getScopeId());
 
+    }
+
+
+    @Override
+    public List<SessionDashboardDTO> getProgramSessionsDashboard(UUID programId) {
+        // 1. Fetch all sessions for this program
+        List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
+
+        return sessions.stream().map(session -> {
+            // 2. Look for active Session Rep (CR) in the assignment table
+            Optional<RepresentativeAssignment> assignment = representativeRepository
+                    .findByScopeIdAndScopeTypeAndIsActiveTrue(session.getId(), ScopeType.SESSION);
+
+            String repName = null;
+            String repEmail = null;
+
+            if (assignment.isPresent()) {
+                UUID studentId = assignment.get().getUserId();
+                try {
+                    // Fetch Name from User-Service
+                    repName = userServiceClient.getStudentName(studentId);
+                    // Fetch Email from Auth-Service
+                    UserInternalInfoDTO authInfo = authClient.getAuthUserInfo(studentId);
+                    repEmail = (authInfo != null) ? authInfo.getEmail() : "N/A";
+                } catch (Exception e) {
+                    repName = "Profile Pending";
+                    repEmail = "N/A";
+                }
+            }
+
+            return new SessionDashboardDTO(
+                    session.getId(),
+                    session.getName(),       // Uses our helper: "Batch 2022"
+                    session.getBatchRange(), // Uses our helper: "2022 - 2026"
+                    repName,
+                    repEmail,
+                    session.getIsActive()
+            );
+        }).toList();
     }
 }

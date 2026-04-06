@@ -19,4 +19,7 @@ public interface AccountRepository extends JpaRepository<Account, UUID> {
 
     @Query("SELECT a FROM Account a JOIN FETCH a.user WHERE a.departmentId = :deptId")
     List<Account> findByDepartmentIdWithProfile(@Param("deptId") UUID deptId);
+
+    @Query("SELECT a FROM Account a JOIN FETCH a.user WHERE a.programId = :programId")
+    List<Account> findByProgramIdWithProfile(@Param("programId") UUID programId);
 }

@@ -2,12 +2,16 @@ package com.prevpaper.university.controller;
 
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.university.dtos.AssignRepRequest;
+import com.prevpaper.university.dtos.GlobalStatsDTO;
+import com.prevpaper.university.dtos.UniversityDashboardDTO;
 import com.prevpaper.university.dtos.UniversityRequest;
 import com.prevpaper.university.entities.University;
 import com.prevpaper.university.service.GlobalAdminService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -44,4 +48,24 @@ public class GlobalAdminController {
             return ApiResponse.error("Failed to assign representative: " + e.getMessage());
         }
     }
+
+    @GetMapping("/get-universities")
+    public ResponseEntity<ApiResponse<List<UniversityDashboardDTO>>> getAllUniversityData(){
+        List<UniversityDashboardDTO> universities = globalAdminService.getUniversityDashboard();
+
+        return ResponseEntity.ok(ApiResponse.success("Fetched Data Successfully",universities));
+    }
+
+    @GetMapping("/stats")
+    public ApiResponse<GlobalStatsDTO> getStats() {
+        try {
+            GlobalStatsDTO stats = globalAdminService.getGlobalStats();
+            return ApiResponse.success("Stats fetched successfully", stats);
+        } catch (Exception e) {
+            return ApiResponse.error("Failed to fetch stats");
+        }
+    }
+
+
+
 }

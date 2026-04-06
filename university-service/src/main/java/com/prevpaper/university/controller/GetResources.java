@@ -2,18 +2,14 @@ package com.prevpaper.university.controller;
 
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.comman.dto.StudentDTO;
-import com.prevpaper.university.dtos.DepartmentDTO;
-import com.prevpaper.university.dtos.ProgramDTO;
-import com.prevpaper.university.dtos.UniversityResponseDTO;
+import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.University;
+import com.prevpaper.university.service.GlobalAdminService;
 import com.prevpaper.university.service.RepresentativeService;
 import com.prevpaper.university.service.UniversityRepresentativeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -26,6 +22,8 @@ import java.util.stream.Collectors;
 public class GetResources {
     private final UniversityRepresentativeService universityRepresentativeService;
     private  final RepresentativeService representativeService;
+    private final GlobalAdminService globalAdminService;
+
     @GetMapping("/universities")
     public ResponseEntity<ApiResponse<List<UniversityResponseDTO>>> getAll() {
 
@@ -73,14 +71,42 @@ public class GetResources {
                 .build());
     }
 
-    @GetMapping("/{departmentId}/students")
+    @GetMapping("/department/{departmentId}/students")
     public ResponseEntity<ApiResponse<List<StudentDTO>>> getDeptStudents(@PathVariable("departmentId") UUID deptId) {
         List<StudentDTO> students = representativeService.getStudentsByDepartment(deptId);
 
         return ResponseEntity.ok(
-                new ApiResponse<>(true, "Students fetched", students, System.currentTimeMillis())
+                new ApiResponse<>(true, "Students fetched of the Program", students, System.currentTimeMillis())
         );
     }
+
+    @GetMapping("/program/{programId}/students")
+    public ResponseEntity<ApiResponse<List<StudentDTO>>> getProgramStudents(@PathVariable("programId") UUID programId) {
+        List<StudentDTO> students = representativeService.getStudentsByProgram(programId);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(true, "Students fetched of the Program", students, System.currentTimeMillis())
+        );
+    }
+
+    @GetMapping("/all-university-reps")
+    public ResponseEntity<ApiResponse<List<RepresentativeDetailsDTO>>> getAllUniversityReps() {
+        List<RepresentativeDetailsDTO> reps = globalAdminService.getAllUniversityReps();
+        return ResponseEntity.ok(ApiResponse.success("University Representatives fetched", reps));
+    }
+
+    @GetMapping("/dashboard/programs/{departmentId}")
+    public ResponseEntity<ApiResponse<List<ProgramDashboardDTO>>> getProgramsForDashboard(
+            @PathVariable UUID departmentId) {
+
+        // This calls the complex logic we wrote earlier
+        List<ProgramDashboardDTO> dashboardData = representativeService
+                .getDepartmentProgramsDashboard(departmentId);
+
+        return ResponseEntity.ok(ApiResponse.success("Dashboard data fetched", dashboardData));
+    }
+
+
 
 
 }

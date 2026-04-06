@@ -13,7 +13,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-
 @Entity
 @Data
 @Builder
@@ -26,15 +25,34 @@ import java.util.UUID;
 public class Program {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id; // [cite: 7]
+    private UUID id;
 
     @Column(nullable = false)
-    private String name; // e.g., B.Tech CSE [cite: 7]
+    private String name; // e.g., "Bachelor of Technology in Computer Science"
 
     @Column(nullable = false)
-    private  String code; // BTECH
+    private String code; // e.g., "BTECH-CS"
+
+    @Column(nullable = false)
+    private Integer durationYears; // e.g., 4
+
+    @Column(nullable = false)
+    private Integer totalSemesters; // e.g., 8
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Column(nullable = false)
+    private Boolean isActive = true;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    private Department department; // Reference to Department [cite: 7]
+    private Department department;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 }

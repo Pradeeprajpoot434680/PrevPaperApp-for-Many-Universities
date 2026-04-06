@@ -45,35 +45,47 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
     @Override
     @Transactional
     public Program createProgram(UUID departmentId, ProgramRequest request) {
-
-        if (request.getName() == null || request.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("Program name is required");
-        }
-
-        if (request.getCode() == null || request.getCode().trim().isEmpty()) {
-            throw new IllegalArgumentException("Program code is required");
-        }
+        // 1. Basic Validations
+        validateProgramRequest(request);
 
         String name = request.getName().trim();
         String code = request.getCode().trim().toUpperCase();
 
+        // 2. Check for Duplicates within this Department
         if (programRepository.existsByCodeAndDepartmentId(code, departmentId)) {
-            throw new RuntimeException("Program with code " + code + " already exists");
+            throw new RuntimeException("Program code " + code + " already exists in this department");
         }
 
         if (programRepository.existsByNameIgnoreCaseAndDepartmentId(name, departmentId)) {
-            throw new RuntimeException("Program with name " + name + " already exists");
+            throw new RuntimeException("Program name " + name + " already exists in this department");
         }
+
+        // 3. Build Entity with new fields
+        // Use getReferenceById to avoid an extra DB hit if you only need the ID for the FK
+        Department department = departmentRepository.findById(departmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Department not found"));
 
         Program program = Program.builder()
                 .name(name)
                 .code(code)
-                .department(Department.builder().id(departmentId).build())
+                .durationYears(request.getDurationYears())
+                .totalSemesters(request.getTotalSemesters())
+                .description(request.getDescription())
+                .isActive(true)
+                .department(department)
                 .build();
 
         return programRepository.save(program);
     }
 
+    private void validateProgramRequest(ProgramRequest request) {
+        if (request.getName() == null || request.getName().isBlank())
+            throw new IllegalArgumentException("Program name is required");
+        if (request.getCode() == null || request.getCode().isBlank())
+            throw new IllegalArgumentException("Program code is required");
+        if (request.getDurationYears() == null || request.getDurationYears() <= 0)
+            throw new IllegalArgumentException("Valid duration in years is required");
+    }
     @Override
     @Transactional
     public void assignProgramRep(AssignRepRequest request, UUID adminId) {
