@@ -8,6 +8,7 @@ import com.prevpaper.university.client.AuthClient;
 import com.prevpaper.university.client.UserServiceClient;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.SessionDashboardDTO;
+import com.prevpaper.university.dtos.SessionRepDetailsDTO;
 import com.prevpaper.university.dtos.SessionRequest;
 import com.prevpaper.university.entities.AcademicSession;
 import com.prevpaper.university.entities.Program;
@@ -103,5 +104,15 @@ public class ProgramRepController {
         List<SessionDashboardDTO> dashboard = programRepService.getProgramSessionsDashboard(programId);
 
         return ResponseEntity.ok(ApiResponse.success("Sessions fetched successfully", dashboard));
+    }
+
+
+    @GetMapping("/all-session-reps")
+    public ResponseEntity<ApiResponse<List<SessionRepDetailsDTO>>> getAllSessionReps(
+            @PathVariable UUID programId) {
+
+        List<SessionRepDetailsDTO> reps = programRepService.getAllSessionRepsByProgram(programId);
+
+        return ResponseEntity.ok(ApiResponse.success("Session representatives fetched", reps));
     }
 }

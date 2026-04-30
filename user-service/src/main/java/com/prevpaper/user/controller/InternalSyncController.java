@@ -1,6 +1,7 @@
 package com.prevpaper.user.controller;
 
 import com.prevpaper.comman.dto.StudentDTO;
+import com.prevpaper.comman.dto.UserData;
 import com.prevpaper.user.dto.UserRequest;
 import com.prevpaper.user.dto.UserSyncRequest;
 import com.prevpaper.user.entity.User;
@@ -34,6 +35,7 @@ public class InternalSyncController {
             @RequestBody UserRequest request,
             @RequestHeader("X-User-Id") String authUserId // Get ID from Gateway header
     ) {
+        System.out.println("auth ID:" + authUserId);
         User savedUser = internalSyncService.storeUser(request, authUserId);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
@@ -57,6 +59,22 @@ public class InternalSyncController {
         return users.stream().collect(Collectors.toMap(
                 User::getAuthUserId,
                 u -> new StudentDTO(u.getAuthUserId(), u.getFirstName() + " " + u.getLastName(), null)
+        ));
+    }
+
+
+    @PostMapping("/bulk-profiles")
+    public Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds) {
+        List<User> users = userRepository.findAllById(userIds);
+
+        return users.stream().collect(Collectors.toMap(
+                User::getId,
+                user -> new UserData(
+                        user.getId(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getProfileImageUrl()
+                )
         ));
     }
 }

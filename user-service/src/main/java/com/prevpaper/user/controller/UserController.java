@@ -1,5 +1,8 @@
 package com.prevpaper.user.controller;
 
+import com.prevpaper.comman.dto.ApiResponse;
+import com.prevpaper.comman.dto.UserProfileDTO;
+import com.prevpaper.user.dto.ProfileUpdateRequest;
 import com.prevpaper.user.dto.UserRequest;
 import com.prevpaper.user.entity.Account;
 import com.prevpaper.user.entity.User;
@@ -31,6 +34,26 @@ public class UserController {
 
         return ResponseEntity.ok(pointService.addPoints(authUserId, amount, reason, refId));
     }
+
+
+    @GetMapping("/me/profile")
+    public ResponseEntity<ApiResponse<UserProfileDTO>> getMyFullProfile(
+            @RequestHeader("X-User-Id") String authUserId) {
+
+        UserProfileDTO profile = userService.getFullProfile(UUID.fromString(authUserId));
+        return ResponseEntity.ok(ApiResponse.success("Profile fetched", profile));
+    }
+
+    @PatchMapping("/me/profile")
+    public ResponseEntity<ApiResponse<User>> updateProfile(
+            @RequestHeader("X-User-Id") String authUserId,
+            @RequestBody ProfileUpdateRequest request) {
+
+        User updatedUser = userService.updateProfile(UUID.fromString(authUserId), request);
+        return ResponseEntity.ok(ApiResponse.success("Profile updated successfully", updatedUser));
+    }
+
+
 
     // Get Point History for the logged-in user
     @GetMapping("/me/points/history")

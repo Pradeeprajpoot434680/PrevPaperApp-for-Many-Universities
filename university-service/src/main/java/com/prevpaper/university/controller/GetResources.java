@@ -3,15 +3,15 @@ package com.prevpaper.university.controller;
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.comman.dto.StudentDTO;
 import com.prevpaper.university.dtos.*;
+import com.prevpaper.university.entities.Department;
 import com.prevpaper.university.entities.University;
-import com.prevpaper.university.service.GlobalAdminService;
-import com.prevpaper.university.service.RepresentativeService;
-import com.prevpaper.university.service.UniversityRepresentativeService;
+import com.prevpaper.university.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -23,6 +23,8 @@ public class GetResources {
     private final UniversityRepresentativeService universityRepresentativeService;
     private  final RepresentativeService representativeService;
     private final GlobalAdminService globalAdminService;
+    private  final GetResourcesService getResourcesService;
+    private final UniversityDiscoveryService universityDiscoveryService;
 
     @GetMapping("/universities")
     public ResponseEntity<ApiResponse<List<UniversityResponseDTO>>> getAll() {
@@ -49,11 +51,8 @@ public class GetResources {
         List<DepartmentDTO> departments = universityRepresentativeService
                 .findDepartmentByUniversityId(id);
 
+        return ResponseEntity.ok(ApiResponse.success("Departments Fetched Successfully", departments));
 
-        return ResponseEntity.ok(ApiResponse.<List<DepartmentDTO>>builder()
-                .message("Departments fetched successfully")
-                .data(departments)
-                .build());
     }
 
     @GetMapping("/programs/{departmentId}")
@@ -64,11 +63,8 @@ public class GetResources {
 
         List<ProgramDTO> programs = universityRepresentativeService
                 .findProgramByDepartmentId(id);
+        return ResponseEntity.ok(ApiResponse.success("Program Fetched Successfully", programs));
 
-        return ResponseEntity.ok(ApiResponse.<List<ProgramDTO>>builder()
-                .message("Programs fetched successfully")
-                .data(programs)
-                .build());
     }
 
     @GetMapping("/department/{departmentId}/students")
@@ -107,6 +103,25 @@ public class GetResources {
     }
 
 
+    @PostMapping("/academic-names")
+    public ResponseEntity<ApiResponse<AcademicNamesResponse>> getAcademicNames(
+            @RequestBody AcademicNamesRequest request) {
+
+        // Fetch names from your repositories
+       return ResponseEntity.ok(getResourcesService.getUniversityData(request));
+    }
 
 
+    @GetMapping("/university-info/{universityId}")
+    public ResponseEntity<ApiResponse<List<UniversityTeamMemberDTO>>> getUniversityTeam(
+            @PathVariable UUID universityId
+    ) {
+        List<UniversityTeamMemberDTO> team = universityDiscoveryService.getUniversityTeam(universityId);
+
+        // Use the static success method you've used before
+        return ResponseEntity.ok(ApiResponse.success("Team Fetched", team));
+    }
+
+
+    // get all semester using the program id
 }

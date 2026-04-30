@@ -1,14 +1,13 @@
 package com.prevpaper.content.service.Impl;
 
-import com.prevpaper.comman.dto.FileTaskEvent;
-import com.prevpaper.comman.dto.SummarizedContentDTO;
-import com.prevpaper.comman.dto.UploadResultDTO;
-import com.prevpaper.comman.dto.UserInternalInfoDTO;
+import com.prevpaper.comman.dto.*;
 import com.prevpaper.comman.enums.NotificationEventType;
 import com.prevpaper.comman.enums.NotificationType;
 import com.prevpaper.comman.producer.NotificationProducer;
 import com.prevpaper.content.client.AuthServiceClient;
+import com.prevpaper.content.dto.ContentTypeCountDTO;
 import com.prevpaper.content.dto.ContentUploadRequest;
+import com.prevpaper.content.dto.UniversityContentSummaryDTO;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
 import com.prevpaper.content.repository.ContentRepository;
@@ -24,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -127,4 +127,54 @@ public class ContentServiceImpl implements ContentService {
 
 
     }
+
+
+
+    @Override
+    public ContentStatsDTO getStatsByProgramAndSemester(UUID programId, Integer semester) {
+        long pending = contentRepository.countByProgramIdAndSemesterAndVerificationStatus(
+                programId, semester, VerificationStatus.PENDING);
+
+        long verified = contentRepository.countByProgramIdAndSemesterAndVerificationStatus(
+                programId, semester, VerificationStatus.VERIFIED);
+
+        return new ContentStatsDTO(verified, pending);
+    }
+
+    @Override
+    public UniversityContentSummaryDTO countContentGroupedByType(UUID universityId) {
+        // 1. Get breakdown (Status-agnostic or inclusive)
+        List<ContentTypeCountDTO> breakdown = contentRepository.countContentGroupedByType(universityId);
+
+        // 2. Get overall total (Make sure this matches the logic of the breakdown)
+        // Option A: Sum the counts from the list (Cleanest)
+        long total = breakdown.stream().mapToLong(ContentTypeCountDTO::count).sum();
+
+        // Option B: Query without the VERIFIED status
+        // long total = contentRepository.countByUniversityId(universityId);
+
+        return new UniversityContentSummaryDTO(total, breakdown);
+    }
+
+    @Override
+    public List<PendingContentDTO> findPendingContent(UUID scopeId) {
+        // 1. Fetch from DB
+        return contentRepository.findByVerificationStatusAndUniversityIdOrDepartmentIdOrProgramId(
+                        VerificationStatus.PENDING, scopeId, scopeId, scopeId)
+                .stream()
+                .map(content -> new PendingContentDTO(
+                        content.getId(),
+                        content.getTitle(),
+                        content.getDescription(),
+                        "User ID: " + content.getUploadedBy(), // Placeholder for User Service Name
+                        content.getFileUrl(),
+                        content.getFileType().name(),
+                        content.getCreatedAt(),
+                        "Subject ID: " + content.getSubjectId() // Placeholder for Subject Service Name
+                ))
+                .collect(Collectors.toList());
+    }
 }
+
+
+

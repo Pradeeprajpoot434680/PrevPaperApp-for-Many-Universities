@@ -1,10 +1,7 @@
 package com.prevpaper.university.service;
 
 import com.prevpaper.comman.dto.StudentDTO;
-import com.prevpaper.university.dtos.DepartmentRepResponse;
-import com.prevpaper.university.dtos.ProgramDashboardDTO;
-import com.prevpaper.university.dtos.RepresentativeDetailsDTO;
-import com.prevpaper.university.dtos.SessionDashboardDTO;
+import com.prevpaper.university.dtos.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,5 +15,4 @@ public interface RepresentativeService {
 
     List<RepresentativeDetailsDTO> getProgramRepsByDept(UUID departmentId);
 //    List<SessionDashboardDTO> getProgramSessionsDashboard(UUID programId);
-
 }

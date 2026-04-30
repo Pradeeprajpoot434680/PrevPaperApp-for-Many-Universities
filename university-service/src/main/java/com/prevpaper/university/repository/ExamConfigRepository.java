@@ -1,5 +1,6 @@
 package com.prevpaper.university.repository;
 
+import com.prevpaper.university.dtos.IdNameDTO;
 import com.prevpaper.university.entities.ExamConfiguration;
 import com.prevpaper.university.entities.University;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,4 +13,5 @@ public interface ExamConfigRepository extends JpaRepository<ExamConfiguration,UU
 
     // Optional: useful for the frontend to get sorted lists
     List<ExamConfiguration> findByUniversityOrderByDisplayOrderAsc(University university);
+    List<IdNameDTO> findByUniversityIdAndIsActiveTrue(UUID universityId);
 }

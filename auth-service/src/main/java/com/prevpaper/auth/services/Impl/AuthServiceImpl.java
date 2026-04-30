@@ -255,7 +255,7 @@ public class AuthServiceImpl implements AuthService {
 //        cookie.setMaxAge((int) (refreshExpiration / 1000));
 //        response.addCookie(cookie);
         addRefreshTokenCookie(response,refreshToken);
-
+        System.out.println("Refresh Token => "+  refreshToken );
         Map<String, String> responseData = new HashMap<>();
         responseData.put("accessToken", accessToken);
         responseData.put("userId", String.valueOf(user.getUserId()));

@@ -1,9 +1,7 @@
 package com.prevpaper.university.controller;
 import com.prevpaper.comman.dto.ApiResponse;
-import com.prevpaper.university.dtos.AssignRepRequest;
-import com.prevpaper.university.dtos.SemesterRequest;
-import com.prevpaper.university.dtos.SessionRequest;
-import com.prevpaper.university.dtos.SubjectRequest;
+import com.prevpaper.comman.dto.PendingContentDTO;
+import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.AcademicSession;
 import com.prevpaper.university.entities.Program;
 import com.prevpaper.university.entities.Semester;
@@ -14,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -62,4 +61,95 @@ public class SessionRepController {
                 new ApiResponse<>(true, "Subject added", subject, System.currentTimeMillis())
         );
     }
+
+
+    @GetMapping("/dashboard")
+    public ResponseEntity<ApiResponse<SessionRepDashboardDTO>> getDashboard(
+            @PathVariable UUID sessionId,
+            @RequestHeader("X-Scope-Id") String xScopeId) {
+
+        // Security check: sessionId must match JWT scope
+        validateScope(sessionId, xScopeId);
+
+        SessionRepDashboardDTO dashboard = sessionRepService.getSessionDashboard(sessionId);
+        return ResponseEntity.ok(ApiResponse.success("Dashboard data fetched", dashboard));
+    }
+
+    @GetMapping("/semesters/{semesterId}/subjects") // Changed name to semesterId
+    public ResponseEntity<ApiResponse<List<SubjectResourceDTO>>> getSemesterSubjects(
+            @PathVariable UUID sessionId,
+            @PathVariable UUID semesterId, // Changed type to UUID
+            @RequestHeader("X-Scope-Id") UUID xScopeId) {
+
+        validateScope(sessionId, xScopeId);
+
+        List<SubjectResourceDTO> subjects = sessionRepService.getSubjectsBySemesterId(semesterId);
+        return ResponseEntity.ok(ApiResponse.success("Semester subjects fetched", subjects));
+    }
+
+
+
+//    @PatchMapping("/verify-content/{contentId}")
+//    public ResponseEntity<ApiResponse<Void>> verifyContent(
+//            @PathVariable UUID sessionId,
+//            @PathVariable UUID contentId,
+//            @RequestBody VerifyContentRequest request,
+//            @RequestHeader("X-Scope-Id") String xScopeId,
+//            @RequestHeader("X-User-Id") String repId) {
+//
+//        validateScope(sessionId, xScopeId);
+//
+//        //sessionRepService.verifyContent(contentId, UUID.fromString(repId), request.getStatus());
+//        return ResponseEntity.ok(ApiResponse.success("Content status updated successfully", null));
+//    }
+
+
+    // 1. Fetch all pending contents for this session
+    @GetMapping("/pending-content")
+    public ResponseEntity<ApiResponse<List<PendingContentDTO>>> getPendingContent(
+            @PathVariable UUID sessionId,
+            @RequestHeader("X-Scope-Id") UUID xScopeId) {
+
+        validateScope(sessionId, xScopeId);
+
+        List<PendingContentDTO> pendingList = sessionRepService.getPendingContentBySession(sessionId);
+        return ResponseEntity.ok(ApiResponse.success("Pending content fetched", pendingList));
+    }
+
+    // 2. Verify or Reject Content
+//    @PatchMapping("/content/{contentId}/verify")
+//    public ResponseEntity<ApiResponse<Void>> verifyContent(
+//            @PathVariable UUID sessionId,
+//            @PathVariable UUID contentId,
+//            @RequestHeader("X-Scope-Id") UUID xScopeId,
+//            @RequestHeader("X-User-Id") UUID repId,
+//            @RequestBody VerifyContentRequest request) {
+//
+//        validateScope(sessionId, xScopeId);
+//
+//        sessionRepService.verifyContent(contentId, repId, request);
+//        return ResponseEntity.ok(ApiResponse.success("Content " + request.status() + " successfully", null));
+//    }
+
+    // 3. Delete Content (Session Reps can moderate their session)
+//    @DeleteMapping("/content/{contentId}")
+//    public ResponseEntity<ApiResponse<Void>> deleteContent(
+//            @PathVariable UUID sessionId,
+//            @PathVariable UUID contentId,
+//            @RequestHeader("X-Scope-Id") UUID xScopeId) {
+//
+//        validateScope(sessionId, xScopeId);
+//
+//        sessionRepService.deleteContent(contentId);
+//        return ResponseEntity.ok(ApiResponse.success("Content deleted successfully", null));
+//    }
+
+
+    private void validateScope(UUID sessionId, UUID xScopeId) {
+        // Correct way: compare UUID to UUID using .equals()
+        if (xScopeId == null || !sessionId.equals(xScopeId)) {
+            throw new RuntimeException("Access Denied: Scope mismatch for Session ID.");
+        }
+    }
+
 }

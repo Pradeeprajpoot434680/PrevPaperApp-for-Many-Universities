@@ -28,7 +28,8 @@ public class GatewayRoutesConfig {
                                 .or(RequestPredicates.path("/api/v1/global-admin/**"))
                                 .or(RequestPredicates.path("/api/v1/university-rep/**"))
                                 .or(RequestPredicates.path("/api/v1/department-rep/**"))
-                                .or(RequestPredicates.path("/api/v1/program-rep/**")),
+                                .or(RequestPredicates.path("/api/v1/program-rep/**"))
+                                .or(RequestPredicates.path("/api/v1/session-rep/**")),
                         builder -> builder
                                 // Crucial: You must call route() or GET() inside the nest
                                 .route(RequestPredicates.all(), HandlerFunctions.http())
@@ -61,6 +62,14 @@ public class GatewayRoutesConfig {
         return GatewayRouterFunctions.route("user-service")
                 .route(RequestPredicates.path("/api/v1/users/**"), HandlerFunctions.http())
                 .filter(lb("USER-SERVICE"))
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> contentServiceRoute() {
+        return GatewayRouterFunctions.route("content-service")
+                .route(RequestPredicates.path("/api/v1/content/**"), HandlerFunctions.http())
+                .filter(lb("CONTENT-SERVICE"))
                 .build();
     }
 

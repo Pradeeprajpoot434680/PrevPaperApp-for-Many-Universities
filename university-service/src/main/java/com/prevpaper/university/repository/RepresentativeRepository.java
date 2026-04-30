@@ -22,4 +22,7 @@ public interface RepresentativeRepository extends JpaRepository<RepresentativeAs
     long countByScopeTypeAndIsActiveTrue(ScopeType scopeType);
 
     List<RepresentativeAssignment> findByScopeType(ScopeType type);
+
+    // Fetches every rep linked to any of the collected IDs (Uni, Dept, Prog, or Session)
+    List<RepresentativeAssignment> findAllByScopeIdInAndIsActiveTrue(List<UUID> scopeIds);
 }

@@ -4,20 +4,13 @@ import com.prevpaper.comman.dto.UserBatchRequest;
 import com.prevpaper.comman.dto.UserDetailDTO;
 import com.prevpaper.comman.dto.UserInternalInfoDTO;
 import com.prevpaper.comman.enums.ScopeType;
+import com.prevpaper.comman.exception.ResourceNotFoundException;
 import com.prevpaper.university.client.AuthClient;
+import com.prevpaper.university.client.ContentClient;
 import com.prevpaper.university.client.UserServiceClient;
-import com.prevpaper.university.dtos.DepartmentRepResponse;
-import com.prevpaper.university.dtos.ProgramDashboardDTO;
-import com.prevpaper.university.dtos.RepresentativeDetailsDTO;
-import com.prevpaper.university.dtos.SessionDashboardDTO;
-import com.prevpaper.university.entities.AcademicSession;
-import com.prevpaper.university.entities.Department;
-import com.prevpaper.university.entities.Program;
-import com.prevpaper.university.entities.RepresentativeAssignment;
-import com.prevpaper.university.repository.AcademicSessionRepository;
-import com.prevpaper.university.repository.DepartmentRepository;
-import com.prevpaper.university.repository.ProgramRepository;
-import com.prevpaper.university.repository.RepresentativeRepository;
+import com.prevpaper.university.dtos.*;
+import com.prevpaper.university.entities.*;
+import com.prevpaper.university.repository.*;
 import com.prevpaper.university.service.RepresentativeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,6 +30,9 @@ public class RepresentativeServiceImpl implements RepresentativeService {
     private final UserServiceClient userServiceClient;
     private final ProgramRepository programRepository;
     private final AcademicSessionRepository academicSessionRepository;
+    private  final SemesterRepository semesterRepository;
+    private final SubjectRepository subjectRepository;
+    private final ContentClient contentClient;
 
     @Override
     public List<DepartmentRepResponse> getDeptRepsByUniversity(UUID universityId) {

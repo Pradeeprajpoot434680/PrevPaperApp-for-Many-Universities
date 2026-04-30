@@ -40,11 +40,14 @@ public class InternalAuthController {
     }
 
     @PostMapping("/user/set-fullName")
-    public void setFullName(UUID userId,String fullName){
+    public void setFullName(@RequestParam("authId") UUID userId, @RequestParam("fullName") String fullName) {
+        // userId was null before because @RequestParam was missing
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found in Auth DB"));
 
         user.setFullName(fullName);
+        userRepository.save(user); // Don't forget to save the changes!
+        System.out.println("Set Full name for user: " + userId);
     }
 
     @RequestMapping(value = "/{universityId}/students", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface AcademicSessionRepository extends JpaRepository<AcademicSession, UUID> {
     boolean existsByProgramIdAndStartYearAndEndYear(UUID programId, Integer startYear, Integer endingYear);
     List<AcademicSession> findByProgramId(UUID programId);
+    List<AcademicSession> findByProgramIdIn(List<UUID> programIds);
 }

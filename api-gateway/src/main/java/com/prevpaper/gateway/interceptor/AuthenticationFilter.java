@@ -33,7 +33,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/department-rep", "DEPT_REP",
             "/api/v1/program-rep", "PROGRAM_REP",
             "/api/v1/session-rep", "SESSION_REP",
-            "/api/v1/users/internal/store", "STUDENT" // Ensure leading slash
+            "/api/v1/users/internal/store", "STUDENT",
+            "/api/v1/user/me/profile","STUDENT"
     );
 
     private final List<String> openEndpoints = List.of(
@@ -43,6 +44,10 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/get/departments/**",
             "/api/v1/auth/refresh",
             "/api/v1/get/**"
+    );
+
+    private final List<String> UPLOADER_ROLES = List.of(
+            "STUDENT", "SESSION_REP", "PROGRAM_REP", "DEPT_REP", "UNIVERSITY_ADMIN", "GLOBAL_ADMIN"
     );
 
     public AuthenticationFilter(AuthClient authClient) {
@@ -95,13 +100,28 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             List<String> userRoles = authInfo.roles() != null ? authInfo.roles() : Collections.emptyList();
 
             for (Map.Entry<String, String> entry : roleRequirements.entrySet()) {
+
                 if (path.startsWith(entry.getKey())) {
                     String requiredRole = entry.getValue();
+                    boolean isAuthorized = false;
 
                     if (!userRoles.contains(requiredRole)) {
                         handleError(response, "Access Denied: Missing role " + requiredRole, 403);
                         return;
                     }
+
+                    if (path.startsWith("/api/v1/content")) {
+                        isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
+                    } else {
+                        // Standard check for other specific admin routes
+                        isAuthorized = userRoles.contains(requiredRole);
+                    }
+
+                    if (!isAuthorized) {
+                        handleError(response, "Access Denied: Missing required role for " + path, 403);
+                        return;
+                    }
+
 
                     // Scope checks for non-Global Admins
                     if (!userRoles.contains("GLOBAL_ADMIN")) {

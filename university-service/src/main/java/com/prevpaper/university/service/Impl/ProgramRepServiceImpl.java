@@ -1,5 +1,8 @@
 package com.prevpaper.university.service.Impl;
 
+import com.prevpaper.comman.dto.StudentDTO;
+import com.prevpaper.comman.dto.UserBatchRequest;
+import com.prevpaper.comman.dto.UserDetailDTO;
 import com.prevpaper.comman.dto.UserInternalInfoDTO;
 import com.prevpaper.comman.enums.ScopeType;
 import com.prevpaper.comman.enums.UserRole;
@@ -7,6 +10,7 @@ import com.prevpaper.university.client.AuthClient;
 import com.prevpaper.university.client.UserServiceClient;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.SessionDashboardDTO;
+import com.prevpaper.university.dtos.SessionRepDetailsDTO;
 import com.prevpaper.university.dtos.SessionRequest;
 import com.prevpaper.university.entities.AcademicSession;
 import com.prevpaper.university.entities.Program;
@@ -20,10 +24,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -116,6 +118,55 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                     repName,
                     repEmail,
                     session.getIsActive()
+            );
+        }).toList();
+    }
+
+    @Override
+    public List<SessionRepDetailsDTO> getAllSessionRepsByProgram(UUID programId) {
+        // 1. Get all sessions for this program
+        List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
+        List<UUID> sessionIds = sessions.stream().map(AcademicSession::getId).toList();
+
+        if (sessionIds.isEmpty()) return Collections.emptyList();
+
+        // 2. Find all active assignments for these SESSION scopes
+        List<RepresentativeAssignment> assignments = representativeRepository
+                .findByScopeIdInAndScopeTypeAndIsActiveTrue(sessionIds, ScopeType.SESSION);
+
+        // 3. Collect User IDs for bulk enrichment
+        List<UUID> userIds = assignments.stream()
+                .map(RepresentativeAssignment::getUserId)
+                .distinct()
+                .toList();
+
+        // 4. Batch Fetch Names (User-Service) and Emails (Auth-Service)
+        Map<UUID, StudentDTO> profileMap = userServiceClient.getBulkUserDetails(userIds);
+
+        UserBatchRequest batchRequest = new UserBatchRequest(userIds);
+        Map<UUID, UserDetailDTO> authMap = authClient.getUserDetailsBatch(batchRequest)
+                .stream().collect(Collectors.toMap(UserDetailDTO::userId, d -> d));
+
+        // 5. Map Sessions for O(1) lookup
+        Map<UUID, AcademicSession> sessionMap = sessions.stream()
+                .collect(Collectors.toMap(AcademicSession::getId, s -> s));
+
+        // 6. Combine everything into the DTO
+        return assignments.stream().map(rep -> {
+            AcademicSession sess = sessionMap.get(rep.getScopeId());
+            StudentDTO profile = profileMap.get(rep.getUserId());
+            UserDetailDTO auth = authMap.get(rep.getUserId());
+
+            return new SessionRepDetailsDTO(
+                    rep.getId(),
+                    rep.getUserId(),
+                    profile != null ? profile.fullName() : "No Profile",
+                    auth != null ? auth.email() : "No Email",
+                    sess.getId(),
+                    sess.getName(),
+                    sess.getBatchRange(),
+                    rep.getAssignedAt(),
+                    rep.getIsActive()
             );
         }).toList();
     }

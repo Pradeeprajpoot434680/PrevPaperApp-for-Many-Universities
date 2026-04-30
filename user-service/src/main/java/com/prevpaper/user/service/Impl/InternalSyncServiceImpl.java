@@ -78,6 +78,9 @@ public class InternalSyncServiceImpl implements InternalSyncService {
                 .authUserId(authUserId)
                 .build();
 
+
+        System.out.println(user);
+
         User savedUser = userRepository.save(user);
 
         Account account = Account.builder()
@@ -89,9 +92,11 @@ public class InternalSyncServiceImpl implements InternalSyncService {
                 .build();
 
         accountRepository.save(account);
-
+        System.out.println("Saved Account:"+account);
         // set the full name in the auth service
         String fullName = request.getFirstName() + " "  +request.getLastName();
+
+        System.out.println("Correct till Here...");
         authServiceClient.setFullName(authUserId,fullName);
 
         return savedUser;

@@ -6,14 +6,8 @@ import com.prevpaper.comman.exception.ResourceNotFoundException;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.DepartmentTinyDTO;
 import com.prevpaper.university.dtos.ProgramRequest;
-import com.prevpaper.university.entities.Department;
-import com.prevpaper.university.entities.Program;
-import com.prevpaper.university.entities.RepresentativeAssignment;
-import com.prevpaper.university.entities.University;
-import com.prevpaper.university.repository.DepartmentRepository;
-import com.prevpaper.university.repository.ProgramRepository;
-import com.prevpaper.university.repository.RepresentativeRepository;
-import com.prevpaper.university.repository.UniversityRepository;
+import com.prevpaper.university.entities.*;
+import com.prevpaper.university.repository.*;
 import com.prevpaper.university.service.DepartmentRepService;
 import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
@@ -34,12 +28,17 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
     private  final EmitRoleAssignment emitRoleAssignment;
     private final DepartmentRepository departmentRepository;
     private final UniversityRepository universityRepository;
-    public DepartmentRepServiceImpl(ProgramRepository programRepository, RepresentativeRepository representativeRepository, EmitRoleAssignment emitRoleAssignment, DepartmentRepository departmentRepository, UniversityRepository universityRepository) {
+    private final SemesterRepository semesterRepository;
+
+
+
+    public DepartmentRepServiceImpl(ProgramRepository programRepository, RepresentativeRepository representativeRepository, EmitRoleAssignment emitRoleAssignment, DepartmentRepository departmentRepository, UniversityRepository universityRepository, SemesterRepository semesterRepository) {
         this.programRepository = programRepository;
         this.representativeRepository = representativeRepository;
         this.emitRoleAssignment = emitRoleAssignment;
         this.departmentRepository = departmentRepository;
         this.universityRepository = universityRepository;
+        this.semesterRepository = semesterRepository;
     }
 
     @Override
@@ -51,20 +50,15 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
         String name = request.getName().trim();
         String code = request.getCode().trim().toUpperCase();
 
-        // 2. Check for Duplicates within this Department
+        // 2. Duplicate Checks (Existing logic)
         if (programRepository.existsByCodeAndDepartmentId(code, departmentId)) {
-            throw new RuntimeException("Program code " + code + " already exists in this department");
+            throw new RuntimeException("Program code " + code + " already exists");
         }
 
-        if (programRepository.existsByNameIgnoreCaseAndDepartmentId(name, departmentId)) {
-            throw new RuntimeException("Program name " + name + " already exists in this department");
-        }
-
-        // 3. Build Entity with new fields
-        // Use getReferenceById to avoid an extra DB hit if you only need the ID for the FK
         Department department = departmentRepository.findById(departmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found"));
 
+        // 3. Save the Program first
         Program program = Program.builder()
                 .name(name)
                 .code(code)
@@ -75,7 +69,19 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
                 .department(department)
                 .build();
 
-        return programRepository.save(program);
+        Program savedProgram = programRepository.save(program);
+
+        // 4. AUTOMATICALLY CREATE SEMESTERS
+        // If totalSemesters is 8, this loops 1 to 8
+        for (int i = 1; i <= savedProgram.getTotalSemesters(); i++) {
+            Semester semester = Semester.builder()
+                    .semesterNumber(i)
+                    .program(savedProgram)
+                    .build();
+            semesterRepository.save(semester);
+        }
+
+        return savedProgram;
     }
 
     private void validateProgramRequest(ProgramRequest request) {
