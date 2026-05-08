@@ -31,6 +31,7 @@ public class InternalSyncServiceImpl implements InternalSyncService {
         this.preferenceRepository = preferenceRepository;
         this.authServiceClient = authServiceClient;
     }
+    
 
     @Override
     public User syncNewUser(UserSyncRequest userSyncRequest) {

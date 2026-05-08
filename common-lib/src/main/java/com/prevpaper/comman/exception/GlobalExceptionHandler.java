@@ -16,6 +16,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
 
     }
+    @ExceptionHandler(ContentAlreadyExist.class)
+    public ResponseEntity<ApiResponse<String>> handleContentAlreadyExist(ContentAlreadyExist exception){
+        ApiResponse<String> response = ApiResponse.error(exception.getMessage());
+        return new ResponseEntity<>(response,HttpStatus.ALREADY_REPORTED);
+
+    }
 
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<ApiResponse<String>> handleUnauthorized(

@@ -37,9 +37,12 @@ public class FileHandlerFactory {
      * Helper to resolve FileType from an extension string (e.g., "pdf" -> FileType.PDF)
      */
     public FileType resolveType(String extension) {
-        try {
-            return FileType.valueOf(extension.toUpperCase());
-        } catch (IllegalArgumentException e) {
+        String ext = extension.toLowerCase();
+        if (ext.equals("pdf")) {
+            return FileType.PDF;
+        } else if (List.of("jpg", "jpeg", "png").contains(ext)) {
+            return FileType.IMAGE; // Map all these to IMAGE
+        } else {
             throw new RuntimeException("Unsupported file extension: " + extension);
         }
     }

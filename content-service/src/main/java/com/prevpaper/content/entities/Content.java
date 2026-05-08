@@ -1,6 +1,6 @@
 package com.prevpaper.content.entities;
 
-import com.prevpaper.content.enums.ContentType;
+import com.prevpaper.comman.enums.ContentType;
 import com.prevpaper.content.enums.FileType;
 import com.prevpaper.content.enums.VerificationStatus;
 import jakarta.persistence.*;

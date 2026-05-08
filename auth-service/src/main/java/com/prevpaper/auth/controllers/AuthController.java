@@ -6,6 +6,8 @@ import com.prevpaper.auth.services.AuthService;
 import com.prevpaper.comman.dto.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -43,15 +45,33 @@ public class AuthController {
 
 
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpServletRequest request) {
-        // 1. Clear SecurityContext to immediately "de-authenticate" the current request thread
+    public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response) {
+        // 1. Clear SecurityContext to immediately de-authenticate the current thread
         SecurityContextHolder.clearContext();
 
-        // 2. (Optional) Get token from 'Authorization' header and add to your Blacklist service
-        // String token = extractTokenFromHeader(request);
-        // blacklistService.blacklist(token);
+        // 2. Clear the Refresh Token Cookie
+        ResponseCookie cookie = ResponseCookie.from("refreshToken", "")
+                .httpOnly(true)
+                .secure(true) // Ensure this matches your sign-in settings
+                .path("/")
+                .maxAge(0) // Immediately expires the cookie
+                .sameSite("Strict")
+                .build();
 
-        return ResponseEntity.ok(Map.of("success", true, "message", "Logged out successfully"));
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
+        // 3. (Optional) Blacklist the Access Token
+        // If you implemented a BlacklistService using Redis, extract the token from Header
+        // String authHeader = request.getHeader("Authorization");
+        // if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        //     String token = authHeader.substring(7);
+        //     blacklistService.blacklist(token);
+        // }
+
+        return ResponseEntity.ok(Map.of(
+                "success", true,
+                "message", "Logged out successfully"
+        ));
     }
 
     //verify-otp

@@ -3,8 +3,7 @@ package com.prevpaper.university.controller;
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.comman.dto.StudentDTO;
 import com.prevpaper.university.dtos.*;
-import com.prevpaper.university.entities.Department;
-import com.prevpaper.university.entities.University;
+
 import com.prevpaper.university.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -3,9 +3,11 @@ package com.prevpaper.content.service;
 import com.prevpaper.comman.dto.ContentStatsDTO;
 import com.prevpaper.comman.dto.PendingContentDTO;
 import com.prevpaper.comman.dto.UploadResultDTO;
+import com.prevpaper.content.dto.ContentSearchRequest;
 import com.prevpaper.content.dto.ContentUploadRequest;
 import com.prevpaper.content.dto.UniversityContentSummaryDTO;
 import com.prevpaper.content.entities.Content;
+import com.prevpaper.content.enums.VerificationStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -23,4 +25,9 @@ public interface ContentService {
 
         UniversityContentSummaryDTO countContentGroupedByType(UUID universityId);
     List<PendingContentDTO> findPendingContent(UUID scopeId);
+    List<Content> search(ContentSearchRequest request);
+
+    List<PendingContentDTO> getPendingContent(UUID programId, Integer academicYear, VerificationStatus verificationStatus);
+
+    void verifyOrRejectContent(UUID contentId, String status, UUID verifiedBy);
 }

@@ -89,60 +89,56 @@ public class SessionRepController {
 
 
 
-//    @PatchMapping("/verify-content/{contentId}")
-//    public ResponseEntity<ApiResponse<Void>> verifyContent(
-//            @PathVariable UUID sessionId,
-//            @PathVariable UUID contentId,
-//            @RequestBody VerifyContentRequest request,
-//            @RequestHeader("X-Scope-Id") String xScopeId,
-//            @RequestHeader("X-User-Id") String repId) {
-//
-//        validateScope(sessionId, xScopeId);
-//
-//        //sessionRepService.verifyContent(contentId, UUID.fromString(repId), request.getStatus());
-//        return ResponseEntity.ok(ApiResponse.success("Content status updated successfully", null));
-//    }
+
 
 
     // 1. Fetch all pending contents for this session
     @GetMapping("/pending-content")
-    public ResponseEntity<ApiResponse<List<PendingContentDTO>>> getPendingContent(
+    public ResponseEntity<ApiResponse<List<PendingContentDTO>>> getMyPendingContent(
             @PathVariable UUID sessionId,
+            @RequestHeader("X-Scope-Id") UUID xScopeId) {
+
+        // Ensure the Rep is only looking at their assigned session
+        validateScope(sessionId, xScopeId);
+
+        List<PendingContentDTO> list = sessionRepService.getPendingContentBySession(sessionId);
+        return ResponseEntity.ok(ApiResponse.success("Pending content for your session fetched", list));
+    }
+
+    /**
+     * Update content status (Verify or Reject).
+     * The Content Service will handle the user notification once updated.
+     */
+    @PatchMapping("/content/{contentId}/status")
+    public ResponseEntity<ApiResponse<Void>> updateContentStatus(
+            @PathVariable UUID sessionId,
+            @PathVariable UUID contentId,
+            @RequestHeader("X-Scope-Id") UUID xScopeId,
+            @RequestHeader("X-User-Id") UUID repId,
+            @RequestBody VerifyContentRequest request) {
+
+        validateScope(sessionId, xScopeId);
+
+        sessionRepService.updateContentStatus(contentId, repId, request);
+
+        String message = "Content successfully " + request.status().toLowerCase();
+        return ResponseEntity.ok(ApiResponse.success(message, null));
+    }
+
+    /**
+     * Hard delete content from the session archive.
+     */
+    @DeleteMapping("/content/{contentId}")
+    public ResponseEntity<ApiResponse<Void>> deleteContent(
+            @PathVariable UUID sessionId,
+            @PathVariable UUID contentId,
             @RequestHeader("X-Scope-Id") UUID xScopeId) {
 
         validateScope(sessionId, xScopeId);
 
-        List<PendingContentDTO> pendingList = sessionRepService.getPendingContentBySession(sessionId);
-        return ResponseEntity.ok(ApiResponse.success("Pending content fetched", pendingList));
+        sessionRepService.deleteContent(contentId);
+        return ResponseEntity.ok(ApiResponse.success("Content deleted from session archive", null));
     }
-
-    // 2. Verify or Reject Content
-//    @PatchMapping("/content/{contentId}/verify")
-//    public ResponseEntity<ApiResponse<Void>> verifyContent(
-//            @PathVariable UUID sessionId,
-//            @PathVariable UUID contentId,
-//            @RequestHeader("X-Scope-Id") UUID xScopeId,
-//            @RequestHeader("X-User-Id") UUID repId,
-//            @RequestBody VerifyContentRequest request) {
-//
-//        validateScope(sessionId, xScopeId);
-//
-//        sessionRepService.verifyContent(contentId, repId, request);
-//        return ResponseEntity.ok(ApiResponse.success("Content " + request.status() + " successfully", null));
-//    }
-
-    // 3. Delete Content (Session Reps can moderate their session)
-//    @DeleteMapping("/content/{contentId}")
-//    public ResponseEntity<ApiResponse<Void>> deleteContent(
-//            @PathVariable UUID sessionId,
-//            @PathVariable UUID contentId,
-//            @RequestHeader("X-Scope-Id") UUID xScopeId) {
-//
-//        validateScope(sessionId, xScopeId);
-//
-//        sessionRepService.deleteContent(contentId);
-//        return ResponseEntity.ok(ApiResponse.success("Content deleted successfully", null));
-//    }
 
 
     private void validateScope(UUID sessionId, UUID xScopeId) {

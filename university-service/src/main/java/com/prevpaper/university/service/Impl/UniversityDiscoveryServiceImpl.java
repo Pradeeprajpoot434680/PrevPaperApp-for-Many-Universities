@@ -1,4 +1,4 @@
-package com.prevpaper.university.service.impl;
+package com.prevpaper.university.service.Impl;
 
 import com.prevpaper.comman.dto.UserData;
 import com.prevpaper.comman.enums.ScopeType;

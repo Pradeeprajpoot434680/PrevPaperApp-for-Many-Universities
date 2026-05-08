@@ -4,12 +4,14 @@ import com.prevpaper.comman.dto.CommonNotificationRequest;
 import com.prevpaper.comman.dto.SummarizedContentDTO;
 import com.prevpaper.comman.enums.NotificationEventType;
 import com.prevpaper.comman.enums.NotificationType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class NotificationProducer {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
@@ -48,6 +50,34 @@ public class NotificationProducer {
     }
     public void sendBulkNotification(String key, CommonNotificationRequest request) {
         kafkaTemplate.send(BULK_TOPIC, key, request);
+    }
+
+
+    // Add this method to your existing NotificationProducer class
+    public void sendContentStatusUpdateNotification(SummarizedContentDTO summary) {
+        boolean isVerified = "VERIFIED".equalsIgnoreCase(summary.getStatus());
+
+        // 1. Generate status-specific message
+        String message = isVerified
+                ? "Great news! Your content '" + summary.getTitle() + "' has been verified and is now live in the library."
+                : "Your content '" + summary.getTitle() + "' was not approved for the library. Please ensure it meets our guidelines.";
+
+        // 2. Map into the common request format
+        CommonNotificationRequest request = CommonNotificationRequest.builder()
+                .userId(summary.getUserId())
+                .recipient(summary.getRecipient()) // Real email fetched via Feign in Service layer
+                .title(isVerified ? "Content Verified" : "Content Rejected")
+                .message(message)
+                .eventType(summary.getEventType()) // CONTENT_VERIFIED or CONTENT_REJECTED
+                .notificationTypes(List.of(NotificationType.EMAIL))
+                .build();
+
+        try {
+            kafkaTemplate.send(BULK_TOPIC, summary.getContentId().toString(), request);
+            log.info("KAFKA EVENT EMITTED SUCCESSFULLY to topic: {}", BULK_TOPIC);
+        } catch (Exception e) {
+            log.error("KAFKA SEND CRASHED: {}", e.getMessage());
+        }
     }
 }
 

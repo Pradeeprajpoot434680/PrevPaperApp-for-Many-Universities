@@ -45,4 +45,14 @@ public class InternalContentController {
         // This query matches scopeId against University, Department, or Program
         return contentService.findPendingContent(scopeId);
     }
+
+    @PutMapping("/{contentId}/status")
+    public void updateStatus(
+            @PathVariable UUID contentId,
+            @RequestParam String status,
+            @RequestParam UUID verifiedBy) {
+
+        contentService.verifyOrRejectContent(contentId, status, verifiedBy);
+    }
+
 }

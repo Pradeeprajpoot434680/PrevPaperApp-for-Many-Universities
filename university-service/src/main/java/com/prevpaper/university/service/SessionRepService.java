@@ -22,4 +22,7 @@ public interface SessionRepService {
     SessionRepDashboardDTO getSessionDashboard(UUID sessionId);
 
     List<PendingContentDTO> getPendingContentBySession(UUID sessionId);
+    void updateContentStatus(UUID contentId, UUID repId, VerifyContentRequest request);
+    void deleteContent(UUID contentId);
+
 }

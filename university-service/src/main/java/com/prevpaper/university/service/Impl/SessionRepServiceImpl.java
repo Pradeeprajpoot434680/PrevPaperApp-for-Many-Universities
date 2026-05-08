@@ -178,7 +178,26 @@ public class SessionRepServiceImpl implements SessionRepService {
 
     @Override
     public List<PendingContentDTO> getPendingContentBySession(UUID sessionId) {
-        // Call Content-Service via Feign Client
-        return contentClient.getPendingByScope(sessionId);
+        // 1. Look up the Session to find its Program and Year
+        AcademicSession session = sessionRepository.findById(sessionId)
+                .orElseThrow(() -> new RuntimeException("Session not found"));
+
+        // 2. Fetch unverified papers from Content Service using those filters
+        return contentClient.getPendingBySession(
+                session.getProgram().getId(),
+                session.getStartYear()
+        );
+    }
+
+
+    @Override
+    public void updateContentStatus(UUID contentId, UUID repId, VerifyContentRequest request) {
+        // Logic: Tell Content Service to update status and set the verifier ID
+        contentClient.updateStatus(contentId, request.status(), repId);
+    }
+
+    @Override
+    public void deleteContent(UUID contentId) {
+        contentClient.deleteById(contentId);
     }
 }

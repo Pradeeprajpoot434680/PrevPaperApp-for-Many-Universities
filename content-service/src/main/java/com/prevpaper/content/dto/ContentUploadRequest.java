@@ -1,7 +1,7 @@
 package com.prevpaper.content.dto;
 
 
-import com.prevpaper.content.enums.ContentType;
+import com.prevpaper.comman.enums.ContentType;
 import com.prevpaper.content.enums.FileType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -19,6 +19,14 @@ public interface ContentClient {
     @GetMapping("/api/v1/content/internal/pending/{scopeId}")
     List<PendingContentDTO> getPendingByScope(@PathVariable UUID scopeId);
 
+
+
+    @GetMapping("/api/v1/content/internal/pending/session")
+    List<PendingContentDTO> getPendingBySession(
+            @RequestParam("programId") UUID programId,
+            @RequestParam("academicYear") Integer academicYear
+    );
+
     @PutMapping("/api/v1/content/internal/{contentId}/status")
     void updateStatus(
             @PathVariable UUID contentId,

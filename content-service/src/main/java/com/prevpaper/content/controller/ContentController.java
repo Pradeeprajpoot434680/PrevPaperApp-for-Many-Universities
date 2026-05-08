@@ -1,8 +1,11 @@
 package com.prevpaper.content.controller;
 
+import com.prevpaper.comman.dto.PendingContentDTO;
 import com.prevpaper.comman.dto.UploadResultDTO;
+import com.prevpaper.content.dto.ContentSearchRequest;
 import com.prevpaper.content.dto.ContentUploadRequest;
 import com.prevpaper.content.entities.Content;
+import com.prevpaper.content.enums.VerificationStatus;
 import com.prevpaper.content.service.ContentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -45,5 +49,18 @@ public class ContentController {
 
         contentService.finalizeUploadStatus(contentId, result);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/internal/pending/session")
+    public List<PendingContentDTO> getPendingBySession(
+            @RequestParam UUID programId,
+            @RequestParam Integer academicYear) {
+        // Pass the parameters to the service layer
+        return contentService.getPendingContent(programId, academicYear, VerificationStatus.PENDING);
+    }
+
+    @PostMapping("/search")
+    public ResponseEntity<List<Content>> searchContent(@RequestBody ContentSearchRequest request) {
+        return ResponseEntity.ok(contentService.search(request));
     }
 }

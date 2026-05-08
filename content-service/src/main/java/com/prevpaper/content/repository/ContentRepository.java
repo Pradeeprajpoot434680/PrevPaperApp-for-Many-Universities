@@ -4,13 +4,14 @@ import com.prevpaper.content.dto.ContentTypeCountDTO;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface ContentRepository  extends JpaRepository<Content, UUID> {
+public interface ContentRepository extends JpaRepository<Content, UUID>, JpaSpecificationExecutor<Content> {
     long countByProgramIdAndSemesterAndVerificationStatus(
             UUID programId,
             Integer semester,
@@ -43,4 +44,15 @@ public interface ContentRepository  extends JpaRepository<Content, UUID> {
 
     List<Content> findByVerificationStatusAndUniversityIdOrDepartmentIdOrProgramId(
             VerificationStatus status, UUID univId, UUID deptId, UUID progId);
+
+    boolean existsByUniversityIdAndDepartmentIdAndProgramIdAndSemesterAndSubjectId(
+            UUID universityId,
+            UUID departmentId,
+            UUID programId,
+            Integer semester,
+            UUID subjectId
+    );
+
+
+
 }
