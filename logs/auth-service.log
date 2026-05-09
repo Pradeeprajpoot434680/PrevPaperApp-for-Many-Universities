@@ -1,0 +1,505 @@
+2026-05-10 00:49:54.477 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-10 00:49:54.577 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 84285 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-05-10 00:49:54.580 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-10 00:49:56.104 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-10 00:49:56.271 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 156 ms. Found 5 JPA repository interfaces.
+2026-05-10 00:49:56.670 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=3111b545-6643-3b8f-a8d7-7ce9080b2d82
+2026-05-10 00:49:57.288 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-10 00:49:57.300 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-05-10 00:49:57.302 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-10 00:49:57.303 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-05-10 00:49:57.364 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-10 00:49:57.365 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2708 ms
+2026-05-10 00:49:58.153 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-10 00:49:58.208 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-05-10 00:49:58.237 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-10 00:49:58.469 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-10 00:49:58.501 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-10 00:49:58.774 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a3404fa
+2026-05-10 00:49:58.777 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-10 00:49:58.807 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-10 00:49:58.825 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.13
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-10 00:49:59.854 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-10 00:50:00.002 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-10 00:50:00.372 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-10 00:50:00.940 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-10 00:50:01.078 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-05-10 00:50:01.277 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-05-10 00:50:01.415 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2026-05-10 00:50:01.785 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-10 00:50:02.603 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-10 00:50:02.662 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-10 00:50:02.802 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = AUTH-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-05-10 00:50:02.909 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-05-10 00:50:02.910 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-05-10 00:50:02.910 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1778354402908
+2026-05-10 00:50:02.930 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:02.933 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:03.037 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:03.037 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:03.239 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:03.240 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:03.442 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:03.443 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:03.846 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:03.846 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:04.651 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:04.651 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:05.557 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:05.557 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:06.562 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:06.563 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:07.569 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:07.570 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:08.475 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:08.475 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:09.481 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:09.482 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:10.487 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:10.488 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:11.493 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:11.493 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:12.499 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:12.499 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:13.504 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:13.505 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:14.411 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:14.412 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:15.420 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:15.421 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:16.326 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:16.326 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:17.332 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:17.332 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:18.237 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:18.237 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:19.243 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:19.243 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:20.148 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:20.149 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:21.154 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:21.154 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:22.160 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:22.160 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:23.165 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:23.166 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:24.172 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:24.172 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:25.076 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:25.076 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:26.080 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:26.081 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:27.085 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:27.085 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:27.989 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:27.990 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:28.995 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:28.995 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:29.900 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:29.901 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:30.910 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-05-10 00:50:30.911 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-05-10 00:50:32.445 INFO  [main] o.s.kafka.core.KafkaAdmin - Topic 'role-change-events' exists but has a different partition count: 1 not 3, increasing if the broker supports it
+2026-05-10 00:50:32.547 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
+2026-05-10 00:50:32.551 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-05-10 00:50:32.552 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-05-10 00:50:32.552 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-05-10 00:50:32.586 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-10 00:50:32.635 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-10 00:50:32.645 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 00:50:32.665 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-10 00:50:32.665 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-10 00:50:32.665 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-10 00:50:32.666 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-10 00:50:32.666 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-10 00:50:32.666 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-10 00:50:32.666 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-10 00:50:33.210 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-10 00:50:33.213 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-10 00:50:33.215 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-10 00:50:33.217 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778354433216 with initial instances count: 1
+2026-05-10 00:50:33.225 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2026-05-10 00:50:33.226 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778354433226, current=UP, previous=STARTING]
+2026-05-10 00:50:33.227 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081: registering service...
+2026-05-10 00:50:33.228 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-05-10 00:50:33.235 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2026-05-10 00:50:33.236 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778354433236, current=DOWN, previous=UP]
+2026-05-10 00:50:33.237 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-05-10 00:50:33.250 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-10 00:50:33.254 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-10 00:50:33.267 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-10 00:50:33.287 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081 - registration status: 204
+2026-05-10 00:50:33.287 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081: registering service...
+2026-05-10 00:50:33.295 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081 - registration status: 204
+2026-05-10 00:50:34.214 INFO  [main] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-10 00:50:37.215 INFO  [main] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-10 00:50:37.232 INFO  [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081 - deregister  status: 200
+2026-05-10 00:50:37.232 INFO  [main] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-10 00:50:37.277 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-10 00:50:37.296 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2026-05-10 00:54:49.415 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-05-10 00:54:49.537 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 90739 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-05-10 00:54:49.540 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-10 00:54:51.174 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-10 00:54:51.418 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 229 ms. Found 5 JPA repository interfaces.
+2026-05-10 00:54:51.842 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=3111b545-6643-3b8f-a8d7-7ce9080b2d82
+2026-05-10 00:54:52.613 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-10 00:54:52.629 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-05-10 00:54:52.632 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-10 00:54:52.632 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-05-10 00:54:52.698 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-10 00:54:52.698 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3051 ms
+2026-05-10 00:54:53.511 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-10 00:54:53.568 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-05-10 00:54:53.610 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-10 00:54:53.855 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-10 00:54:53.886 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-10 00:54:54.131 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4806fbf7
+2026-05-10 00:54:54.134 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-10 00:54:54.170 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-10 00:54:54.189 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.13
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-10 00:54:55.294 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-10 00:54:55.411 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-10 00:54:55.725 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-10 00:54:56.322 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-10 00:54:56.438 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-05-10 00:54:56.653 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-05-10 00:54:56.838 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2026-05-10 00:54:57.242 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-10 00:54:58.107 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-10 00:54:58.187 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-10 00:54:58.325 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = AUTH-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-05-10 00:54:58.399 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-05-10 00:54:58.399 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-05-10 00:54:58.399 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1778354698398
+2026-05-10 00:54:58.813 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
+2026-05-10 00:54:58.817 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-05-10 00:54:58.818 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-05-10 00:54:58.818 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-05-10 00:54:58.836 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-10 00:54:58.867 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-10 00:54:58.871 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-10 00:54:58.880 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-10 00:54:59.230 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-10 00:54:59.233 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-10 00:54:59.236 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-10 00:54:59.239 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778354699237 with initial instances count: 1
+2026-05-10 00:54:59.250 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2026-05-10 00:54:59.251 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778354699251, current=UP, previous=STARTING]
+2026-05-10 00:54:59.253 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081: registering service...
+2026-05-10 00:54:59.254 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-05-10 00:54:59.269 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-05-10 00:54:59.271 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2026-05-10 00:54:59.302 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.52.168.181:AUTH-SERVICE:8081 - registration status: 204
+2026-05-10 00:54:59.342 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-auth-role-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = auth-role-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-05-10 00:54:59.399 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-05-10 00:54:59.469 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-05-10 00:54:59.470 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-05-10 00:54:59.470 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1778354699469
+2026-05-10 00:54:59.474 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
+2026-05-10 00:54:59.515 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: cujVVRziQeSaS90cHFWYEA
+2026-05-10 00:54:59.517 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-05-10 00:54:59.520 INFO  [main] c.p.auth.AuthServiceApplication - Started AuthServiceApplication in 10.889 seconds (process running for 11.562)
+2026-05-10 00:54:59.520 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-05-10 00:54:59.547 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-bac00be3-63d8-43dd-b5bb-0cb9d2731842
+2026-05-10 00:54:59.548 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-05-10 00:55:21.197 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully joined group with generation Generation{generationId=2, memberId='consumer-auth-role-group-1-bac00be3-63d8-43dd-b5bb-0cb9d2731842', protocol='range'}
+2026-05-10 00:55:21.208 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Finished assignment for group at generation 2: {consumer-auth-role-group-1-bac00be3-63d8-43dd-b5bb-0cb9d2731842=Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])}
+2026-05-10 00:55:21.222 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully synced group in generation Generation{generationId=2, memberId='consumer-auth-role-group-1-bac00be3-63d8-43dd-b5bb-0cb9d2731842', protocol='range'}
+2026-05-10 00:55:21.223 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Notifying assignor about the new Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])
+2026-05-10 00:55:21.228 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Adding newly assigned partitions: role-change-events-0, role-change-events-1, role-change-events-2
+2026-05-10 00:55:21.237 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
+2026-05-10 00:55:21.237 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
+2026-05-10 00:55:21.245 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
+2026-05-10 00:55:21.246 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
+2026-05-10 00:55:21.249 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-05-10 00:55:21.263 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-05-10 00:55:21.263 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-05-10 00:55:21.274 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions assigned: [role-change-events-0, role-change-events-1, role-change-events-2]
+2026-05-10 00:59:58.882 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 01:03:59.556 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-05-10 01:04:58.883 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 01:09:58.884 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 01:13:59.617 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-05-10 01:14:58.887 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

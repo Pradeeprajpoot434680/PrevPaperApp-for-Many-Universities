@@ -13,6 +13,7 @@ import com.prevpaper.university.entities.*;
 import com.prevpaper.university.repository.*;
 import com.prevpaper.university.service.RepresentativeService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 
 public class RepresentativeServiceImpl implements RepresentativeService {
 
@@ -36,9 +38,11 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     @Override
     public List<DepartmentRepResponse> getDeptRepsByUniversity(UUID universityId) {
+        log.info("Department representatives by university request received: universityId={}", universityId);
 
         List<RepresentativeAssignment> assignments =
                 representativeRepository.findByScopeTypeAndIsActiveTrue(ScopeType.DEPARTMENT);
+        log.info("Active department representative assignments loaded: assignmentCount={}", assignments.size());
 
         Map<UUID, String> deptNames = departmentRepo.findByUniversityId(universityId)
                 .stream()
@@ -47,8 +51,13 @@ public class RepresentativeServiceImpl implements RepresentativeService {
         List<RepresentativeAssignment> uniAssignments = assignments.stream()
                 .filter(a -> deptNames.containsKey(a.getScopeId()))
                 .toList();
+        log.info("Department representative assignments filtered by university: universityId={}, assignmentCount={}",
+                universityId, uniAssignments.size());
 
-        if (uniAssignments.isEmpty()) return Collections.emptyList();
+        if (uniAssignments.isEmpty()) {
+            log.info("No department representatives found for university: universityId={}", universityId);
+            return Collections.emptyList();
+        }
 
         List<UUID> userIds = uniAssignments.stream()
                 .map(RepresentativeAssignment::getUserId)
@@ -56,6 +65,8 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
         List<UserDetailDTO> userDetails =
                 authClient.getUserDetailsBatch(new UserBatchRequest(userIds));
+        log.info("Department representative auth details loaded: universityId={}, requestedUsers={}, receivedAuthDetails={}",
+                universityId, userIds.size(), userDetails.size());
 
         Map<UUID, UserDetailDTO> userMap = userDetails.stream()
                 .collect(Collectors.toMap(UserDetailDTO::userId, u -> u));
@@ -76,8 +87,11 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     @Override
     public List<ProgramDashboardDTO> getDepartmentProgramsDashboard(UUID departmentId) {
+        log.info("Department programs dashboard request received: departmentId={}", departmentId);
         // 1. Fetch all programs for this department
         List<Program> programs = programRepository.findByDepartmentId(departmentId);
+        log.info("Programs loaded for department dashboard: departmentId={}, programCount={}",
+                departmentId, programs.size());
 
         return programs.stream().map(prog -> {
             // 2. Find active assignment for this PROGRAM scope
@@ -89,6 +103,8 @@ public class RepresentativeServiceImpl implements RepresentativeService {
                 try {
                     repName = userServiceClient.getStudentName(assignment.get().getUserId());
                 } catch (Exception e) {
+                    log.warn("Program dashboard representative profile lookup failed: departmentId={}, programId={}, repUserId={}, error={}",
+                            departmentId, prog.getId(), assignment.get().getUserId(), e.getMessage());
                     repName = "Profile Pending";
                 }
             }
@@ -108,8 +124,11 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     @Override
     public List<StudentDTO> getStudentsByDepartment(UUID deptId) {
+        log.info("Students by department request received: departmentId={}", deptId);
         // Fetch profiles from User Service
         List<StudentDTO> studentProfiles = userServiceClient.getStudentsByDept(deptId);
+        log.info("Student profiles loaded by department: departmentId={}, profileCount={}",
+                deptId, studentProfiles == null ? 0 : studentProfiles.size());
 
         // Enrich with Emails from Auth Service
         return enrichStudentsWithEmails(studentProfiles);
@@ -117,8 +136,11 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     @Override
     public List<StudentDTO> getStudentsByProgram(UUID programId) {
+        log.info("Students by program request received: programId={}", programId);
         // Fetch profiles from User Service
         List<StudentDTO> studentProfiles = userServiceClient.getStudentsByProgram(programId);
+        log.info("Student profiles loaded by program: programId={}, profileCount={}",
+                programId, studentProfiles == null ? 0 : studentProfiles.size());
 
         // Enrich with Emails from Auth Service
         return enrichStudentsWithEmails(studentProfiles);
@@ -127,6 +149,7 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     private List<StudentDTO> enrichStudentsWithEmails(List<StudentDTO> students) {
         if (students == null || students.isEmpty()) {
+            log.info("Student email enrichment skipped: no students");
             return Collections.emptyList();
         }
 
@@ -141,6 +164,8 @@ public class RepresentativeServiceImpl implements RepresentativeService {
         try {
             UserBatchRequest batchRequest = new UserBatchRequest(userIds);
             List<UserDetailDTO> authDetails = authClient.getUserDetailsBatch(batchRequest);
+            log.info("Student email enrichment auth details loaded: requestedUsers={}, receivedAuthDetails={}",
+                    userIds.size(), authDetails.size());
 
             // 3. Map emails by userId for O(1) lookup
             Map<UUID, String> emailMap = authDetails.stream()
@@ -155,6 +180,8 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
         } catch (Exception e) {
             // Fallback: If Auth-Service is down, return students with "N/A" emails instead of crashing
+            log.warn("Student email enrichment failed, using fallback email value: requestedUsers={}, error={}",
+                    userIds.size(), e.getMessage());
             return students.stream().map(s -> new StudentDTO(
                     s.authUserId(),
                     s.fullName(),
@@ -166,15 +193,23 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
     @Override
     public List<RepresentativeDetailsDTO> getProgramRepsByDept(UUID departmentId) {
+        log.info("Program representatives by department request received: departmentId={}", departmentId);
         // 1. Get all programs in this department
         List<Program> programs = programRepository.findByDepartmentId(departmentId);
         List<UUID> programIds = programs.stream().map(Program::getId).toList();
+        log.info("Programs loaded for representative lookup: departmentId={}, programCount={}",
+                departmentId, programs.size());
 
-        if (programIds.isEmpty()) return Collections.emptyList();
+        if (programIds.isEmpty()) {
+            log.info("No programs found for representative lookup: departmentId={}", departmentId);
+            return Collections.emptyList();
+        }
 
         // 2. Find all active assignments for these programs
         List<RepresentativeAssignment> assignments = representativeRepository
                 .findByScopeIdInAndScopeTypeAndIsActiveTrue(programIds, ScopeType.PROGRAM);
+        log.info("Program representative assignments loaded: departmentId={}, assignmentCount={}",
+                departmentId, assignments.size());
 
         // 3. Collect User IDs for enrichment
         List<UUID> userIds = assignments.stream()
@@ -184,9 +219,13 @@ public class RepresentativeServiceImpl implements RepresentativeService {
 
         // 4. Batch Fetch Names and Emails
         Map<UUID, StudentDTO> profileMap = userServiceClient.getBulkUserDetails(userIds);
+        log.info("Program representative profile details loaded: requestedUsers={}, receivedProfiles={}",
+                userIds.size(), profileMap.size());
         UserBatchRequest batchRequest = new UserBatchRequest(userIds);
         Map<UUID, UserDetailDTO> authMap = authClient.getUserDetailsBatch(batchRequest)
                 .stream().collect(Collectors.toMap(UserDetailDTO::userId, d -> d));
+        log.info("Program representative auth details loaded: requestedUsers={}, receivedAuthDetails={}",
+                userIds.size(), authMap.size());
 
         // 5. Build the final list
         Map<UUID, Program> programMap = programs.stream()

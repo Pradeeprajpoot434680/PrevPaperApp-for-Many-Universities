@@ -21,6 +21,7 @@ import com.prevpaper.university.service.ProgramRepService;
 import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProgramRepServiceImpl implements ProgramRepService {
 
     private final AcademicSessionRepository sessionRepository;
@@ -41,6 +43,8 @@ public class ProgramRepServiceImpl implements ProgramRepService {
     @Override
     @Transactional
     public AcademicSession createSession(UUID programId,SessionRequest request) {
+        log.info("Create academic session request received: programId={}, startYear={}, endYear={}",
+                programId, request.getStartYear(), request.getEndYear());
 
         boolean exists = sessionRepository.existsByProgramIdAndStartYearAndEndYear(
                programId,
@@ -49,6 +53,8 @@ public class ProgramRepServiceImpl implements ProgramRepService {
         );
 
         if (exists) {
+            log.warn("Create academic session rejected: duplicate session, programId={}, startYear={}, endYear={}",
+                    programId, request.getStartYear(), request.getEndYear());
             throw new RuntimeException("Session " + request.getStartYear() + "-" +
                     request.getEndYear() + " already exists for this program.");
         }
@@ -60,12 +66,17 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                 .isActive(true)
                 .build();
 
-        return sessionRepository.save(session);
+        AcademicSession savedSession = sessionRepository.save(session);
+        log.info("Academic session created: sessionId={}, programId={}, startYear={}, endYear={}, active={}",
+                savedSession.getId(), programId, savedSession.getStartYear(), savedSession.getEndYear(), savedSession.getIsActive());
+        return savedSession;
     }
 
     @Override
     @Transactional
     public void assignSessionRep(AssignRepRequest request, UUID adminId) {
+        log.info("Assign session representative request received: userId={}, scopeId={}, adminId={}",
+                request.getUserId(), request.getScopeId(), adminId);
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                 .userId(request.getUserId())
                 .roles(Set.of(UserRole.SESSION_REP)) //
@@ -76,18 +87,24 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                 .assignedAt(LocalDateTime.now())
                 .build();
         representativeRepository.save(assignment);
+        log.info("Session representative assignment saved: assignmentId={}, userId={}, scopeId={}, adminId={}",
+                assignment.getId(), request.getUserId(), request.getScopeId(), adminId);
 
         int programRoleId = 5;
 
         emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),programRoleId,request.getScopeId());
+        log.info("Session representative role emit registered: userId={}, roleId={}, scopeId={}",
+                request.getUserId(), programRoleId, request.getScopeId());
 
     }
 
 
     @Override
     public List<SessionDashboardDTO> getProgramSessionsDashboard(UUID programId) {
+        log.info("Program sessions dashboard request received: programId={}", programId);
         // 1. Fetch all sessions for this program
         List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
+        log.info("Program sessions loaded for dashboard: programId={}, sessionCount={}", programId, sessions.size());
 
         return sessions.stream().map(session -> {
             // 2. Look for active Session Rep (CR) in the assignment table
@@ -106,6 +123,8 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                     UserInternalInfoDTO authInfo = authClient.getAuthUserInfo(studentId);
                     repEmail = (authInfo != null) ? authInfo.getEmail() : "N/A";
                 } catch (Exception e) {
+                    log.warn("Session dashboard representative lookup failed: programId={}, sessionId={}, repUserId={}, error={}",
+                            programId, session.getId(), studentId, e.getMessage());
                     repName = "Profile Pending";
                     repEmail = "N/A";
                 }
@@ -124,15 +143,23 @@ public class ProgramRepServiceImpl implements ProgramRepService {
 
     @Override
     public List<SessionRepDetailsDTO> getAllSessionRepsByProgram(UUID programId) {
+        log.info("All session representatives by program request received: programId={}", programId);
         // 1. Get all sessions for this program
         List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
         List<UUID> sessionIds = sessions.stream().map(AcademicSession::getId).toList();
+        log.info("Sessions loaded for representative lookup: programId={}, sessionCount={}",
+                programId, sessions.size());
 
-        if (sessionIds.isEmpty()) return Collections.emptyList();
+        if (sessionIds.isEmpty()) {
+            log.info("No sessions found for representative lookup: programId={}", programId);
+            return Collections.emptyList();
+        }
 
         // 2. Find all active assignments for these SESSION scopes
         List<RepresentativeAssignment> assignments = representativeRepository
                 .findByScopeIdInAndScopeTypeAndIsActiveTrue(sessionIds, ScopeType.SESSION);
+        log.info("Session representative assignments loaded: programId={}, assignmentCount={}",
+                programId, assignments.size());
 
         // 3. Collect User IDs for bulk enrichment
         List<UUID> userIds = assignments.stream()
@@ -142,10 +169,14 @@ public class ProgramRepServiceImpl implements ProgramRepService {
 
         // 4. Batch Fetch Names (User-Service) and Emails (Auth-Service)
         Map<UUID, StudentDTO> profileMap = userServiceClient.getBulkUserDetails(userIds);
+        log.info("Session representative profile details loaded: requestedUsers={}, receivedProfiles={}",
+                userIds.size(), profileMap.size());
 
         UserBatchRequest batchRequest = new UserBatchRequest(userIds);
         Map<UUID, UserDetailDTO> authMap = authClient.getUserDetailsBatch(batchRequest)
                 .stream().collect(Collectors.toMap(UserDetailDTO::userId, d -> d));
+        log.info("Session representative auth details loaded: requestedUsers={}, receivedAuthDetails={}",
+                userIds.size(), authMap.size());
 
         // 5. Map Sessions for O(1) lookup
         Map<UUID, AcademicSession> sessionMap = sessions.stream()

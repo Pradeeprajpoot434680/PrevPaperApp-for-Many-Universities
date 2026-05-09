@@ -61,15 +61,21 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         // 1. Handle Preflight
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            log.info("Gateway auth skipped for preflight request: requestId={}, method={}, path={}",
+                    getRequestId(request), request.getMethod(), request.getRequestURI());
             filterChain.doFilter(request, response);
             return;
         }
 
         String path = request.getRequestURI();
+        log.info("Gateway auth check started: requestId={}, method={}, path={}",
+                getRequestId(request), request.getMethod(), path);
 
         // 2. Handle Open Endpoints
         boolean isOpen = openEndpoints.stream().anyMatch(pattern -> pathMatcher.match(pattern, path));
         if (isOpen) {
+            log.info("Gateway auth skipped for open endpoint: requestId={}, method={}, path={}",
+                    getRequestId(request), request.getMethod(), path);
             filterChain.doFilter(request, response);
             return;
         }
@@ -77,6 +83,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         // 3. Extract Token
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            log.warn("Gateway auth rejected: requestId={}, method={}, path={}, reason=missing_authorization_header",
+                    getRequestId(request), request.getMethod(), path);
             handleError(response, "Missing Authorization Header", 401);
             return;
         }
@@ -85,6 +93,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         try {
             // 4. Validate Token (SAFE CHECK)
+            log.info("Gateway token validation requested: requestId={}, method={}, path={}",
+                    getRequestId(request), request.getMethod(), path);
             AuthResponse authInfo = authClient.validateToken(token);
 
             if (authInfo == null) {
@@ -92,20 +102,28 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             }
 
             if (!authInfo.isValid()) {
+                log.warn("Gateway auth rejected: requestId={}, method={}, path={}, reason=invalid_or_expired_token",
+                        getRequestId(request), request.getMethod(), path);
                 handleError(response, "Token invalid or expired", 401);
                 return;
             }
 
             // 5. Role & Scope Validation
             List<String> userRoles = authInfo.roles() != null ? authInfo.roles() : Collections.emptyList();
+            log.info("Gateway token validated: requestId={}, userId={}, roles={}, universityId={}, scopeId={}",
+                    getRequestId(request), authInfo.userId(), userRoles, authInfo.universityId(), authInfo.scopeId());
 
             for (Map.Entry<String, String> entry : roleRequirements.entrySet()) {
 
                 if (path.startsWith(entry.getKey())) {
                     String requiredRole = entry.getValue();
                     boolean isAuthorized = false;
+                    log.info("Gateway role check started: requestId={}, userId={}, path={}, requiredRole={}, userRoles={}",
+                            getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
 
                     if (!userRoles.contains(requiredRole)) {
+                        log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=missing_role, requiredRole={}, userRoles={}",
+                                getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
                         handleError(response, "Access Denied: Missing role " + requiredRole, 403);
                         return;
                     }
@@ -118,6 +136,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                     }
 
                     if (!isAuthorized) {
+                        log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=not_authorized_for_route, requiredRole={}, userRoles={}",
+                                getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
                         handleError(response, "Access Denied: Missing required role for " + path, 403);
                         return;
                     }
@@ -129,16 +149,22 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
                         if ("UNIVERSITY_ADMIN".equals(requiredRole)) {
                             if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.universityId())) {
+                                log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=university_scope_mismatch, targetId={}, userUniversityId={}",
+                                        getRequestId(request), authInfo.userId(), path, targetIdInUrl, authInfo.universityId());
                                 handleError(response, "University mismatch", 403);
                                 return;
                             }
                         } else if (List.of("DEPT_REP", "PROGRAM_REP", "SESSION_REP").contains(requiredRole)) {
                             if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.scopeId())) {
+                                log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=scope_mismatch, targetId={}, userScopeId={}",
+                                        getRequestId(request), authInfo.userId(), path, targetIdInUrl, authInfo.scopeId());
                                 handleError(response, "Scope mismatch", 403);
                                 return;
                             }
                         }
                     }
+                    log.info("Gateway authorization passed: requestId={}, userId={}, path={}, requiredRole={}, universityId={}, scopeId={}",
+                            getRequestId(request), authInfo.userId(), path, requiredRole, authInfo.universityId(), authInfo.scopeId());
                     break; // Exit loop once path is matched and validated
                 }
             }
@@ -150,6 +176,12 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             customHeaders.put("X-User-Email", authInfo.email() != null ? authInfo.email() : "");
             customHeaders.put("X-University-Id", authInfo.universityId() != null ? authInfo.universityId() : "");
             customHeaders.put("X-Scope-Id", authInfo.scopeId() != null ? authInfo.scopeId() : "");
+            request.setAttribute("gateway.userId", authInfo.userId());
+            request.setAttribute("gateway.roles", userRoles);
+            request.setAttribute("gateway.universityId", authInfo.universityId());
+            request.setAttribute("gateway.scopeId", authInfo.scopeId());
+            log.info("Gateway user context injected: requestId={}, userId={}, roles={}, universityId={}, scopeId={}",
+                    getRequestId(request), authInfo.userId(), userRoles, authInfo.universityId(), authInfo.scopeId());
 
             HttpServletRequest wrappedRequest = new HttpServletRequestWrapper(request) {
                 @Override
@@ -179,7 +211,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(wrappedRequest, response);
 
         } catch (Exception e) {
-            log.error("Gateway Auth Error: ", e); // This prints the stack trace to help you find the NPE
+            log.error("Gateway auth service error: requestId={}, method={}, path={}, error={}",
+                    getRequestId(request), request.getMethod(), path, e.getMessage(), e);
             handleError(response, "Security Service Unavailable: " + e.getMessage(), 503);
         }
     }
@@ -199,6 +232,11 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         // Inside AuthenticationFilter.java -> handleError method
         response.getWriter().write("{\"error\":\"" + message + "\"}");
         response.getWriter().flush();
+    }
+
+    private Object getRequestId(HttpServletRequest request) {
+        Object requestId = request.getAttribute("gateway.requestId");
+        return requestId == null ? "not-set" : requestId;
     }
 
     private String extractIdFromPath(String path, int index) {

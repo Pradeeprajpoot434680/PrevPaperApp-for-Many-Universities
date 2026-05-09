@@ -12,6 +12,7 @@ import com.prevpaper.university.service.DepartmentRepService;
 import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ import java.util.UUID;
 
 
 @Service
+@Slf4j
 
 public class DepartmentRepServiceImpl implements DepartmentRepService {
     private final ProgramRepository programRepository;
@@ -44,6 +46,8 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
     @Override
     @Transactional
     public Program createProgram(UUID departmentId, ProgramRequest request) {
+        log.info("Create program request received: departmentId={}, name={}, code={}, durationYears={}, totalSemesters={}",
+                departmentId, request.getName(), request.getCode(), request.getDurationYears(), request.getTotalSemesters());
         // 1. Basic Validations
         validateProgramRequest(request);
 
@@ -52,11 +56,15 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
 
         // 2. Duplicate Checks (Existing logic)
         if (programRepository.existsByCodeAndDepartmentId(code, departmentId)) {
+            log.warn("Create program rejected: duplicate code, departmentId={}, code={}, name={}",
+                    departmentId, code, name);
             throw new RuntimeException("Program code " + code + " already exists");
         }
 
         Department department = departmentRepository.findById(departmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found"));
+        log.info("Create program department resolved: departmentId={}, departmentName={}",
+                department.getId(), department.getName());
 
         // 3. Save the Program first
         Program program = Program.builder()
@@ -70,6 +78,8 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
                 .build();
 
         Program savedProgram = programRepository.save(program);
+        log.info("Program created: programId={}, departmentId={}, name={}, code={}, totalSemesters={}",
+                savedProgram.getId(), departmentId, savedProgram.getName(), savedProgram.getCode(), savedProgram.getTotalSemesters());
 
         // 4. AUTOMATICALLY CREATE SEMESTERS
         // If totalSemesters is 8, this loops 1 to 8
@@ -80,21 +90,32 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
                     .build();
             semesterRepository.save(semester);
         }
+        log.info("Program semesters initialized: programId={}, semesterCount={}",
+                savedProgram.getId(), savedProgram.getTotalSemesters());
 
         return savedProgram;
     }
 
     private void validateProgramRequest(ProgramRequest request) {
-        if (request.getName() == null || request.getName().isBlank())
+        if (request.getName() == null || request.getName().isBlank()) {
+            log.warn("Create program rejected: missing name, code={}", request.getCode());
             throw new IllegalArgumentException("Program name is required");
-        if (request.getCode() == null || request.getCode().isBlank())
+        }
+        if (request.getCode() == null || request.getCode().isBlank()) {
+            log.warn("Create program rejected: missing code, name={}", request.getName());
             throw new IllegalArgumentException("Program code is required");
-        if (request.getDurationYears() == null || request.getDurationYears() <= 0)
+        }
+        if (request.getDurationYears() == null || request.getDurationYears() <= 0) {
+            log.warn("Create program rejected: invalid duration, name={}, code={}, durationYears={}",
+                    request.getName(), request.getCode(), request.getDurationYears());
             throw new IllegalArgumentException("Valid duration in years is required");
+        }
     }
     @Override
     @Transactional
     public void assignProgramRep(AssignRepRequest request, UUID adminId) {
+        log.info("Assign program representative request received: userId={}, scopeId={}, adminId={}",
+                request.getUserId(), request.getScopeId(), adminId);
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                 .userId(request.getUserId())
                 .roles(Set.of(UserRole.PROGRAM_REP)) //
@@ -105,22 +126,30 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
                 .assignedAt(LocalDateTime.now())
                 .build();
         representativeRepository.save(assignment);
+        log.info("Program representative assignment saved: assignmentId={}, userId={}, scopeId={}, adminId={}",
+                assignment.getId(), request.getUserId(), request.getScopeId(), adminId);
 
         int DepartmentRoleId = 4;
         emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),DepartmentRoleId,request.getScopeId());
+        log.info("Program representative role emit registered: userId={}, roleId={}, scopeId={}",
+                request.getUserId(), DepartmentRoleId, request.getScopeId());
 
 
     }
 
     @Override
     public List<DepartmentTinyDTO> findDepartmentsByUniversityId(UUID universityId) {
+        log.info("Find department summaries by university request received: universityId={}", universityId);
         // 1. Verify university exists
         if (!universityRepository.existsById(universityId)) {
+            log.warn("Find department summaries rejected: university not found, universityId={}", universityId);
             throw new ResourceNotFoundException("University not found");
         }
 
         // 2. Fetch entities
         List<Department> departments = departmentRepository.findByUniversityId(universityId);
+        log.info("Department summaries loaded: universityId={}, departmentCount={}",
+                universityId, departments.size());
 
         // 3. Map to DTO
         return departments.stream()

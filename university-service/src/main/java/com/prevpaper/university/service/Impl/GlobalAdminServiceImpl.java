@@ -17,6 +17,7 @@ import com.prevpaper.university.service.GlobalAdminService;
 import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
@@ -26,6 +27,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class GlobalAdminServiceImpl implements GlobalAdminService {
 
     private final UniversityRepository universityRepository;
@@ -47,12 +49,18 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
     @Override
     @Transactional
     public University createUniversity(UniversityRequest request) {
+        log.info("Create university request received: name={}, code={}, city={}, state={}, country={}",
+                request.getName(), request.getCode(), request.getCity(), request.getState(), request.getCountry());
         // 1. Validation checks
         if (universityRepository.existsByName(request.getName())) {
+            log.warn("Create university rejected: duplicate name, name={}, code={}",
+                    request.getName(), request.getCode());
             throw new RuntimeException("University with name '" + request.getName() + "' already exists");
         }
 
         if (universityRepository.existsByCode(request.getCode())) {
+            log.warn("Create university rejected: duplicate code, name={}, code={}",
+                    request.getName(), request.getCode());
             throw new RuntimeException("University code '" + request.getCode() + "' is already in use");
         }
 
@@ -76,7 +84,10 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .active(true)
                 .build();
 
-        return universityRepository.save(university);
+        University savedUniversity = universityRepository.save(university);
+        log.info("University created: universityId={}, name={}, code={}, active={}",
+                savedUniversity.getId(), savedUniversity.getName(), savedUniversity.getCode(), savedUniversity.getActive());
+        return savedUniversity;
     }
     private String generateSlug(String name) {
         return name.toLowerCase()
@@ -87,6 +98,8 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
     @Override
 
     public void assignUniversityRep(AssignRepRequest request, UUID adminId) {
+        log.info("Assign university representative request received: userId={}, scopeId={}, adminId={}, expiresAt={}",
+                request.getUserId(), request.getScopeId(), adminId, request.getExpiresAt());
 
 
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
@@ -100,14 +113,20 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .build();
 
         representativeRepository.save(assignment);
+        log.info("University representative assignment saved: assignmentId={}, userId={}, scopeId={}, adminId={}",
+                assignment.getId(), request.getUserId(), request.getScopeId(), adminId);
         int universityRoleId = 2;
         emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),universityRoleId,request.getScopeId());
+        log.info("University representative role emit registered: userId={}, roleId={}, scopeId={}",
+                request.getUserId(), universityRoleId, request.getScopeId());
     }
 
 
     @Override
     public List<UniversityDashboardDTO> getUniversityDashboard() {
+        log.info("University dashboard request received");
         List<University> universities = universityRepository.findAll();
+        log.info("University dashboard base data loaded: universityCount={}", universities.size());
 
         return universities.stream().map(uni -> {
             Optional<RepresentativeAssignment> assignment = representativeRepository
@@ -121,6 +140,8 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                     repName = userServiceClient.getStudentName(assignment.get().getUserId());
                 } catch (Exception e) {
                     // Fallback if User-Service is unreachable or returns an error
+                    log.warn("University dashboard representative profile lookup failed: universityId={}, repUserId={}, error={}",
+                            uni.getId(), assignment.get().getUserId(), e.getMessage());
                     repName = "User Assigned (No Profile)";
                 }
             }
@@ -137,19 +158,23 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
 
     @Override
     public GlobalStatsDTO getGlobalStats() {
+        log.info("Global stats request received");
         long totalUnis = universityRepository.count();
 
         // This counts all active reps (University, Dept, Program, etc.)
         long totalReps = representativeRepository.countByIsActiveTrue();
+        log.info("Global stats calculated: totalUniversities={}, activeRepresentatives={}", totalUnis, totalReps);
 
         return new GlobalStatsDTO(totalUnis, totalReps);
     }
 
     @Override
     public List<RepresentativeDetailsDTO> getAllUniversityReps() {
+        log.info("All university representatives request received");
         // 1. Fetch all assignments for UNIVERSITIES
         List<RepresentativeAssignment> assignments = representativeRepository
                 .findByScopeType(ScopeType.UNIVERSITY);
+        log.info("University representative assignments loaded: assignmentCount={}", assignments.size());
 
         // 2. Get unique User IDs
         List<UUID> userIds = assignments.stream()
@@ -157,15 +182,22 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .distinct()
                 .toList();
 
-        if (userIds.isEmpty()) return Collections.emptyList();
+        if (userIds.isEmpty()) {
+            log.info("No university representative users found");
+            return Collections.emptyList();
+        }
 
         // 3. Parallel/Bulk Fetch from User Service (Names) and Auth Service (Emails)
         // Fetching Profile Names
         Map<UUID, StudentDTO> userProfileMap = userServiceClient.getBulkUserDetails(userIds);
+        log.info("University representative profile details loaded: requestedUsers={}, receivedProfiles={}",
+                userIds.size(), userProfileMap.size());
 
         // Fetching Auth Details (Emails)
         UserBatchRequest batchRequest = new UserBatchRequest(userIds);
         List<UserDetailDTO> authDetailsList = authClient.getUserDetailsBatch(batchRequest);
+        log.info("University representative auth details loaded: requestedUsers={}, receivedAuthDetails={}",
+                userIds.size(), authDetailsList.size());
 
         // Map Auth Details by ID for quick lookup
         Map<UUID, UserDetailDTO> authMap = authDetailsList.stream()

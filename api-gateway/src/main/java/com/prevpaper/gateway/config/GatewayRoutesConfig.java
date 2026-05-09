@@ -1,5 +1,6 @@
 package com.prevpaper.gateway.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions;
@@ -18,6 +19,7 @@ import java.util.List;
 import static org.springframework.cloud.gateway.server.mvc.filter.LoadBalancerFilterFunctions.lb;
 
 @Configuration
+@Slf4j
 public class GatewayRoutesConfig {
 
     @Bean
@@ -35,7 +37,8 @@ public class GatewayRoutesConfig {
                                 .route(RequestPredicates.all(), HandlerFunctions.http())
                                 .filter(lb("UNIVERSITY-SERVICE")))
                 .before(request -> {
-                    System.out.println("Routing request to UNIVERSITY-SERVICE: " + request.path());
+                    log.info("Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method={}, path={}",
+                            request.method(), request.path());
                     return request;
                 })
                 .build();
@@ -46,6 +49,11 @@ public class GatewayRoutesConfig {
         return GatewayRouterFunctions.route("auth-service")
                 .route(RequestPredicates.path("/api/v1/auth/**"), HandlerFunctions.http())
                 .filter(lb("AUTH-SERVICE"))
+                .before(request -> {
+                    log.info("Gateway route selected: routeTarget=AUTH-SERVICE, method={}, path={}",
+                            request.method(), request.path());
+                    return request;
+                })
                 .build();
     }
 
@@ -54,6 +62,11 @@ public class GatewayRoutesConfig {
         return GatewayRouterFunctions.route("notification-service")
                 .route(RequestPredicates.path("/api/v1/notifications/**"), HandlerFunctions.http())
                 .filter(lb("NOTIFICATION-SERVICE"))
+                .before(request -> {
+                    log.info("Gateway route selected: routeTarget=NOTIFICATION-SERVICE, method={}, path={}",
+                            request.method(), request.path());
+                    return request;
+                })
                 .build();
     }
 
@@ -62,6 +75,11 @@ public class GatewayRoutesConfig {
         return GatewayRouterFunctions.route("user-service")
                 .route(RequestPredicates.path("/api/v1/users/**"), HandlerFunctions.http())
                 .filter(lb("USER-SERVICE"))
+                .before(request -> {
+                    log.info("Gateway route selected: routeTarget=USER-SERVICE, method={}, path={}",
+                            request.method(), request.path());
+                    return request;
+                })
                 .build();
     }
 
@@ -70,6 +88,11 @@ public class GatewayRoutesConfig {
         return GatewayRouterFunctions.route("content-service")
                 .route(RequestPredicates.path("/api/v1/content/**"), HandlerFunctions.http())
                 .filter(lb("CONTENT-SERVICE"))
+                .before(request -> {
+                    log.info("Gateway route selected: routeTarget=CONTENT-SERVICE, method={}, path={}",
+                            request.method(), request.path());
+                    return request;
+                })
                 .build();
     }
 

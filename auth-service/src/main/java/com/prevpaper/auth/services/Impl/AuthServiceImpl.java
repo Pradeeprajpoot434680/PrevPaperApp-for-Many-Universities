@@ -31,6 +31,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,7 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
@@ -78,13 +80,19 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public ApiResponse<Map<String, String>> registerUser(SignupRequest request, HttpServletRequest req) {
+        log.info("Signup request received: email={}, phone={}, universityId={}, path={}, clientIp={}",
+                request.getEmail(), request.getPhoneNumber(), request.getUniversityId(), req.getRequestURI(), req.getRemoteAddr());
 
         if ((request.getEmail() == null || request.getEmail().isBlank()) &&
                 (request.getPhoneNumber() == null || request.getPhoneNumber().isBlank())) {
+            log.warn("Signup rejected: missing email and phone, universityId={}, path={}, clientIp={}",
+                    request.getUniversityId(), req.getRequestURI(), req.getRemoteAddr());
             return new ApiResponse<>(false, "Email or Phone Number is required", null, System.currentTimeMillis());
         }
 
         if (request.getEmail() != null && userRepository.existsByEmail(request.getEmail())) {
+            log.warn("Signup rejected: email already exists, email={}, universityId={}, path={}, clientIp={}",
+                    request.getEmail(), request.getUniversityId(), req.getRequestURI(), req.getRemoteAddr());
             return new ApiResponse<>(false, "Email already exists", null, System.currentTimeMillis());
         }
 
@@ -92,22 +100,32 @@ public class AuthServiceImpl implements AuthService {
         if (request.getPhoneNumber() != null) {
             cleanPhone = request.getPhoneNumber().replaceAll("\\s+", "");
             if (userRepository.existsByPhoneNumber(cleanPhone)) {
+                log.warn("Signup rejected: phone already exists, phone={}, universityId={}, path={}, clientIp={}",
+                        cleanPhone, request.getUniversityId(), req.getRequestURI(), req.getRemoteAddr());
                 return new ApiResponse<>(false, "Phone number already exists", null, System.currentTimeMillis());
             }
         }
 
         if (request.getUniversityId() == null) {
+            log.warn("Signup rejected: universityId missing, email={}, phone={}, path={}, clientIp={}",
+                    request.getEmail(), cleanPhone, req.getRequestURI(), req.getRemoteAddr());
             return new ApiResponse<>(false, "University selection is mandatory.", null, System.currentTimeMillis());
         }
 
         // 2. REMOTE CALL via Feign
         try {
+            log.info("Validating university for signup: email={}, phone={}, universityId={}",
+                    request.getEmail(), cleanPhone, request.getUniversityId());
             Boolean exists = universityClient.checkUniversityExists(request.getUniversityId());
             if (exists == null || !exists) {
+                log.warn("Signup rejected: university validation failed, email={}, phone={}, universityId={}",
+                        request.getEmail(), cleanPhone, request.getUniversityId());
                 return new ApiResponse<>(false, "Invalid University: This institution is not registered.", null, System.currentTimeMillis());
             }
         } catch (Exception e) {
             // Handle case where University Service is down
+            log.error("Signup blocked: university validation service error, email={}, phone={}, universityId={}, error={}",
+                    request.getEmail(), cleanPhone, request.getUniversityId(), e.getMessage(), e);
             return new ApiResponse<>(false, "University validation failed. Please try again later.", null, System.currentTimeMillis());
         }
 
@@ -126,6 +144,8 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         userRepository.save(user);
+        log.info("User created with pending status: userId={}, email={}, phone={}, universityId={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber(), user.getUniversityId());
 
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
@@ -160,6 +180,8 @@ public class AuthServiceImpl implements AuthService {
             );
 
             otpMessage = "Your verification OTP is " + otp + ". It expires in 10 minutes.";
+            log.info("Email verification token stored for signup: userId={}, email={}, tokenType={}",
+                    user.getUserId(), user.getEmail(), TokenType.EMAIL_VERIFY);
         } else {
             otpMessage = "OTP sent via SMS";
         }
@@ -175,6 +197,8 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         sendNotification.sendOTP(notificationRequest);
+        log.info("Signup OTP notification requested: userId={}, recipient={}, channel={}, eventType={}",
+                user.getUserId(), recipient, channelType, NotificationEventType.OTP_SENT);
 
         sessionRepository.save(
                 Session.builder()
@@ -184,12 +208,15 @@ public class AuthServiceImpl implements AuthService {
                         .isRevoked(false)
                         .build()
         );
+        log.info("Signup session created: userId={}, expiresInMs={}", user.getUserId(), refreshExpiration);
 
         Map<String, String> tokens = new HashMap<>();
         tokens.put("Success", "true");
 //        tokens.put("refreshToken", refreshToken);
 
         auditService.logAction(user, "SIGNUP", user.getUserId().toString(), req);
+        log.info("Signup completed: userId={}, email={}, phone={}, universityId={}, status={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber(), user.getUniversityId(), user.getAccountStatus());
 
         return new ApiResponse<>(true, "User registered successfully", tokens, System.currentTimeMillis());
     }
@@ -199,6 +226,8 @@ public class AuthServiceImpl implements AuthService {
                                                       HttpServletRequest req,
                                                       HttpServletResponse response) {
         String id = loginRequest.getIdentifier();
+        log.info("Login request received: identifier={}, path={}, clientIp={}",
+                id, req.getRequestURI(), req.getRemoteAddr());
 
         // 1. Generic Error Message to prevent enumeration
         String genericError = "Invalid email/phone or password";
@@ -210,6 +239,8 @@ public class AuthServiceImpl implements AuthService {
         if (userOpt.isEmpty()) {
             // User not signed up
             // Optional: Add slight delay or dummy password hash check to prevent timing attacks
+            log.warn("Login rejected: user not registered, identifier={}, path={}, clientIp={}",
+                    id, req.getRequestURI(), req.getRemoteAddr());
             return new ApiResponse<>(false, "User not registered. Please sign up first.", null, System.currentTimeMillis());
         }
 
@@ -218,17 +249,23 @@ public class AuthServiceImpl implements AuthService {
 
         // 3. Status Check (Existing)
         if (user.getAccountStatus() == AccountStatus.BANNED ) {
+            log.warn("Login rejected: banned account, userId={}, email={}, phone={}, status={}",
+                    user.getUserId(), user.getEmail(), user.getPhoneNumber(), user.getAccountStatus());
             return new ApiResponse<>(false, "Account is " + user.getAccountStatus(), null, System.currentTimeMillis());
         }
 
         // Special handling for PENDING (optional: allow login but redirect to OTP page)
         if (user.getAccountStatus() == AccountStatus.PENDING) {
+            log.warn("Login rejected: account pending verification, userId={}, email={}, phone={}, status={}",
+                    user.getUserId(), user.getEmail(), user.getPhoneNumber(), user.getAccountStatus());
             return new ApiResponse<>(false, "Please verify your account first", null, System.currentTimeMillis());
         }
 
         // 4. Password Check
         if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash())) {
             // Update failed attempts here if you implement locking!
+            log.warn("Login rejected: invalid password, userId={}, email={}, phone={}, path={}, clientIp={}",
+                    user.getUserId(), user.getEmail(), user.getPhoneNumber(), req.getRequestURI(), req.getRemoteAddr());
             return new ApiResponse<>(false, genericError, null, System.currentTimeMillis());
         }
 
@@ -246,6 +283,8 @@ public class AuthServiceImpl implements AuthService {
                         .isRevoked(false)
                         .build()
         );
+        log.info("Login session created: userId={}, email={}, expiresInMs={}",
+                user.getUserId(), user.getEmail(), refreshExpiration);
 
 //        // Set Refresh Token in Cookie
 //        Cookie cookie = new Cookie("refreshToken", refreshToken);
@@ -273,6 +312,8 @@ public class AuthServiceImpl implements AuthService {
 
         // Audit log
         auditService.logAction(user, "LOGIN", user.getUserId().toString(), req);
+        log.info("Login completed: userId={}, email={}, universityId={}, roles={}",
+                user.getUserId(), user.getEmail(), user.getUniversityId(), rolesString);
 
         return new ApiResponse<>(true, "Login successful", responseData, System.currentTimeMillis());
     }
@@ -283,10 +324,14 @@ public class AuthServiceImpl implements AuthService {
         String recipient = request.getRecipient().trim();
         String otp = request.getOtp().trim();
         TokenType type = request.getType(); // EMAIL_VERIFY or PASSWORD_RESET
+        log.info("OTP verification request received: recipient={}, tokenType={}, path={}, clientIp={}",
+                recipient, type, httpRequest.getRequestURI(), httpRequest.getRemoteAddr());
 
         User user = userRepository.findByEmail(recipient)
                 .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        log.info("OTP verification user resolved: userId={}, email={}, phone={}, tokenType={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber(), type);
 
         boolean isVerified = false;
 
@@ -301,6 +346,8 @@ public class AuthServiceImpl implements AuthService {
                     ));
 
             if (otpToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+                log.warn("OTP verification rejected: token expired, userId={}, recipient={}, tokenType={}, expiryDate={}",
+                        user.getUserId(), recipient, type, otpToken.getExpiryDate());
                 verificationTokenRepository.delete(otpToken);
                 throw new InvalidOtpException(
                         type == TokenType.PASSWORD_RESET
@@ -310,6 +357,8 @@ public class AuthServiceImpl implements AuthService {
             }
 
             if (!passwordEncoder.matches(otp, otpToken.getToken())) {
+                log.warn("OTP verification rejected: invalid email OTP, userId={}, recipient={}, tokenType={}",
+                        user.getUserId(), recipient, type);
                 throw new InvalidOtpException(
                         type == TokenType.PASSWORD_RESET
                                 ? "Invalid Password Reset OTP"
@@ -323,11 +372,15 @@ public class AuthServiceImpl implements AuthService {
                 // Just mark OTP as verified
                 otpToken.setVerified(true);
                 verificationTokenRepository.save(otpToken);
+                log.info("Password reset OTP marked verified: userId={}, recipient={}, tokenType={}",
+                        user.getUserId(), recipient, type);
             } else {
                 // EMAIL_VERIFY → activate user
                 user.setAccountStatus(AccountStatus.ACTIVE);
                 userRepository.save(user);
                 verificationTokenRepository.delete(otpToken);
+                log.info("Email OTP verified and account activated: userId={}, email={}, status={}",
+                        user.getUserId(), user.getEmail(), user.getAccountStatus());
             }
 
         } else {
@@ -343,6 +396,8 @@ public class AuthServiceImpl implements AuthService {
                                 .create();
 
                 if (!"approved".equals(check.getStatus())) {
+                    log.warn("OTP verification rejected by Twilio: userId={}, recipient={}, tokenType={}, twilioStatus={}",
+                            user.getUserId(), formattedPhone, type, check.getStatus());
                     throw new InvalidOtpException(
                             type == TokenType.PASSWORD_RESET
                                     ? "Invalid or expired SMS OTP for password reset"
@@ -355,11 +410,17 @@ public class AuthServiceImpl implements AuthService {
                 if (type == TokenType.EMAIL_VERIFY) {
                     user.setAccountStatus(AccountStatus.ACTIVE);
                     userRepository.save(user);
+                    log.info("SMS OTP verified and account activated: userId={}, phone={}, status={}",
+                            user.getUserId(), user.getPhoneNumber(), user.getAccountStatus());
                 } else {
                     // Twilio OTP for password reset is automatically verified, nothing else to do
+                    log.info("SMS OTP verified for password reset: userId={}, phone={}",
+                            user.getUserId(), user.getPhoneNumber());
                 }
 
             } catch (Exception e) {
+                log.error("OTP verification failed during Twilio check: userId={}, recipient={}, tokenType={}, error={}",
+                        user.getUserId(), recipient, type, e.getMessage(), e);
                 throw new InvalidOtpException("Twilio verification failed: " + e.getMessage());
             }
         }
@@ -380,6 +441,8 @@ public class AuthServiceImpl implements AuthService {
 
             return ApiResponse.success("Account activated successfully", responseMap);
         } else if (isVerified && type == TokenType.PASSWORD_RESET) {
+            log.info("OTP verification completed for password reset: userId={}, recipient={}",
+                    user.getUserId(), recipient);
             return ApiResponse.success("User verified for password reset", Map.of("verified", "true"));
         }
 
@@ -390,11 +453,15 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public ApiResponse<Map<String, String>> forgotPassword(ForgotPasswordRequest request, HttpServletRequest httpRequest) {
         String recipient = request.getRecipient().trim();
+        log.info("Forgot password request received: recipient={}, path={}, clientIp={}",
+                recipient, httpRequest.getRequestURI(), httpRequest.getRemoteAddr());
         System.out.println(recipient);
 
         User user = userRepository.findByEmail(recipient)
                 .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        log.info("Forgot password user resolved: userId={}, email={}, phone={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber());
 
         System.out.println(user.getUsername());
 
@@ -402,6 +469,8 @@ public class AuthServiceImpl implements AuthService {
 
         if (channelType == NotificationType.EMAIL) {
             verificationTokenRepository.deleteByUserAndType(user, TokenType.PASSWORD_RESET);
+            log.info("Existing password reset email tokens cleared: userId={}, recipient={}",
+                    user.getUserId(), recipient);
         }
 
         String otp = GererateOtp.getOTP();
@@ -418,6 +487,8 @@ public class AuthServiceImpl implements AuthService {
 
         System.out.println("Starting sending...");
         sendNotification.sendOTP(notificationRequest);
+        log.info("Password reset OTP notification requested: userId={}, recipient={}, channel={}, eventType={}",
+                user.getUserId(), recipient, channelType, NotificationEventType.OTP_SENT);
         System.out.println("Sent");
 
         if (channelType == NotificationType.EMAIL) {
@@ -430,6 +501,8 @@ public class AuthServiceImpl implements AuthService {
                             .expiryDate(LocalDateTime.now().plusMinutes(10))
                             .build()
             );
+            log.info("Password reset token stored: userId={}, recipient={}, tokenType={}",
+                    user.getUserId(), recipient, TokenType.PASSWORD_RESET);
         }
 
         System.out.println("Saved in Verification Repo");
@@ -447,15 +520,21 @@ public class AuthServiceImpl implements AuthService {
     public ApiResponse<Map<String, String>> resetPassword(
             ResetPasswordRequest request,
             HttpServletRequest httpRequest) {
+        log.info("Reset password request received: recipient={}, path={}, clientIp={}",
+                request.getRecipient(), httpRequest.getRequestURI(), httpRequest.getRemoteAddr());
 
         // 1️⃣ Validate input
         if(request.getRecipient() == null || request.getRecipient().isBlank() ||
                 request.getNewPassword() == null || request.getNewPassword().isBlank() ||
                 request.getConfirmPassword() == null || request.getConfirmPassword().isBlank()) {
+            log.warn("Reset password rejected: missing required field, recipient={}, path={}, clientIp={}",
+                    request.getRecipient(), httpRequest.getRequestURI(), httpRequest.getRemoteAddr());
             throw new EmptyInputBoxException("All fields are required");
         }
 
         if(!request.getNewPassword().equals(request.getConfirmPassword())){
+            log.warn("Reset password rejected: passwords do not match, recipient={}, path={}, clientIp={}",
+                    request.getRecipient(), httpRequest.getRequestURI(), httpRequest.getRemoteAddr());
             throw new WrongCredentialsException("Passwords do not match");
         }
 
@@ -465,18 +544,24 @@ public class AuthServiceImpl implements AuthService {
         User user = userRepository.findByEmail(recipient)
                 .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        log.info("Reset password user resolved: userId={}, email={}, phone={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber());
 
         boolean canReset = verificationTokenRepository.existsByUserAndTypeAndVerified(user, TokenType.PASSWORD_RESET, true);
         if (!canReset) {
+            log.warn("Reset password rejected: password reset OTP not verified, userId={}, recipient={}",
+                    user.getUserId(), recipient);
             throw new InvalidOtpException("User not verified for password reset");
         }
 
         // 4️⃣ Update password
         user.setPasswordHash(passwordEncoder.encode(request.getNewPassword()));
         userRepository.save(user);
+        log.info("Password updated: userId={}, recipient={}", user.getUserId(), recipient);
 
         // 5️⃣ Clean up OTP token
         verificationTokenRepository.deleteByUserAndType(user, TokenType.PASSWORD_RESET);
+        log.info("Password reset token cleared: userId={}, recipient={}", user.getUserId(), recipient);
 
         return ApiResponse.success(
                 "Password reset successfully",
@@ -488,6 +573,8 @@ public class AuthServiceImpl implements AuthService {
     @Override
     // Update your AuthService interface and this implementation to accept HttpServletRequest/Response
     public ApiResponse<Map<String, String>> handleRefresh(HttpServletRequest request, HttpServletResponse response) {
+        log.info("Refresh token request received: path={}, clientIp={}",
+                request.getRequestURI(), request.getRemoteAddr());
         // 1. Get token from cookies
         String refreshToken = null;
         if (request.getCookies() != null) {
@@ -499,12 +586,15 @@ public class AuthServiceImpl implements AuthService {
         }
 
         if (refreshToken == null || jwtService.isTokenExpired(refreshToken)) {
+            log.warn("Refresh token rejected: missingOrExpired={}, path={}, clientIp={}",
+                    refreshToken == null ? "missing" : "expired", request.getRequestURI(), request.getRemoteAddr());
             throw new RuntimeException("Refresh token missing or expired");
         }
 
         // 2. Find User and generate new pair
         String email = jwtService.extractUsername(refreshToken);
         User user = userRepository.findByEmail(email).orElseThrow();
+        log.info("Refresh token user resolved: userId={}, email={}", user.getUserId(), user.getEmail());
 
         String newAccessToken = jwtService.generateAccessToken(user);
         String newRefreshToken = jwtService.generateRefreshToken(user);
@@ -514,6 +604,7 @@ public class AuthServiceImpl implements AuthService {
         cookie.setHttpOnly(true);
         cookie.setPath("/");
         response.addCookie(cookie);
+        log.info("Token refreshed: userId={}, email={}", user.getUserId(), user.getEmail());
 
         return ApiResponse.success("Token refreshed", Map.of("accessToken", newAccessToken));
 
@@ -526,14 +617,19 @@ public class AuthServiceImpl implements AuthService {
     public ApiResponse<Map<String, String>> resendOTP(ResendOtpRequest request) {
         String recipient = request.getRecipient().trim();
         TokenType type = request.getType(); // EMAIL_VERIFY or PASSWORD_RESET
+        log.info("Resend OTP request received: recipient={}, tokenType={}", recipient, type);
 
         // 1. Find User
         User user = userRepository.findByEmail(recipient)
                 .or(() -> userRepository.findByPhoneNumber(recipient.replaceAll("\\s+", "")))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        log.info("Resend OTP user resolved: userId={}, email={}, phone={}, tokenType={}",
+                user.getUserId(), user.getEmail(), user.getPhoneNumber(), type);
 
         // 2. Safety Check: If account is already active and this is an EMAIL_VERIFY request
         if (type == TokenType.EMAIL_VERIFY && user.getAccountStatus() == AccountStatus.ACTIVE) {
+            log.warn("Resend OTP rejected: account already active, userId={}, recipient={}, tokenType={}, status={}",
+                    user.getUserId(), recipient, type, user.getAccountStatus());
             return new ApiResponse<>(false, "Account is already verified. Please login.", null, System.currentTimeMillis());
         }
 
@@ -546,6 +642,8 @@ public class AuthServiceImpl implements AuthService {
 
             // 3. EMAIL LOGIC: Clean up old tokens first
             verificationTokenRepository.deleteByUserAndType(user, type);
+            log.info("Existing OTP tokens cleared before resend: userId={}, recipient={}, tokenType={}",
+                    user.getUserId(), recipient, type);
 
             // 4. Generate New OTP
             String otp = GererateOtp.getOTP();
@@ -562,10 +660,14 @@ public class AuthServiceImpl implements AuthService {
             );
 
             otpMessage = "Your new verification OTP is " + otp + ". It expires in 10 minutes.";
+            log.info("New email OTP token stored: userId={}, recipient={}, tokenType={}",
+                    user.getUserId(), recipient, type);
         } else {
             // 5. SMS LOGIC: Twilio handles the generation/storage internally
             channelType = NotificationType.SMS;
             otpMessage = "A new OTP has been sent via SMS";
+            log.info("Resend OTP will use SMS provider storage: userId={}, recipient={}, tokenType={}",
+                    user.getUserId(), recipient, type);
         }
 
         // 6. Send Notification (Common logic for both)
@@ -579,6 +681,8 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         sendNotification.sendOTP(notificationRequest);
+        log.info("Resend OTP notification requested: userId={}, recipient={}, channel={}, tokenType={}, eventType={}",
+                user.getUserId(), recipient, channelType, type, NotificationEventType.OTP_SENT);
 
         return new ApiResponse<>(true, "Verification code resent successfully!",
                 Map.of("recipient", recipient), System.currentTimeMillis());

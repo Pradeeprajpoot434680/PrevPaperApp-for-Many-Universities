@@ -1,0 +1,163 @@
+2026-05-10 01:13:41.266 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-05-10 01:13:41.371 INFO  [main] c.p.c.ContentServiceApplication - Starting ContentServiceApplication using Java 17.0.18 with PID 114787 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/content-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-05-10 01:13:41.373 INFO  [main] c.p.c.ContentServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-10 01:13:42.443 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-10 01:13:42.549 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 1 JPA repository interface.
+2026-05-10 01:13:43.172 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=c7e81c09-9ce1-30da-976f-2b7e5b1adf23
+2026-05-10 01:13:43.600 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8090 (http)
+2026-05-10 01:13:43.610 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2026-05-10 01:13:43.612 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-10 01:13:43.612 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-05-10 01:13:43.660 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2208 ms
+2026-05-10 01:13:44.309 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-10 01:13:44.372 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-05-10 01:13:44.888 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-10 01:13:44.930 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-10 01:13:45.161 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@148f94dc
+2026-05-10 01:13:45.163 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-10 01:13:45.190 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-10 01:13:45.208 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/content_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.13
+	Default catalog/schema: content_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-10 01:13:46.105 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-10 01:13:46.160 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-10 01:13:46.245 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-10 01:13:47.392 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-10 01:13:47.510 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-05-10 01:13:47.632 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-05-10 01:13:48.610 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-05-10 01:13:48.645 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-10 01:13:48.659 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-10 01:13:48.736 INFO  [main] o.a.k.common.config.AbstractConfig - AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = CONTENT-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-05-10 01:13:48.792 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 4.1.1
+2026-05-10 01:13:48.792 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: be816b82d25370ce
+2026-05-10 01:13:48.792 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1778355828790
+2026-05-10 01:13:49.177 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-05-10 01:13:49.177 INFO  [main] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-05-10 01:13:49.178 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-05-10 01:13:49.179 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for CONTENT-SERVICE-admin-0 unregistered
+2026-05-10 01:13:49.184 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-05-10 01:13:49.185 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-05-10 01:13:49.185 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-05-10 01:13:49.201 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-10 01:13:49.224 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-10 01:13:49.227 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-10 01:13:49.236 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-10 01:13:49.236 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-10 01:13:49.236 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-10 01:13:49.236 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-10 01:13:49.237 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-10 01:13:49.237 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-10 01:13:49.237 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-10 01:13:49.573 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-10 01:13:49.577 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-10 01:13:49.580 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-10 01:13:49.582 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778355829581 with initial instances count: 3
+2026-05-10 01:13:49.587 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONTENT-SERVICE with eureka with status UP
+2026-05-10 01:13:49.587 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778355829587, current=UP, previous=STARTING]
+2026-05-10 01:13:49.589 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.52.168.181:CONTENT-SERVICE:8090: registering service...
+2026-05-10 01:13:49.590 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2026-05-10 01:13:49.605 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8090 (http) with context path '/'
+2026-05-10 01:13:49.607 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2026-05-10 01:13:49.631 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.52.168.181:CONTENT-SERVICE:8090 - registration status: 204
+2026-05-10 01:13:49.659 INFO  [main] c.p.c.ContentServiceApplication - Started ContentServiceApplication in 9.11 seconds (process running for 9.758)

@@ -13,6 +13,7 @@ import com.prevpaper.university.entities.RepresentativeAssignment;
 import com.prevpaper.university.repository.*;
 import com.prevpaper.university.service.UniversityDiscoveryService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -23,6 +24,7 @@ import static com.prevpaper.comman.enums.ScopeType.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryService {
 
     private final UniversityRepository universityRepository;
@@ -37,6 +39,7 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
     @Override
     public List<UniversityTeamMemberDTO> getUniversityTeam(UUID universityId) {
+        log.info("University team request received: universityId={}", universityId);
 
         // 1. Fetch academic hierarchy
         List<Department> departments = departmentRepository.findByUniversityId(universityId);
@@ -53,6 +56,8 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
         List<UUID> sessionIds = sessions.stream()
                 .map(AcademicSession::getId)
                 .toList();
+        log.info("University team academic hierarchy loaded: universityId={}, departmentCount={}, programCount={}, sessionCount={}",
+                universityId, departments.size(), programs.size(), sessions.size());
 
         // 2. Combine all scope IDs
         List<UUID> allScopeIds = new ArrayList<>();
@@ -64,6 +69,8 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
         // 3. Fetch assignments
         List<RepresentativeAssignment> assignments =
                 representativeRepository.findAllByScopeIdInAndIsActiveTrue(allScopeIds);
+        log.info("University team assignments loaded: universityId={}, scopeCount={}, assignmentCount={}",
+                universityId, allScopeIds.size(), assignments.size());
 
         // 4. Batch fetch users
         List<UUID> userIds = assignments.stream()
@@ -72,6 +79,8 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
                 .toList();
 
         Map<UUID, UserData> profileMap = userServiceClient.getUsersByIds(userIds);
+        log.info("University team profiles loaded: universityId={}, requestedUsers={}, receivedProfiles={}",
+                universityId, userIds.size(), profileMap.size());
 
         // 5. Build lookup maps for fast resolution (IMPORTANT OPTIMIZATION)
         Map<UUID, String> deptMap = departments.stream()
@@ -136,18 +145,25 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
 
     public List<IdNameDTO> getDepartments(UUID universityId) {
-        return departmentRepository.findByUniversityId(universityId).stream()
+        log.info("Discovery departments request received: universityId={}", universityId);
+        List<IdNameDTO> departments = departmentRepository.findByUniversityId(universityId).stream()
                 .map(d -> new IdNameDTO(d.getId(), d.getName()))
                 .toList();
+        log.info("Discovery departments loaded: universityId={}, departmentCount={}", universityId, departments.size());
+        return departments;
     }
 
     public List<IdNameDTO> getPrograms(UUID departmentId) {
-        return programRepository.findByDepartmentId(departmentId).stream()
+        log.info("Discovery programs request received: departmentId={}", departmentId);
+        List<IdNameDTO> programs = programRepository.findByDepartmentId(departmentId).stream()
                 .map(p -> new IdNameDTO(p.getId(), p.getName()))
                 .toList();
+        log.info("Discovery programs loaded: departmentId={}, programCount={}", departmentId, programs.size());
+        return programs;
     }
 
     public ProgramStructureDTO getProgramStructure(UUID programId) {
+        log.info("Discovery program structure request received: programId={}", programId);
         List<IdNameDTO> semesters = semesterRepository.findByProgramId(programId).stream()
                 .map(s -> new IdNameDTO(s.getId(), "Semester " + s.getSemesterNumber()))
                 .toList();
@@ -155,23 +171,32 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
         List<IdNameDTO> sessions = sessionRepository.findByProgramId(programId).stream()
                 .map(s -> new IdNameDTO(s.getId(), s.getName())) // e.g., "Batch 2022"
                 .toList();
+        log.info("Discovery program structure loaded: programId={}, semesterCount={}, sessionCount={}",
+                programId, semesters.size(), sessions.size());
 
         return new ProgramStructureDTO(semesters, sessions);
     }
 
     public List<IdNameDTO> getSubjects(UUID semesterId) {
-        return subjectRepository.findBySemesterId(semesterId).stream()
+        log.info("Discovery subjects request received: semesterId={}", semesterId);
+        List<IdNameDTO> subjects = subjectRepository.findBySemesterId(semesterId).stream()
                 .map(s -> new IdNameDTO(s.getId(), s.getName() + " (" + s.getSubjectCode() + ")"))
                 .toList();
+        log.info("Discovery subjects loaded: semesterId={}, subjectCount={}", semesterId, subjects.size());
+        return subjects;
     }
 
     public List<IdNameDTO> getExamConfigs(UUID universityId) {
-        return examRepo.findByUniversityIdAndIsActiveTrue(universityId).stream()
+        log.info("Discovery exam configs request received: universityId={}", universityId);
+        List<IdNameDTO> examConfigs = examRepo.findByUniversityIdAndIsActiveTrue(universityId).stream()
                 .map(e -> new IdNameDTO(
                         e.getId(),
                         e.getName() // Changed from getName() to getExamName()
                 ))
                 .toList();
+        log.info("Discovery exam configs loaded: universityId={}, examConfigCount={}",
+                universityId, examConfigs.size());
+        return examConfigs;
     }
 
 
