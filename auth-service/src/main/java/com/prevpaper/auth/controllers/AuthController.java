@@ -64,7 +64,7 @@ public class AuthController {
         // If you implemented a BlacklistService using Redis, extract the token from Header
         // String authHeader = request.getHeader("Authorization");
         // if (authHeader != null && authHeader.startsWith("Bearer ")) {
-        //     String token = authHeader.substring(7);
+        //     String token = authHeader.substring(7) ;
         //     blacklistService.blacklist(token);
         // }
 
