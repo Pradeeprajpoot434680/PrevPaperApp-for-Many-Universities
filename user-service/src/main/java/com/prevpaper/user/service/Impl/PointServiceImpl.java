@@ -31,6 +31,7 @@ public class PointServiceImpl implements PointService {
     @Override
     @Transactional
     public Account addPoints(UUID authUserId, Integer points, String reason, String referenceId) {
+        log.info("Add points called for authUserId={} points={} reason={}", authUserId, points, reason);
         // 1. Find User by Auth ID
         User user = userRepository.findByAuthUserId(authUserId)
                 .orElseThrow(() -> new ResourceNotFoundException("User profile not found"));
@@ -55,7 +56,7 @@ public class PointServiceImpl implements PointService {
         // 5. Emit Kafka Event (Async notification/leaderboard)
         emitPointEvent(authUserId, points, account.getTotalPoints(), reason);
 
-        //log.info("Points added: {} to User: {}. New Balance: {}", points, authUserId, account.getTotalPoints());
+        log.info("Points added successfully for authUserId={}. New Balance={}", authUserId, account.getTotalPoints());
         return account;
     }
 
@@ -66,11 +67,13 @@ public class PointServiceImpl implements PointService {
                 "newTotal", total,
                 "reason", reason
         );
+        log.debug("Publishing user-points-events for authUserId={} pointsAdded={} newTotal={}", userId, added, total);
         kafkaTemplate.send("user-points-events", userId.toString(), event);
     }
 
     @Override
     public List<UserPointTransaction> getHistory(UUID authUserId) {
+        log.info("Get point history called for authUserId={}", authUserId);
         User user = userRepository.findByAuthUserId(authUserId).orElseThrow();
         Account account = accountRepository.findByUserId(user.getId()).orElseThrow();
         return transactionRepository.findByAccountIdOrderByTransactionDateDesc(account.getId());

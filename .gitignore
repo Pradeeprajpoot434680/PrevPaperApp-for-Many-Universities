@@ -6,3 +6,7 @@ out/
 application*.yml
 application*.yaml
 application.properties
+upload-service/logs/*.log
+upload-service/logs/*.zip
+notificationService/logs/*.log
+notificationService/logs/*.zip

@@ -3,15 +3,13 @@ package com.prevpaper.user.controller;
 import com.prevpaper.user.dto.AcademicUpdateRequest;
 import com.prevpaper.user.entity.Account;
 import com.prevpaper.user.entity.User;
-import com.prevpaper.user.entity.UserPointTransaction;
 import com.prevpaper.user.repository.AccountRepository;
 import com.prevpaper.user.repository.UserRepository;
-import com.prevpaper.user.service.PointService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 
@@ -19,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/accounts")
 @RequiredArgsConstructor
+@Slf4j
 public class AccountController {
 
     private final AccountRepository accountRepository;
@@ -26,6 +25,7 @@ public class AccountController {
 
     @GetMapping("/me")
     public ResponseEntity<Account> getMyAccount(@RequestHeader("X-User-Id") String authUserId) {
+        log.info("Get account request for authUserId={}", authUserId);
         User user = userRepository.findByAuthUserId(UUID.fromString(authUserId))
                 .orElseThrow(() -> new RuntimeException("User profile not found"));
 
@@ -39,6 +39,7 @@ public class AccountController {
     public ResponseEntity<Account> updateAcademicInfo(
             @RequestHeader("X-User-Id") String authUserId,
             @RequestBody AcademicUpdateRequest request) {
+        log.info("Update academic info request for authUserId={}", authUserId);
 
         User user = userRepository.findByAuthUserId(UUID.fromString(authUserId)).orElseThrow();
         Account account = accountRepository.findByUserId(user.getId()).orElseThrow();
@@ -47,6 +48,8 @@ public class AccountController {
         account.setDepartmentId(request.getDepartmentId());
         account.setBatchYear(request.getBatchYear());
 
-        return ResponseEntity.ok(accountRepository.save(account));
+        Account savedAccount = accountRepository.save(account);
+        log.info("Academic info updated for authUserId={} accountId={}", authUserId, savedAccount.getId());
+        return ResponseEntity.ok(savedAccount);
     }
 }

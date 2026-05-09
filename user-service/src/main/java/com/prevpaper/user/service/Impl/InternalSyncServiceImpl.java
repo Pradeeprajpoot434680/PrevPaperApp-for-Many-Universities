@@ -11,13 +11,13 @@ import com.prevpaper.user.repository.AccountRepository;
 import com.prevpaper.user.repository.UserPreferenceRepository;
 import com.prevpaper.user.repository.UserRepository;
 import com.prevpaper.user.service.InternalSyncService;
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-
+@Slf4j
 public class InternalSyncServiceImpl implements InternalSyncService {
 
     private final UserRepository userRepository;
@@ -35,6 +35,7 @@ public class InternalSyncServiceImpl implements InternalSyncService {
 
     @Override
     public User syncNewUser(UserSyncRequest userSyncRequest) {
+        log.info("Sync user process started for authUserId={}", userSyncRequest.getAuthUserId());
 
         // 1. Check if user already exists
         return userRepository.findByAuthUserId(userSyncRequest.getAuthUserId())
@@ -64,6 +65,7 @@ public class InternalSyncServiceImpl implements InternalSyncService {
                             .language("en")
                             .build());
 
+                    log.info("New user synced successfully. userId={} authUserId={}", savedUser.getId(), savedUser.getAuthUserId());
                     return savedUser;
                 });
     }
@@ -72,6 +74,7 @@ public class InternalSyncServiceImpl implements InternalSyncService {
     public User storeUser(UserRequest request,String userId) {
 
         UUID authUserId = UUID.fromString(userId);
+        log.info("Store user process started for authUserId={}", authUserId);
         // 1️⃣ Create User
         User user = User.builder()
                 .firstName(request.getFirstName())
@@ -80,7 +83,7 @@ public class InternalSyncServiceImpl implements InternalSyncService {
                 .build();
 
 
-        System.out.println(user);
+        log.debug("Prepared user entity for persistence: {}", user);
 
         User savedUser = userRepository.save(user);
 
@@ -93,13 +96,14 @@ public class InternalSyncServiceImpl implements InternalSyncService {
                 .build();
 
         accountRepository.save(account);
-        System.out.println("Saved Account:"+account);
+        log.info("User and account saved successfully. userId={} accountId={}", savedUser.getId(), account.getId());
         // set the full name in the auth service
         String fullName = request.getFirstName() + " "  +request.getLastName();
 
-        System.out.println("Correct till Here...");
+        log.debug("Calling auth service to set full name for authUserId={}", authUserId);
         authServiceClient.setFullName(authUserId,fullName);
 
+        log.info("Store user process completed for authUserId={}", authUserId);
         return savedUser;
     }
 }

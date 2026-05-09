@@ -8,6 +8,7 @@ import com.prevpaper.user.entity.User;
 
 import com.prevpaper.user.repository.UserRepository;
 import com.prevpaper.user.service.InternalSyncService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/users/internal")
+@Slf4j
 public class InternalSyncController {
 
     private final InternalSyncService internalSyncService;
@@ -35,14 +37,17 @@ public class InternalSyncController {
             @RequestBody UserRequest request,
             @RequestHeader("X-User-Id") String authUserId // Get ID from Gateway header
     ) {
-        System.out.println("auth ID:" + authUserId);
+        log.info("Store user request received for authUserId={}", authUserId);
         User savedUser = internalSyncService.storeUser(request, authUserId);
+        log.info("User stored successfully. userId={} authUserId={}", savedUser.getId(), savedUser.getAuthUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
     @PostMapping("/sync")
     public ResponseEntity<User> syncNewUser(@RequestBody UserSyncRequest request) {
+        log.info("Sync new user request received for authUserId={}", request.getAuthUserId());
         User savedUser = internalSyncService.syncNewUser(request);
+        log.info("User sync completed. userId={} authUserId={}", savedUser.getId(), savedUser.getAuthUserId());
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
@@ -55,6 +60,7 @@ public class InternalSyncController {
 
     @PostMapping("/bulk-details")
     public Map<UUID, StudentDTO> getBulkUserDetails(@RequestBody List<UUID> userIds) {
+        log.debug("Bulk details requested for {} users", userIds.size());
         List<User> users = userRepository.findAllByAuthUserIdIn(userIds);
         return users.stream().collect(Collectors.toMap(
                 User::getAuthUserId,
@@ -65,6 +71,7 @@ public class InternalSyncController {
 
     @PostMapping("/bulk-profiles")
     public Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds) {
+        log.debug("Bulk profiles requested for {} users", userIds.size());
         List<User> users = userRepository.findAllById(userIds);
 
         return users.stream().collect(Collectors.toMap(

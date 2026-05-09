@@ -9,12 +9,14 @@ import com.prevpaper.user.repository.UserRepository;
 import com.prevpaper.user.service.UserProfileService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserProfileServiceImpl implements UserProfileService {
 
     private final UserRepository userRepository;
@@ -22,6 +24,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Transactional
     public User updateProfile(UUID authUserId, ProfileUpdateRequest request) {
+        log.info("UserProfileService updateProfile called for authUserId={}", authUserId);
         User user = userRepository.findByAuthUserId(authUserId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -34,6 +37,7 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     public UserPreference getPreferences(UUID authUserId) {
+        log.info("UserProfileService getPreferences called for authUserId={}", authUserId);
         User user = userRepository.findByAuthUserId(authUserId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 

@@ -13,6 +13,7 @@ import com.prevpaper.user.repository.UserRepository;
 import com.prevpaper.user.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,6 +21,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private  final AccountRepository accountRepository;
@@ -27,18 +29,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(UserRequest request) {
+        log.info("Create user called for firstName={} lastName={}", request.getFirstName(), request.getLastName());
         User user = User.builder()
                 .authUserId(UUID.randomUUID()) // replace with actual auth ID
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .build();
 
-        return userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        log.info("User created successfully. userId={} authUserId={}", savedUser.getId(), savedUser.getAuthUserId());
+        return savedUser;
     }
 
     @Override
     @Transactional
     public UserProfileDTO getFullProfile(UUID authUserId) {
+        log.info("Get full profile called for authUserId={}", authUserId);
         // 1. Fetch User Profile (if not present, we use a null-safe approach)
         Optional<User> userOpt = userRepository.findByAuthUserId(authUserId);
 
@@ -84,6 +90,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User updateProfile(UUID authUserId, ProfileUpdateRequest request) {
+        log.info("Update profile called for authUserId={}", authUserId);
         User user = userRepository.findByAuthUserId(authUserId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
@@ -92,6 +99,8 @@ public class UserServiceImpl implements UserService {
         if (request.getBio() != null) user.setBio(request.getBio());
         if (request.getProfileImageUrl() != null) user.setProfileImageUrl(request.getProfileImageUrl());
 
-        return userRepository.save(user);
+        User updatedUser = userRepository.save(user);
+        log.info("Profile updated successfully. userId={} authUserId={}", updatedUser.getId(), authUserId);
+        return updatedUser;
     }
 }
