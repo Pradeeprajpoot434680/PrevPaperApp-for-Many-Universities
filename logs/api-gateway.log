@@ -1,314 +1,531 @@
-2026-05-10 01:06:55.824 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-05-10 01:06:55.909 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.18 with PID 106176 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-05-10 01:06:55.910 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
-2026-05-10 01:06:55.983 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-10 01:06:55.983 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-10 01:06:58.002 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=097492da-a386-32a4-8281-fad731f9b0ab
-2026-05-10 01:06:58.606 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-05-10 01:06:58.623 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-05-10 01:06:58.625 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-05-10 01:06:58.626 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-05-10 01:06:58.688 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2703 ms
-2026-05-10 01:06:59.627 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-05-10 01:07:00.845 INFO  [restartedMain] [no-request-id] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
-2026-05-10 01:07:03.174 INFO  [restartedMain] [no-request-id] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
-2026-05-10 01:07:03.200 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
-2026-05-10 01:07:03.300 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-05-10 01:07:03.322 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-05-10 01:07:03.406 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-05-10 01:07:03.434 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-05-10 01:07:03.441 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:07:03.451 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-05-10 01:07:03.452 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-05-10 01:07:03.914 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-05-10 01:07:03.920 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-05-10 01:07:03.923 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-05-10 01:07:03.928 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778355423927 with initial instances count: 2
-2026-05-10 01:07:03.933 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
-2026-05-10 01:07:03.935 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778355423935, current=UP, previous=STARTING]
-2026-05-10 01:07:03.937 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080: registering service...
-2026-05-10 01:07:03.940 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-05-10 01:07:03.959 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-05-10 01:07:03.962 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
-2026-05-10 01:07:04.002 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - registration status: 204
-2026-05-10 01:07:04.965 INFO  [restartedMain] [no-request-id] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
-2026-05-10 01:07:05.018 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 10.027 seconds (process running for 10.934)
-2026-05-10 01:12:03.454 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:17:03.455 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:22:03.456 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:27:03.458 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:32:03.459 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:37:03.461 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:42:03.462 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:47:03.464 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:52:03.465 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 01:57:03.467 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:02:03.468 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:07:03.469 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:12:03.470 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:17:03.471 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:22:03.472 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:27:03.474 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:32:03.475 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:36:01.107 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
-2026-05-10 02:36:01.108 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778360761108, current=DOWN, previous=UP]
-2026-05-10 02:36:01.108 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080: registering service...
-2026-05-10 02:36:01.125 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-05-10 02:36:01.136 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-05-10 02:36:01.142 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - registration status: 204
-2026-05-10 02:36:01.235 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-05-10 02:36:04.239 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-05-10 02:36:04.266 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - deregister  status: 200
-2026-05-10 02:36:04.267 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
-2026-05-10 02:36:11.133 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-05-10 02:36:11.382 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.18 with PID 229106 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-05-10 02:36:11.392 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
-2026-05-10 02:36:11.739 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-10 02:36:11.740 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-10 02:36:15.057 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=097492da-a386-32a4-8281-fad731f9b0ab
-2026-05-10 02:36:15.520 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-05-10 02:36:15.532 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-05-10 02:36:15.534 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-05-10 02:36:15.534 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-05-10 02:36:15.574 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3833 ms
-2026-05-10 02:36:16.316 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-05-10 02:36:18.246 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
-2026-05-10 02:36:18.322 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-05-10 02:36:18.344 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-05-10 02:36:18.472 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-05-10 02:36:18.508 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-05-10 02:36:18.513 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-05-10 02:36:18.524 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-05-10 02:36:18.525 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-05-10 02:36:18.528 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-05-10 02:36:18.528 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-05-10 02:36:18.528 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-05-10 02:36:18.529 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-05-10 02:36:18.529 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-05-10 02:36:18.969 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-05-10 02:36:18.974 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-05-10 02:36:18.976 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-05-10 02:36:18.982 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778360778980 with initial instances count: 4
-2026-05-10 02:36:18.988 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
-2026-05-10 02:36:18.990 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778360778990, current=UP, previous=STARTING]
-2026-05-10 02:36:18.995 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080: registering service...
-2026-05-10 02:36:18.996 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-05-10 02:36:19.016 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-05-10 02:36:19.018 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
-2026-05-10 02:36:19.075 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 10.037 seconds (process running for 12.462)
-2026-05-10 02:36:19.125 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - registration status: 204
-2026-05-10 02:37:07.947 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
-2026-05-10 02:37:07.947 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778360827947, current=DOWN, previous=UP]
-2026-05-10 02:37:07.947 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080: registering service...
-2026-05-10 02:37:07.953 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-05-10 02:37:07.983 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-05-10 02:37:07.986 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - registration status: 204
-2026-05-10 02:37:08.275 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-05-10 02:37:11.278 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-05-10 02:37:11.283 INFO  [SpringApplicationShutdownHook] [no-request-id] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:763)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:615)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)
-	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)
-	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:908)
-	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:872)
-	at org.springframework.cloud.netflix.eureka.http.RestClientEurekaHttpClient.cancel(RestClientEurekaHttpClient.java:73)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:411)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:237)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:193)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:209)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:795)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:745)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1500)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:704)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1493)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1246)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1207)
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:176)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1153)
-	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
-	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:226)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:168)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:87)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeWithRequest(AbstractBufferingClientHttpRequest.java:89)
-	at org.springframework.http.client.InterceptingClientHttpRequest$EndOfChainRequestExecution.execute(InterceptingClientHttpRequest.java:102)
-	at org.springframework.cloud.netflix.eureka.http.RestClientTransportClientFactory.lambda$newClient$2(RestClientTransportClientFactory.java:98)
-	at org.springframework.http.client.ClientHttpRequestInterceptor.lambda$apply$0(ClientHttpRequestInterceptor.java:89)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:73)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:50)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:609)
-	... 41 more
-
-2026-05-10 02:37:11.284 WARN  [SpringApplicationShutdownHook] [no-request-id] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused
-2026-05-10 02:37:11.289 INFO  [SpringApplicationShutdownHook] [no-request-id] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:763)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:615)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)
-	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)
-	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:908)
-	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:872)
-	at org.springframework.cloud.netflix.eureka.http.RestClientEurekaHttpClient.cancel(RestClientEurekaHttpClient.java:73)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:411)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:237)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:193)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:209)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:795)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:745)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1500)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:704)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1493)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1246)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1207)
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:176)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1153)
-	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
-	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:226)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:168)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:87)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeWithRequest(AbstractBufferingClientHttpRequest.java:89)
-	at org.springframework.http.client.InterceptingClientHttpRequest$EndOfChainRequestExecution.execute(InterceptingClientHttpRequest.java:102)
-	at org.springframework.cloud.netflix.eureka.http.RestClientTransportClientFactory.lambda$newClient$2(RestClientTransportClientFactory.java:98)
-	at org.springframework.http.client.ClientHttpRequestInterceptor.lambda$apply$0(ClientHttpRequestInterceptor.java:89)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:73)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:50)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
-	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:609)
-	... 42 more
-
-2026-05-10 02:37:11.289 WARN  [SpringApplicationShutdownHook] [no-request-id] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/API-GATEWAY/10.52.168.181:API-GATEWAY:8080": Connect to http://localhost:8761 failed: Connection refused
-2026-05-10 02:37:11.289 ERROR [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.52.168.181:API-GATEWAY:8080 - de-registration failedCannot execute request on any known server
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:411)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:237)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:193)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:209)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:795)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:745)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1500)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:704)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1493)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1246)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1207)
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:176)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1153)
-	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
-	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-05-10 02:37:11.290 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 11:56:51.094 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 11:56:52.147 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 18985 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 11:56:52.176 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 11:56:52.746 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 11:56:52.753 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 11:57:05.726 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 11:57:05.788 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 11:57:06.494 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 297 ms. Found 0 Redis repository interfaces.
+2026-06-14 11:57:17.411 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 11:57:22.930 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 11:57:22.976 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 11:57:22.986 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 11:57:22.988 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 11:57:23.224 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 30468 ms
+2026-06-14 11:57:26.230 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 11:57:35.519 INFO  [restartedMain] [no-request-id] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-06-14 11:57:35.626 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 11:57:36.192 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 11:57:36.260 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 11:57:36.599 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 11:57:36.708 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 11:57:36.719 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 11:57:36.749 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 11:57:36.751 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 11:57:36.751 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 11:57:36.752 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 11:57:36.752 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 11:57:36.753 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 11:57:36.753 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 11:57:37.580 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 11:57:37.592 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 11:57:37.601 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 11:57:37.610 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781418457608 with initial instances count: 5
+2026-06-14 11:57:37.623 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 11:57:37.626 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418457626, current=UP, previous=STARTING]
+2026-06-14 11:57:37.630 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 11:57:37.632 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 11:57:37.678 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 11:57:37.681 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 11:57:37.766 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 51.788 seconds (process running for 59.142)
+2026-06-14 11:57:37.773 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 11:58:44.813 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 11:58:44.814 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 11:58:44.821 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-06-14 11:58:44.849 INFO  [http-nio-8080-exec-1] [71cce752-8feb-472e-8dca-25641c04bab3] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=71cce752-8feb-472e-8dca-25641c04bab3, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 11:58:44.865 INFO  [http-nio-8080-exec-1] [71cce752-8feb-472e-8dca-25641c04bab3] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=71cce752-8feb-472e-8dca-25641c04bab3, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=19, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 11:58:44.884 INFO  [http-nio-8080-exec-2] [3e981562-b53d-4927-afed-2f6fe8d149fc] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=3e981562-b53d-4927-afed-2f6fe8d149fc, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=55, origin=http://localhost:5173
+2026-06-14 11:58:45.106 INFO  [http-nio-8080-exec-2] [3e981562-b53d-4927-afed-2f6fe8d149fc] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 11:58:45.390 INFO  [http-nio-8080-exec-2] [3e981562-b53d-4927-afed-2f6fe8d149fc] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=3e981562-b53d-4927-afed-2f6fe8d149fc, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=302, durationMs=506, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:02:36.757 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:03:01.707 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:03:01.708 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418781708, current=DOWN, previous=UP]
+2026-06-14 12:03:01.709 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:03:01.719 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:03:01.727 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:03:01.727 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:03:02.256 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:03:05.258 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:03:05.272 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:03:05.273 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:03:13.228 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:03:13.646 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 26379 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:03:13.654 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:03:14.019 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:03:14.020 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:03:19.301 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:03:19.312 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:03:19.437 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:03:21.097 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:03:22.423 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:03:22.447 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:03:22.450 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:03:22.451 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:03:22.542 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 8519 ms
+2026-06-14 12:03:23.470 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:03:25.972 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:03:26.075 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:03:26.107 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:03:26.226 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:03:26.265 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:03:26.271 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:03:26.286 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:03:26.286 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:03:26.286 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:03:26.287 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:03:26.287 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:03:26.287 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:03:26.287 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:03:26.701 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:03:26.707 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:03:26.711 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:03:26.714 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781418806712 with initial instances count: 6
+2026-06-14 12:03:26.720 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:03:26.721 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418806721, current=UP, previous=STARTING]
+2026-06-14 12:03:26.724 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:03:26.725 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:03:26.750 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:03:26.753 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:03:26.802 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:03:26.803 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 15.972 seconds (process running for 18.436)
+2026-06-14 12:03:34.855 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:03:34.856 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:03:34.861 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-14 12:03:34.888 INFO  [http-nio-8080-exec-1] [de20d07e-db9b-4fe5-bfde-3490dfac785c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=de20d07e-db9b-4fe5-bfde-3490dfac785c, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:03:34.900 INFO  [http-nio-8080-exec-1] [de20d07e-db9b-4fe5-bfde-3490dfac785c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=de20d07e-db9b-4fe5-bfde-3490dfac785c, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=15, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:03:34.913 INFO  [http-nio-8080-exec-2] [0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:03:35.081 WARN  [http-nio-8080-exec-2] [0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: AUTH-SERVICE
+2026-06-14 12:03:35.120 WARN  [http-nio-8080-exec-2] [0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for AUTH-SERVICE]
+2026-06-14 12:03:35.122 INFO  [http-nio-8080-exec-2] [0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=0e9e4c87-63ff-4e2b-a64e-e14fbc893b1c, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=500, durationMs=209, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:03:57.297 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:03:57.297 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418837297, current=DOWN, previous=UP]
+2026-06-14 12:03:57.298 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:03:57.305 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:03:57.309 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:03:57.310 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:03:57.867 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:04:00.868 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:04:00.878 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:04:00.879 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:04:05.323 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:04:05.424 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 27171 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:04:05.427 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:04:05.563 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:04:05.564 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:04:07.683 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:04:07.689 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:04:07.749 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:04:08.836 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:04:09.775 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:04:09.800 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:04:09.804 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:04:09.805 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:04:09.904 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 4339 ms
+2026-06-14 12:04:10.844 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:04:14.239 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:04:14.327 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:04:14.354 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:04:14.469 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:04:14.520 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:04:14.526 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:04:14.540 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:04:14.540 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:04:14.541 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:04:14.541 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:04:14.541 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:04:14.543 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:04:14.543 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:04:15.123 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:04:15.129 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:04:15.133 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:04:15.138 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781418855135 with initial instances count: 7
+2026-06-14 12:04:15.147 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:04:15.148 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418855148, current=UP, previous=STARTING]
+2026-06-14 12:04:15.150 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:04:15.153 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:04:15.181 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:04:15.184 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:04:15.244 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 11.325 seconds (process running for 12.988)
+2026-06-14 12:04:15.252 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:04:34.857 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:04:34.857 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:04:34.861 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-06-14 12:04:34.879 INFO  [http-nio-8080-exec-1] [42321a1a-aed7-4ba2-b9ce-f7b0b8794342] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=42321a1a-aed7-4ba2-b9ce-f7b0b8794342, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:04:34.888 INFO  [http-nio-8080-exec-1] [42321a1a-aed7-4ba2-b9ce-f7b0b8794342] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=42321a1a-aed7-4ba2-b9ce-f7b0b8794342, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=11, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:04:34.898 INFO  [http-nio-8080-exec-2] [f93dfb32-e78f-494d-a360-d8e8b39442b4] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=f93dfb32-e78f-494d-a360-d8e8b39442b4, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:04:35.073 INFO  [http-nio-8080-exec-2] [f93dfb32-e78f-494d-a360-d8e8b39442b4] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:04:35.303 INFO  [http-nio-8080-exec-2] [f93dfb32-e78f-494d-a360-d8e8b39442b4] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=f93dfb32-e78f-494d-a360-d8e8b39442b4, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=302, durationMs=405, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:08:44.822 INFO  [http-nio-8080-exec-4] [48dc22c1-3151-4d9b-971c-a2718183dc61] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=48dc22c1-3151-4d9b-971c-a2718183dc61, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:08:44.823 INFO  [http-nio-8080-exec-4] [48dc22c1-3151-4d9b-971c-a2718183dc61] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=48dc22c1-3151-4d9b-971c-a2718183dc61, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:08:44.832 INFO  [http-nio-8080-exec-5] [21c7f3f2-bd2e-453d-9386-53f115b19c56] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=21c7f3f2-bd2e-453d-9386-53f115b19c56, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:08:44.837 INFO  [http-nio-8080-exec-5] [21c7f3f2-bd2e-453d-9386-53f115b19c56] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:08:44.871 INFO  [http-nio-8080-exec-5] [21c7f3f2-bd2e-453d-9386-53f115b19c56] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=21c7f3f2-bd2e-453d-9386-53f115b19c56, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=302, durationMs=40, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:08:50.500 INFO  [http-nio-8080-exec-6] [fb44fc67-868c-42c4-bf3d-97efdb8ab84f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=fb44fc67-868c-42c4-bf3d-97efdb8ab84f, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:08:50.502 INFO  [http-nio-8080-exec-6] [fb44fc67-868c-42c4-bf3d-97efdb8ab84f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=fb44fc67-868c-42c4-bf3d-97efdb8ab84f, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:08:50.510 INFO  [http-nio-8080-exec-7] [9c08736a-7cdf-4fd1-8e23-01938f4b45a1] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=9c08736a-7cdf-4fd1-8e23-01938f4b45a1, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:08:50.515 INFO  [http-nio-8080-exec-7] [9c08736a-7cdf-4fd1-8e23-01938f4b45a1] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:08:50.539 INFO  [http-nio-8080-exec-7] [9c08736a-7cdf-4fd1-8e23-01938f4b45a1] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=9c08736a-7cdf-4fd1-8e23-01938f4b45a1, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=302, durationMs=29, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:09:14.547 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:14:14.548 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:19:14.552 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:20:55.430 INFO  [http-nio-8080-exec-9] [b89287d3-69e7-4c6b-8565-85215a92a6cb] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=b89287d3-69e7-4c6b-8565-85215a92a6cb, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:20:55.435 INFO  [http-nio-8080-exec-9] [b89287d3-69e7-4c6b-8565-85215a92a6cb] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=b89287d3-69e7-4c6b-8565-85215a92a6cb, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=6, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:20:55.462 INFO  [http-nio-8080-exec-10] [0c7cdbd0-1644-4a9e-b538-99d016e13138] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=0c7cdbd0-1644-4a9e-b538-99d016e13138, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:20:55.470 WARN  [http-nio-8080-exec-10] [0c7cdbd0-1644-4a9e-b538-99d016e13138] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: AUTH-SERVICE
+2026-06-14 12:20:55.586 WARN  [http-nio-8080-exec-10] [0c7cdbd0-1644-4a9e-b538-99d016e13138] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for AUTH-SERVICE]
+2026-06-14 12:20:55.591 INFO  [http-nio-8080-exec-10] [0c7cdbd0-1644-4a9e-b538-99d016e13138] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=0c7cdbd0-1644-4a9e-b538-99d016e13138, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=500, durationMs=130, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:21:04.374 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:21:04.376 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781419864376, current=DOWN, previous=UP]
+2026-06-14 12:21:04.377 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:21:04.412 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:21:04.410 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:21:04.435 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:21:04.969 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:21:07.977 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:21:08.027 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:21:08.033 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:21:26.273 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:21:26.777 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 40385 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:21:26.800 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:21:27.348 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:21:27.349 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:21:34.844 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:21:34.880 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:21:35.244 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 131 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:21:37.668 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:21:40.274 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:21:40.325 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:21:40.332 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:21:40.334 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:21:40.582 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 13227 ms
+2026-06-14 12:21:42.534 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:21:47.067 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:21:47.208 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:21:47.256 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:21:47.547 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:21:47.639 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:21:47.647 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:21:47.669 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:21:47.669 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:21:47.670 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:21:47.670 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:21:47.670 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:21:47.671 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:21:47.671 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:21:48.346 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:21:48.352 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:21:48.357 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:21:48.366 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781419908360 with initial instances count: 5
+2026-06-14 12:21:48.379 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:21:48.384 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781419908383, current=UP, previous=STARTING]
+2026-06-14 12:21:48.388 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:8080: registering service...
+2026-06-14 12:21:48.392 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:21:48.459 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:21:48.463 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:21:48.533 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:21:48.551 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 26.917 seconds (process running for 33.07)
+2026-06-14 12:21:50.069 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:21:50.070 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:21:50.073 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-06-14 12:21:50.092 INFO  [http-nio-8080-exec-1] [6eef4f27-050a-41bd-a9da-9436f4855a10] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=6eef4f27-050a-41bd-a9da-9436f4855a10, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:21:50.103 INFO  [http-nio-8080-exec-1] [6eef4f27-050a-41bd-a9da-9436f4855a10] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=6eef4f27-050a-41bd-a9da-9436f4855a10, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=12, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:21:50.113 INFO  [http-nio-8080-exec-2] [53751788-abcc-4fef-a50f-060ff5cd7eb8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=53751788-abcc-4fef-a50f-060ff5cd7eb8, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:21:50.294 WARN  [http-nio-8080-exec-2] [53751788-abcc-4fef-a50f-060ff5cd7eb8] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: AUTH-SERVICE
+2026-06-14 12:21:50.333 WARN  [http-nio-8080-exec-2] [53751788-abcc-4fef-a50f-060ff5cd7eb8] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for AUTH-SERVICE]
+2026-06-14 12:21:50.334 INFO  [http-nio-8080-exec-2] [53751788-abcc-4fef-a50f-060ff5cd7eb8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=53751788-abcc-4fef-a50f-060ff5cd7eb8, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=500, durationMs=221, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:22:04.558 INFO  [http-nio-8080-exec-3] [6bb67fb5-a6f4-4efc-b0bb-4634c1cdbde8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=6bb67fb5-a6f4-4efc-b0bb-4634c1cdbde8, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:22:04.560 INFO  [http-nio-8080-exec-3] [6bb67fb5-a6f4-4efc-b0bb-4634c1cdbde8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=6bb67fb5-a6f4-4efc-b0bb-4634c1cdbde8, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:22:04.570 INFO  [http-nio-8080-exec-4] [629ef94d-cfaa-411f-a205-29bf1725ad78] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=629ef94d-cfaa-411f-a205-29bf1725ad78, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=56, origin=http://localhost:5173
+2026-06-14 12:22:04.577 WARN  [http-nio-8080-exec-4] [629ef94d-cfaa-411f-a205-29bf1725ad78] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: AUTH-SERVICE
+2026-06-14 12:22:04.584 WARN  [http-nio-8080-exec-4] [629ef94d-cfaa-411f-a205-29bf1725ad78] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for AUTH-SERVICE]
+2026-06-14 12:22:04.585 INFO  [http-nio-8080-exec-4] [629ef94d-cfaa-411f-a205-29bf1725ad78] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=629ef94d-cfaa-411f-a205-29bf1725ad78, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=500, durationMs=15, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:22:34.896 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:22:34.897 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781419954897, current=DOWN, previous=UP]
+2026-06-14 12:22:34.897 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:8080: registering service...
+2026-06-14 12:22:34.906 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:22:34.906 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:22:34.910 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:22:35.561 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:22:38.562 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:22:38.574 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/localhost:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:22:38.574 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:22:43.099 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:22:43.232 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 41779 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:22:43.236 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:22:43.392 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:22:43.393 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:22:45.222 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:22:45.226 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:22:45.279 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:22:46.180 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:22:46.939 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:22:46.959 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:22:46.962 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:22:46.962 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:22:47.080 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3686 ms
+2026-06-14 12:22:48.215 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:22:51.196 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:22:51.301 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:22:51.332 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:22:51.476 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:22:51.513 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:22:51.519 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:22:51.533 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:22:51.534 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:22:51.534 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:22:51.534 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:22:51.535 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:22:51.535 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:22:51.535 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:22:51.925 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:22:51.929 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:22:51.932 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:22:51.935 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781419971933 with initial instances count: 6
+2026-06-14 12:22:51.941 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:22:51.942 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781419971942, current=UP, previous=STARTING]
+2026-06-14 12:22:51.945 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:22:51.947 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:22:51.972 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:22:51.975 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:22:52.033 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:22:52.035 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 10.218 seconds (process running for 11.926)
+2026-06-14 12:23:12.223 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:23:12.223 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:23:12.228 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-06-14 12:23:12.249 INFO  [http-nio-8080-exec-1] [ccecadd6-4dd0-4777-a4d5-bdfe8b111f10] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=ccecadd6-4dd0-4777-a4d5-bdfe8b111f10, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:23:12.260 INFO  [http-nio-8080-exec-1] [ccecadd6-4dd0-4777-a4d5-bdfe8b111f10] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=ccecadd6-4dd0-4777-a4d5-bdfe8b111f10, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=13, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:23:12.272 INFO  [http-nio-8080-exec-2] [9791126f-30c8-483a-8167-ea1e9d9ed852] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=9791126f-30c8-483a-8167-ea1e9d9ed852, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=61, origin=http://localhost:5173
+2026-06-14 12:23:12.508 WARN  [http-nio-8080-exec-2] [9791126f-30c8-483a-8167-ea1e9d9ed852] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: AUTH-SERVICE
+2026-06-14 12:23:12.548 WARN  [http-nio-8080-exec-2] [9791126f-30c8-483a-8167-ea1e9d9ed852] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.client.HttpServerErrorException: 503 Unable to find instance for AUTH-SERVICE]
+2026-06-14 12:23:12.550 INFO  [http-nio-8080-exec-2] [9791126f-30c8-483a-8167-ea1e9d9ed852] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=9791126f-30c8-483a-8167-ea1e9d9ed852, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=500, durationMs=279, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:26:21.949 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:26:21.949 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781420181949, current=DOWN, previous=UP]
+2026-06-14 12:26:21.950 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:26:21.962 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:26:21.963 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:26:21.967 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:26:22.110 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:26:25.111 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:26:25.112 WARN  [DiscoveryClient-%d] [no-request-id] c.n.discovery.TimedSupervisorTask - task supervisor shutting down, can't accept the task
+2026-06-14 12:26:25.123 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:26:25.124 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:26:31.607 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:26:31.764 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 44942 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:26:31.768 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:26:31.882 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:26:31.882 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:26:33.667 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:26:33.672 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:26:33.723 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:26:34.639 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:26:35.462 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:26:35.485 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:26:35.489 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:26:35.490 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:26:35.593 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3710 ms
+2026-06-14 12:26:36.477 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:26:38.775 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:26:38.843 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:26:38.865 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:26:38.992 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:26:39.057 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:26:39.062 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:26:39.076 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:26:39.076 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:26:39.076 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:26:39.076 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:26:39.077 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:26:39.077 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:26:39.077 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:26:39.487 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:26:39.490 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:26:39.493 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:26:39.497 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781420199495 with initial instances count: 6
+2026-06-14 12:26:39.502 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:26:39.503 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781420199503, current=UP, previous=STARTING]
+2026-06-14 12:26:39.506 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:26:39.507 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:26:39.540 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:26:39.543 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:26:39.600 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 9.202 seconds (process running for 11.679)
+2026-06-14 12:26:39.608 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:27:25.059 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:27:25.059 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:27:25.063 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-06-14 12:27:25.084 INFO  [http-nio-8080-exec-1] [aaeeb756-5217-4295-a4e9-0617572b68d8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=aaeeb756-5217-4295-a4e9-0617572b68d8, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:27:25.097 INFO  [http-nio-8080-exec-1] [aaeeb756-5217-4295-a4e9-0617572b68d8] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=aaeeb756-5217-4295-a4e9-0617572b68d8, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=15, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:27:25.111 INFO  [http-nio-8080-exec-2] [ebe4f6fa-1aa7-4d5e-bdfc-36864451233f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=ebe4f6fa-1aa7-4d5e-bdfc-36864451233f, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=61, origin=http://localhost:5173
+2026-06-14 12:27:25.303 INFO  [http-nio-8080-exec-2] [ebe4f6fa-1aa7-4d5e-bdfc-36864451233f] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:27:25.898 INFO  [http-nio-8080-exec-2] [ebe4f6fa-1aa7-4d5e-bdfc-36864451233f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=ebe4f6fa-1aa7-4d5e-bdfc-36864451233f, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=787, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:27:58.922 INFO  [http-nio-8080-exec-3] [1a2414f6-12bd-487a-9723-61e6403bb9a7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=1a2414f6-12bd-487a-9723-61e6403bb9a7, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:27:58.923 INFO  [http-nio-8080-exec-3] [1a2414f6-12bd-487a-9723-61e6403bb9a7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=1a2414f6-12bd-487a-9723-61e6403bb9a7, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:27:58.931 INFO  [http-nio-8080-exec-4] [176501a7-3478-4bf2-8cdc-d71acaca4d79] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=176501a7-3478-4bf2-8cdc-d71acaca4d79, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=61, origin=http://localhost:5173
+2026-06-14 12:27:58.936 INFO  [http-nio-8080-exec-4] [176501a7-3478-4bf2-8cdc-d71acaca4d79] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:27:59.177 INFO  [http-nio-8080-exec-4] [176501a7-3478-4bf2-8cdc-d71acaca4d79] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=176501a7-3478-4bf2-8cdc-d71acaca4d79, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=246, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:28:30.114 INFO  [http-nio-8080-exec-5] [8365eb74-b0a3-442d-96de-8c02dd8baf5a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=8365eb74-b0a3-442d-96de-8c02dd8baf5a, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:28:30.115 INFO  [http-nio-8080-exec-5] [8365eb74-b0a3-442d-96de-8c02dd8baf5a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=8365eb74-b0a3-442d-96de-8c02dd8baf5a, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:28:30.124 INFO  [http-nio-8080-exec-6] [b9d4b55a-f8f3-4aa1-afb7-36afc63d669f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=b9d4b55a-f8f3-4aa1-afb7-36afc63d669f, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=55, origin=http://localhost:5173
+2026-06-14 12:28:30.129 INFO  [http-nio-8080-exec-6] [b9d4b55a-f8f3-4aa1-afb7-36afc63d669f] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:28:31.311 INFO  [http-nio-8080-exec-6] [b9d4b55a-f8f3-4aa1-afb7-36afc63d669f] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=b9d4b55a-f8f3-4aa1-afb7-36afc63d669f, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=1188, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:31:39.079 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:32:50.419 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2026-06-14 12:32:50.420 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781420570420, current=DOWN, previous=UP]
+2026-06-14 12:32:50.420 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:32:50.429 INFO  [SpringApplicationShutdownHook] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-14 12:32:50.431 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:32:50.435 INFO  [tomcat-shutdown] [no-request-id] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-14 12:32:50.821 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-14 12:32:53.823 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-14 12:32:53.833 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - deregister  status: 200
+2026-06-14 12:32:53.834 INFO  [SpringApplicationShutdownHook] [no-request-id] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-14 12:33:01.479 INFO  [background-preinit] [no-request-id] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-14 12:33:01.631 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Starting ApiGatewayApplication using Java 17.0.19 with PID 50010 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/api-gateway/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-14 12:33:01.634 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-14 12:33:01.814 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-14 12:33:01.815 INFO  [restartedMain] [no-request-id] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-14 12:33:04.054 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-14 12:33:04.061 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-14 12:33:04.128 INFO  [restartedMain] [no-request-id] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+2026-06-14 12:33:05.183 INFO  [restartedMain] [no-request-id] o.s.cloud.context.scope.GenericScope - BeanFactory id=c906662a-49f0-35b1-a13c-6535dea4e6e9
+2026-06-14 12:33:05.947 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-14 12:33:05.977 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:33:05.980 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-14 12:33:05.981 INFO  [restartedMain] [no-request-id] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-14 12:33:06.056 INFO  [restartedMain] [no-request-id] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 4240 ms
+2026-06-14 12:33:06.925 INFO  [restartedMain] [no-request-id] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-14 12:33:09.135 INFO  [restartedMain] [no-request-id] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-14 12:33:09.201 WARN  [restartedMain] [no-request-id] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-14 12:33:09.220 INFO  [restartedMain] [no-request-id] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-14 12:33:09.318 INFO  [restartedMain] [no-request-id] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-14 12:33:09.360 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-14 12:33:09.367 INFO  [restartedMain] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:33:09.382 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-14 12:33:09.382 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-14 12:33:09.382 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-14 12:33:09.382 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-14 12:33:09.382 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-14 12:33:09.383 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-14 12:33:09.383 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-14 12:33:09.845 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-14 12:33:09.850 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-14 12:33:09.855 INFO  [restartedMain] [no-request-id] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-14 12:33:09.860 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781420589858 with initial instances count: 6
+2026-06-14 12:33:09.872 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2026-06-14 12:33:09.874 INFO  [restartedMain] [no-request-id] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781420589874, current=UP, previous=STARTING]
+2026-06-14 12:33:09.880 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080: registering service...
+2026-06-14 12:33:09.884 INFO  [restartedMain] [no-request-id] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-14 12:33:09.935 INFO  [restartedMain] [no-request-id] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-14 12:33:09.938 INFO  [restartedMain] [no-request-id] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8080
+2026-06-14 12:33:09.983 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [no-request-id] c.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/10.33.159.181:API-GATEWAY:8080 - registration status: 204
+2026-06-14 12:33:09.991 INFO  [restartedMain] [no-request-id] c.p.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 10.628 seconds (process running for 13.806)
+2026-06-14 12:33:22.468 INFO  [http-nio-8080-exec-1] [no-request-id] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-14 12:33:22.469 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-14 12:33:22.472 INFO  [http-nio-8080-exec-1] [no-request-id] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-06-14 12:33:22.490 INFO  [http-nio-8080-exec-1] [7eac63fe-87ca-49b8-96fc-bafbc6f760e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=7eac63fe-87ca-49b8-96fc-bafbc6f760e6, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:22.499 INFO  [http-nio-8080-exec-1] [7eac63fe-87ca-49b8-96fc-bafbc6f760e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=7eac63fe-87ca-49b8-96fc-bafbc6f760e6, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=11, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:22.508 INFO  [http-nio-8080-exec-2] [1051b967-9c61-4831-bc3c-c53c283649df] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=1051b967-9c61-4831-bc3c-c53c283649df, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=55, origin=http://localhost:5173
+2026-06-14 12:33:22.711 INFO  [http-nio-8080-exec-2] [1051b967-9c61-4831-bc3c-c53c283649df] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:33:24.154 INFO  [http-nio-8080-exec-2] [1051b967-9c61-4831-bc3c-c53c283649df] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=1051b967-9c61-4831-bc3c-c53c283649df, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=1646, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:24.427 INFO  [http-nio-8080-exec-4] [48f40456-fe82-4fbe-b061-881070396153] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=48f40456-fe82-4fbe-b061-881070396153, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.429 INFO  [http-nio-8080-exec-4] [48f40456-fe82-4fbe-b061-881070396153] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=48f40456-fe82-4fbe-b061-881070396153, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:24.430 INFO  [http-nio-8080-exec-3] [e99b1cfa-5dc9-4879-9780-4ba7946e0024] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=e99b1cfa-5dc9-4879-9780-4ba7946e0024, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.433 INFO  [http-nio-8080-exec-5] [555f38f7-1647-445c-9bb0-1e51bf4b9618] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=555f38f7-1647-445c-9bb0-1e51bf4b9618, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.433 INFO  [http-nio-8080-exec-3] [e99b1cfa-5dc9-4879-9780-4ba7946e0024] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=e99b1cfa-5dc9-4879-9780-4ba7946e0024, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=3, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:24.434 INFO  [http-nio-8080-exec-6] [34499651-de2e-4ed0-b6d5-d65eaff35e41] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=34499651-de2e-4ed0-b6d5-d65eaff35e41, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.435 INFO  [http-nio-8080-exec-6] [34499651-de2e-4ed0-b6d5-d65eaff35e41] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=34499651-de2e-4ed0-b6d5-d65eaff35e41, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:24.437 INFO  [http-nio-8080-exec-5] [555f38f7-1647-445c-9bb0-1e51bf4b9618] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=555f38f7-1647-445c-9bb0-1e51bf4b9618, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=5, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:24.463 INFO  [http-nio-8080-exec-8] [2073e7bd-92bb-4a7b-8b8d-283428e00f9a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=2073e7bd-92bb-4a7b-8b8d-283428e00f9a, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.464 INFO  [http-nio-8080-exec-7] [44c140f3-fe6d-4fa3-aa9b-f67116bc1de2] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=44c140f3-fe6d-4fa3-aa9b-f67116bc1de2, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:24.483 INFO  [http-nio-8080-exec-7] [44c140f3-fe6d-4fa3-aa9b-f67116bc1de2] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:25.535 INFO  [http-nio-8080-exec-8] [2073e7bd-92bb-4a7b-8b8d-283428e00f9a] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:26.711 INFO  [http-nio-8080-exec-8] [2073e7bd-92bb-4a7b-8b8d-283428e00f9a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=2073e7bd-92bb-4a7b-8b8d-283428e00f9a, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=2248, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:26.725 INFO  [http-nio-8080-exec-9] [590e713d-86f4-4504-81c7-b9424f10876c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=590e713d-86f4-4504-81c7-b9424f10876c, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:26.747 INFO  [http-nio-8080-exec-9] [590e713d-86f4-4504-81c7-b9424f10876c] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:26.819 INFO  [http-nio-8080-exec-9] [590e713d-86f4-4504-81c7-b9424f10876c] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=590e713d-86f4-4504-81c7-b9424f10876c, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=94, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:27.822 INFO  [http-nio-8080-exec-7] [44c140f3-fe6d-4fa3-aa9b-f67116bc1de2] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=44c140f3-fe6d-4fa3-aa9b-f67116bc1de2, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=3360, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:33:27.828 INFO  [http-nio-8080-exec-10] [ad79c906-3162-47f9-becb-9c9f197a05fe] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=ad79c906-3162-47f9-becb-9c9f197a05fe, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:33:27.831 INFO  [http-nio-8080-exec-10] [ad79c906-3162-47f9-becb-9c9f197a05fe] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:33:28.051 INFO  [http-nio-8080-exec-10] [ad79c906-3162-47f9-becb-9c9f197a05fe] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=ad79c906-3162-47f9-becb-9c9f197a05fe, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=223, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.633 INFO  [http-nio-8080-exec-9] [bb2bfa3e-7f19-42c2-8e33-8811ed147b66] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=bb2bfa3e-7f19-42c2-8e33-8811ed147b66, method=OPTIONS, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.636 INFO  [http-nio-8080-exec-7] [f832863c-f29a-4b47-95cb-d49641725363] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=f832863c-f29a-4b47-95cb-d49641725363, method=OPTIONS, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.637 INFO  [http-nio-8080-exec-9] [bb2bfa3e-7f19-42c2-8e33-8811ed147b66] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=bb2bfa3e-7f19-42c2-8e33-8811ed147b66, method=OPTIONS, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=4, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.637 INFO  [http-nio-8080-exec-7] [f832863c-f29a-4b47-95cb-d49641725363] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=f832863c-f29a-4b47-95cb-d49641725363, method=OPTIONS, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.634 INFO  [http-nio-8080-exec-10] [fbb28c95-ffbd-4c82-a939-1a78627f8ba7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=fbb28c95-ffbd-4c82-a939-1a78627f8ba7, method=OPTIONS, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.635 INFO  [http-nio-8080-exec-1] [33823ddd-7a10-4f5a-8b32-4cae20f1f939] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=33823ddd-7a10-4f5a-8b32-4cae20f1f939, method=OPTIONS, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.639 INFO  [http-nio-8080-exec-10] [fbb28c95-ffbd-4c82-a939-1a78627f8ba7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=fbb28c95-ffbd-4c82-a939-1a78627f8ba7, method=OPTIONS, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=4, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.639 INFO  [http-nio-8080-exec-1] [33823ddd-7a10-4f5a-8b32-4cae20f1f939] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=33823ddd-7a10-4f5a-8b32-4cae20f1f939, method=OPTIONS, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=4, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.659 INFO  [http-nio-8080-exec-4] [638514c1-b431-4831-a19e-53657bd425b1] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=638514c1-b431-4831-a19e-53657bd425b1, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.659 INFO  [http-nio-8080-exec-2] [ae708e0d-86e9-4baf-98eb-5f91b16b15d9] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=ae708e0d-86e9-4baf-98eb-5f91b16b15d9, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.661 INFO  [http-nio-8080-exec-4] [638514c1-b431-4831-a19e-53657bd425b1] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:29.662 INFO  [http-nio-8080-exec-2] [ae708e0d-86e9-4baf-98eb-5f91b16b15d9] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:29.739 INFO  [http-nio-8080-exec-2] [ae708e0d-86e9-4baf-98eb-5f91b16b15d9] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=ae708e0d-86e9-4baf-98eb-5f91b16b15d9, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=80, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.746 INFO  [http-nio-8080-exec-3] [a445a121-68bb-45a7-9218-47fd9ce37818] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=a445a121-68bb-45a7-9218-47fd9ce37818, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.751 INFO  [http-nio-8080-exec-3] [a445a121-68bb-45a7-9218-47fd9ce37818] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:29.791 INFO  [http-nio-8080-exec-3] [a445a121-68bb-45a7-9218-47fd9ce37818] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=a445a121-68bb-45a7-9218-47fd9ce37818, method=GET, path=/api/v1/get/departments/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=44, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.799 INFO  [http-nio-8080-exec-4] [638514c1-b431-4831-a19e-53657bd425b1] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=638514c1-b431-4831-a19e-53657bd425b1, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=140, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:29.806 INFO  [http-nio-8080-exec-5] [f94cd7f2-9f0c-4ea1-a05c-4fcda4660ad3] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=f94cd7f2-9f0c-4ea1-a05c-4fcda4660ad3, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:29.809 INFO  [http-nio-8080-exec-5] [f94cd7f2-9f0c-4ea1-a05c-4fcda4660ad3] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:29.844 INFO  [http-nio-8080-exec-5] [f94cd7f2-9f0c-4ea1-a05c-4fcda4660ad3] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=f94cd7f2-9f0c-4ea1-a05c-4fcda4660ad3, method=GET, path=/api/v1/get/exam-formats/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=38, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.453 INFO  [http-nio-8080-exec-6] [4edcc093-a849-449b-90fa-fb1a1ca7f8e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=4edcc093-a849-449b-90fa-fb1a1ca7f8e6, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.455 INFO  [http-nio-8080-exec-6] [4edcc093-a849-449b-90fa-fb1a1ca7f8e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=4edcc093-a849-449b-90fa-fb1a1ca7f8e6, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.454 INFO  [http-nio-8080-exec-9] [25758d59-2714-4244-8fad-084cc91b0b00] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=25758d59-2714-4244-8fad-084cc91b0b00, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.454 INFO  [http-nio-8080-exec-1] [715f8642-7e31-48d3-91fe-999513d552e5] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=715f8642-7e31-48d3-91fe-999513d552e5, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.455 INFO  [http-nio-8080-exec-8] [360ab9fb-2233-43d7-bef6-fd610ff156e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=360ab9fb-2233-43d7-bef6-fd610ff156e6, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.456 INFO  [http-nio-8080-exec-9] [25758d59-2714-4244-8fad-084cc91b0b00] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=25758d59-2714-4244-8fad-084cc91b0b00, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=3, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.456 INFO  [http-nio-8080-exec-1] [715f8642-7e31-48d3-91fe-999513d552e5] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=715f8642-7e31-48d3-91fe-999513d552e5, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=3, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.456 INFO  [http-nio-8080-exec-8] [360ab9fb-2233-43d7-bef6-fd610ff156e6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=360ab9fb-2233-43d7-bef6-fd610ff156e6, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.467 INFO  [http-nio-8080-exec-7] [8b0334b3-0c4f-4aa8-812d-977f54fcf183] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=8b0334b3-0c4f-4aa8-812d-977f54fcf183, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.470 INFO  [http-nio-8080-exec-7] [8b0334b3-0c4f-4aa8-812d-977f54fcf183] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.473 INFO  [http-nio-8080-exec-10] [7fad6edf-603e-4a79-8e5a-3d05f8e28650] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=7fad6edf-603e-4a79-8e5a-3d05f8e28650, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.484 INFO  [http-nio-8080-exec-10] [7fad6edf-603e-4a79-8e5a-3d05f8e28650] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.516 INFO  [http-nio-8080-exec-10] [7fad6edf-603e-4a79-8e5a-3d05f8e28650] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=7fad6edf-603e-4a79-8e5a-3d05f8e28650, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=43, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.522 INFO  [http-nio-8080-exec-2] [74d689d3-2c1b-41da-861f-597e80ee683a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=74d689d3-2c1b-41da-861f-597e80ee683a, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.535 INFO  [http-nio-8080-exec-2] [74d689d3-2c1b-41da-861f-597e80ee683a] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.565 INFO  [http-nio-8080-exec-2] [74d689d3-2c1b-41da-861f-597e80ee683a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=74d689d3-2c1b-41da-861f-597e80ee683a, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=43, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.677 INFO  [http-nio-8080-exec-7] [8b0334b3-0c4f-4aa8-812d-977f54fcf183] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=8b0334b3-0c4f-4aa8-812d-977f54fcf183, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=210, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:34:44.684 INFO  [http-nio-8080-exec-3] [6bdbc281-f1f2-459a-86f6-00f8e3e74126] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=6bdbc281-f1f2-459a-86f6-00f8e3e74126, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:34:44.687 INFO  [http-nio-8080-exec-3] [6bdbc281-f1f2-459a-86f6-00f8e3e74126] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:34:44.799 INFO  [http-nio-8080-exec-3] [6bdbc281-f1f2-459a-86f6-00f8e3e74126] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=6bdbc281-f1f2-459a-86f6-00f8e3e74126, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=115, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:09.385 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:38:17.996 INFO  [http-nio-8080-exec-2] [9f2d0c63-59c1-4ea3-9922-e13758dfc1f5] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=9f2d0c63-59c1-4ea3-9922-e13758dfc1f5, method=OPTIONS, path=/api/v1/auth/logout, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:17.997 INFO  [http-nio-8080-exec-2] [9f2d0c63-59c1-4ea3-9922-e13758dfc1f5] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=9f2d0c63-59c1-4ea3-9922-e13758dfc1f5, method=OPTIONS, path=/api/v1/auth/logout, routeTarget=AUTH-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:18.004 INFO  [http-nio-8080-exec-7] [def4e43c-edce-403a-a712-6fb92707a98b] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=def4e43c-edce-403a-a712-6fb92707a98b, method=POST, path=/api/v1/auth/logout, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=0, origin=http://localhost:5173
+2026-06-14 12:38:18.008 INFO  [http-nio-8080-exec-7] [def4e43c-edce-403a-a712-6fb92707a98b] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/logout
+2026-06-14 12:38:18.063 INFO  [http-nio-8080-exec-7] [def4e43c-edce-403a-a712-6fb92707a98b] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=def4e43c-edce-403a-a712-6fb92707a98b, method=POST, path=/api/v1/auth/logout, routeTarget=AUTH-SERVICE, status=200, durationMs=59, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.136 INFO  [http-nio-8080-exec-3] [544d64e0-8709-4124-9b33-0164233b9f7d] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=544d64e0-8709-4124-9b33-0164233b9f7d, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.137 INFO  [http-nio-8080-exec-3] [544d64e0-8709-4124-9b33-0164233b9f7d] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=544d64e0-8709-4124-9b33-0164233b9f7d, method=OPTIONS, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.144 INFO  [http-nio-8080-exec-4] [223a6168-0954-47f1-a3c3-7fa473531d1a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=223a6168-0954-47f1-a3c3-7fa473531d1a, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=application/json, contentLength=55, origin=http://localhost:5173
+2026-06-14 12:38:37.147 INFO  [http-nio-8080-exec-4] [223a6168-0954-47f1-a3c3-7fa473531d1a] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=AUTH-SERVICE, method=POST, path=/api/v1/auth/login
+2026-06-14 12:38:37.397 INFO  [http-nio-8080-exec-4] [223a6168-0954-47f1-a3c3-7fa473531d1a] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=223a6168-0954-47f1-a3c3-7fa473531d1a, method=POST, path=/api/v1/auth/login, routeTarget=AUTH-SERVICE, status=200, durationMs=253, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.541 INFO  [http-nio-8080-exec-1] [2ebe9b7b-a7c3-47ee-aa5a-b440176045ad] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=2ebe9b7b-a7c3-47ee-aa5a-b440176045ad, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.542 INFO  [http-nio-8080-exec-1] [2ebe9b7b-a7c3-47ee-aa5a-b440176045ad] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=2ebe9b7b-a7c3-47ee-aa5a-b440176045ad, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=1, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.545 INFO  [http-nio-8080-exec-6] [6b6ec12d-28c3-40a7-929b-da188c7044ed] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=6b6ec12d-28c3-40a7-929b-da188c7044ed, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.545 INFO  [http-nio-8080-exec-5] [b50e9345-b857-4c30-97a1-8edfa0d17dd6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=b50e9345-b857-4c30-97a1-8edfa0d17dd6, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.546 INFO  [http-nio-8080-exec-5] [b50e9345-b857-4c30-97a1-8edfa0d17dd6] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=b50e9345-b857-4c30-97a1-8edfa0d17dd6, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.545 INFO  [http-nio-8080-exec-9] [83207b5a-d3ef-4b19-b857-9789d9039dad] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=83207b5a-d3ef-4b19-b857-9789d9039dad, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.546 INFO  [http-nio-8080-exec-6] [6b6ec12d-28c3-40a7-929b-da188c7044ed] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=6b6ec12d-28c3-40a7-929b-da188c7044ed, method=OPTIONS, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=2, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.547 INFO  [http-nio-8080-exec-9] [83207b5a-d3ef-4b19-b857-9789d9039dad] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=83207b5a-d3ef-4b19-b857-9789d9039dad, method=OPTIONS, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=3, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.560 INFO  [http-nio-8080-exec-8] [4a772ddb-22bd-4c91-9b71-692803f62c3d] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=4a772ddb-22bd-4c91-9b71-692803f62c3d, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.563 INFO  [http-nio-8080-exec-8] [4a772ddb-22bd-4c91-9b71-692803f62c3d] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.565 INFO  [http-nio-8080-exec-10] [30882f31-c707-4404-8b8e-2cb6c261a6d7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=30882f31-c707-4404-8b8e-2cb6c261a6d7, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.578 INFO  [http-nio-8080-exec-10] [30882f31-c707-4404-8b8e-2cb6c261a6d7] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.602 INFO  [http-nio-8080-exec-10] [30882f31-c707-4404-8b8e-2cb6c261a6d7] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=30882f31-c707-4404-8b8e-2cb6c261a6d7, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=35, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.612 INFO  [http-nio-8080-exec-2] [9e5b0af3-0046-4fc5-8cb4-9c9cc17fc687] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=9e5b0af3-0046-4fc5-8cb4-9c9cc17fc687, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.625 INFO  [http-nio-8080-exec-2] [9e5b0af3-0046-4fc5-8cb4-9c9cc17fc687] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=CONTENT-SERVICE, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.673 INFO  [http-nio-8080-exec-2] [9e5b0af3-0046-4fc5-8cb4-9c9cc17fc687] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=9e5b0af3-0046-4fc5-8cb4-9c9cc17fc687, method=GET, path=/api/v1/content/internal/stats/university/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=CONTENT-SERVICE, status=200, durationMs=61, userId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0, roles=[UNIVERSITY_ADMIN], universityId=e2d30929-8aa1-4600-8d82-19f239efc007, scopeId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.743 INFO  [http-nio-8080-exec-7] [efb32d57-0434-4d0b-859f-6201c14d4b97] c.p.g.i.GatewayRequestLoggingFilter - Gateway request received: requestId=efb32d57-0434-4d0b-859f-6201c14d4b97, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, queryKeys=[], clientIp=0:0:0:0:0:0:0:1, contentType=null, contentLength=-1, origin=http://localhost:5173
+2026-06-14 12:38:37.745 INFO  [http-nio-8080-exec-8] [4a772ddb-22bd-4c91-9b71-692803f62c3d] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=4a772ddb-22bd-4c91-9b71-692803f62c3d, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=185, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:38:37.746 INFO  [http-nio-8080-exec-7] [efb32d57-0434-4d0b-859f-6201c14d4b97] c.p.g.config.GatewayRoutesConfig - Gateway route selected: routeTarget=UNIVERSITY-SERVICE, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-14 12:38:37.908 INFO  [http-nio-8080-exec-7] [efb32d57-0434-4d0b-859f-6201c14d4b97] c.p.g.i.GatewayRequestLoggingFilter - Gateway request completed: requestId=efb32d57-0434-4d0b-859f-6201c14d4b97, method=GET, path=/api/v1/get/university-info/e2d30929-8aa1-4600-8d82-19f239efc007, routeTarget=UNIVERSITY-SERVICE, status=200, durationMs=165, userId=null, roles=null, universityId=null, scopeId=null
+2026-06-14 12:43:09.388 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-14 12:48:09.390 INFO  [AsyncResolver-bootstrap-executor-%d] [no-request-id] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

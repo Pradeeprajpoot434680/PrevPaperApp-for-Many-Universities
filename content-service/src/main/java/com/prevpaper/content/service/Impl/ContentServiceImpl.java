@@ -39,7 +39,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class ContentServiceImpl implements ContentService {
 
@@ -48,8 +47,18 @@ public class ContentServiceImpl implements ContentService {
     private  final NotificationProducer notificationProducer;
     private  final AuthServiceClient authServiceClient;
     private final UserServiceClient userServiceClient;
+
+
     @Value("${app.kafka.topics.upload-task}")
     private String uploadTaskTopic;
+
+    public ContentServiceImpl(ContentRepository contentRepository, KafkaTemplate<String, Object> kafkaTemplate, NotificationProducer notificationProducer, AuthServiceClient authServiceClient, UserServiceClient userServiceClient) {
+        this.contentRepository = contentRepository;
+        this.kafkaTemplate = kafkaTemplate;
+        this.notificationProducer = notificationProducer;
+        this.authServiceClient = authServiceClient;
+        this.userServiceClient = userServiceClient;
+    }
 
     @Override
     @Transactional

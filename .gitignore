@@ -10,3 +10,12 @@ upload-service/logs/*.log
 upload-service/logs/*.zip
 notificationService/logs/*.log
 notificationService/logs/*.zip
+
+/logs
+/auth-service/logs
+/api-gateway/logs
+/content-service/logs
+/notificationService/logs
+/university-service/logs
+/upload-service/logs
+/user-service/logs

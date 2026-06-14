@@ -1,9 +1,7 @@
-
-
-
 package com.prevpaper.gateway.interceptor;
 
 import com.prevpaper.comman.dto.AuthResponse;
+import com.prevpaper.comman.service.RedisService;
 import com.prevpaper.gateway.client.AuthClient;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -25,6 +23,7 @@ import java.util.*;
 public class AuthenticationFilter extends OncePerRequestFilter {
 
     private final AuthClient authClient;
+    private final RedisService redisService;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     private final Map<String, String> roleRequirements = Map.of(
@@ -34,7 +33,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/program-rep", "PROGRAM_REP",
             "/api/v1/session-rep", "SESSION_REP",
             "/api/v1/users/internal/store", "STUDENT",
-            "/api/v1/user/me/profile","STUDENT"
+            "/api/v1/user/me/profile", "STUDENT",
+            "/api/v1/content", "STUDENT" // Unified content security rule path mapping
     );
 
     private final List<String> openEndpoints = List.of(
@@ -50,8 +50,9 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "STUDENT", "SESSION_REP", "PROGRAM_REP", "DEPT_REP", "UNIVERSITY_ADMIN", "GLOBAL_ADMIN"
     );
 
-    public AuthenticationFilter(AuthClient authClient) {
+    public AuthenticationFilter(AuthClient authClient, RedisService redisService) {
         this.authClient = authClient;
+        this.redisService = redisService;
     }
 
     @Override
@@ -59,151 +60,117 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        // 1. Handle Preflight
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            log.info("Gateway auth skipped for preflight request: requestId={}, method={}, path={}",
-                    getRequestId(request), request.getMethod(), request.getRequestURI());
             filterChain.doFilter(request, response);
             return;
         }
 
         String path = request.getRequestURI();
-        log.info("Gateway auth check started: requestId={}, method={}, path={}",
-                getRequestId(request), request.getMethod(), path);
+        Object requestId = getRequestId(request);
 
-        // 2. Handle Open Endpoints
         boolean isOpen = openEndpoints.stream().anyMatch(pattern -> pathMatcher.match(pattern, path));
         if (isOpen) {
-            log.info("Gateway auth skipped for open endpoint: requestId={}, method={}, path={}",
-                    getRequestId(request), request.getMethod(), path);
             filterChain.doFilter(request, response);
             return;
         }
 
-        // 3. Extract Token
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            log.warn("Gateway auth rejected: requestId={}, method={}, path={}, reason=missing_authorization_header",
-                    getRequestId(request), request.getMethod(), path);
             handleError(response, "Missing Authorization Header", 401);
             return;
         }
 
         String token = authHeader.substring(7);
+        AuthResponse authInfo = null;
 
         try {
-            // 4. Validate Token (SAFE CHECK)
-            log.info("Gateway token validation requested: requestId={}, method={}, path={}",
-                    getRequestId(request), request.getMethod(), path);
-            AuthResponse authInfo = authClient.validateToken(token);
+            String redisTokenKey = "token:val:" + token;
+            authInfo = redisService.get(redisTokenKey, AuthResponse.class);
 
-            if (authInfo == null) {
-                throw new RuntimeException("Auth Service returned empty response");
+            if (authInfo != null) {
+                log.debug("Redis Cache HIT for token tracking. RequestId={}", requestId);
+            } else {
+                log.info("Redis Cache MISS for token tracking. Executing Feign call to AUTH-SERVICE. RequestId={}", requestId);
+                authInfo = authClient.validateToken(token);
+
+                if (authInfo != null && authInfo.isValid()) {
+                    redisService.set(redisTokenKey, authInfo, 300L);
+                }
             }
 
-            if (!authInfo.isValid()) {
-                log.warn("Gateway auth rejected: requestId={}, method={}, path={}, reason=invalid_or_expired_token",
-                        getRequestId(request), request.getMethod(), path);
+            if (authInfo == null || !authInfo.isValid()) {
                 handleError(response, "Token invalid or expired", 401);
                 return;
             }
 
-            // 5. Role & Scope Validation
             List<String> userRoles = authInfo.roles() != null ? authInfo.roles() : Collections.emptyList();
-            log.info("Gateway token validated: requestId={}, userId={}, roles={}, universityId={}, scopeId={}",
-                    getRequestId(request), authInfo.userId(), userRoles, authInfo.universityId(), authInfo.scopeId());
+            boolean pathMatched = false;
 
             for (Map.Entry<String, String> entry : roleRequirements.entrySet()) {
-
                 if (path.startsWith(entry.getKey())) {
+                    pathMatched = true;
                     String requiredRole = entry.getValue();
                     boolean isAuthorized = false;
-                    log.info("Gateway role check started: requestId={}, userId={}, path={}, requiredRole={}, userRoles={}",
-                            getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
-
-                    if (!userRoles.contains(requiredRole)) {
-                        log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=missing_role, requiredRole={}, userRoles={}",
-                                getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
-                        handleError(response, "Access Denied: Missing role " + requiredRole, 403);
-                        return;
-                    }
 
                     if (path.startsWith("/api/v1/content")) {
                         isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
                     } else {
-                        // Standard check for other specific admin routes
                         isAuthorized = userRoles.contains(requiredRole);
                     }
 
                     if (!isAuthorized) {
-                        log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=not_authorized_for_route, requiredRole={}, userRoles={}",
-                                getRequestId(request), authInfo.userId(), path, requiredRole, userRoles);
-                        handleError(response, "Access Denied: Missing required role for " + path, 403);
+                        handleError(response, "Access Denied: Missing role permissions", 403);
                         return;
                     }
 
-
-                    // Scope checks for non-Global Admins
+                    // Scope multi-tenancy verification checks
                     if (!userRoles.contains("GLOBAL_ADMIN")) {
-                        String targetIdInUrl = extractIdFromPath(path, 4);
+                        String targetIdInUrl = extractIdDynamically(path); // FIXED: Using robust dynamic extractor
 
-                        if ("UNIVERSITY_ADMIN".equals(requiredRole)) {
+                        if (userRoles.contains("UNIVERSITY_ADMIN") || path.contains("/university/")) {
                             if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.universityId())) {
-                                log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=university_scope_mismatch, targetId={}, userUniversityId={}",
-                                        getRequestId(request), authInfo.userId(), path, targetIdInUrl, authInfo.universityId());
-                                handleError(response, "University mismatch", 403);
+                                handleError(response, "Access Denied: University scope mismatch", 403);
                                 return;
                             }
-                        } else if (List.of("DEPT_REP", "PROGRAM_REP", "SESSION_REP").contains(requiredRole)) {
+                        } else if (userRoles.stream().anyMatch(r -> List.of("DEPT_REP", "PROGRAM_REP", "SESSION_REP").contains(r))) {
                             if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.scopeId())) {
-                                log.warn("Gateway auth rejected: requestId={}, userId={}, path={}, reason=scope_mismatch, targetId={}, userScopeId={}",
-                                        getRequestId(request), authInfo.userId(), path, targetIdInUrl, authInfo.scopeId());
-                                handleError(response, "Scope mismatch", 403);
+                                handleError(response, "Access Denied: Management scope mismatch", 403);
                                 return;
                             }
                         }
                     }
-                    log.info("Gateway authorization passed: requestId={}, userId={}, path={}, requiredRole={}, universityId={}, scopeId={}",
-                            getRequestId(request), authInfo.userId(), path, requiredRole, authInfo.universityId(), authInfo.scopeId());
-                    break; // Exit loop once path is matched and validated
+                    break;
                 }
             }
 
-            // 6. Header Injection (NULL-SAFE)
+            if (!pathMatched && !userRoles.contains("GLOBAL_ADMIN")) {
+                handleError(response, "Access Denied: Secure fallback path blocking", 403);
+                return;
+            }
+
+            // Context Header Injection
             Map<String, String> customHeaders = new HashMap<>();
             customHeaders.put("X-User-Id", String.valueOf(authInfo.userId()));
             customHeaders.put("X-User-Roles", String.join(",", userRoles));
             customHeaders.put("X-User-Email", authInfo.email() != null ? authInfo.email() : "");
             customHeaders.put("X-University-Id", authInfo.universityId() != null ? authInfo.universityId() : "");
             customHeaders.put("X-Scope-Id", authInfo.scopeId() != null ? authInfo.scopeId() : "");
+
             request.setAttribute("gateway.userId", authInfo.userId());
             request.setAttribute("gateway.roles", userRoles);
             request.setAttribute("gateway.universityId", authInfo.universityId());
             request.setAttribute("gateway.scopeId", authInfo.scopeId());
-            log.info("Gateway user context injected: requestId={}, userId={}, roles={}, universityId={}, scopeId={}",
-                    getRequestId(request), authInfo.userId(), userRoles, authInfo.universityId(), authInfo.scopeId());
 
             HttpServletRequest wrappedRequest = new HttpServletRequestWrapper(request) {
-                @Override
-                public String getHeader(String name) {
-                    return customHeaders.getOrDefault(name, super.getHeader(name));
-                }
-
-                @Override
-                public Enumeration<String> getHeaders(String name) {
-                    if (customHeaders.containsKey(name)) {
-                        return Collections.enumeration(List.of(customHeaders.get(name)));
-                    }
+                @Override public String getHeader(String name) { return customHeaders.getOrDefault(name, super.getHeader(name)); }
+                @Override public Enumeration<String> getHeaders(String name) {
+                    if (customHeaders.containsKey(name)) return Collections.enumeration(List.of(customHeaders.get(name)));
                     return super.getHeaders(name);
                 }
-
-                @Override
-                public Enumeration<String> getHeaderNames() {
+                @Override public Enumeration<String> getHeaderNames() {
                     Set<String> headerNames = new HashSet<>(customHeaders.keySet());
                     Enumeration<String> original = super.getHeaderNames();
-                    while (original != null && original.hasMoreElements()) {
-                        headerNames.add(original.nextElement());
-                    }
+                    while (original != null && original.hasMoreElements()) { headerNames.add(original.nextElement()); }
                     return Collections.enumeration(headerNames);
                 }
             };
@@ -211,25 +178,28 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(wrappedRequest, response);
 
         } catch (Exception e) {
-            log.error("Gateway auth service error: requestId={}, method={}, path={}, error={}",
-                    getRequestId(request), request.getMethod(), path, e.getMessage(), e);
-            handleError(response, "Security Service Unavailable: " + e.getMessage(), 503);
+            log.error("Gateway auth interceptor error: requestId={}, error={}", requestId, e.getMessage(), e);
+            handleError(response, "Security Infrastructure Failure", 503);
         }
     }
 
-    private void handleError(HttpServletResponse response,
-                             String message,
-                             int status) throws IOException {
+    /**
+     * FIXED: Dynamically isolates resource UUID strings regardless of nested folder index paths
+     */
+    private String extractIdDynamically(String path) {
+        String[] segments = path.split("/");
+        if (segments.length == 0) return null;
+        String finalSegment = segments[segments.length - 1];
+        return (finalSegment.length() == 36) ? finalSegment : null;
+    }
 
+    private void handleError(HttpServletResponse response, String message, int status) throws IOException {
         response.setStatus(status);
         response.setContentType("application/json");
-
-        // Add CORS headers
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
         response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS,PATCH");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        // Inside AuthenticationFilter.java -> handleError method
         response.getWriter().write("{\"error\":\"" + message + "\"}");
         response.getWriter().flush();
     }
@@ -237,12 +207,5 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private Object getRequestId(HttpServletRequest request) {
         Object requestId = request.getAttribute("gateway.requestId");
         return requestId == null ? "not-set" : requestId;
-    }
-
-    private String extractIdFromPath(String path, int index) {
-
-        String[] segments = path.split("/");
-
-        return segments.length > index ? segments[index] : null;
     }
 }

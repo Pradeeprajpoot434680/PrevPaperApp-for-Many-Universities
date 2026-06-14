@@ -1,7 +1,6 @@
-package com.prevpaper.comman.producer;
+package com.prevpaper.comman.producer; // Note: Consider renaming package "comman" to "common" later!
 
 import com.prevpaper.comman.dto.FileTaskEvent;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -11,21 +10,26 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class ContentProducer {
+
     private final KafkaTemplate<String, Object> kafkaTemplate;
-    @Value("${app.kafka.topics.upload-task}")
-    private String uploadTaskTopic;
+    private final String uploadTaskTopic;
+
+    // Standard constructor injection manages both the template and the config parameter cleanly
+    public ContentProducer(
+            KafkaTemplate<String, Object> kafkaTemplate,
+            @Value("${app.kafka.topics.upload-task:default-upload-topic}") String uploadTaskTopic) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.uploadTaskTopic = uploadTaskTopic;
+    }
 
     public void sendUploadTask(UUID contentId, MultipartFile file) {
         try {
-            // Wrap the data in our "Envelope" DTO
             FileTaskEvent event = new FileTaskEvent();
             event.setContentId(contentId);
             event.setFileBytes(file.getBytes());
             event.setFileName(file.getOriginalFilename());
 
-            // Send to Kafka
             kafkaTemplate.send(uploadTaskTopic, contentId.toString(), event);
         } catch (IOException e) {
             throw new RuntimeException("Failed to read file for Kafka transmission", e);

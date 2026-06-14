@@ -8,7 +8,12 @@
         <version>4.0.3</version>
         <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
     </parent>
-	<groupId>com.prevpaper</groupId>
+
+
+
+
+
+    <groupId>com.prevpaper</groupId>
 	<artifactId>content-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
@@ -31,10 +36,25 @@
 		<spring-cloud.version>2025.1.1</spring-cloud.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--            <version>3.4.0</version>-->
+<!--        </dependency>-->
+
+
+        <!-- Source: https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>4.1.0</version>
+            <scope>compile</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -69,6 +89,7 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 
         <dependency>
             <groupId>org.apache.tika</groupId>

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   zipkin:
@@ -6,3 +6,24 @@ services:
     container_name: zipkin
     ports:
       - "9411:9411"
+    restart: always
+
+  clamav:
+    image: clamav/clamav:latest
+    container_name: clamav
+    ports:
+      - "3310:3310"
+    restart: always
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis_server
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: always
+
+volumes:
+  redis_data:
