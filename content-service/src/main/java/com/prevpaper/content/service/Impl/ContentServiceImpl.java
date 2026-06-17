@@ -7,10 +7,7 @@ import com.prevpaper.comman.exception.ContentAlreadyExist;
 import com.prevpaper.comman.producer.NotificationProducer;
 import com.prevpaper.content.client.AuthServiceClient;
 import com.prevpaper.content.client.UserServiceClient;
-import com.prevpaper.content.dto.ContentSearchRequest;
-import com.prevpaper.content.dto.ContentTypeCountDTO;
-import com.prevpaper.content.dto.ContentUploadRequest;
-import com.prevpaper.content.dto.UniversityContentSummaryDTO;
+import com.prevpaper.content.dto.*;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
 import com.prevpaper.content.repository.ContentRepository;
@@ -21,6 +18,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -259,9 +258,11 @@ public class ContentServiceImpl implements ContentService {
     }
     @Override
     @Transactional
+    @CacheEvict(value = "librarySearches", allEntries = true)
     public void finalizeUploadStatus(UUID contentId, UploadResultDTO result) {
         log.info("Finalize upload status request received: contentId={}, success={}",
                 contentId, result.isSuccess());
+        log.info("Redis Cache EVICT [librarySearches] - Finalizing upload status for contentId={}", contentId);
         // 1. Fetch the record we created in Step 3
         Content content = contentRepository.findById(contentId)
                 .orElseThrow(() -> new RuntimeException("Content not found for ID: " + contentId));
@@ -383,19 +384,40 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public List<Content> search(ContentSearchRequest request) {
-        log.info("Content search request received: universityId={}, departmentId={}, programId={}, semester={}, subjectId={}, examTypeId={}, academicYear={}, contentType={}",
-                request.getUniversityId(),
-                request.getDepartmentId(),
-                request.getProgramId(),
-                request.getSemester(),
-                request.getSubjectId(),
-                request.getExamTypeId(),
-                request.getAcademicYear(),
-                request.getContentType());
+    @Cacheable(
+            value = "librarySearches",
+            key = "#request.universityId + ':' + " +
+                    "#request.departmentId + ':' + " +
+                    "#request.programId + ':' + " +
+                    "#request.semester + ':' + " +
+                    "#request.subjectId + ':' + " +
+                    "#request.examTypeId + ':' + " +
+                    "#request.academicYear + ':' + " +
+                    "#request.contentType"
+    )
+    public List<ContentSearchResponseDTO> search(ContentSearchRequest request) {
+        log.info("Redis Cache MISS - Running specification database query execution block for current search criteria");
+
         List<Content> results = contentRepository.findAll(ContentSpecifications.withFilters(request));
-        log.info("Content search completed: resultCount={}", results.size());
-        return results;
+
+        // Map complex database models to clean, timestamp-free DTOs
+        return results.stream()
+                .map(c -> new ContentSearchResponseDTO(
+                        c.getId(),
+                        c.getTitle(),
+                        c.getDescription(),
+                        c.getContentType() != null ? c.getContentType().name() : null,
+                        c.getUniversityId(),
+                        c.getDepartmentId(),
+                        c.getProgramId(),
+                        c.getAcademicYear(),
+                        c.getSemester(),
+                        c.getSubjectId(),
+                        c.getExamTypeId(), // 🟢 NOW WORKS PERFECTLY!
+                        c.getFileUrl(),
+                        c.getFileType() != null ? c.getFileType().name() : null
+                ))
+                .toList();
     }
 
     @Override
@@ -423,6 +445,8 @@ public class ContentServiceImpl implements ContentService {
 
 
     @Override
+    @Transactional
+    @CacheEvict(value = "librarySearches", allEntries = true)
 
     public void verifyOrRejectContent(UUID contentId, String status, UUID verifiedBy) {
         log.info("Verify or reject content request received: contentId={}, requestedStatus={}, verifiedBy={}",

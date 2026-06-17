@@ -161,3 +161,225 @@
 2026-06-17 11:08:15.811 INFO  [http-nio-8082-exec-4] c.p.u.s.Impl.GlobalAdminServiceImpl - Redis Cache MISS - Loading global university dashboard listing from DB & User Feign
 2026-06-17 11:08:35.093 INFO  [http-nio-8082-exec-10] c.p.u.s.Impl.GlobalAdminServiceImpl - Redis Cache MISS - Processing master university representatives directory with bulk parallel Feign queries
 2026-06-17 11:09:23.974 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:14:23.975 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:15:21.087 INFO  [http-nio-8082-exec-10] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:21.198 WARN  [http-nio-8082-exec-10] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:15:21.206 WARN  [http-nio-8082-exec-10] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:15:21.309 INFO  [http-nio-8082-exec-9] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:21.431 WARN  [http-nio-8082-exec-9] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:15:21.432 WARN  [http-nio-8082-exec-9] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:15:47.688 INFO  [http-nio-8082-exec-1] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:47.791 WARN  [http-nio-8082-exec-1] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:15:47.792 WARN  [http-nio-8082-exec-1] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:15:47.842 INFO  [http-nio-8082-exec-2] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:47.944 WARN  [http-nio-8082-exec-2] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:15:47.945 WARN  [http-nio-8082-exec-2] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:16:31.805 INFO  [http-nio-8082-exec-4] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:16:55.456 INFO  [http-nio-8082-exec-6] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading departments from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:16:55.458 INFO  [http-nio-8082-exec-3] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading configured exam formats from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:19:23.976 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:24:23.977 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:29:23.978 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:34:23.979 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:53:09.363 INFO  [http-nio-8082-exec-1] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:53:28.711 INFO  [http-nio-8082-exec-5] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading departments from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:53:28.724 INFO  [http-nio-8082-exec-4] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading configured exam formats from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:42.705 INFO  [http-nio-8082-exec-10] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:42.797 WARN  [http-nio-8082-exec-10] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:55:42.802 WARN  [http-nio-8082-exec-10] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:55:42.856 INFO  [http-nio-8082-exec-9] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:42.941 WARN  [http-nio-8082-exec-9] o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: USER-SERVICE
+2026-06-17 11:55:42.942 WARN  [http-nio-8082-exec-9] o.s.c.o.l.RetryableFeignBlockingLoadBalancerClient - Service instance was not resolved, executing the original request
+2026-06-17 11:55:47.224 INFO  [http-nio-8082-exec-1] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading configured exam formats from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:47.234 INFO  [http-nio-8082-exec-2] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading departments from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:50.521 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:55:57.656 INFO  [http-nio-8082-exec-6] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:00:50.522 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:05:50.525 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:07:42.539 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application UNIVERSITY-SERVICE with eureka with status DOWN
+2026-06-17 12:07:42.539 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678262539, current=DOWN, previous=UP]
+2026-06-17 12:07:42.540 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082: registering service...
+2026-06-17 12:07:42.548 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-17 12:07:42.555 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-17 12:07:42.560 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082 - registration status: 204
+2026-06-17 12:07:42.623 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:07:42.626 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-17 12:07:42.636 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-17 12:07:43.388 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-17 12:07:46.389 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-17 12:07:46.398 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082 - deregister  status: 200
+2026-06-17 12:07:46.399 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-17 12:07:50.863 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-17 12:07:51.104 INFO  [main] c.p.u.UniversityServiceApplication - Starting UniversityServiceApplication using Java 17.0.19 with PID 49425 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/university-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-17 12:07:51.107 INFO  [main] c.p.u.UniversityServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-17 12:07:53.832 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:07:53.836 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-17 12:07:54.225 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 345 ms. Found 8 JPA repository interfaces.
+2026-06-17 12:07:54.265 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:07:54.268 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-17 12:07:54.306 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.AcademicSessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.307 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.DepartmentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.308 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ExamConfigRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.309 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ProgramRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.309 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.RepresentativeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.310 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SemesterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.311 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SubjectRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.311 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.UniversityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:07:54.312 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2026-06-17 12:07:55.495 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=c54df5f2-819a-36ef-9a4f-bba9bec6d952
+2026-06-17 12:07:57.215 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-06-17 12:07:57.249 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-06-17 12:07:57.254 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-17 12:07:57.255 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-06-17 12:07:57.385 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-17 12:07:57.386 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6134 ms
+2026-06-17 12:07:58.688 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-17 12:07:58.785 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-06-17 12:07:58.848 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-17 12:07:59.387 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-17 12:07:59.461 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-17 12:08:00.113 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76ebd595
+2026-06-17 12:08:00.117 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-17 12:08:00.215 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-17 12:08:00.259 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.45
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-17 12:08:04.132 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-17 12:08:04.688 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:08:07.383 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-17 12:08:07.904 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:08:08.243 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:08:08.577 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'CONTENT-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:08:14.192 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-06-17 12:08:14.451 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-17 12:08:14.528 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2026-06-17 12:08:14.934 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = UNIVERSITY-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-06-17 12:08:15.475 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-17 12:08:15.476 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-17 12:08:15.479 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678295471
+2026-06-17 12:08:17.163 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for UNIVERSITY-SERVICE-admin-0 unregistered
+2026-06-17 12:08:17.199 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:08:17.203 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:08:17.206 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:08:17.294 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-17 12:08:17.424 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-17 12:08:17.443 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:08:17.485 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-17 12:08:17.489 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-17 12:08:17.489 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-17 12:08:17.489 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-17 12:08:17.490 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-17 12:08:17.490 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-17 12:08:17.490 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-17 12:08:18.476 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-17 12:08:18.483 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-17 12:08:18.491 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-17 12:08:18.497 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781678298495 with initial instances count: 6
+2026-06-17 12:08:18.588 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application UNIVERSITY-SERVICE with eureka with status UP
+2026-06-17 12:08:18.592 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678298592, current=UP, previous=STARTING]
+2026-06-17 12:08:18.604 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082: registering service...
+2026-06-17 12:08:18.610 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-06-17 12:08:18.706 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-06-17 12:08:18.709 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+2026-06-17 12:08:18.805 INFO  [main] c.p.u.UniversityServiceApplication - Started UniversityServiceApplication in 29.241 seconds (process running for 30.694)
+2026-06-17 12:08:18.829 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082 - registration status: 204
+2026-06-17 12:10:18.214 INFO  [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-17 12:10:18.215 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-17 12:10:18.232 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2026-06-17 12:10:19.451 INFO  [http-nio-8082-exec-1] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:35.048 INFO  [http-nio-8082-exec-6] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:51.855 INFO  [http-nio-8082-exec-8] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading configured exam formats from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:51.867 INFO  [http-nio-8082-exec-7] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading departments from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:13:17.497 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:18:17.498 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:23:17.499 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:28:17.501 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:32:10.966 INFO  [http-nio-8082-exec-7] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:32:12.196 INFO  [http-nio-8082-exec-9] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading departments from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:32:12.197 INFO  [http-nio-8082-exec-10] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading configured exam formats from DB for university: e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:33:17.503 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:33:55.738 INFO  [http-nio-8082-exec-9] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading programs from DB for department: 2a172609-abd7-4517-9486-c3dd5f547a10
+2026-06-17 12:34:01.670 INFO  [http-nio-8082-exec-10] c.p.u.s.I.UniversityRepresentativeServiceImpl - Redis Cache MISS - Loading programs from DB for department: 164f912b-be81-46cd-afc0-32ffabb74afd
+2026-06-17 13:01:47.493 INFO  [http-nio-8082-exec-2] c.p.u.s.I.UniversityDiscoveryServiceImpl - Redis Cache MISS - Fetching university team directory from DB & Remote Feign: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 13:01:50.338 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082 - Re-registering apps/UNIVERSITY-SERVICE
+2026-06-17 13:01:50.341 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082: registering service...
+2026-06-17 13:01:50.643 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.33.159.181:UNIVERSITY-SERVICE:8082 - registration status: 204

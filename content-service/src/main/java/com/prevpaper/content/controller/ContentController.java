@@ -3,6 +3,7 @@ package com.prevpaper.content.controller;
 import com.prevpaper.comman.dto.PendingContentDTO;
 import com.prevpaper.comman.dto.UploadResultDTO;
 import com.prevpaper.content.dto.ContentSearchRequest;
+import com.prevpaper.content.dto.ContentSearchResponseDTO;
 import com.prevpaper.content.dto.ContentUploadRequest;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
@@ -60,7 +61,8 @@ public class ContentController {
     }
 
     @PostMapping("/search")
-    public ResponseEntity<List<Content>> searchContent(@RequestBody ContentSearchRequest request) {
+    public ResponseEntity<List<ContentSearchResponseDTO>> searchContent(@RequestBody ContentSearchRequest request) {
+        // Returns clean, compile-safe, non-entity lists
         return ResponseEntity.ok(contentService.search(request));
     }
 }

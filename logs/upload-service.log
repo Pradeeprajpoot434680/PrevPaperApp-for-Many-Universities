@@ -386,3 +386,341 @@
 2026-06-17 11:03:15.431 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
 2026-06-17 11:03:15.597 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - The response status is 200
 2026-06-17 11:07:41.585 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:12:41.587 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:17:41.588 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:22:41.589 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:27:41.590 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:32:41.592 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:52:10.801 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Disconnecting from node 1 due to request timeout.
+2026-06-17 11:52:10.810 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Cancelled in-flight FETCH request with correlation id 4615 due to node 1 being disconnected (elapsed time since creation: 989816ms, elapsed time since send: 989816ms, throttle time: 0ms, request timeout: 30000ms)
+2026-06-17 11:52:10.843 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-17 11:52:10.846 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 11:52:10.855 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Client requested disconnect from node 2147483646
+2026-06-17 11:52:10.842 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Error sending fetch request (sessionId=217600354, epoch=3901) to node 1:
+org.apache.kafka.common.errors.DisconnectException
+2026-06-17 11:52:11.354 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 11:52:11.384 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 11:52:11.421 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 11:54:08.133 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:59:08.135 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:04:08.136 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:08:43.845 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application UPLOAD-SERVICE with eureka with status DOWN
+2026-06-17 12:08:43.846 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678323846, current=DOWN, previous=UP]
+2026-06-17 12:08:43.848 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UPLOAD-SERVICE/10.33.159.181:UPLOAD-SERVICE:8084: registering service...
+2026-06-17 12:08:43.928 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UPLOAD-SERVICE/10.33.159.181:UPLOAD-SERVICE:8084 - registration status: 204
+2026-06-17 12:08:44.032 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Revoke previously assigned partitions [file-upload-task-0, file-upload-task-1, file-upload-task-2]
+2026-06-17 12:08:44.035 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - upload-service-group: partitions revoked: [file-upload-task-0, file-upload-task-1, file-upload-task-2]
+2026-06-17 12:08:44.041 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Member consumer-upload-service-group-1-ff994ebb-8e68-4fce-817a-1d4f63e368c0 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-06-17 12:08:44.043 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-17 12:08:44.043 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-17 12:08:44.044 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-17 12:08:44.064 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-17 12:08:44.064 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-17 12:08:44.488 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:08:44.489 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:08:44.489 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-17 12:08:44.490 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:08:44.532 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-upload-service-group-1 unregistered
+2026-06-17 12:08:44.539 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - upload-service-group: Consumer stopped
+2026-06-17 12:08:44.563 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-17 12:08:44.583 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-17 12:08:44.825 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-17 12:08:47.828 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-17 12:08:47.842 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UPLOAD-SERVICE/10.33.159.181:UPLOAD-SERVICE:8084 - deregister  status: 200
+2026-06-17 12:08:47.844 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-17 12:09:00.799 INFO  [main] c.p.upload.UploadServiceApplication - Starting UploadServiceApplication using Java 17.0.19 with PID 50598 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/upload-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-17 12:09:00.816 INFO  [main] c.p.upload.UploadServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-17 12:09:01.031 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-06-17 12:09:01.032 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-06-17 12:09:01.034 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@3d829787 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-06-17 12:09:01.041 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-06-17 12:09:01.043 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-06-17 12:09:01.045 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@4837595f uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-06-17 12:09:01.046 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-06-17 12:09:01.049 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-06-17 12:09:01.050 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@2bffa76d uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-06-17 12:09:05.245 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:09:05.267 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-17 12:09:05.397 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 0 Redis repository interfaces.
+2026-06-17 12:09:07.805 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=45bf8620-3b42-3aa3-922f-2fd932c946f5
+2026-06-17 12:09:09.164 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8084 (http)
+2026-06-17 12:09:09.196 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8084"]
+2026-06-17 12:09:09.202 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-17 12:09:09.203 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-17 12:09:09.371 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 8310 ms
+2026-06-17 12:09:19.767 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-17 12:09:20.245 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-17 12:09:20.402 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-17 12:09:21.561 INFO  [main] o.a.k.common.config.AbstractConfig - AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = UPLOAD-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-06-17 12:09:22.637 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 4.1.1
+2026-06-17 12:09:22.641 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: be816b82d25370ce
+2026-06-17 12:09:22.644 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678362631
+2026-06-17 12:09:27.162 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:09:27.163 INFO  [main] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:09:27.164 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:09:27.183 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for UPLOAD-SERVICE-admin-0 unregistered
+2026-06-17 12:09:27.251 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:09:27.252 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:09:27.255 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:09:27.372 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-17 12:09:27.563 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-17 12:09:27.586 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:09:27.634 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-17 12:09:27.636 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-17 12:09:27.638 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-17 12:09:27.639 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-17 12:09:27.640 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-17 12:09:27.641 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-17 12:09:27.646 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-17 12:09:28.704 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-17 12:09:28.712 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-17 12:09:28.720 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-17 12:09:28.725 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781678368724 with initial instances count: 6
+2026-06-17 12:09:28.741 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application UPLOAD-SERVICE with eureka with status UP
+2026-06-17 12:09:28.745 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678368744, current=UP, previous=STARTING]
+2026-06-17 12:09:28.756 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8084"]
+2026-06-17 12:09:28.760 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UPLOAD-SERVICE/10.33.159.181:UPLOAD-SERVICE:8084: registering service...
+2026-06-17 12:09:28.840 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8084 (http) with context path '/'
+2026-06-17 12:09:28.846 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8084
+2026-06-17 12:09:28.960 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UPLOAD-SERVICE/10.33.159.181:UPLOAD-SERVICE:8084 - registration status: 204
+2026-06-17 12:09:29.135 INFO  [main] o.a.k.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-upload-service-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = upload-service-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-06-17 12:09:29.496 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-17 12:09:29.885 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 4.1.1
+2026-06-17 12:09:29.890 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: be816b82d25370ce
+2026-06-17 12:09:29.891 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678369885
+2026-06-17 12:09:29.906 INFO  [main] o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Subscribed to topic(s): file-upload-task
+2026-06-17 12:09:30.129 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Cluster ID: Dd1O7UCoSraHlGzXyx_yeA
+2026-06-17 12:09:30.185 INFO  [main] c.p.upload.UploadServiceApplication - Started UploadServiceApplication in 34.594 seconds (process running for 37.598)
+2026-06-17 12:09:30.195 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 12:09:30.282 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] (Re-)joining group
+2026-06-17 12:09:30.417 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Request joining group due to: need to re-join with the given member-id: consumer-upload-service-group-1-422b597e-d330-4fee-9d4a-754f39eccbed
+2026-06-17 12:09:30.429 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] (Re-)joining group
+2026-06-17 12:09:33.440 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-upload-service-group-1-422b597e-d330-4fee-9d4a-754f39eccbed', protocol='range'}
+2026-06-17 12:09:33.460 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Finished assignment for group at generation 3: {consumer-upload-service-group-1-422b597e-d330-4fee-9d4a-754f39eccbed=Assignment(partitions=[file-upload-task-0, file-upload-task-1, file-upload-task-2])}
+2026-06-17 12:09:33.486 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-upload-service-group-1-422b597e-d330-4fee-9d4a-754f39eccbed', protocol='range'}
+2026-06-17 12:09:33.488 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Notifying assignor about the new Assignment(partitions=[file-upload-task-0, file-upload-task-1, file-upload-task-2])
+2026-06-17 12:09:33.495 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Adding newly assigned partitions: [file-upload-task-0, file-upload-task-1, file-upload-task-2]
+2026-06-17 12:09:33.526 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition file-upload-task-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-06-17 12:09:33.534 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition file-upload-task-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-06-17 12:09:33.535 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition file-upload-task-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-06-17 12:09:33.538 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - upload-service-group: partitions assigned: [file-upload-task-0, file-upload-task-1, file-upload-task-2]
+2026-06-17 12:14:27.656 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:19:27.657 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:24:27.658 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:29:27.659 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 13:01:20.823 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Disconnecting from node 1 due to request timeout.
+2026-06-17 13:01:20.968 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Cancelled in-flight FETCH request with correlation id 3471 due to node 1 being disconnected (elapsed time since creation: 1621728ms, elapsed time since send: 1621728ms, throttle time: 0ms, request timeout: 30000ms)
+2026-06-17 13:01:20.976 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Error sending fetch request (sessionId=459226555, epoch=2960) to node 1:
+org.apache.kafka.common.errors.DisconnectException
+2026-06-17 13:01:21.052 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-17 13:01:21.061 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 13:01:21.078 INFO  [kafka-coordinator-heartbeat-thread | upload-service-group] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Client requested disconnect from node 2147483646
+2026-06-17 13:01:21.256 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-upload-service-group-1, groupId=upload-service-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-17 13:01:27.062 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

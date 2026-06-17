@@ -178,3 +178,440 @@
 2026-06-17 11:07:50.995 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
 2026-06-17 11:07:51.001 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
 2026-06-17 11:10:50.822 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:15:21.148 INFO  [http-nio-8090-exec-6] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:21.161 INFO  [http-nio-8090-exec-6] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:15:21.258 INFO  [http-nio-8090-exec-7] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:21.274 INFO  [http-nio-8090-exec-7] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:15:47.703 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:47.711 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:15:47.787 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:15:47.792 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:15:50.823 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:16:32.836 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:16:32.847 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:16:32.942 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:16:32.947 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:20:50.824 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:25:50.825 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:30:50.826 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:52:17.373 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:53:10.374 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:53:10.450 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:53:10.627 INFO  [http-nio-8090-exec-5] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:53:10.659 INFO  [http-nio-8090-exec-5] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:55:42.782 INFO  [http-nio-8090-exec-7] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:42.793 INFO  [http-nio-8090-exec-7] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:55:42.847 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:42.852 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:55:57.663 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:57.667 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:55:57.704 INFO  [http-nio-8090-exec-10] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:55:57.708 INFO  [http-nio-8090-exec-10] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:56:03.827 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:56:03.832 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:56:03.871 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:56:03.875 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:56:26.070 INFO  [http-nio-8090-exec-1] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:56:26.078 INFO  [http-nio-8090-exec-1] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:56:26.132 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 11:56:26.139 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 11:57:17.381 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:02:17.382 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:07:17.382 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:08:28.975 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONTENT-SERVICE with eureka with status DOWN
+2026-06-17 12:08:28.976 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678308976, current=DOWN, previous=UP]
+2026-06-17 12:08:28.977 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090: registering service...
+2026-06-17 12:08:28.987 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-17 12:08:28.993 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-17 12:08:29.033 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - registration status: 204
+2026-06-17 12:08:29.164 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:08:29.179 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-17 12:08:29.262 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-17 12:08:29.731 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-17 12:08:32.735 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-17 12:08:32.745 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - deregister  status: 200
+2026-06-17 12:08:32.746 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-17 12:08:40.708 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-17 12:08:41.066 INFO  [main] c.p.c.ContentServiceApplication - Starting ContentServiceApplication using Java 17.0.19 with PID 50308 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/content-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-17 12:08:41.071 INFO  [main] c.p.c.ContentServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-17 12:08:44.339 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:08:44.340 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-17 12:08:44.908 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 538 ms. Found 1 JPA repository interface.
+2026-06-17 12:08:45.930 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:08:45.935 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-17 12:08:46.015 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.content.repository.ContentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:08:46.016 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+2026-06-17 12:08:47.543 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=69aea7fc-edbc-3b4d-8049-0638687b1a3f
+2026-06-17 12:08:49.457 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8090 (http)
+2026-06-17 12:08:49.530 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2026-06-17 12:08:49.539 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-17 12:08:49.544 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-17 12:08:50.185 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 8814 ms
+2026-06-17 12:08:53.671 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-17 12:08:54.023 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-06-17 12:08:55.741 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-17 12:08:55.863 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-17 12:08:56.602 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ff7e353
+2026-06-17 12:08:56.620 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-17 12:08:56.717 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-17 12:08:56.785 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/content_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: content_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-17 12:09:00.988 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-17 12:09:01.152 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:09:01.424 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-17 12:09:06.282 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-17 12:09:06.657 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:09:06.952 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:09:12.503 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-17 12:09:12.680 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-17 12:09:12.751 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-17 12:09:13.092 INFO  [main] o.a.k.common.config.AbstractConfig - AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = CONTENT-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-06-17 12:09:13.489 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 4.1.1
+2026-06-17 12:09:13.490 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: be816b82d25370ce
+2026-06-17 12:09:13.491 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678353485
+2026-06-17 12:09:16.631 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:09:16.632 INFO  [main] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:09:16.633 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:09:16.635 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for CONTENT-SERVICE-admin-0 unregistered
+2026-06-17 12:09:16.684 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:09:16.688 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:09:16.689 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:09:16.769 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-17 12:09:16.839 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-17 12:09:16.862 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:09:16.903 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-17 12:09:16.907 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-17 12:09:16.907 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-17 12:09:16.908 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-17 12:09:16.908 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-17 12:09:16.908 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-17 12:09:16.908 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-17 12:09:19.827 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-17 12:09:19.856 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-17 12:09:19.880 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-17 12:09:19.899 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781678359890 with initial instances count: 5
+2026-06-17 12:09:19.967 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONTENT-SERVICE with eureka with status UP
+2026-06-17 12:09:19.976 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678359976, current=UP, previous=STARTING]
+2026-06-17 12:09:20.000 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090: registering service...
+2026-06-17 12:09:20.005 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2026-06-17 12:09:20.195 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8090 (http) with context path '/'
+2026-06-17 12:09:20.208 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2026-06-17 12:09:20.586 INFO  [main] c.p.c.ContentServiceApplication - Started ContentServiceApplication in 42.308 seconds (process running for 45.285)
+2026-06-17 12:09:20.689 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - registration status: 204
+2026-06-17 12:10:19.339 INFO  [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-17 12:10:19.340 INFO  [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-17 12:10:19.353 INFO  [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2026-06-17 12:10:19.497 INFO  [http-nio-8090-exec-1] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:19.849 INFO  [http-nio-8090-exec-1] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:10:20.141 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:20.148 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:10:35.117 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:35.140 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:10:35.208 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:35.214 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:10:43.967 INFO  [http-nio-8090-exec-5] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:43.974 INFO  [http-nio-8090-exec-5] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:10:44.044 INFO  [http-nio-8090-exec-6] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:10:44.064 INFO  [http-nio-8090-exec-6] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:14:16.913 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:19:16.915 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:24:16.916 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:25:21.111 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONTENT-SERVICE with eureka with status DOWN
+2026-06-17 12:25:21.111 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781679321111, current=DOWN, previous=UP]
+2026-06-17 12:25:21.112 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090: registering service...
+2026-06-17 12:25:21.118 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - registration status: 204
+2026-06-17 12:25:21.119 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-17 12:25:21.124 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-17 12:25:21.169 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:25:21.174 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-17 12:25:21.190 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-17 12:25:21.799 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-17 12:25:24.800 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-17 12:25:24.809 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - deregister  status: 200
+2026-06-17 12:25:24.810 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-17 12:31:40.395 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-17 12:31:40.546 INFO  [main] c.p.c.ContentServiceApplication - Starting ContentServiceApplication using Java 17.0.19 with PID 67937 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/content-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-17 12:31:40.550 INFO  [main] c.p.c.ContentServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-17 12:31:42.344 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:31:42.344 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-17 12:31:42.571 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 210 ms. Found 1 JPA repository interface.
+2026-06-17 12:31:43.177 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 12:31:43.180 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-17 12:31:43.223 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.content.repository.ContentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 12:31:43.223 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-06-17 12:31:44.234 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=69aea7fc-edbc-3b4d-8049-0638687b1a3f
+2026-06-17 12:31:45.441 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8090 (http)
+2026-06-17 12:31:45.482 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2026-06-17 12:31:45.500 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-17 12:31:45.501 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-06-17 12:31:45.861 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 5074 ms
+2026-06-17 12:31:47.269 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-17 12:31:47.405 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-06-17 12:31:48.506 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-17 12:31:48.569 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-17 12:31:49.027 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@750adad8
+2026-06-17 12:31:49.031 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-17 12:31:49.091 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-17 12:31:49.147 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/content_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: content_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-17 12:31:51.848 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-17 12:31:51.965 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 12:31:52.178 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-17 12:31:54.797 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-17 12:31:55.074 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:31:55.188 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 12:31:58.402 INFO  [main] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-06-17 12:31:58.426 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-17 12:31:58.480 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-17 12:31:58.503 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-17 12:31:58.648 INFO  [main] o.a.k.common.config.AbstractConfig - AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = CONTENT-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-06-17 12:31:58.745 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 4.1.1
+2026-06-17 12:31:58.745 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: be816b82d25370ce
+2026-06-17 12:31:58.745 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781679718743
+2026-06-17 12:31:59.442 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:31:59.442 INFO  [main] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:31:59.442 INFO  [main] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:31:59.443 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for CONTENT-SERVICE-admin-0 unregistered
+2026-06-17 12:31:59.451 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-17 12:31:59.452 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-17 12:31:59.452 INFO  [kafka-admin-client-thread | CONTENT-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-17 12:31:59.471 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-17 12:31:59.509 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-17 12:31:59.515 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 12:31:59.529 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-17 12:31:59.529 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-17 12:31:59.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-17 12:31:59.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-17 12:31:59.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-17 12:31:59.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-17 12:31:59.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-17 12:32:00.066 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-17 12:32:00.070 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-17 12:32:00.073 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-17 12:32:00.076 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781679720075 with initial instances count: 6
+2026-06-17 12:32:00.082 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONTENT-SERVICE with eureka with status UP
+2026-06-17 12:32:00.084 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781679720084, current=UP, previous=STARTING]
+2026-06-17 12:32:00.086 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090: registering service...
+2026-06-17 12:32:00.087 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2026-06-17 12:32:00.112 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8090 (http) with context path '/'
+2026-06-17 12:32:00.114 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2026-06-17 12:32:00.161 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONTENT-SERVICE/10.33.159.181:CONTENT-SERVICE:8090 - registration status: 204
+2026-06-17 12:32:01.116 INFO  [main] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-06-17 12:32:01.158 INFO  [main] c.p.c.ContentServiceApplication - Started ContentServiceApplication in 22.133 seconds (process running for 23.471)
+2026-06-17 12:32:52.586 INFO  [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-17 12:32:52.587 INFO  [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-17 12:32:52.594 INFO  [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-06-17 12:32:52.820 INFO  [http-nio-8090-exec-1] c.p.c.s.Impl.ContentServiceImpl - Redis Cache MISS - Running specification database query execution block for current search criteria
+2026-06-17 12:33:26.873 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:33:26.940 INFO  [http-nio-8090-exec-2] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:33:27.021 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 12:33:27.026 INFO  [http-nio-8090-exec-3] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 12:33:37.295 INFO  [http-nio-8090-exec-4] c.p.c.s.Impl.ContentServiceImpl - Redis Cache MISS - Running specification database query execution block for current search criteria
+2026-06-17 12:33:56.848 INFO  [http-nio-8090-exec-5] c.p.c.s.Impl.ContentServiceImpl - Redis Cache MISS - Running specification database query execution block for current search criteria
+2026-06-17 12:34:02.616 INFO  [http-nio-8090-exec-6] c.p.c.s.Impl.ContentServiceImpl - Redis Cache MISS - Running specification database query execution block for current search criteria
+2026-06-17 13:01:47.978 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 13:01:48.001 INFO  [http-nio-8090-exec-8] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
+2026-06-17 13:01:48.338 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary request received: universityId=e2d30929-8aa1-4600-8d82-19f239efc007
+2026-06-17 13:01:48.378 INFO  [http-nio-8090-exec-9] c.p.c.s.Impl.ContentServiceImpl - University content summary calculated: universityId=e2d30929-8aa1-4600-8d82-19f239efc007, total=13, typeBreakdownCount=3
