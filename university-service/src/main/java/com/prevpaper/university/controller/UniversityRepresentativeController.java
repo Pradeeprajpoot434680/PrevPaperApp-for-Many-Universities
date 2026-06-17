@@ -33,11 +33,11 @@ public class UniversityRepresentativeController {
 
     // CREATE DEPARTMENT
     @PostMapping("/create-department")
-    public ResponseEntity<ApiResponse<Department>> createDepartment(
+    public ResponseEntity<ApiResponse<DepartmentTinyDTO>> createDepartment(
             @PathVariable UUID universityId,
             @RequestBody DepartmentRequest request) {
 
-        Department savedDept =
+        DepartmentTinyDTO savedDept =
                 universityRepresentativeService.createDepartment(universityId, request);
 
         return ResponseEntity.ok(

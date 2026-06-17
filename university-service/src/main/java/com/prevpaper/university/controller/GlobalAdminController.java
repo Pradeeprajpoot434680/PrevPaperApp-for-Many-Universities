@@ -1,10 +1,7 @@
 package com.prevpaper.university.controller;
 
 import com.prevpaper.comman.dto.ApiResponse;
-import com.prevpaper.university.dtos.AssignRepRequest;
-import com.prevpaper.university.dtos.GlobalStatsDTO;
-import com.prevpaper.university.dtos.UniversityDashboardDTO;
-import com.prevpaper.university.dtos.UniversityRequest;
+import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.University;
 import com.prevpaper.university.service.GlobalAdminService;
 import lombok.RequiredArgsConstructor;
@@ -23,9 +20,9 @@ public class GlobalAdminController {
 
     // Create a new university
     @PostMapping("/create-university")
-    public ApiResponse<University> createUniversity(@RequestBody UniversityRequest request) {
+    public ApiResponse<UniversitySaveResponseDTO> createUniversity(@RequestBody UniversityRequest request) {
         try {
-            University university = globalAdminService.createUniversity(request);
+            UniversitySaveResponseDTO university = globalAdminService.createUniversity(request);
             return ApiResponse.success("University created successfully", university);
         } catch (Exception e) {
             return ApiResponse.error("Failed to create university: " + e.getMessage());

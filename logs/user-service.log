@@ -1,30 +1,30 @@
-2026-06-14 11:54:08.410 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 16822 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-06-14 11:54:08.478 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-14 11:54:09.940 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-06-14 11:54:12.400 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-14 11:54:12.409 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-14 11:54:12.809 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 374 ms. Found 4 JPA repository interfaces.
-2026-06-14 11:54:12.865 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-14 11:54:12.869 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-14 11:54:12.923 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-14 11:54:12.924 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-14 11:54:12.925 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-14 11:54:12.926 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-14 11:54:12.926 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
-2026-06-14 11:54:14.135 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
-2026-06-14 11:54:15.297 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
-2026-06-14 11:54:15.325 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
-2026-06-14 11:54:15.329 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-14 11:54:15.330 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-06-14 11:54:15.477 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 6702 ms
-2026-06-14 11:54:17.736 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-14 11:54:18.029 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-06-14 11:54:22.670 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-14 11:54:22.968 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-14 11:54:24.443 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ca7bddd
-2026-06-14 11:54:24.448 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-14 11:54:24.749 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-14 11:54:24.842 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-06-17 11:03:43.296 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 10219 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-17 11:03:43.407 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-17 11:03:49.164 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-17 11:04:03.060 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 11:04:03.081 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-17 11:04:05.191 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1978 ms. Found 4 JPA repository interfaces.
+2026-06-17 11:04:05.649 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-17 11:04:05.663 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-17 11:04:05.881 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 11:04:05.888 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 11:04:05.889 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 11:04:05.894 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-17 11:04:05.897 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 0 Redis repository interfaces.
+2026-06-17 11:04:10.311 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-06-17 11:04:15.501 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-06-17 11:04:15.798 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-06-17 11:04:15.860 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-17 11:04:15.874 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-06-17 11:04:17.061 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 31929 ms
+2026-06-17 11:04:24.592 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-17 11:04:25.378 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-06-17 11:04:29.397 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-17 11:04:29.678 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-17 11:04:30.614 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45a4587d
+2026-06-17 11:04:30.618 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-17 11:04:30.723 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-17 11:04:30.814 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -36,54 +36,41 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-14 11:54:32.226 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-14 11:54:32.851 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-14 11:54:33.272 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-14 11:54:36.989 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-14 11:54:37.328 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-06-14 11:54:44.710 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
-2026-06-14 11:54:45.003 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-14 11:54:45.127 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-06-14 11:54:45.691 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-06-14 11:54:45.832 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-06-14 11:54:45.854 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 11:54:45.909 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-14 11:54:45.910 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-14 11:54:45.912 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-14 11:54:45.913 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-14 11:54:45.914 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-14 11:54:45.916 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-06-14 11:54:45.917 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-14 11:54:49.178 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-14 11:54:49.185 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-06-14 11:54:49.195 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-14 11:54:49.202 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781418289199 with initial instances count: 0
-2026-06-14 11:54:49.231 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
-2026-06-14 11:54:49.242 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781418289242, current=UP, previous=STARTING]
-2026-06-14 11:54:49.256 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.33.159.181:USER-SERVICE:8086: registering service...
-2026-06-14 11:54:49.266 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
-2026-06-14 11:54:49.367 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
-2026-06-14 11:54:49.372 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
-2026-06-14 11:54:49.501 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 44.491 seconds (process running for 46.552)
-2026-06-14 11:54:50.339 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.33.159.181:USER-SERVICE:8086 - registration status: 204
-2026-06-14 11:55:19.192 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-14 11:55:19.193 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-14 11:55:19.193 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-14 11:55:19.194 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-14 11:55:19.201 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-14 11:55:19.202 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: false
-2026-06-14 11:55:19.202 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-14 11:55:19.459 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-14 11:59:45.924 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:04:45.926 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:09:45.927 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:14:45.928 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:19:45.929 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:24:45.930 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:29:46.793 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:33:25.698 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-14 12:33:25.700 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-14 12:33:25.828 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 127 ms
-2026-06-14 12:34:46.794 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:39:46.797 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-14 12:44:46.798 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:04:35.430 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-17 11:04:35.856 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-17 11:04:36.317 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-17 11:04:40.086 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-17 11:04:40.401 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-17 11:04:48.671 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-06-17 11:04:48.945 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-17 11:04:49.130 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-17 11:04:50.064 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-17 11:04:50.211 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-17 11:04:50.242 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-17 11:04:50.299 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-17 11:04:50.300 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-17 11:04:50.300 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-17 11:04:50.301 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-17 11:04:50.301 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-17 11:04:50.302 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-17 11:04:50.302 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-17 11:04:52.137 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-17 11:04:52.145 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-17 11:04:52.153 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-17 11:04:52.160 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781674492157 with initial instances count: 3
+2026-06-17 11:04:52.175 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-06-17 11:04:52.178 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781674492178, current=UP, previous=STARTING]
+2026-06-17 11:04:52.185 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.33.159.181:USER-SERVICE:8086: registering service...
+2026-06-17 11:04:52.186 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-06-17 11:04:52.242 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-06-17 11:04:52.247 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-06-17 11:04:52.358 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.33.159.181:USER-SERVICE:8086 - registration status: 204
+2026-06-17 11:04:52.415 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 79.987 seconds (process running for 90.412)
+2026-06-17 11:06:53.200 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-17 11:06:53.201 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-17 11:06:53.207 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-06-17 11:07:13.379 INFO  [http-nio-8086-exec-2] [traceId=6a32328808a300ec35eeb2874f2c1ebe, spanId=a6fe922405e3c703] c.p.user.controller.UserController - Get profile request for authUserId=32459da8-40c9-4d01-ae88-2bc603925e87
+2026-06-17 11:07:13.382 INFO  [http-nio-8086-exec-2] [traceId=6a32328808a300ec35eeb2874f2c1ebe, spanId=a6fe922405e3c703] c.p.u.service.Impl.UserServiceImpl - Get full profile called for authUserId=32459da8-40c9-4d01-ae88-2bc603925e87
+2026-06-17 11:07:13.574 INFO  [http-nio-8086-exec-3] [traceId=6a323289c273e13f14a78d7a7d9ec8c2, spanId=ffcf9d2bdb52bfe3] c.p.user.controller.UserController - Get profile request for authUserId=32459da8-40c9-4d01-ae88-2bc603925e87
+2026-06-17 11:07:13.576 INFO  [http-nio-8086-exec-3] [traceId=6a323289c273e13f14a78d7a7d9ec8c2, spanId=ffcf9d2bdb52bfe3] c.p.u.service.Impl.UserServiceImpl - Get full profile called for authUserId=32459da8-40c9-4d01-ae88-2bc603925e87
+2026-06-17 11:09:50.308 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

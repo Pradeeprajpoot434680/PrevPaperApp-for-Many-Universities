@@ -16,11 +16,11 @@ import com.prevpaper.university.repository.UniversityRepository;
 import com.prevpaper.university.service.GlobalAdminService;
 import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -32,12 +32,17 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
 
     private final UniversityRepository universityRepository;
     private final RepresentativeRepository representativeRepository;
-    private  final RoleEventProducer roleEventProducer;
+    private final RoleEventProducer roleEventProducer;
     private final EmitRoleAssignment emitRoleAssignment;
     private final UserServiceClient userServiceClient;
     private final AuthClient authClient;
 
-    public GlobalAdminServiceImpl(UniversityRepository universityRepository, RepresentativeRepository representativeRepository, RoleEventProducer roleEventProducer, EmitRoleAssignment emitRoleAssignment, UserServiceClient userServiceClient, AuthClient authClient) {
+    public GlobalAdminServiceImpl(UniversityRepository universityRepository,
+                                  RepresentativeRepository representativeRepository,
+                                  RoleEventProducer roleEventProducer,
+                                  EmitRoleAssignment emitRoleAssignment,
+                                  UserServiceClient userServiceClient,
+                                  AuthClient authClient) {
         this.universityRepository = universityRepository;
         this.representativeRepository = representativeRepository;
         this.roleEventProducer = roleEventProducer;
@@ -46,30 +51,31 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
         this.authClient = authClient;
     }
 
+    /**
+     * MUTATION: Evicts the global university arrays and statistics layouts so
+     * the new platform entity registers in realtime on the dashboard lists.
+     */
     @Override
     @Transactional
-    public University createUniversity(UniversityRequest request) {
-        log.info("Create university request received: name={}, code={}, city={}, state={}, country={}",
-                request.getName(), request.getCode(), request.getCity(), request.getState(), request.getCountry());
-        // 1. Validation checks
+    @Caching(evict = {
+            @CacheEvict(value = "allUniversities", allEntries = true),
+            @CacheEvict(value = "globalStats", allEntries = true),
+            @CacheEvict(value = "globalUniversityDashboard", allEntries = true)
+    })
+    public UniversitySaveResponseDTO createUniversity(UniversityRequest request) {
+        log.info("Redis Cache EVICT [allUniversities, globalStats, globalUniversityDashboard] - Creating university: {}", request.getName());
+
         if (universityRepository.existsByName(request.getName())) {
-            log.warn("Create university rejected: duplicate name, name={}, code={}",
-                    request.getName(), request.getCode());
             throw new RuntimeException("University with name '" + request.getName() + "' already exists");
         }
-
         if (universityRepository.existsByCode(request.getCode())) {
-            log.warn("Create university rejected: duplicate code, name={}, code={}",
-                    request.getName(), request.getCode());
             throw new RuntimeException("University code '" + request.getCode() + "' is already in use");
         }
 
-        // 2. Build slug if not provided
         String slug = (request.getSlug() != null && !request.getSlug().isBlank())
                 ? request.getSlug()
                 : request.getName().toLowerCase().replaceAll("\\s+", "-");
 
-        // 3. Build the University entity
         University university = University.builder()
                 .name(request.getName())
                 .code(request.getCode().toUpperCase())
@@ -85,22 +91,38 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .build();
 
         University savedUniversity = universityRepository.save(university);
-        log.info("University created: universityId={}, name={}, code={}, active={}",
-                savedUniversity.getId(), savedUniversity.getName(), savedUniversity.getCode(), savedUniversity.getActive());
-        return savedUniversity;
-    }
-    private String generateSlug(String name) {
-        return name.toLowerCase()
-                .replaceAll("[^a-z0-9\\s]", "") // remove special chars
-                .replaceAll("\\s+", "-");        // replace spaces with hyphens
+        log.info("University saved to database with ID: {}", savedUniversity.getId());
+
+        // 🟢 FIXED: Map to a clean, timestamp-free DTO before returning
+        return new UniversitySaveResponseDTO(
+                savedUniversity.getId(),
+                savedUniversity.getName(),
+                savedUniversity.getCode(),
+                savedUniversity.getSlug(),
+                savedUniversity.getDescription(),
+                savedUniversity.getCountry(),
+                savedUniversity.getState(),
+                savedUniversity.getCity(),
+                savedUniversity.getLogoUrl(),
+                savedUniversity.getWebsiteUrl(),
+                savedUniversity.getEmailDomain(),
+                savedUniversity.getActive()
+        );
     }
 
+    /**
+     * MUTATION: Evicts current dashboard tables and representatives tracking models.
+     */
     @Override
-
+    @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "globalUniversityDashboard", allEntries = true),
+            @CacheEvict(value = "allUniversityReps", allEntries = true),
+            @CacheEvict(value = "globalStats", allEntries = true),
+            @CacheEvict(value = "universityTeam", key = "#request.scopeId")
+    })
     public void assignUniversityRep(AssignRepRequest request, UUID adminId) {
-        log.info("Assign university representative request received: userId={}, scopeId={}, adminId={}, expiresAt={}",
-                request.getUserId(), request.getScopeId(), adminId, request.getExpiresAt());
-
+        log.info("Redis Cache EVICT - Assigning university representative for scopeId={}", request.getScopeId());
 
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                 .userId(request.getUserId())
@@ -113,20 +135,19 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                 .build();
 
         representativeRepository.save(assignment);
-        log.info("University representative assignment saved: assignmentId={}, userId={}, scopeId={}, adminId={}",
-                assignment.getId(), request.getUserId(), request.getScopeId(), adminId);
+
         int universityRoleId = 2;
-        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),universityRoleId,request.getScopeId());
-        log.info("University representative role emit registered: userId={}, roleId={}, scopeId={}",
-                request.getUserId(), universityRoleId, request.getScopeId());
+        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(), universityRoleId, request.getScopeId());
     }
 
-
+    /**
+     * READ CACHE: Caches the heavy global admin dashboard list to avoid recurring loop Feign calls.
+     */
     @Override
+    @Cacheable(value = "globalUniversityDashboard")
     public List<UniversityDashboardDTO> getUniversityDashboard() {
-        log.info("University dashboard request received");
+        log.info("Redis Cache MISS - Loading global university dashboard listing from DB & User Feign");
         List<University> universities = universityRepository.findAll();
-        log.info("University dashboard base data loaded: universityCount={}", universities.size());
 
         return universities.stream().map(uni -> {
             Optional<RepresentativeAssignment> assignment = representativeRepository
@@ -136,12 +157,9 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
 
             if (assignment.isPresent()) {
                 try {
-                    // Call Feign Client
                     repName = userServiceClient.getStudentName(assignment.get().getUserId());
                 } catch (Exception e) {
-                    // Fallback if User-Service is unreachable or returns an error
-                    log.warn("University dashboard representative profile lookup failed: universityId={}, repUserId={}, error={}",
-                            uni.getId(), assignment.get().getUserId(), e.getMessage());
+                    log.warn("Failed to dynamically fetch student name for uni profile card loop");
                     repName = "User Assigned (No Profile)";
                 }
             }
@@ -156,62 +174,48 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
         }).toList();
     }
 
+    /**
+     * READ CACHE: Caches global metrics counts (Total Unis, Total Active System-wide Reps).
+     */
     @Override
+    @Cacheable(value = "globalStats")
     public GlobalStatsDTO getGlobalStats() {
-        log.info("Global stats request received");
+        log.info("Redis Cache MISS - Computing global platform metrics stats from DB");
         long totalUnis = universityRepository.count();
-
-        // This counts all active reps (University, Dept, Program, etc.)
         long totalReps = representativeRepository.countByIsActiveTrue();
-        log.info("Global stats calculated: totalUniversities={}, activeRepresentatives={}", totalUnis, totalReps);
 
         return new GlobalStatsDTO(totalUnis, totalReps);
     }
 
+    /**
+     * READ CACHE: Caches the massive multi-service bulk fetched master representative directory.
+     */
     @Override
+    @Cacheable(value = "allUniversityReps")
     public List<RepresentativeDetailsDTO> getAllUniversityReps() {
-        log.info("All university representatives request received");
-        // 1. Fetch all assignments for UNIVERSITIES
-        List<RepresentativeAssignment> assignments = representativeRepository
-                .findByScopeType(ScopeType.UNIVERSITY);
-        log.info("University representative assignments loaded: assignmentCount={}", assignments.size());
+        log.info("Redis Cache MISS - Processing master university representatives directory with bulk parallel Feign queries");
 
-        // 2. Get unique User IDs
+        List<RepresentativeAssignment> assignments = representativeRepository.findByScopeType(ScopeType.UNIVERSITY);
+
         List<UUID> userIds = assignments.stream()
                 .map(RepresentativeAssignment::getUserId)
                 .distinct()
                 .toList();
 
-        if (userIds.isEmpty()) {
-            log.info("No university representative users found");
-            return Collections.emptyList();
-        }
+        if (userIds.isEmpty()) return Collections.emptyList();
 
-        // 3. Parallel/Bulk Fetch from User Service (Names) and Auth Service (Emails)
-        // Fetching Profile Names
         Map<UUID, StudentDTO> userProfileMap = userServiceClient.getBulkUserDetails(userIds);
-        log.info("University representative profile details loaded: requestedUsers={}, receivedProfiles={}",
-                userIds.size(), userProfileMap.size());
 
-        // Fetching Auth Details (Emails)
         UserBatchRequest batchRequest = new UserBatchRequest(userIds);
         List<UserDetailDTO> authDetailsList = authClient.getUserDetailsBatch(batchRequest);
-        log.info("University representative auth details loaded: requestedUsers={}, receivedAuthDetails={}",
-                userIds.size(), authDetailsList.size());
 
-        // Map Auth Details by ID for quick lookup
         Map<UUID, UserDetailDTO> authMap = authDetailsList.stream()
                 .collect(Collectors.toMap(UserDetailDTO::userId, d -> d));
 
-        // 4. Combine everything
         return assignments.stream().map(rep -> {
-            // Find University
+            // 🟢 FIXED: Fetch University entity directly via universityRepository (No sessionMap conflict)
             University uni = universityRepository.findById(rep.getScopeId()).orElse(null);
-
-            // Find Profile Name (User Service)
             StudentDTO profile = userProfileMap.get(rep.getUserId());
-
-            // Find Email (Auth Service)
             UserDetailDTO auth = authMap.get(rep.getUserId());
 
             return new RepresentativeDetailsDTO(
@@ -222,7 +226,7 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
                     uni != null ? uni.getId() : null,
                     uni != null ? uni.getName() : "Unknown University",
                     uni != null ? uni.getCode() : "N/A",
-                    rep.getAssignedAt(),
+                    rep.getAssignedAt() != null ? rep.getAssignedAt().toString() : null,
                     rep.getIsActive()
             );
         }).toList();

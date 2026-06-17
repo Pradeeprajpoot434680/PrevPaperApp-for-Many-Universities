@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface GlobalAdminService {
-    University createUniversity(UniversityRequest universityRequest);
+    UniversitySaveResponseDTO createUniversity(UniversityRequest universityRequest);
     void assignUniversityRep(AssignRepRequest request, UUID adminId);
     List<UniversityDashboardDTO> getUniversityDashboard();
     GlobalStatsDTO getGlobalStats();

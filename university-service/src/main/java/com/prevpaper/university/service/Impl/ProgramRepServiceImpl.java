@@ -22,6 +22,9 @@ import com.prevpaper.university.utils.EmitRoleAssignment;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Cacheable; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Caching;   // 🟢 IMPORTED
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -37,24 +40,29 @@ public class ProgramRepServiceImpl implements ProgramRepService {
     private final RepresentativeRepository representativeRepository;
     private final EmitRoleAssignment emitRoleAssignment;
     private final UserServiceClient userServiceClient;
-    private final  AcademicSessionRepository academicSessionRepository;
+    private final AcademicSessionRepository academicSessionRepository;
     private final AuthClient authClient;
 
+    /**
+     * MUTATION: Clears the program dashboard caches and structural program configurations
+     * immediately so that the newly created academic session displays on the frontend.
+     */
     @Override
     @Transactional
-    public AcademicSession createSession(UUID programId,SessionRequest request) {
-        log.info("Create academic session request received: programId={}, startYear={}, endYear={}",
-                programId, request.getStartYear(), request.getEndYear());
+    @Caching(evict = {
+            @CacheEvict(value = "programDashboards", key = "#programId"),
+            @CacheEvict(value = "programStructure", key = "#programId")
+    }) // 🟢 MULTI-CACHE EVICTION STRATEGY
+    public AcademicSession createSession(UUID programId, SessionRequest request) {
+        log.info("Redis Cache EVICT [programDashboards, programStructure] - Creating session for programId={}", programId);
 
         boolean exists = sessionRepository.existsByProgramIdAndStartYearAndEndYear(
-               programId,
+                programId,
                 request.getStartYear(),
                 request.getEndYear()
         );
 
         if (exists) {
-            log.warn("Create academic session rejected: duplicate session, programId={}, startYear={}, endYear={}",
-                    programId, request.getStartYear(), request.getEndYear());
             throw new RuntimeException("Session " + request.getStartYear() + "-" +
                     request.getEndYear() + " already exists for this program.");
         }
@@ -66,48 +74,44 @@ public class ProgramRepServiceImpl implements ProgramRepService {
                 .isActive(true)
                 .build();
 
-        AcademicSession savedSession = sessionRepository.save(session);
-        log.info("Academic session created: sessionId={}, programId={}, startYear={}, endYear={}, active={}",
-                savedSession.getId(), programId, savedSession.getStartYear(), savedSession.getEndYear(), savedSession.getIsActive());
-        return savedSession;
+        return sessionRepository.save(session);
     }
 
+    /**
+     * MUTATION: Evicts active dashboard listings when a representative role changes.
+     */
     @Override
     @Transactional
+    @CacheEvict(value = "programDashboards", key = "#request.scopeId") // 🟢 PURGES OLD STATUS DATA
     public void assignSessionRep(AssignRepRequest request, UUID adminId) {
-        log.info("Assign session representative request received: userId={}, scopeId={}, adminId={}",
-                request.getUserId(), request.getScopeId(), adminId);
+        log.info("Redis Cache EVICT [programDashboards] - Assigning session representative for scopeId={}", request.getScopeId());
+
         RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                 .userId(request.getUserId())
-                .roles(Set.of(UserRole.SESSION_REP)) //
-                .scopeType(ScopeType.SESSION) // [cite: 32]
-                .scopeId(request.getScopeId()) // Session ID [cite: 33]
-                .isActive(true) // [cite: 34]
+                .roles(Set.of(UserRole.SESSION_REP))
+                .scopeType(ScopeType.SESSION)
+                .scopeId(request.getScopeId())
+                .isActive(true)
                 .assignedBy(adminId)
                 .assignedAt(LocalDateTime.now())
                 .build();
         representativeRepository.save(assignment);
-        log.info("Session representative assignment saved: assignmentId={}, userId={}, scopeId={}, adminId={}",
-                assignment.getId(), request.getUserId(), request.getScopeId(), adminId);
 
         int programRoleId = 5;
-
-        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(),programRoleId,request.getScopeId());
-        log.info("Session representative role emit registered: userId={}, roleId={}, scopeId={}",
-                request.getUserId(), programRoleId, request.getScopeId());
-
+        emitRoleAssignment.sendEmittedRoleAssignmentToKafka(request.getUserId(), programRoleId, request.getScopeId());
     }
 
-
+    /**
+     * READ CACHE: Caches complex dashboards comprising secondary Feign requests to User and Auth services.
+     */
     @Override
+    @Cacheable(value = "programDashboards", key = "#programId") // 🟢 CACHES HEAVY COMPUTATION READS
     public List<SessionDashboardDTO> getProgramSessionsDashboard(UUID programId) {
-        log.info("Program sessions dashboard request received: programId={}", programId);
-        // 1. Fetch all sessions for this program
+        log.info("Redis Cache MISS - Loading program sessions dashboard data from DB & Remote Feign for programId={}", programId);
+
         List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
-        log.info("Program sessions loaded for dashboard: programId={}, sessionCount={}", programId, sessions.size());
 
         return sessions.stream().map(session -> {
-            // 2. Look for active Session Rep (CR) in the assignment table
             Optional<RepresentativeAssignment> assignment = representativeRepository
                     .findByScopeIdAndScopeTypeAndIsActiveTrue(session.getId(), ScopeType.SESSION);
 
@@ -117,14 +121,11 @@ public class ProgramRepServiceImpl implements ProgramRepService {
             if (assignment.isPresent()) {
                 UUID studentId = assignment.get().getUserId();
                 try {
-                    // Fetch Name from User-Service
                     repName = userServiceClient.getStudentName(studentId);
-                    // Fetch Email from Auth-Service
                     UserInternalInfoDTO authInfo = authClient.getAuthUserInfo(studentId);
                     repEmail = (authInfo != null) ? authInfo.getEmail() : "N/A";
                 } catch (Exception e) {
-                    log.warn("Session dashboard representative lookup failed: programId={}, sessionId={}, repUserId={}, error={}",
-                            programId, session.getId(), studentId, e.getMessage());
+                    log.warn("Session representative details merge failed: user profile missing or unavailable");
                     repName = "Profile Pending";
                     repEmail = "N/A";
                 }
@@ -132,8 +133,8 @@ public class ProgramRepServiceImpl implements ProgramRepService {
 
             return new SessionDashboardDTO(
                     session.getId(),
-                    session.getName(),       // Uses our helper: "Batch 2022"
-                    session.getBatchRange(), // Uses our helper: "2022 - 2026"
+                    session.getName(),
+                    session.getBatchRange(),
                     repName,
                     repEmail,
                     session.getIsActive()
@@ -141,48 +142,38 @@ public class ProgramRepServiceImpl implements ProgramRepService {
         }).toList();
     }
 
+    /**
+     * READ CACHE: Caches representatives list linked to this program structure.
+     */
     @Override
+    @Cacheable(value = "programReps", key = "#programId") // 🟢 READ CACHE FOR REPS DIRECTORIES
     public List<SessionRepDetailsDTO> getAllSessionRepsByProgram(UUID programId) {
-        log.info("All session representatives by program request received: programId={}", programId);
-        // 1. Get all sessions for this program
+        log.info("Redis Cache MISS - Fetching all session representatives for programId={}", programId);
+
         List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
         List<UUID> sessionIds = sessions.stream().map(AcademicSession::getId).toList();
-        log.info("Sessions loaded for representative lookup: programId={}, sessionCount={}",
-                programId, sessions.size());
 
-        if (sessionIds.isEmpty()) {
-            log.info("No sessions found for representative lookup: programId={}", programId);
-            return Collections.emptyList();
-        }
+        if (sessionIds.isEmpty()) return Collections.emptyList();
 
-        // 2. Find all active assignments for these SESSION scopes
         List<RepresentativeAssignment> assignments = representativeRepository
                 .findByScopeIdInAndScopeTypeAndIsActiveTrue(sessionIds, ScopeType.SESSION);
-        log.info("Session representative assignments loaded: programId={}, assignmentCount={}",
-                programId, assignments.size());
 
-        // 3. Collect User IDs for bulk enrichment
         List<UUID> userIds = assignments.stream()
                 .map(RepresentativeAssignment::getUserId)
                 .distinct()
                 .toList();
 
-        // 4. Batch Fetch Names (User-Service) and Emails (Auth-Service)
+        if (userIds.isEmpty()) return Collections.emptyList();
+
         Map<UUID, StudentDTO> profileMap = userServiceClient.getBulkUserDetails(userIds);
-        log.info("Session representative profile details loaded: requestedUsers={}, receivedProfiles={}",
-                userIds.size(), profileMap.size());
 
         UserBatchRequest batchRequest = new UserBatchRequest(userIds);
         Map<UUID, UserDetailDTO> authMap = authClient.getUserDetailsBatch(batchRequest)
                 .stream().collect(Collectors.toMap(UserDetailDTO::userId, d -> d));
-        log.info("Session representative auth details loaded: requestedUsers={}, receivedAuthDetails={}",
-                userIds.size(), authMap.size());
 
-        // 5. Map Sessions for O(1) lookup
         Map<UUID, AcademicSession> sessionMap = sessions.stream()
                 .collect(Collectors.toMap(AcademicSession::getId, s -> s));
 
-        // 6. Combine everything into the DTO
         return assignments.stream().map(rep -> {
             AcademicSession sess = sessionMap.get(rep.getScopeId());
             StudentDTO profile = profileMap.get(rep.getUserId());

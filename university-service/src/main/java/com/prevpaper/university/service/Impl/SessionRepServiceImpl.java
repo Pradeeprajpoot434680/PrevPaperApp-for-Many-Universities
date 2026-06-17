@@ -4,7 +4,6 @@ import com.prevpaper.comman.dto.ContentStatsDTO;
 import com.prevpaper.comman.dto.PendingContentDTO;
 import com.prevpaper.comman.exception.ResourceAlreadyExist;
 import com.prevpaper.comman.exception.ResourceNotFoundException;
-import com.prevpaper.comman.exception.RoleExceptionHandler;
 import com.prevpaper.university.client.ContentClient;
 import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.AcademicSession;
@@ -19,6 +18,9 @@ import com.prevpaper.university.service.SessionRepService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Cacheable; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Caching;   // 🟢 IMPORTED
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -37,25 +39,25 @@ public class SessionRepServiceImpl implements SessionRepService {
     private final ProgramRepository programRepository;
     private final AcademicSessionRepository academicSessionRepository;
     private final ContentClient contentClient;
+
+    /**
+     * MUTATION: Evicts stale structural configuration definitions for the program.
+     */
     @Override
     @Transactional
-    public Semester addSemester( UUID programId, SemesterRequest request) {
-        log.info("Add semester request received: programId={}, semesterNumber={}",
-                programId, request.getSemesterNumber());
+    @CacheEvict(value = "programStructure", key = "#programId") // 🟢 PURGES OLD STRUCTURES
+    public Semester addSemester(UUID programId, SemesterRequest request) {
+        log.info("Redis Cache EVICT [programStructure] - Adding semester for programId={}", programId);
 
         Program program = programRepository.findById(programId)
                 .orElseThrow(() -> new ResourceNotFoundException("Program not found"));
-        log.info("Add semester program resolved: programId={}, programName={}", program.getId(), program.getName());
 
-        // Check if Semester exists for THIS specific program
         boolean isExist = semesterRepository.existsBySemesterNumberAndProgramId(
                 request.getSemesterNumber(),
                 programId
         );
 
-        if(isExist){
-            log.warn("Add semester rejected: duplicate semester, programId={}, semesterNumber={}",
-                    programId, request.getSemesterNumber());
+        if (isExist) {
             throw new ResourceAlreadyExist("Semester " + request.getSemesterNumber() +
                     " already exists for program: " + program.getName());
         }
@@ -65,133 +67,92 @@ public class SessionRepServiceImpl implements SessionRepService {
                 .program(program)
                 .build();
 
-        Semester savedSemester = semesterRepository.save(semester);
-        log.info("Semester added: semesterId={}, programId={}, semesterNumber={}",
-                savedSemester.getId(), programId, savedSemester.getSemesterNumber());
-        return savedSemester;
+        return semesterRepository.save(semester);
     }
 
+    /**
+     * MUTATION: Evicts cached subjects for this semester so new entries load immediately.
+     */
     @Override
     @Transactional
+    @CacheEvict(value = "subjects", key = "#semesterId") // 🟢 PURGES OLD SUBJECTS DEFINITIONS
     public Subject addSubject(UUID semesterId, SubjectRequest request) {
-        log.info("Add subject request received: semesterId={}, name={}, subjectCode={}",
-                semesterId, request.getName(), request.getSubjectCode());
+        log.info("Redis Cache EVICT [subjects] - Adding subject for semesterId={}", semesterId);
 
-        // 1. Verify Semester exists
         Semester semester = semesterRepository.findById(semesterId)
                 .orElseThrow(() -> new ResourceNotFoundException("Semester not found with ID: " + semesterId));
-        log.info("Add subject semester resolved: semesterId={}, programId={}, semesterNumber={}",
-                semester.getId(), semester.getProgram().getId(), semester.getSemesterNumber());
 
-        // 2. Validation: Check if Subject Code already exists globally
         if (subjectRepository.existsBySubjectCode(request.getSubjectCode())) {
-            log.warn("Add subject rejected: duplicate subject code, semesterId={}, subjectCode={}",
-                    semesterId, request.getSubjectCode());
             throw new ResourceAlreadyExist("Subject code '" + request.getSubjectCode() + "' is already assigned to another subject.");
         }
 
-        // 3. Validation: Check if a subject with the same name exists in THIS semester
         if (subjectRepository.existsByNameIgnoreCaseAndSemesterId(request.getName().trim(), semesterId)) {
-            log.warn("Add subject rejected: duplicate subject name in semester, semesterId={}, name={}",
-                    semesterId, request.getName());
             throw new ResourceAlreadyExist("A subject named '" + request.getName() + "' already exists in this semester.");
         }
 
-        // 4. Build and Save
         Subject subject = Subject.builder()
                 .name(request.getName().trim())
-                .subjectCode(request.getSubjectCode().trim().toUpperCase()) // Normalize code to Uppercase
+                .subjectCode(request.getSubjectCode().trim().toUpperCase())
                 .semester(semester)
                 .build();
 
-        Subject savedSubject = subjectRepository.save(subject);
-        log.info("Subject added: subjectId={}, semesterId={}, name={}, subjectCode={}",
-                savedSubject.getId(), semesterId, savedSubject.getName(), savedSubject.getSubjectCode());
-        return savedSubject;
+        return subjectRepository.save(subject);
     }
 
     @Override
     public List<SubjectResourceDTO> getSubjectsWithStats(UUID sessionId, Integer semesterNumber) {
-        log.info("Get subjects with stats request received: sessionId={}, semesterNumber={}",
-                sessionId, semesterNumber);
-        // 1. Find the Session to identify the Program context
         AcademicSession session = academicSessionRepository.findById(sessionId)
                 .orElseThrow(() -> new ResourceNotFoundException("Session not found"));
-        log.info("Subjects with stats session resolved: sessionId={}, programId={}",
-                session.getId(), session.getProgram().getId());
 
-        // 2. Find the Semester for this specific Program
-        // This ensures we aren't fetching subjects from a different department's semester
         Semester semester = semesterRepository.findByProgramIdAndSemesterNumber(
                 session.getProgram().getId(),
                 semesterNumber
         ).orElseThrow(() -> new ResourceNotFoundException("Semester " + semesterNumber + " is not defined for this program"));
 
-        // 3. Get all Subjects linked to this Semester
         List<Subject> subjects = subjectRepository.findBySemesterId(semester.getId());
-        log.info("Subjects loaded with stats context: sessionId={}, semesterId={}, semesterNumber={}, subjectCount={}",
-                sessionId, semester.getId(), semesterNumber, subjects.size());
 
-        if (subjects.isEmpty()) {
-            return Collections.emptyList();
-        }
+        if (subjects.isEmpty()) return Collections.emptyList();
 
-        // 4. Map entities to the simplified DTO
         return subjects.stream()
-                .map(subject -> new SubjectResourceDTO(
-                        subject.getId(),
-                        subject.getName(),
-                        subject.getSubjectCode()
-                ))
+                .map(subject -> new SubjectResourceDTO(subject.getId(), subject.getName(), subject.getSubjectCode()))
                 .toList();
     }
 
-
-
+    /**
+     * READ CACHE: Caches the subjects array linked globally to a unique semester ID.
+     */
     @Override
+    @Cacheable(value = "subjects", key = "#semesterId") // 🟢 READ CACHE FOR SUBJECT DIRECTORIES
     public List<SubjectResourceDTO> getSubjectsBySemesterId(UUID semesterId) {
-        log.info("Get subjects by semester request received: semesterId={}", semesterId);
-        // We skip the session/program check here because the UUID is unique globally
+        log.info("Redis Cache MISS - Loading subjects from DB for semesterId={}", semesterId);
         List<Subject> subjects = subjectRepository.findBySemesterId(semesterId);
-        log.info("Subjects by semester loaded: semesterId={}, subjectCount={}", semesterId, subjects.size());
 
         return subjects.stream()
-                .map(subject -> new SubjectResourceDTO(
-                        subject.getId(),
-                        subject.getName(),
-                        subject.getSubjectCode()
-                ))
+                .map(subject -> new SubjectResourceDTO(subject.getId(), subject.getName(), subject.getSubjectCode()))
                 .toList();
     }
 
+    /**
+     * READ CACHE: Caches complex representative dashboard data structures to eliminate database and Feign overhead.
+     */
     @Override
+    @Cacheable(value = "sessionDashboards", key = "#sessionId") // 🟢 READ CACHE FOR SESSIONS DASHBOARDS
     public SessionRepDashboardDTO getSessionDashboard(UUID sessionId) {
-        log.info("Session representative dashboard request received: sessionId={}", sessionId);
-        // 1. Fetch Session and Program info
+        log.info("Redis Cache MISS - Computing session dashboard data from DB & Content Feign for sessionId={}", sessionId);
+
         AcademicSession session = academicSessionRepository.findById(sessionId)
                 .orElseThrow(() -> new ResourceNotFoundException("Session not found"));
 
         Program program = session.getProgram();
-
-        // 2. Fetch all Semesters for this Program
         List<Semester> semesters = semesterRepository.findByProgramId(program.getId());
-        log.info("Session dashboard base data loaded: sessionId={}, programId={}, semesterCount={}",
-                sessionId, program.getId(), semesters.size());
 
-        // 3. Prepare the Semester Stats List
         List<SemesterStatsDTO> semesterStats = semesters.stream().map(sem -> {
-            // Count subjects locally in University-Service
             long subjectCount = subjectRepository.countBySemesterId(sem.getId());
 
-            // 4. Feign Call to Content-Service for paper counts
-            // Note: You can also batch this call outside the loop for better performance
             ContentStatsDTO contentStats = contentClient.getSemesterStats(
                     session.getProgram().getId(),
                     sem.getSemesterNumber()
             );
-            log.info("Content stats loaded for session dashboard: sessionId={}, programId={}, semesterNumber={}, pending={}, verified={}",
-                    sessionId, session.getProgram().getId(), sem.getSemesterNumber(),
-                    contentStats.getPendingCount(), contentStats.getVerifiedCount());
 
             return new SemesterStatsDTO(
                     sem.getSemesterNumber(),
@@ -202,49 +163,54 @@ public class SessionRepServiceImpl implements SessionRepService {
             );
         }).sorted(Comparator.comparing(SemesterStatsDTO::semesterNumber)).toList();
 
-        // 5. Build and return the final Dashboard DTO
         return new SessionRepDashboardDTO(
                 session.getId(),
-                session.getName(), // "Batch 2022"
+                session.getName(),
                 program.getName(),
                 semesterStats
         );
     }
 
+    /**
+     * READ CACHE: Caches the unverified document data array lists for document verifiers (CRs).
+     */
     @Override
+    @Cacheable(value = "pendingContent", key = "#sessionId") // 🟢 READ CACHE FOR PENDING TASKS LISTS
     public List<PendingContentDTO> getPendingContentBySession(UUID sessionId) {
-        log.info("Pending content by session request received: sessionId={}", sessionId);
-        // 1. Look up the Session to find its Program and Year
+        log.info("Redis Cache MISS - Fetching pending verifications content array from Content Feign for sessionId={}", sessionId);
+
         AcademicSession session = sessionRepository.findById(sessionId)
                 .orElseThrow(() -> new RuntimeException("Session not found"));
-        log.info("Pending content session resolved: sessionId={}, programId={}, startYear={}",
-                session.getId(), session.getProgram().getId(), session.getStartYear());
 
-        // 2. Fetch unverified papers from Content Service using those filters
-        List<PendingContentDTO> pendingContent = contentClient.getPendingBySession(
+        return contentClient.getPendingBySession(
                 session.getProgram().getId(),
                 session.getStartYear()
         );
-        log.info("Pending content loaded: sessionId={}, programId={}, startYear={}, pendingCount={}",
-                sessionId, session.getProgram().getId(), session.getStartYear(), pendingContent.size());
-        return pendingContent;
     }
 
-
+    /**
+     * MUTATION: Evicts pending verification cache records so state updates are accurately reflected.
+     */
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "pendingContent", allEntries = true),
+            @CacheEvict(value = "sessionDashboards", allEntries = true)
+    }) // 🟢 FLUSHES CONCURRENT MANAGEMENT CACHES UPON CONTENT AUDITS
     public void updateContentStatus(UUID contentId, UUID repId, VerifyContentRequest request) {
-        // Logic: Tell Content Service to update status and set the verifier ID
-        log.info("Update content status request received: contentId={}, repId={}, status={}",
-                contentId, repId, request.status());
+        log.info("Redis Cache EVICT [pendingContent, sessionDashboards] - Auditing verification status for contentId={}", contentId);
         contentClient.updateStatus(contentId, request.status(), repId);
-        log.info("Update content status request sent to content service: contentId={}, repId={}, status={}",
-                contentId, repId, request.status());
     }
 
+    /**
+     * MUTATION: Evicts operational caches when an asset is deleted.
+     */
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "pendingContent", allEntries = true),
+            @CacheEvict(value = "sessionDashboards", allEntries = true)
+    }) // 🟢 PURGES DATA LAYOUT HOOKS UPON ARCHIVE REMOVALS
     public void deleteContent(UUID contentId) {
-        log.info("Delete content request received: contentId={}", contentId);
+        log.info("Redis Cache EVICT [pendingContent, sessionDashboards] - Removing content asset reference for contentId={}", contentId);
         contentClient.deleteById(contentId);
-        log.info("Delete content request sent to content service: contentId={}", contentId);
     }
 }

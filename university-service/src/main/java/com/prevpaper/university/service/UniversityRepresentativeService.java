@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UniversityRepresentativeService {
-    Department createDepartment(UUID universityId,DepartmentRequest request);
-
+//    Department createDepartment(UUID universityId,DepartmentRequest request);
+    DepartmentTinyDTO createDepartment(UUID universityId, DepartmentRequest request);
 //    void assignUniversityRep(AssignRepRequest request, UUID adminId);
 
 
