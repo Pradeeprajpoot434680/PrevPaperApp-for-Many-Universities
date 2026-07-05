@@ -4,17 +4,20 @@
 FROM maven:3.9.6-eclipse-temurin-17-alpine AS builder
 WORKDIR /build
 
-# 1. Copy the tracking build structures
+# 1. Copy the tracking parent POM structure and shared core module
 COPY pom.xml .
 COPY common-lib/ ./common-lib/
 
-# 2. Build and install common-lib to the local container repository cache
+# 2. 🟢 FIXED: Install the parent POM locally *Non-Recursively* to cache the dependency management definitions
+RUN mvn clean install -N -DskipTests
+
+# 3. 🟢 FIXED: Build and install the common library to the local container cache
 RUN mvn -f common-lib/pom.xml clean install -DskipTests
 
-# 3. Copy the target microservice source code
+# 4. Copy the target microservice source code
 COPY auth-service/ ./auth-service/
 
-# 4. 🟢 FIXED: Removed dependency:go-offline to bypass the parent POM resolution bug
+# 5. 🟢 FIXED: Package the target microservice using its explicit path file definition
 RUN mvn -f auth-service/pom.xml clean package -DskipTests
 
 # ==========================================
@@ -29,5 +32,3 @@ USER spring:spring
 COPY --from=builder /build/auth-service/target/*.jar app.jar
 EXPOSE 8081
 ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]
-
-# docker build -t prevpaper-auth-service:1.0.0 -f auth-service/Dockerfile .
