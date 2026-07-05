@@ -4,6 +4,7 @@ import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.comman.enums.ScopeType;
 import com.prevpaper.comman.enums.UserRole;
 import com.prevpaper.comman.exception.BusinessException;
+import com.prevpaper.comman.exception.ResourceAlreadyExist;
 import com.prevpaper.comman.exception.ResourceNotFoundException;
 import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.Department;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict; // 🟢 IMPORTED
 import org.springframework.cache.annotation.Cacheable; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -119,9 +121,24 @@ public class UniversityRepresentativeServiceImpl implements UniversityRepresenta
 
 
     @Override
+    @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "departments", key = "#universityId"),
+            @CacheEvict(value = "universityTeam", key = "#universityId"),
+            // 🟢 CRITICAL FIX: Explicitly flushes the department-rep lists view cache instantly
+            @CacheEvict(value = "deptReps", allEntries = true),
+            @CacheEvict(value = "programReps", allEntries = true)
+    })
     public void assignDepartmentRep(AssignRepRequest request, UUID adminId) {
         try {
             log.info("Assign department representative request received: userId={}, scopeId={}", request.getUserId(), request.getScopeId());
+
+            boolean alreadyAssigned = representativeRepository
+                    .existsByUserIdAndScopeIdAndIsActiveTrue(request.getUserId(), request.getScopeId());
+
+            if (alreadyAssigned) {
+                throw new ResourceAlreadyExist("This user is already an active representative for this specific department scope.");
+            }
             RepresentativeAssignment assignment = RepresentativeAssignment.builder()
                     .userId(request.getUserId())
                     .roles(Set.of(UserRole.DEPT_REP))

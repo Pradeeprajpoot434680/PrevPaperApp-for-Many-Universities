@@ -214,4 +214,22 @@ public class RepresentativeServiceImpl implements RepresentativeService {
             );
         }).toList();
     }
+
+    @Override
+    @Cacheable(value = "programSessions", key = "#programId") // 🟢 READ CACHE ACTIVATED
+    public List<SessionTinyDTO> getSessionsByProgram(UUID programId) {
+        log.info("Redis Cache MISS - Loading academic sessions from DB for programId={}", programId);
+
+        // Fetch sessions belonging to this program from your repository
+        List<AcademicSession> sessions = academicSessionRepository.findByProgramId(programId);
+
+        // Map to clean serializable DTOs
+        return sessions.stream()
+                .map(s -> new SessionTinyDTO(
+                        s.getId(),
+                        s.getStartYear(),
+                        s.getEndYear()
+                ))
+                .toList();
+    }
 }

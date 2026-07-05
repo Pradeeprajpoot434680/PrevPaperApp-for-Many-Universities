@@ -62,10 +62,21 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
         List<RepresentativeAssignment> assignments = representativeRepository.findAllByScopeIdInAndIsActiveTrue(allScopeIds);
 
-        List<UUID> userIds = assignments.stream().map(RepresentativeAssignment::getUserId).distinct().toList();
+        List<UUID> userIds = assignments.stream().map(RepresentativeAssignment::getUserId   ).distinct().toList();
         if (userIds.isEmpty()) return Collections.emptyList();
 
-        Map<UUID, UserData> profileMap = userServiceClient.getUsersByIds(userIds);
+        // 1. Fetch raw remote map profiles data payload block
+        Map<UUID, UserData> rawProfileMap = userServiceClient.getUsersByIds(userIds);
+
+        // 🟢 2. FIXED: Normalize profileMap keys to standard uppercase strings to handle mapping lookups safely
+        Map<String, UserData> profileMap = new HashMap<>();
+        if (rawProfileMap != null) {
+            rawProfileMap.forEach((key, value) -> {
+                if (key != null) {
+                    profileMap.put(key.toString().toLowerCase(), value);
+                }
+            });
+        }
 
         Map<UUID, String> deptMap = departments.stream().collect(Collectors.toMap(Department::getId, Department::getName));
         Map<UUID, String> programMap = programs.stream().collect(Collectors.toMap(Program::getId, Program::getName));
@@ -73,11 +84,14 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
         return assignments.stream()
                 .map(assign -> {
-                    UserData profile = profileMap.get(assign.getUserId());
+                    // 🟢 3. FIXED: Extract profiles safely using converted lower-case string keys
+                    String userLookupKey = assign.getUserId() != null ? assign.getUserId().toString().toLowerCase() : "";
+                    UserData profile = profileMap.get(userLookupKey);
+
                     return new UniversityTeamMemberDTO(
                             assign.getUserId(),
-                            profile != null ? profile.firstName() : "Unknown",
-                            profile != null ? profile.lastName() : "User",
+                            profile != null && profile.firstName() != null ? profile.firstName() : "Unknown",
+                            profile != null && profile.lastName() != null ? profile.lastName() : "User",
                             profile != null ? profile.profileImageUrl() : null,
                             getPrimaryRole(assign),
                             resolveScopeName(assign, deptMap, programMap, sessionMap),

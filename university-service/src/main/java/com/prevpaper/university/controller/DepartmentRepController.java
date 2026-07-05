@@ -8,6 +8,7 @@ import com.prevpaper.university.client.AuthClient;
 import com.prevpaper.university.client.UserServiceClient;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.ProgramRequest;
+import com.prevpaper.university.dtos.ProgramResponseDTO;
 import com.prevpaper.university.dtos.RepresentativeDetailsDTO;
 import com.prevpaper.university.entities.Program;
 import com.prevpaper.university.entities.Department;
@@ -35,15 +36,12 @@ public class DepartmentRepController {
     private final AuthClient authClient;
 
     @PostMapping("/create-program")
-    public ResponseEntity<ApiResponse<Program>> createProgram(
-            @PathVariable UUID departmentId, // From URL for Gateway validation
-            @RequestBody ProgramRequest request,
-            @RequestHeader("X-User-Id") String adminIdStr) {
+    public ResponseEntity<ApiResponse<ProgramResponseDTO>> createProgram(
+            @PathVariable UUID departmentId,
+            @RequestBody ProgramRequest request) {
 
-        UUID currentAdminId = UUID.fromString(adminIdStr);
-
-
-        Program savedProgram = departmentRepService.createProgram(departmentId,request);
+        // Service now returns the clean response DTO layout
+        ProgramResponseDTO savedProgram = departmentRepService.createProgram(departmentId, request);
 
         return ResponseEntity.ok(
                 ApiResponse.success("Program created successfully", savedProgram)

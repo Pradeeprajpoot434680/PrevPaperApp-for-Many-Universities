@@ -15,4 +15,6 @@ public interface RepresentativeService {
 
     List<RepresentativeDetailsDTO> getProgramRepsByDept(UUID departmentId);
 //    List<SessionDashboardDTO> getProgramSessionsDashboard(UUID programId);
+
+    List<SessionTinyDTO> getSessionsByProgram(UUID programId);
 }

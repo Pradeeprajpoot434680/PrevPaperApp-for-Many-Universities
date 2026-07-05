@@ -50,19 +50,40 @@ public class InternalSyncController {
 
     @PostMapping("/bulk-details")
     public Map<UUID, StudentDTO> getBulkUserDetails(@RequestBody List<UUID> userIds) {
+        log.info("USER-SERVICE: Fetching bulk details for {} IDs", userIds.size());
+
+        // 🟢 FIXED: Method name now perfectly matches the UserRepository definition interface
         List<User> users = userRepository.findAllByAuthUserIdIn(userIds);
+
         return users.stream().collect(Collectors.toMap(
                 User::getAuthUserId,
                 u -> new StudentDTO(u.getAuthUserId(), u.getFirstName() + " " + u.getLastName(), null)
         ));
     }
+//    @PostMapping("/bulk-profiles")
+//    public Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds) {
+//        List<User> users = userRepository.findAllById(userIds);
+//        return users.stream().collect(Collectors.toMap(
+//                User::getId,
+//                user -> new UserData(user.getId(), user.getFirstName(), user.getLastName(), user.getProfileImageUrl())
+//        ));
+//    }
 
     @PostMapping("/bulk-profiles")
     public Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds) {
-        List<User> users = userRepository.findAllById(userIds);
+        log.info("USER-SERVICE: Fetching bulk profiles for {} IDs", userIds.size());
+
+        // Query by your matching repository field
+        List<User> users = userRepository.findAllByAuthUserIdIn(userIds);
+
         return users.stream().collect(Collectors.toMap(
-                User::getId,
-                user -> new UserData(user.getId(), user.getFirstName(), user.getLastName(), user.getProfileImageUrl())
+                User::getAuthUserId, // 🟢 FIXED: Changed from getUserId() to getAuthUserId()
+                user -> new UserData(
+                        user.getAuthUserId(), // 🟢 FIXED: Changed here as well
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getProfileImageUrl()
+                )
         ));
     }
 }

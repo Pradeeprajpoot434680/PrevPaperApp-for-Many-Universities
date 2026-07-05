@@ -6,6 +6,7 @@ import com.prevpaper.comman.exception.ResourceNotFoundException;
 import com.prevpaper.university.dtos.AssignRepRequest;
 import com.prevpaper.university.dtos.DepartmentTinyDTO;
 import com.prevpaper.university.dtos.ProgramRequest;
+import com.prevpaper.university.dtos.ProgramResponseDTO;
 import com.prevpaper.university.entities.*;
 import com.prevpaper.university.repository.*;
 import com.prevpaper.university.service.DepartmentRepService;
@@ -14,6 +15,7 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict; // 🟢 IMPORTED
 import org.springframework.cache.annotation.Cacheable; // 🟢 IMPORTED
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -51,9 +53,19 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
      */
     @Override
     @Transactional
-    @CacheEvict(value = "programs", key = "#departmentId") // 🟢 EVICTS STALE PROGRAMS LIST
-    public Program createProgram(UUID departmentId, ProgramRequest request) {
-        log.info("Redis Cache EVICT [programs] - Creating program for departmentId={}", departmentId);
+    @Caching(evict = {
+            // 1. Clears out the specific department's drop-down cache list
+            @CacheEvict(value = "programs", key = "#departmentId"),
+
+            // 2. 🟢 FIXED: Flushes out the ENTIRE dashboard grid directory completely!
+            // This forces the dashboard endpoints to fetch clean, updated rows from the database.
+            @CacheEvict(value = "programDashboards", allEntries = true),
+
+            // 3. Optional fallback cache regions used elsewhere in your app layer:
+            @CacheEvict(value = "librarySearches", allEntries = true)
+    })
+    public ProgramResponseDTO createProgram(UUID departmentId, ProgramRequest request) {
+        log.info("Redis Cache EVICT FULL RESET - Purging all program and dashboard cache caches due to new program creation.");
 
         validateProgramRequest(request);
 
@@ -79,7 +91,7 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
 
         Program savedProgram = programRepository.save(program);
 
-        // Automatically initialize semesters
+        // Initialize semesters loop tracking configurations
         for (int i = 1; i <= savedProgram.getTotalSemesters(); i++) {
             Semester semester = Semester.builder()
                     .semesterNumber(i)
@@ -88,9 +100,17 @@ public class DepartmentRepServiceImpl implements DepartmentRepService {
             semesterRepository.save(semester);
         }
 
-        return savedProgram;
+        return new ProgramResponseDTO(
+                savedProgram.getId(),
+                savedProgram.getName(),
+                savedProgram.getCode(),
+                savedProgram.getDurationYears(),
+                savedProgram.getTotalSemesters(),
+                savedProgram.getDescription(),
+                savedProgram.getIsActive(),
+                departmentId
+        );
     }
-
     private void validateProgramRequest(ProgramRequest request) {
         if (request.getName() == null || request.getName().isBlank()) {
             throw new IllegalArgumentException("Program name is required");

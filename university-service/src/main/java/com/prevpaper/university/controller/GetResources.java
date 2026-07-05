@@ -122,5 +122,15 @@ public class GetResources {
     }
 
 
+    // 🟢 ADDED: Fetch all session batches using the program id
+    // 🟢 ADDED: Fetch all session batches using the program id
+    @GetMapping("/sessions/{programId}")
+    public ResponseEntity<ApiResponse<List<SessionTinyDTO>>> getSessionsByProgramId(@PathVariable UUID programId) {
+        // Calls the service layer to pull the sessions/batches attached to this specific program track
+        List<SessionTinyDTO> sessions = representativeService.getSessionsByProgram(programId);
+        return ResponseEntity.ok(ApiResponse.success("Sessions Fetched Successfully", sessions));
+    }
+
+
     // get all semester using the program id
 }

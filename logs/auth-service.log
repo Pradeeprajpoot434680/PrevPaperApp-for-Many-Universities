@@ -1,33 +1,33 @@
-2026-06-17 11:05:35.518 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-17 11:05:36.182 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.19 with PID 12101 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-06-17 11:05:36.201 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-17 11:05:41.935 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-17 11:05:41.937 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-17 11:05:42.812 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 813 ms. Found 5 JPA repository interfaces.
-2026-06-17 11:05:46.337 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-17 11:05:46.343 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-17 11:05:46.660 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 11:05:46.662 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 11:05:46.674 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 11:05:46.762 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 11:05:46.765 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 11:05:46.766 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 343 ms. Found 0 Redis repository interfaces.
-2026-06-17 11:05:49.507 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=7de9cd03-121d-3aaa-b6eb-a8ef113139f7
-2026-06-17 11:05:54.789 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-06-17 11:05:54.938 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-06-17 11:05:54.958 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-17 11:05:54.963 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
-2026-06-17 11:05:55.554 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-17 11:05:55.556 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 18914 ms
-2026-06-17 11:06:01.773 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-17 11:06:02.127 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
-2026-06-17 11:06:02.382 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-17 11:06:03.527 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-17 11:06:03.657 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-17 11:06:05.702 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3c62c81f
-2026-06-17 11:06:05.715 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-17 11:06:06.136 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-17 11:06:06.533 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-06-29 08:54:45.571 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-29 08:54:46.429 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.19 with PID 9854 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-29 08:54:46.437 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-29 08:54:55.632 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29 08:54:55.637 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-29 08:54:57.168 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1475 ms. Found 5 JPA repository interfaces.
+2026-06-29 08:55:01.926 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29 08:55:01.940 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-29 08:55:02.202 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 08:55:02.205 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 08:55:02.207 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 08:55:02.209 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 08:55:02.214 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 08:55:02.220 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 181 ms. Found 0 Redis repository interfaces.
+2026-06-29 08:55:06.423 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=7de9cd03-121d-3aaa-b6eb-a8ef113139f7
+2026-06-29 08:55:12.126 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-06-29 08:55:12.225 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-06-29 08:55:12.248 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-29 08:55:12.257 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-06-29 08:55:12.847 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-29 08:55:12.849 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 25865 ms
+2026-06-29 08:55:18.768 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-29 08:55:19.036 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-06-29 08:55:19.189 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-29 08:55:20.896 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-29 08:55:21.021 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-29 08:55:22.959 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7095b688
+2026-06-29 08:55:22.989 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-29 08:55:23.393 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-29 08:55:23.671 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 16.14
@@ -35,17 +35,17 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-17 11:06:16.690 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-17 11:06:17.994 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-17 11:06:20.758 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-17 11:06:25.181 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-17 11:06:26.417 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-06-17 11:06:32.379 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-17 11:06:33.291 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
-2026-06-17 11:06:35.015 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-06-17 11:06:39.217 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2026-06-17 11:06:39.452 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-17 11:06:39.857 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+2026-06-29 08:55:30.118 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-29 08:55:30.767 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 08:55:33.010 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-29 08:55:35.958 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-29 08:55:36.704 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-29 08:55:39.494 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-29 08:55:40.402 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2026-06-29 08:55:42.399 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-29 08:55:46.982 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-06-29 08:55:47.235 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-29 08:55:48.412 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
 	auto.include.jmx.reporter = true
 	bootstrap.controllers = []
 	bootstrap.servers = [localhost:9092]
@@ -120,34 +120,34 @@
 	ssl.truststore.password = null
 	ssl.truststore.type = JKS
 
-2026-06-17 11:06:40.080 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-06-17 11:06:40.084 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-06-17 11:06:40.085 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781674600071
-2026-06-17 11:06:41.256 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
-2026-06-17 11:06:41.272 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-17 11:06:41.273 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-17 11:06:41.273 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-17 11:06:41.306 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-06-17 11:06:41.360 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-06-17 11:06:41.367 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:06:41.386 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-17 11:06:41.386 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-17 11:06:41.386 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-17 11:06:41.387 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-17 11:06:41.387 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-17 11:06:41.387 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-06-17 11:06:41.387 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-17 11:06:42.043 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-17 11:06:42.048 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-06-17 11:06:42.052 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-17 11:06:42.056 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781674602055 with initial instances count: 5
-2026-06-17 11:06:42.073 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
-2026-06-17 11:06:42.074 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781674602074, current=UP, previous=STARTING]
-2026-06-17 11:06:42.078 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081: registering service...
-2026-06-17 11:06:42.079 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-06-17 11:06:42.110 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2026-06-17 11:06:42.113 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
-2026-06-17 11:06:42.194 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+2026-06-29 08:55:48.959 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-29 08:55:48.959 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-29 08:55:48.960 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1782703548956
+2026-06-29 08:55:50.715 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
+2026-06-29 08:55:50.770 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-29 08:55:50.771 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-29 08:55:50.771 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-29 08:55:50.907 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-29 08:55:51.277 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-29 08:55:51.355 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 08:55:51.561 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-29 08:55:51.568 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-29 08:55:51.568 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-29 08:55:51.569 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-29 08:55:51.569 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-29 08:55:51.569 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-29 08:55:51.569 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-29 08:55:54.388 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-29 08:55:54.403 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-29 08:55:54.424 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-29 08:55:54.456 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1782703554446 with initial instances count: 2
+2026-06-29 08:55:54.523 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2026-06-29 08:55:54.530 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782703554530, current=UP, previous=STARTING]
+2026-06-29 08:55:54.547 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-06-29 08:55:54.562 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081: registering service...
+2026-06-29 08:55:54.648 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-06-29 08:55:54.656 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2026-06-29 08:55:55.250 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -246,111 +246,103 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
 
-2026-06-17 11:06:42.219 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081 - registration status: 204
-2026-06-17 11:06:42.309 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-17 11:06:42.460 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-06-17 11:06:42.461 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-06-17 11:06:42.461 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781674602460
-2026-06-17 11:06:42.471 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
-2026-06-17 11:06:42.608 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: Dd1O7UCoSraHlGzXyx_yeA
-2026-06-17 11:06:42.622 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 11:06:42.629 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-06-17 11:06:42.632 INFO  [main] c.p.auth.AuthServiceApplication - Started AuthServiceApplication in 70.632 seconds (process running for 74.581)
-2026-06-17 11:06:42.731 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-d25d736e-25cc-427c-9edf-0197cdb871e1
-2026-06-17 11:06:42.732 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-06-17 11:06:45.749 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-auth-role-group-1-d25d736e-25cc-427c-9edf-0197cdb871e1', protocol='range'}
-2026-06-17 11:06:45.760 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Finished assignment for group at generation 1: {consumer-auth-role-group-1-d25d736e-25cc-427c-9edf-0197cdb871e1=Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])}
-2026-06-17 11:06:45.774 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-auth-role-group-1-d25d736e-25cc-427c-9edf-0197cdb871e1', protocol='range'}
-2026-06-17 11:06:45.775 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Notifying assignor about the new Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])
-2026-06-17 11:06:45.779 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Adding newly assigned partitions: role-change-events-0, role-change-events-1, role-change-events-2
-2026-06-17 11:06:45.786 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-0
-2026-06-17 11:06:45.787 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
-2026-06-17 11:06:45.787 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
-2026-06-17 11:06:45.794 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-0
-2026-06-17 11:06:45.794 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
-2026-06-17 11:06:45.794 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
-2026-06-17 11:06:45.804 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
-2026-06-17 11:06:45.806 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
-2026-06-17 11:06:45.806 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
-2026-06-17 11:06:45.819 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions assigned: [role-change-events-0, role-change-events-1, role-change-events-2]
-2026-06-17 11:07:12.686 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-17 11:07:12.686 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-17 11:07:12.692 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
-2026-06-17 11:11:41.390 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:15:42.619 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
-2026-06-17 11:16:41.391 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:21:41.392 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:26:41.393 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:31:41.394 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:52:10.796 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Disconnecting from node 1 due to request timeout.
-2026-06-17 11:52:11.052 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cancelled in-flight FETCH request with correlation id 4059 due to node 1 being disconnected (elapsed time since creation: 989876ms, elapsed time since send: 989876ms, throttle time: 0ms, request timeout: 30000ms)
-2026-06-17 11:52:11.094 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
-2026-06-17 11:52:11.105 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 11:52:11.108 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-06-17 11:52:11.096 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Error sending fetch request (sessionId=1046190920, epoch=3458) to node 1:
-org.apache.kafka.common.errors.DisconnectException: null
-2026-06-17 11:52:11.359 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 11:52:11.423 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 11:53:07.935 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 11:58:07.937 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:03:07.937 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:07:56.529 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
-2026-06-17 12:07:56.530 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678276530, current=DOWN, previous=UP]
-2026-06-17 12:07:56.532 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081: registering service...
-2026-06-17 12:07:56.558 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081 - registration status: 204
-2026-06-17 12:07:56.560 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Revoke previously assigned partitions role-change-events-0, role-change-events-1, role-change-events-2
-2026-06-17 12:07:56.561 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions revoked: [role-change-events-0, role-change-events-1, role-change-events-2]
-2026-06-17 12:07:56.567 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Member consumer-auth-role-group-1-d25d736e-25cc-427c-9edf-0197cdb871e1 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
-2026-06-17 12:07:56.572 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-17 12:07:56.573 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-17 12:07:56.573 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Unsubscribed all topics or patterns and assigned partitions
-2026-06-17 12:07:56.580 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-17 12:07:56.580 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-17 12:07:57.010 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-17 12:07:57.011 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-17 12:07:57.012 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-06-17 12:07:57.012 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-17 12:07:57.027 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-auth-role-group-1 unregistered
-2026-06-17 12:07:57.028 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: Consumer stopped
-2026-06-17 12:07:57.034 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-06-17 12:07:57.046 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-06-17 12:07:57.126 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-17 12:07:57.130 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-17 12:07:57.171 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-17 12:07:57.407 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-06-17 12:08:00.408 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-06-17 12:08:00.424 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081 - deregister  status: 200
-2026-06-17 12:08:00.425 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
-2026-06-17 12:08:07.210 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-06-17 12:08:07.705 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.19 with PID 49718 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-06-17 12:08:07.717 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-17 12:08:11.618 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-17 12:08:11.619 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-17 12:08:12.030 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 383 ms. Found 5 JPA repository interfaces.
-2026-06-17 12:08:13.567 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-17 12:08:13.581 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-17 12:08:13.673 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 12:08:13.675 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 12:08:13.676 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 12:08:13.677 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 12:08:13.678 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-17 12:08:13.679 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 0 Redis repository interfaces.
-2026-06-17 12:08:15.807 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=7de9cd03-121d-3aaa-b6eb-a8ef113139f7
-2026-06-17 12:08:18.013 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-06-17 12:08:18.057 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-06-17 12:08:18.066 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-17 12:08:18.068 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
-2026-06-17 12:08:18.497 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-06-17 12:08:18.499 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 10326 ms
-2026-06-17 12:08:21.044 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-17 12:08:21.149 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
-2026-06-17 12:08:21.205 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-06-17 12:08:21.630 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-17 12:08:21.673 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-17 12:08:22.103 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@39a1e1e6
-2026-06-17 12:08:22.107 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-17 12:08:22.193 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-17 12:08:22.243 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-06-29 08:55:55.340 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - registration status: 204
+2026-06-29 08:55:55.772 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-29 08:55:56.314 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-29 08:55:56.317 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-29 08:55:56.319 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1782703556314
+2026-06-29 08:55:56.332 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
+2026-06-29 08:55:56.544 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: HL8P7ujPS9qKVsmk_v5cBQ
+2026-06-29 08:55:56.558 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-06-29 08:55:56.590 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-06-29 08:55:56.661 INFO  [main] c.p.auth.AuthServiceApplication - Started AuthServiceApplication in 75.84 seconds (process running for 82.066)
+2026-06-29 08:55:56.793 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-50521675-b7c7-4f7d-b7e6-486cb928b6a5
+2026-06-29 08:55:56.804 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-06-29 08:55:59.826 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-auth-role-group-1-50521675-b7c7-4f7d-b7e6-486cb928b6a5', protocol='range'}
+2026-06-29 08:55:59.909 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Finished assignment for group at generation 1: {consumer-auth-role-group-1-50521675-b7c7-4f7d-b7e6-486cb928b6a5=Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])}
+2026-06-29 08:55:59.950 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-auth-role-group-1-50521675-b7c7-4f7d-b7e6-486cb928b6a5', protocol='range'}
+2026-06-29 08:55:59.956 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Notifying assignor about the new Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])
+2026-06-29 08:55:59.976 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Adding newly assigned partitions: role-change-events-0, role-change-events-1, role-change-events-2
+2026-06-29 08:56:00.009 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-0
+2026-06-29 08:56:00.011 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
+2026-06-29 08:56:00.011 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
+2026-06-29 08:56:00.065 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-0
+2026-06-29 08:56:00.068 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-1
+2026-06-29 08:56:00.078 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Found no committed offset for partition role-change-events-2
+2026-06-29 08:56:00.234 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-06-29 08:56:00.260 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-06-29 08:56:00.264 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting offset for partition role-change-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}.
+2026-06-29 08:56:00.422 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions assigned: [role-change-events-0, role-change-events-1, role-change-events-2]
+2026-06-29 09:00:51.583 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:04:56.595 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-06-29 09:05:51.600 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:07:53.077 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-29 09:07:53.078 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-29 09:07:53.203 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 124 ms
+2026-06-29 09:08:01.232 INFO  [http-nio-8081-exec-2] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 09:08:14.679 INFO  [http-nio-8081-exec-3] c.p.auth.controllers.AuthController - Login request received for user: globaladmin@gmail.com
+2026-06-29 09:08:14.681 INFO  [http-nio-8081-exec-3] c.p.a.services.Impl.AuthServiceImpl - Login request received for identifier: globaladmin@gmail.com
+2026-06-29 09:08:15.111 INFO  [http-nio-8081-exec-3] c.p.auth.controllers.AuthController - Proactively seeded token key inside Redis cache for fast Gateway loading.
+2026-06-29 09:10:37.185 INFO  [http-nio-8081-exec-10] c.p.a.services.Impl.AuthServiceImpl - Signup request received: email=manipaldemo@gmail.com, phone=null, universityId=8e9bb0aa-1263-4920-bc7b-0f1beea89d11
+2026-06-29 09:10:38.127 INFO  [http-nio-8081-exec-10] c.p.a.services.Impl.AuthServiceImpl - Verification OTP transaction event securely committed and pushed to Kafka.
+2026-06-29 09:10:51.601 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:12:39.451 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2026-06-29 09:12:39.451 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782704559451, current=DOWN, previous=UP]
+2026-06-29 09:12:39.452 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081: registering service...
+2026-06-29 09:12:39.464 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Revoke previously assigned partitions role-change-events-0, role-change-events-1, role-change-events-2
+2026-06-29 09:12:39.466 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions revoked: [role-change-events-0, role-change-events-1, role-change-events-2]
+2026-06-29 09:12:39.467 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Member consumer-auth-role-group-1-50521675-b7c7-4f7d-b7e6-486cb928b6a5 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2026-06-29 09:12:39.469 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-29 09:12:39.469 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-29 09:12:39.469 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-29 09:12:39.470 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - registration status: 204
+2026-06-29 09:12:39.473 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-29 09:12:39.473 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-29 09:12:39.719 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-29 09:12:39.720 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-29 09:12:39.720 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-29 09:12:39.720 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-29 09:12:39.734 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-auth-role-group-1 unregistered
+2026-06-29 09:12:39.736 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: Consumer stopped
+2026-06-29 09:12:39.742 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-29 09:12:39.748 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-29 09:12:39.815 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 09:12:39.830 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-29 09:12:39.850 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-29 09:12:40.603 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-29 09:12:43.604 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-29 09:12:43.631 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - deregister  status: 200
+2026-06-29 09:12:43.631 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-06-29 09:12:53.143 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-29 09:12:53.325 INFO  [main] c.p.auth.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.19 with PID 26810 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-06-29 09:12:53.329 INFO  [main] c.p.auth.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-29 09:12:55.056 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29 09:12:55.057 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-29 09:12:55.323 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 249 ms. Found 5 JPA repository interfaces.
+2026-06-29 09:12:56.122 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-29 09:12:56.125 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-29 09:12:56.170 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 09:12:56.171 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 09:12:56.171 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 09:12:56.172 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 09:12:56.172 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-29 09:12:56.172 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2026-06-29 09:12:56.858 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=7de9cd03-121d-3aaa-b6eb-a8ef113139f7
+2026-06-29 09:12:58.094 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-06-29 09:12:58.112 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-06-29 09:12:58.115 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-29 09:12:58.116 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-06-29 09:12:58.230 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-29 09:12:58.231 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4768 ms
+2026-06-29 09:12:59.520 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-29 09:12:59.619 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-06-29 09:12:59.678 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-29 09:13:00.125 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-29 09:13:00.173 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-29 09:13:00.634 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@16a15261
+2026-06-29 09:13:00.638 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-29 09:13:00.693 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-29 09:13:00.725 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 16.14
@@ -358,17 +350,17 @@ org.apache.kafka.common.errors.DisconnectException: null
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-17 12:08:24.326 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-17 12:08:24.599 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-17 12:08:25.145 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-17 12:08:25.926 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-17 12:08:26.142 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-06-17 12:08:27.484 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-06-17 12:08:27.831 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
-2026-06-17 12:08:28.638 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-06-17 12:08:30.616 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2026-06-17 12:08:30.730 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-17 12:08:30.929 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+2026-06-29 09:13:02.548 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-29 09:13:02.790 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 09:13:03.307 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-29 09:13:04.185 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-29 09:13:04.371 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-06-29 09:13:05.228 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-29 09:13:05.529 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2026-06-29 09:13:06.161 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-06-29 09:13:07.556 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-06-29 09:13:07.659 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-29 09:13:07.877 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
 	auto.include.jmx.reporter = true
 	bootstrap.controllers = []
 	bootstrap.servers = [localhost:9092]
@@ -443,34 +435,34 @@ org.apache.kafka.common.errors.DisconnectException: null
 	ssl.truststore.password = null
 	ssl.truststore.type = JKS
 
-2026-06-17 12:08:31.102 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-06-17 12:08:31.102 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-06-17 12:08:31.102 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678311100
-2026-06-17 12:08:31.663 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
-2026-06-17 12:08:31.673 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-17 12:08:31.673 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-17 12:08:31.674 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-17 12:08:31.696 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-06-17 12:08:31.736 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-06-17 12:08:31.742 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:08:31.756 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-06-17 12:08:31.757 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-17 12:08:32.236 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-17 12:08:32.241 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-06-17 12:08:32.244 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-17 12:08:32.248 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1781678312246 with initial instances count: 6
-2026-06-17 12:08:32.261 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
-2026-06-17 12:08:32.262 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1781678312262, current=UP, previous=STARTING]
-2026-06-17 12:08:32.265 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081: registering service...
-2026-06-17 12:08:32.266 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-06-17 12:08:32.289 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2026-06-17 12:08:32.291 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
-2026-06-17 12:08:32.347 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+2026-06-29 09:13:08.004 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-29 09:13:08.004 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-29 09:13:08.004 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1782704588000
+2026-06-29 09:13:08.600 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
+2026-06-29 09:13:08.628 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-29 09:13:08.629 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-29 09:13:08.629 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-29 09:13:08.738 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-06-29 09:13:08.855 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-06-29 09:13:08.871 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:13:08.890 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-06-29 09:13:08.890 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-06-29 09:13:08.890 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-06-29 09:13:08.891 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-06-29 09:13:08.891 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-06-29 09:13:08.891 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-06-29 09:13:08.891 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-06-29 09:13:09.627 INFO  [main] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-06-29 09:13:09.632 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-06-29 09:13:09.638 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-29 09:13:09.643 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1782704589641 with initial instances count: 6
+2026-06-29 09:13:09.662 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2026-06-29 09:13:09.663 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782704589663, current=UP, previous=STARTING]
+2026-06-29 09:13:09.666 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081: registering service...
+2026-06-29 09:13:09.667 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-06-29 09:13:09.694 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-06-29 09:13:09.697 INFO  [main] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2026-06-29 09:13:09.755 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -569,45 +561,452 @@ org.apache.kafka.common.errors.DisconnectException: null
 	ssl.truststore.type = JKS
 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
 
-2026-06-17 12:08:32.349 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.33.159.181:AUTH-SERVICE:8081 - registration status: 204
-2026-06-17 12:08:32.440 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-17 12:08:32.555 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-06-17 12:08:32.555 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-06-17 12:08:32.556 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781678312555
-2026-06-17 12:08:32.562 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
-2026-06-17 12:08:32.618 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: Dd1O7UCoSraHlGzXyx_yeA
-2026-06-17 12:08:32.620 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 12:08:32.628 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-06-17 12:08:32.658 INFO  [main] c.p.auth.AuthServiceApplication - Started AuthServiceApplication in 28.081 seconds (process running for 29.869)
-2026-06-17 12:08:32.660 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-fdb1294b-06f5-46e7-bfb9-9d881c5ef53f
-2026-06-17 12:08:32.662 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-06-17 12:08:35.669 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-auth-role-group-1-fdb1294b-06f5-46e7-bfb9-9d881c5ef53f', protocol='range'}
-2026-06-17 12:08:35.710 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Finished assignment for group at generation 3: {consumer-auth-role-group-1-fdb1294b-06f5-46e7-bfb9-9d881c5ef53f=Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])}
-2026-06-17 12:08:35.739 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-auth-role-group-1-fdb1294b-06f5-46e7-bfb9-9d881c5ef53f', protocol='range'}
-2026-06-17 12:08:35.751 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Notifying assignor about the new Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])
-2026-06-17 12:08:35.758 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Adding newly assigned partitions: role-change-events-0, role-change-events-1, role-change-events-2
-2026-06-17 12:08:35.874 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
-2026-06-17 12:08:35.884 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
-2026-06-17 12:08:35.885 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
-2026-06-17 12:08:35.904 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions assigned: [role-change-events-0, role-change-events-1, role-change-events-2]
-2026-06-17 12:10:18.087 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-17 12:10:18.091 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-17 12:10:18.101 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
-2026-06-17 12:13:31.760 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:17:32.662 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
-2026-06-17 12:18:31.761 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:23:31.762 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:27:32.790 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
-2026-06-17 12:28:31.763 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 12:33:25.675 INFO  [http-nio-8081-exec-4] c.p.auth.controllers.AuthController - Login request received for user: curaj@gmail.com
-2026-06-17 12:33:25.676 INFO  [http-nio-8081-exec-4] c.p.a.services.Impl.AuthServiceImpl - Login request received for identifier: curaj@gmail.com
-2026-06-17 12:33:26.701 INFO  [http-nio-8081-exec-4] c.p.auth.controllers.AuthController - Proactively seeded token key inside Redis cache for fast Gateway loading.
-2026-06-17 12:33:31.764 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-17 13:01:20.829 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Disconnecting from node 1 due to request timeout.
-2026-06-17 13:01:20.862 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cancelled in-flight FETCH request with correlation id 3609 due to node 1 being disconnected (elapsed time since creation: 1621578ms, elapsed time since send: 1621578ms, throttle time: 0ms, request timeout: 30000ms)
-2026-06-17 13:01:20.874 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
-2026-06-17 13:01:20.975 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-06-17 13:01:21.002 INFO  [kafka-coordinator-heartbeat-thread | auth-role-group] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-06-17 13:01:20.971 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Error sending fetch request (sessionId=203892352, epoch=3073) to node 1:
-org.apache.kafka.common.errors.DisconnectException: null
-2026-06-17 13:01:21.123 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-06-29 09:13:09.757 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081 - registration status: 204
+2026-06-29 09:13:09.825 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-29 09:13:09.957 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-29 09:13:09.957 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-29 09:13:09.957 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1782704589957
+2026-06-29 09:13:09.963 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
+2026-06-29 09:13:10.004 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: HL8P7ujPS9qKVsmk_v5cBQ
+2026-06-29 09:13:10.006 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-06-29 09:13:10.010 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-06-29 09:13:10.033 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-cbb70eb7-9815-4859-9e8a-311d9044051b
+2026-06-29 09:13:10.033 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
+2026-06-29 09:13:10.042 INFO  [main] c.p.auth.AuthServiceApplication - Started AuthServiceApplication in 18.225 seconds (process running for 19.499)
+2026-06-29 09:13:13.037 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-auth-role-group-1-cbb70eb7-9815-4859-9e8a-311d9044051b', protocol='range'}
+2026-06-29 09:13:13.051 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Finished assignment for group at generation 3: {consumer-auth-role-group-1-cbb70eb7-9815-4859-9e8a-311d9044051b=Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])}
+2026-06-29 09:13:13.066 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-auth-role-group-1-cbb70eb7-9815-4859-9e8a-311d9044051b', protocol='range'}
+2026-06-29 09:13:13.067 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Notifying assignor about the new Assignment(partitions=[role-change-events-0, role-change-events-1, role-change-events-2])
+2026-06-29 09:13:13.073 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Adding newly assigned partitions: role-change-events-0, role-change-events-1, role-change-events-2
+2026-06-29 09:13:13.096 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-06-29 09:13:13.098 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-1 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-06-29 09:13:13.098 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition role-change-events-2 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-06-29 09:13:13.101 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions assigned: [role-change-events-0, role-change-events-1, role-change-events-2]
+2026-06-29 09:14:12.541 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-29 09:14:12.542 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-29 09:14:12.547 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-29 09:14:12.703 INFO  [http-nio-8081-exec-1] c.p.a.services.Impl.AuthServiceImpl - Signup request received: email=manipaldemo1@gmail.com, phone=null, universityId=8e9bb0aa-1263-4920-bc7b-0f1beea89d11
+2026-06-29 09:14:13.814 INFO  [http-nio-8081-exec-1] o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = AUTH-SERVICE-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 20971520
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-06-29 09:14:13.816 INFO  [http-nio-8081-exec-1] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-29 09:14:13.838 INFO  [http-nio-8081-exec-1] o.a.k.clients.producer.KafkaProducer - [Producer clientId=AUTH-SERVICE-producer-1] Instantiated an idempotent producer.
+2026-06-29 09:14:13.865 INFO  [http-nio-8081-exec-1] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-06-29 09:14:13.865 INFO  [http-nio-8081-exec-1] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-06-29 09:14:13.865 INFO  [http-nio-8081-exec-1] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1782704653865
+2026-06-29 09:14:13.877 INFO  [kafka-producer-network-thread | AUTH-SERVICE-producer-1] org.apache.kafka.clients.Metadata - [Producer clientId=AUTH-SERVICE-producer-1] Cluster ID: HL8P7ujPS9qKVsmk_v5cBQ
+2026-06-29 09:14:13.996 INFO  [kafka-producer-network-thread | AUTH-SERVICE-producer-1] o.a.k.c.p.i.TransactionManager - [Producer clientId=AUTH-SERVICE-producer-1] ProducerId set to 0 with epoch 0
+2026-06-29 09:15:06.582 INFO  [http-nio-8081-exec-4] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 09:15:33.506 INFO  [http-nio-8081-exec-5] c.p.a.services.Impl.AuthServiceImpl - Signup request received: email=manipal@gmail.com, phone=null, universityId=8e9bb0aa-1263-4920-bc7b-0f1beea89d11
+2026-06-29 09:18:08.896 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:19:16.173 INFO  [http-nio-8081-exec-9] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 09:19:53.761 INFO  [http-nio-8081-exec-10] c.p.a.services.Impl.AuthServiceImpl - Signup request received: email=mni@gmail.com, phone=null, universityId=8e9bb0aa-1263-4920-bc7b-0f1beea89d11
+2026-06-29 09:22:10.089 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-06-29 09:23:08.898 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:23:24.395 INFO  [kafka-producer-network-thread | AUTH-SERVICE-producer-1] o.apache.kafka.clients.NetworkClient - [Producer clientId=AUTH-SERVICE-producer-1] Node -1 disconnected.
+2026-06-29 09:28:08.898 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:31:31.176 INFO  [http-nio-8081-exec-8] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 09:31:31.304 WARN  [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] z.r.i.AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-06-29 09:31:31.305 WARN  [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] z.r.i.AsyncReporter$BoundedAsyncReporter - Dropped 5 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": localhost:9411 failed to respond)
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": localhost:9411 failed to respond
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:50)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.core5.http.NoHttpResponseException: localhost:9411 failed to respond
+	at org.apache.hc.core5.http.impl.io.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:333)
+	at org.apache.hc.core5.http.impl.io.HttpRequestExecutor.execute(HttpRequestExecutor.java:193)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.lambda$execute$0(InternalExecRuntime.java:236)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager$InternalConnectionEndpoint.execute(PoolingHttpClientConnectionManager.java:791)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.execute(InternalExecRuntime.java:233)
+	at org.apache.hc.client5.http.impl.classic.MainClientExec.execute(MainClientExec.java:121)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:199)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 9 common frames omitted
+2026-06-29 09:31:43.350 INFO  [http-nio-8081-exec-9] c.p.auth.controllers.AuthController - Login request received for user: globaladmin@gmail.com
+2026-06-29 09:31:43.351 INFO  [http-nio-8081-exec-9] c.p.a.services.Impl.AuthServiceImpl - Login request received for identifier: globaladmin@gmail.com
+2026-06-29 09:31:43.594 INFO  [http-nio-8081-exec-9] c.p.auth.controllers.AuthController - Proactively seeded token key inside Redis cache for fast Gateway loading.
+2026-06-29 09:32:10.125 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-06-29 09:33:08.899 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:33:14.166 INFO  [kafka-producer-network-thread | AUTH-SERVICE-producer-1] o.apache.kafka.clients.NetworkClient - [Producer clientId=AUTH-SERVICE-producer-1] Node -1 disconnected.
+2026-06-29 09:37:15.168 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Processing role change: User=f9d05971-2b35-441e-9827-1437b0de9b3f Role=2 Scope=8e9bb0aa-1263-4920-bc7b-0f1beea89d11
+2026-06-29 09:37:15.251 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Role and Scope updated for user: f9d05971-2b35-441e-9827-1437b0de9b3f
+2026-06-29 09:38:08.900 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:38:13.798 INFO  [http-nio-8081-exec-2] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 09:38:23.764 INFO  [http-nio-8081-exec-3] c.p.auth.controllers.AuthController - Login request received for user: mni@gmail.com
+2026-06-29 09:38:23.765 INFO  [http-nio-8081-exec-3] c.p.a.services.Impl.AuthServiceImpl - Login request received for identifier: mni@gmail.com
+2026-06-29 09:38:23.989 INFO  [http-nio-8081-exec-3] c.p.auth.controllers.AuthController - Proactively seeded token key inside Redis cache for fast Gateway loading.
+2026-06-29 09:43:08.901 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:48:08.902 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:53:08.903 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 09:58:08.904 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:03:08.905 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:08:08.905 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:13:08.906 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:18:08.907 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:22:32.033 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Processing role change: User=f9d05971-2b35-441e-9827-1437b0de9b3f Role=3 Scope=ae3c05de-f8cc-4f4d-b67a-20bc49beacf9
+2026-06-29 10:22:32.073 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Role and Scope updated for user: f9d05971-2b35-441e-9827-1437b0de9b3f
+2026-06-29 10:23:08.908 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:26:50.061 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Processing role change: User=f9d05971-2b35-441e-9827-1437b0de9b3f Role=3 Scope=ae3c05de-f8cc-4f4d-b67a-20bc49beacf9
+2026-06-29 10:26:50.093 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Role and Scope updated for user: f9d05971-2b35-441e-9827-1437b0de9b3f
+2026-06-29 10:28:08.909 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:33:08.910 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:34:12.221 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Processing role change: User=f9d05971-2b35-441e-9827-1437b0de9b3f Role=3 Scope=ae3c05de-f8cc-4f4d-b67a-20bc49beacf9
+2026-06-29 10:34:12.236 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.p.auth.consumer.RoleChangeConsumer - Role and Scope updated for user: f9d05971-2b35-441e-9827-1437b0de9b3f
+2026-06-29 10:38:08.911 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:43:08.913 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:48:08.914 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:53:08.915 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 10:58:08.916 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 11:00:36.832 INFO  [http-nio-8081-exec-9] c.p.auth.controllers.AuthController - Successfully evicted token from Redis cache on logout.
+2026-06-29 11:01:02.242 INFO  [http-nio-8081-exec-1] c.p.auth.controllers.AuthController - Login request received for user: curajcse@gmail.com
+2026-06-29 11:01:02.242 INFO  [http-nio-8081-exec-1] c.p.a.services.Impl.AuthServiceImpl - Login request received for identifier: curajcse@gmail.com
+2026-06-29 11:01:02.718 INFO  [http-nio-8081-exec-1] c.p.auth.controllers.AuthController - Proactively seeded token key inside Redis cache for fast Gateway loading.
+2026-06-29 11:03:08.917 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 11:08:08.918 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 11:13:08.919 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 11:18:08.921 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-06-29 11:20:46.663 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2026-06-29 11:20:46.669 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782712246668, current=DOWN, previous=UP]
+2026-06-29 11:20:46.671 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081: registering service...
+2026-06-29 11:20:46.767 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081 - registration status: 204
+2026-06-29 11:20:46.914 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Revoke previously assigned partitions role-change-events-0, role-change-events-1, role-change-events-2
+2026-06-29 11:20:46.924 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: partitions revoked: [role-change-events-0, role-change-events-1, role-change-events-2]
+2026-06-29 11:20:46.931 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Member consumer-auth-role-group-1-cbb70eb7-9815-4859-9e8a-311d9044051b sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2026-06-29 11:20:46.946 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-29 11:20:46.946 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-29 11:20:46.946 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-29 11:20:46.972 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-29 11:20:46.972 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-29 11:20:47.309 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-29 11:20:47.310 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-29 11:20:47.310 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-29 11:20:47.311 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-29 11:20:47.334 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-auth-role-group-1 unregistered
+2026-06-29 11:20:47.339 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: Consumer stopped
+2026-06-29 11:20:47.346 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-29 11:20:47.360 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-29 11:20:47.418 INFO  [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer - [Producer clientId=AUTH-SERVICE-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-06-29 11:20:47.437 INFO  [SpringApplicationShutdownHook] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-29 11:20:47.438 INFO  [SpringApplicationShutdownHook] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-29 11:20:47.438 INFO  [SpringApplicationShutdownHook] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-29 11:20:47.438 INFO  [SpringApplicationShutdownHook] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-29 11:20:47.439 INFO  [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for AUTH-SERVICE-producer-1 unregistered
+2026-06-29 11:20:47.494 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-29 11:20:47.516 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-29 11:20:47.536 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-29 11:20:47.761 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-06-29 11:20:50.762 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-06-29 11:20:50.789 INFO  [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:667)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:624)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1363)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:583)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1356)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 39 more
+
+2026-06-29 11:20:50.790 WARN  [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-06-29 11:20:50.803 INFO  [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:667)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:624)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1363)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:583)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1356)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 40 more
+
+2026-06-29 11:20:50.804 WARN  [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-06-29 11:20:50.804 ERROR [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.23.0.1:AUTH-SERVICE:8081 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:667)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:624)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1363)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:583)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1356)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-06-29 11:20:50.805 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

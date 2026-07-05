@@ -76,7 +76,7 @@ public class SessionRepServiceImpl implements SessionRepService {
     @Override
     @Transactional
     @CacheEvict(value = "subjects", key = "#semesterId") // 🟢 PURGES OLD SUBJECTS DEFINITIONS
-    public Subject addSubject(UUID semesterId, SubjectRequest request) {
+    public SubjectResponseDTO addSubject(UUID semesterId, SubjectRequest request) {
         log.info("Redis Cache EVICT [subjects] - Adding subject for semesterId={}", semesterId);
 
         Semester semester = semesterRepository.findById(semesterId)
@@ -96,7 +96,16 @@ public class SessionRepServiceImpl implements SessionRepService {
                 .semester(semester)
                 .build();
 
-        return subjectRepository.save(subject);
+        Subject savedSubject = subjectRepository.save(subject);
+        log.info("Subject node saved successfully in DB with ID: {}", savedSubject.getId());
+
+        // 🟢 FIXED: Map to our safe, timestamp-free DTO before handing it to the controller
+        return new SubjectResponseDTO(
+                savedSubject.getId(),
+                savedSubject.getName(),
+                savedSubject.getSubjectCode(),
+                savedSubject.getSemester().getId()
+        );
     }
 
     @Override

@@ -47,7 +47,7 @@ public class SessionRepController {
 
     // Add subject into semester
     @PostMapping("/semesters/{semesterId}/subjects")
-    public ResponseEntity<ApiResponse<Subject>> addSubject(
+    public ResponseEntity<ApiResponse<SubjectResponseDTO>> addSubject(
             @PathVariable UUID sessionId,
             @PathVariable UUID semesterId,
             @RequestHeader("X-Scope-Id") String xScopeId,
@@ -55,7 +55,7 @@ public class SessionRepController {
 
         validateScope(sessionId, xScopeId);
 
-        Subject subject = sessionRepService.addSubject(semesterId, request);
+        SubjectResponseDTO subject = sessionRepService.addSubject(semesterId, request);
 
         return ResponseEntity.ok(
                 new ApiResponse<>(true, "Subject added", subject, System.currentTimeMillis())

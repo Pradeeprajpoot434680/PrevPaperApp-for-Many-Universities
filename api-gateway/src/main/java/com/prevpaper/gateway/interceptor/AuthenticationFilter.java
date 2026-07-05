@@ -33,7 +33,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/program-rep", "PROGRAM_REP",
             "/api/v1/session-rep", "SESSION_REP",
             "/api/v1/users/internal/store", "STUDENT",
-            "/api/v1/user/me/profile", "STUDENT",
+            "/api/v1/users/me/profile", "STUDENT",
             "/api/v1/content", "STUDENT" // Unified content security rule path mapping
     );
 
@@ -115,7 +115,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                     if (path.startsWith("/api/v1/content")) {
                         isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
                     } else {
-                        isAuthorized = userRoles.contains(requiredRole);
+                        // 🟢 FEATURE ADDED: Allow either the explicit required local representative role OR the supreme GLOBAL_ADMIN role
+                        isAuthorized = userRoles.contains(requiredRole) || userRoles.contains("GLOBAL_ADMIN");
                     }
 
                     if (!isAuthorized) {
@@ -125,7 +126,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
                     // Scope multi-tenancy verification checks
                     if (!userRoles.contains("GLOBAL_ADMIN")) {
-                        String targetIdInUrl = extractIdDynamically(path); // FIXED: Using robust dynamic extractor
+                        String targetIdInUrl = extractIdDynamically(path);
 
                         if (userRoles.contains("UNIVERSITY_ADMIN") || path.contains("/university/")) {
                             if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.universityId())) {

@@ -12,7 +12,7 @@ public interface SessionRepService {
 
     Semester addSemester( UUID programId, SemesterRequest request);
 
-    Subject addSubject( UUID semesterId, SubjectRequest request);
+    SubjectResponseDTO addSubject( UUID semesterId, SubjectRequest request);
 
 //    SessionRepDashboardDTO getSessionDashboard(UUID sessionId);
 

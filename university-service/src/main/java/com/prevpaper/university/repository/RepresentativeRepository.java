@@ -25,4 +25,6 @@ public interface RepresentativeRepository extends JpaRepository<RepresentativeAs
 
     // Fetches every rep linked to any of the collected IDs (Uni, Dept, Prog, or Session)
     List<RepresentativeAssignment> findAllByScopeIdInAndIsActiveTrue(List<UUID> scopeIds);
+
+    boolean existsByUserIdAndScopeIdAndIsActiveTrue(UUID userId, UUID scopeId);
 }

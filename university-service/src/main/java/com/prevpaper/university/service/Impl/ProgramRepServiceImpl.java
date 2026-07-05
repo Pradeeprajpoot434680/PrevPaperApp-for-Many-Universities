@@ -51,10 +51,11 @@ public class ProgramRepServiceImpl implements ProgramRepService {
     @Transactional
     @Caching(evict = {
             @CacheEvict(value = "programDashboards", key = "#programId"),
-            @CacheEvict(value = "programStructure", key = "#programId")
+            @CacheEvict(value = "programStructure", key = "#programId"),
+            @CacheEvict(value = "programSessions", key = "#programId") // 🟢 ADDED: Evicts the GET selection cache for the admin sub-tab panel list view instantly
     }) // 🟢 MULTI-CACHE EVICTION STRATEGY
     public AcademicSession createSession(UUID programId, SessionRequest request) {
-        log.info("Redis Cache EVICT [programDashboards, programStructure] - Creating session for programId={}", programId);
+        log.info("Redis Cache EVICT [programDashboards, programStructure, programSessions] - Creating session for programId={}", programId);
 
         boolean exists = sessionRepository.existsByProgramIdAndStartYearAndEndYear(
                 programId,
@@ -76,7 +77,6 @@ public class ProgramRepServiceImpl implements ProgramRepService {
 
         return sessionRepository.save(session);
     }
-
     /**
      * MUTATION: Evicts active dashboard listings when a representative role changes.
      */

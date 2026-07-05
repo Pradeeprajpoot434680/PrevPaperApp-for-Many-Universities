@@ -144,9 +144,53 @@ public class AuthServiceImpl implements AuthService {
             recipient = cleanPhone;
         }
 
+//        String otpMessage;
+//        if (isEmail) {
+//            String otp = GererateOtp.getOTP();
+//            String hashedOtp = passwordEncoder.encode(otp);
+//
+//            verificationTokenRepository.save(
+//                    VerificationToken.builder()
+//                            .token(hashedOtp)
+//                            .user(user)
+//                            .type(TokenType.EMAIL_VERIFY)
+//                            .expiryDate(LocalDateTime.now().plusMinutes(10))
+//                            .verified(false)
+//                            .build()
+//            );
+//
+//            otpMessage = "Your verification OTP is " + otp + ". It expires in 10 minutes.";
+//        } else {
+//            otpMessage = "OTP sent via SMS";
+//        }
+//
+//        CommonNotificationRequest notificationRequest = CommonNotificationRequest.builder()
+//                .userId(user.getUserId())
+//                .recipient(recipient)
+//                .title("OTP Verification")
+//                .message(otpMessage)
+//                .notificationTypes(List.of(channelType))
+//                .eventType(NotificationEventType.OTP_SENT)
+//                .build();
+//
+//        // Transaction Synchronization Fix: Delay Kafka push until database commit transaction completes
+//        if (TransactionSynchronizationManager.isActualTransactionActive()) {
+//            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+//                @Override
+//                public void afterCommit() {
+//                    sendNotification.sendOTP(notificationRequest);
+//                    log.info("Verification OTP transaction event securely committed and pushed to Kafka.");
+//                }
+//            });
+//        } else {
+//            sendNotification.sendOTP(notificationRequest);
+//        }
+
+        // ... validation code up top remains the same ...
+
         String otpMessage;
         if (isEmail) {
-            String otp = GererateOtp.getOTP();
+            String otp = GererateOtp.getOTP(); // Generates raw 6-digit numeric string
             String hashedOtp = passwordEncoder.encode(otp);
 
             verificationTokenRepository.save(
@@ -159,7 +203,8 @@ public class AuthServiceImpl implements AuthService {
                             .build()
             );
 
-            otpMessage = "Your verification OTP is " + otp + ". It expires in 10 minutes.";
+            // 🟢 FIXED: Change this from the raw long sentence string to just the numeric token code!
+            otpMessage = otp;
         } else {
             otpMessage = "OTP sent via SMS";
         }
@@ -168,23 +213,27 @@ public class AuthServiceImpl implements AuthService {
                 .userId(user.getUserId())
                 .recipient(recipient)
                 .title("OTP Verification")
-                .message(otpMessage)
+                .message("Your OTP for password reset is " + otpMessage + ". It expires in 10 minutes.")
                 .notificationTypes(List.of(channelType))
                 .eventType(NotificationEventType.OTP_SENT)
                 .build();
 
-        // Transaction Synchronization Fix: Delay Kafka push until database commit transaction completes
-        if (TransactionSynchronizationManager.isActualTransactionActive()) {
-            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-                @Override
-                public void afterCommit() {
-                    sendNotification.sendOTP(notificationRequest);
-                    log.info("Verification OTP transaction event securely committed and pushed to Kafka.");
-                }
-            });
-        } else {
-            sendNotification.sendOTP(notificationRequest);
-        }
+        // Delay Kafka push until transaction commits successfully
+//        if (TransactionSynchronizationManager.isActualTransactionActive()) {
+//            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+//                @Override
+//                public void afterCommit() {
+//                    sendNotification.sendOTP(notificationRequest);
+//                    log.info("Verification OTP transaction event securely committed and pushed to Kafka.");
+//                }
+//            });
+//        } else {
+//            sendNotification.sendOTP(notificationRequest);
+//        }
+
+        sendNotification.sendOTP(notificationRequest);
+
+
 
         sessionRepository.save(
                 Session.builder()

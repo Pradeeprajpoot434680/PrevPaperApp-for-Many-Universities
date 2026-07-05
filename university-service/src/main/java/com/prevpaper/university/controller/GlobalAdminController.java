@@ -3,8 +3,13 @@ package com.prevpaper.university.controller;
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.University;
+import com.prevpaper.university.service.DepartmentRepService;
 import com.prevpaper.university.service.GlobalAdminService;
+import com.prevpaper.university.service.ProgramRepService;
+import com.prevpaper.university.service.UniversityRepresentativeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +19,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/global-admin")
 @RequiredArgsConstructor
+@Slf4j
 public class GlobalAdminController {
 
     private final GlobalAdminService globalAdminService;
+    private  final UniversityRepresentativeService universityRepresentativeService;
+    private  final DepartmentRepService departmentRepService;
+
+    private  final ProgramRepService programRepService;
 
     // Create a new university
     @PostMapping("/create-university")
@@ -63,6 +73,70 @@ public class GlobalAdminController {
         }
     }
 
+    /*
+    * add department
+    * @GetMapping("/addDepartment")
+    * public ApiResponse addDepartment(){
+    *   // here we will send requrest to universtity controller who has the controll of departments
+    * }
+    * add program
+    * public ApiResponse addProgram(){
+     *   // here we will send requrest to Department Representative controller who has the controll of departments
+     * }
+     *
+     *
+    * add session
+    *
+    * similarly here
+    * */
 
+
+    /*
+    * in this whole work i have to confirm as a global admin , in which university i am add accrding to controllers
+    * */
+
+
+    // ================= 🟢 NEW GLOBAL ADMIN OVERRIDE ENDPOINTS =================
+
+    /**
+     * 1. ADD DEPARTMENT (Specifies targeted University via Path)
+     */
+    @PostMapping("/university/{universityId}/create-department")
+    public ResponseEntity<ApiResponse<DepartmentTinyDTO>> globalCreateDepartment(
+            @PathVariable UUID universityId,
+            @Valid @RequestBody DepartmentRequest request) {
+
+        log.info("GLOBAL ADMIN OVERRIDE - Creating department for universityId={}", universityId);
+        DepartmentTinyDTO savedDept = universityRepresentativeService.createDepartment(universityId, request);
+        return ResponseEntity.ok(ApiResponse.success("Department created by global admin successfully", savedDept));
+    }
+
+    /**
+     * 2. ADD PROGRAM (University is resolved automatically via Department parent mapping)
+     */
+    @PostMapping("/department/{departmentId}/create-program")
+    public ResponseEntity<ApiResponse<Object>> globalCreateProgram(
+            @PathVariable UUID departmentId,
+            @RequestBody ProgramRequest request) {
+
+        log.info("GLOBAL ADMIN OVERRIDE - Creating program for departmentId={}", departmentId);
+        // Note: Replace 'Object' with your 'Program' or 'ProgramTinyDTO' response class
+        Object savedProgram = departmentRepService.createProgram(departmentId, request);
+        return ResponseEntity.ok(ApiResponse.success("Program created by global admin successfully", savedProgram));
+    }
+
+    /**
+     * 3. ADD ACADEMIC SESSION (University/Dept resolved automatically via Program parent mapping)
+     */
+    @PostMapping("/program/{programId}/create-session")
+    public ResponseEntity<ApiResponse<Object>> globalCreateSession(
+            @PathVariable UUID programId,
+            @RequestBody SessionRequest request) {
+
+        log.info("GLOBAL ADMIN OVERRIDE - Creating academic session for programId={}", programId);
+        // Note: Replace 'Object' with your 'AcademicSession' or 'SessionTinyDTO' response class
+        Object savedSession = programRepService.createSession(programId, request);
+        return ResponseEntity.ok(ApiResponse.success("Session created by global admin successfully", savedSession));
+    }
 
 }
