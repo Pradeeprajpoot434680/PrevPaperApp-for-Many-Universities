@@ -80,10 +80,9 @@ public class UniversityRepresentativeController {
     // CHECK UNIVERSITY EXISTS
     @GetMapping("/exists")
     public ResponseEntity<Boolean> checkUniversityExists(
-            @PathVariable UUID universityId) {
+            @PathVariable("universityId") UUID universityId) { // 🟢 FIXED: Explicit identifier declaration
 
         boolean exists = universityRepresentativeService.existsById(universityId);
-
         return ResponseEntity.ok(exists);
     }
 

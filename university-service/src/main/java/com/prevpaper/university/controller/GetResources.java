@@ -27,9 +27,8 @@ public class GetResources {
 
     @GetMapping("/universities")
     public ResponseEntity<ApiResponse<List<UniversityResponseDTO>>> getAll() {
-
-        List<UniversityResponseDTO> universities =
-                universityRepresentativeService.findAll();
+        // 🟢 FIXED: Calls the clean DTO cache method instead of mapping raw entities inside the serializer
+        List<UniversityResponseDTO> universities = universityRepresentativeService.getCachedUniversities();
 
         return ResponseEntity.ok(
                 new ApiResponse<>(

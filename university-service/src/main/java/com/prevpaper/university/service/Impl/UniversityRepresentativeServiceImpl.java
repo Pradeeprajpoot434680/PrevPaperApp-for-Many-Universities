@@ -167,14 +167,22 @@ public class UniversityRepresentativeServiceImpl implements UniversityRepresenta
     /**
      * READ CACHE: Caches the absolute global list of all registered universities.
      */
+    // 1. Keep this method clean WITHOUT @Cacheable to avoid entity proxy traps
     @Override
-    @Cacheable(value = "allUniversities") // 🟢 CACHED GLOBAL LIST
     public List<UniversityResponseDTO> findAll() {
-        log.info("Redis Cache MISS - Loading global universities list from DB");
+        log.info("Loading global universities list from DB");
         return universityRepository.findAll()
                 .stream()
                 .map(u -> new UniversityResponseDTO(u.getId(), u.getName(), u.getCode(), u.getState(), u.getCity()))
                 .toList();
+    }
+
+    // 2. Put the cache annotation on a clean, DTO-only layer function
+    @Override
+    @Cacheable(value = "allUniversitiesDTO")
+    public List<UniversityResponseDTO> getCachedUniversities() {
+        log.info("Redis Cache MISS - Loading university DTOs from DB data");
+        return this.findAll();
     }
 
     /**

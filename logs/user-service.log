@@ -1,30 +1,30 @@
-2026-06-29 08:54:17.956 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 9509 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-06-29 08:54:18.059 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-29 08:54:21.613 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-06-29 08:54:29.017 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29 08:54:29.033 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-29 08:54:30.122 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1008 ms. Found 4 JPA repository interfaces.
-2026-06-29 08:54:30.359 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29 08:54:30.369 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-29 08:54:30.508 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 08:54:30.513 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 08:54:30.515 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 08:54:30.517 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 08:54:30.518 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 0 Redis repository interfaces.
-2026-06-29 08:54:33.798 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
-2026-06-29 08:54:38.572 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
-2026-06-29 08:54:38.647 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
-2026-06-29 08:54:38.654 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-29 08:54:38.655 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-06-29 08:54:39.047 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 20274 ms
-2026-06-29 08:54:43.974 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-29 08:54:44.513 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-06-29 08:54:49.204 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-29 08:54:49.474 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-29 08:54:51.766 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2604940
-2026-06-29 08:54:51.779 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-29 08:54:52.179 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-29 08:54:52.438 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-07-14 11:11:55.155 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 345978 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-14 11:11:55.257 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-14 11:11:58.625 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-14 11:12:07.057 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:12:07.080 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-14 11:12:08.488 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1238 ms. Found 4 JPA repository interfaces.
+2026-07-14 11:12:08.683 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:12:08.688 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-14 11:12:08.915 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:12:08.921 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:12:08.925 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:12:08.927 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:12:08.928 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122 ms. Found 0 Redis repository interfaces.
+2026-07-14 11:12:12.621 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-07-14 11:12:16.775 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-07-14 11:12:16.900 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:12:16.941 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-14 11:12:16.942 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-07-14 11:12:17.503 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 21297 ms
+2026-07-14 11:12:24.138 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-14 11:12:24.931 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-07-14 11:12:29.791 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-14 11:12:30.206 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-14 11:12:32.303 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45a4587d
+2026-07-14 11:12:32.316 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-14 11:12:32.583 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-14 11:12:32.845 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -36,129 +36,108 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-29 08:55:02.000 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-29 08:55:02.486 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-29 08:55:03.376 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-29 08:55:11.559 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-29 08:55:13.021 INFO  [main] [traceId=, spanId=] o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
-2026-06-29 08:55:13.389 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-06-29 08:55:23.738 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
-2026-06-29 08:55:24.005 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-29 08:55:24.145 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-06-29 08:55:24.846 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-06-29 08:55:25.096 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-06-29 08:55:25.140 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 08:55:25.245 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-29 08:55:25.255 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-29 08:55:25.255 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-29 08:55:25.255 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-29 08:55:25.256 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-29 08:55:25.256 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-06-29 08:55:25.256 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-29 08:55:27.692 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-29 08:55:27.701 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-06-29 08:55:27.708 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-29 08:55:27.717 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1782703527713 with initial instances count: 0
-2026-06-29 08:55:27.753 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
-2026-06-29 08:55:27.762 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782703527762, current=UP, previous=STARTING]
-2026-06-29 08:55:27.769 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086: registering service...
-2026-06-29 08:55:27.779 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
-2026-06-29 08:55:27.883 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
-2026-06-29 08:55:27.891 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
-2026-06-29 08:55:28.023 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - registration status: 204
-2026-06-29 08:55:28.106 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 74.459 seconds (process running for 80.34)
-2026-06-29 08:55:57.707 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-29 08:55:57.708 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-29 08:55:57.708 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-29 08:55:57.712 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-29 08:55:57.716 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-29 08:55:57.727 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: false
-2026-06-29 08:55:57.727 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-29 08:55:57.960 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-29 09:00:25.274 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:05:25.303 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:07:56.030 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-29 09:07:56.032 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-29 09:07:56.108 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 75 ms
-2026-06-29 09:08:26.391 INFO  [http-nio-8086-exec-2] [traceId=6a41e8b23f112442fe77e788d3cb9be1, spanId=fe77e788d3cb9be1] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=b8e97ae2-0995-4a38-99f3-e4f76e1e4fd7
-2026-06-29 09:08:26.586 INFO  [http-nio-8086-exec-3] [traceId=6a41e8b2ab5e5176e01dd861c6ace05b, spanId=e01dd861c6ace05b] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=1726505f-341c-4d28-b4d3-8e0610d36745
-2026-06-29 09:08:26.611 INFO  [http-nio-8086-exec-4] [traceId=6a41e8b27f2239ead7f6515e12826052, spanId=d7f6515e12826052] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=8e9c6253-7dbb-42c7-a46d-bae2b82c55f2
-2026-06-29 09:08:26.643 INFO  [http-nio-8086-exec-5] [traceId=6a41e8b29da9acf4981ce1cc78f2f5f4, spanId=981ce1cc78f2f5f4] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=d22d6e1e-73ca-4afd-a99b-49e45b0cdf53
-2026-06-29 09:08:26.665 INFO  [http-nio-8086-exec-6] [traceId=6a41e8b250bb953952443960b3e1218a, spanId=52443960b3e1218a] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0
-2026-06-29 09:10:25.304 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:15:25.306 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:20:21.859 INFO  [http-nio-8086-exec-8] [traceId=6a41eb7d3ee93a4dc5c3aa741e3a7c5b, spanId=3b38b75a8c1e5c88] c.p.u.c.InternalSyncController - Store user request received for authUserId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:20:21.860 INFO  [http-nio-8086-exec-8] [traceId=6a41eb7d3ee93a4dc5c3aa741e3a7c5b, spanId=3b38b75a8c1e5c88] c.p.u.s.Impl.InternalSyncServiceImpl - Redis Cache EVICT [studentsByDept, studentsByProg, studentNames] - Storing user context: f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:20:25.307 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:25:25.307 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:30:25.308 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:30:56.186 INFO  [http-nio-8086-exec-10] [traceId=6a41edf7820ea76ac13982ac36a41dde, spanId=a723eebe1e6aaa61] c.p.user.controller.UserController - Get profile request for authUserId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:30:56.190 INFO  [http-nio-8086-exec-10] [traceId=6a41edf7820ea76ac13982ac36a41dde, spanId=a723eebe1e6aaa61] c.p.u.service.Impl.UserServiceImpl - Redis Cache MISS - Computing composite user profile schema from DB for authUserId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:30:56.381 INFO  [http-nio-8086-exec-1] [traceId=6a41edf82a5b4e3298fb53e4a7790c74, spanId=f5bcdd5ddf5589a4] c.p.user.controller.UserController - Get profile request for authUserId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:30:56.385 INFO  [http-nio-8086-exec-1] [traceId=6a41edf82a5b4e3298fb53e4a7790c74, spanId=f5bcdd5ddf5589a4] c.p.u.service.Impl.UserServiceImpl - Redis Cache MISS - Computing composite user profile schema from DB for authUserId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:31:45.445 INFO  [http-nio-8086-exec-3] [traceId=6a41ee298e04e806860941dba323280c, spanId=860941dba323280c] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=b8e97ae2-0995-4a38-99f3-e4f76e1e4fd7
-2026-06-29 09:31:45.477 INFO  [http-nio-8086-exec-4] [traceId=6a41ee29314b462140765a8981ea9d3d, spanId=40765a8981ea9d3d] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=1726505f-341c-4d28-b4d3-8e0610d36745
-2026-06-29 09:31:45.499 INFO  [http-nio-8086-exec-5] [traceId=6a41ee293f79c524ea13f7b2e5ec9bc6, spanId=ea13f7b2e5ec9bc6] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=8e9c6253-7dbb-42c7-a46d-bae2b82c55f2
-2026-06-29 09:31:45.531 INFO  [http-nio-8086-exec-6] [traceId=6a41ee29428f3edb06915fde6b9e5a3d, spanId=06915fde6b9e5a3d] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=d22d6e1e-73ca-4afd-a99b-49e45b0cdf53
-2026-06-29 09:31:45.550 INFO  [http-nio-8086-exec-7] [traceId=6a41ee296cc30fd725b337ad8fc7a150, spanId=25b337ad8fc7a150] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0
-2026-06-29 09:35:25.309 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:36:59.048 INFO  [http-nio-8086-exec-1] [traceId=6a41ef635fbdc7279c90e8126458bc31, spanId=9c90e8126458bc31] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=b8e97ae2-0995-4a38-99f3-e4f76e1e4fd7
-2026-06-29 09:36:59.111 INFO  [http-nio-8086-exec-2] [traceId=6a41ef63817d9f5c8f719b6630fd858f, spanId=8f719b6630fd858f] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=1726505f-341c-4d28-b4d3-8e0610d36745
-2026-06-29 09:36:59.151 INFO  [http-nio-8086-exec-3] [traceId=6a41ef633ac138e6919ef09567078398, spanId=919ef09567078398] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=8e9c6253-7dbb-42c7-a46d-bae2b82c55f2
-2026-06-29 09:36:59.265 INFO  [http-nio-8086-exec-4] [traceId=6a41ef63bef0fbbad5657f006502db97, spanId=d5657f006502db97] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=d22d6e1e-73ca-4afd-a99b-49e45b0cdf53
-2026-06-29 09:36:59.309 INFO  [http-nio-8086-exec-5] [traceId=6a41ef6345c2f28931d71826e0acd2ea, spanId=31d71826e0acd2ea] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0
-2026-06-29 09:37:15.329 INFO  [http-nio-8086-exec-6] [traceId=6a41ef735c9c10281dd7d98120dc594a, spanId=1dd7d98120dc594a] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=b8e97ae2-0995-4a38-99f3-e4f76e1e4fd7
-2026-06-29 09:37:15.359 INFO  [http-nio-8086-exec-7] [traceId=6a41ef73a33a02587dafa5ade544b970, spanId=7dafa5ade544b970] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=1726505f-341c-4d28-b4d3-8e0610d36745
-2026-06-29 09:37:15.381 INFO  [http-nio-8086-exec-8] [traceId=6a41ef73463488410f7139614e69f6ca, spanId=0f7139614e69f6ca] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=8e9c6253-7dbb-42c7-a46d-bae2b82c55f2
-2026-06-29 09:37:15.440 INFO  [http-nio-8086-exec-9] [traceId=6a41ef73ffb420ee24463ddf38e8e9f2, spanId=24463ddf38e8e9f2] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=f9d05971-2b35-441e-9827-1437b0de9b3f
-2026-06-29 09:37:15.475 INFO  [http-nio-8086-exec-10] [traceId=6a41ef73965ed468c0da61809dd8e2e8, spanId=c0da61809dd8e2e8] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=d22d6e1e-73ca-4afd-a99b-49e45b0cdf53
-2026-06-29 09:37:15.503 INFO  [http-nio-8086-exec-1] [traceId=6a41ef737bc9b4857040858e347035ff, spanId=7040858e347035ff] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=e76ed0a4-eac6-49a2-ba81-7a6017fcbba0
-2026-06-29 09:40:25.310 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:45:25.312 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:50:25.313 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 09:55:25.314 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:00:25.315 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:05:25.317 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:06:02.066 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
-2026-06-29 10:06:02.068 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782707762068, current=DOWN, previous=UP]
-2026-06-29 10:06:02.068 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086: registering service...
-2026-06-29 10:06:02.097 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - registration status: 204
-2026-06-29 10:06:02.163 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-06-29 10:06:02.173 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-06-29 10:06:02.265 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-29 10:06:02.301 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-29 10:06:02.323 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-29 10:06:02.591 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-06-29 10:06:05.594 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-06-29 10:06:05.607 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - deregister  status: 200
-2026-06-29 10:06:05.607 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
-2026-06-29 10:11:07.045 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 77802 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-06-29 10:11:07.054 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-29 10:11:07.872 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-06-29 10:11:09.697 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29 10:11:09.702 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-29 10:11:10.056 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 325 ms. Found 4 JPA repository interfaces.
-2026-06-29 10:11:10.114 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-29 10:11:10.117 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-29 10:11:10.162 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 10:11:10.163 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 10:11:10.164 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 10:11:10.164 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-29 10:11:10.165 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
-2026-06-29 10:11:11.131 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
-2026-06-29 10:11:12.106 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
-2026-06-29 10:11:12.135 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
-2026-06-29 10:11:12.139 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-29 10:11:12.140 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-06-29 10:11:12.271 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 5066 ms
-2026-06-29 10:11:13.837 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-29 10:11:13.965 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-06-29 10:11:15.014 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-29 10:11:15.098 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-29 10:11:15.752 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4936fbc6
-2026-06-29 10:11:15.755 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-29 10:11:15.908 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-29 10:11:16.035 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-07-14 11:12:41.881 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-14 11:12:42.393 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:12:43.060 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-14 11:12:48.482 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-14 11:12:49.051 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-14 11:12:58.299 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-07-14 11:12:58.556 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-14 11:12:58.637 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-14 11:12:59.032 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-14 11:12:59.151 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-14 11:12:59.170 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:12:59.212 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 11:12:59.213 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 11:12:59.215 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 11:12:59.216 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 11:12:59.217 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 11:12:59.221 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-14 11:12:59.223 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 11:13:00.670 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 11:13:00.678 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-14 11:13:00.685 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-14 11:13:00.691 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1784007780689 with initial instances count: 1
+2026-07-14 11:13:00.705 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-07-14 11:13:00.708 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784007780708, current=UP, previous=STARTING]
+2026-07-14 11:13:00.713 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:13:00.720 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:13:00.826 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-07-14 11:13:00.838 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-07-14 11:13:00.972 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:13:01.022 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 73.458 seconds (process running for 81.645)
+2026-07-14 11:13:01.999 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-07-14 11:13:02.001 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to ConnectException()
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:900)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.springframework.boot.zipkin.autoconfigure.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:59)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1107)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:238)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:214)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 common frames omitted
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:187)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:189)
+	... 9 common frames omitted
+2026-07-14 11:15:15.307 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
+2026-07-14 11:15:15.307 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784007915307, current=DOWN, previous=UP]
+2026-07-14 11:15:15.308 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:15:15.324 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-14 11:15:15.331 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-14 11:15:15.344 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:15:15.402 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:15:15.409 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-14 11:15:15.474 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-14 11:15:16.147 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-14 11:15:19.150 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-14 11:15:19.167 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - deregister  status: 200
+2026-07-14 11:15:19.168 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-14 11:15:26.851 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 350821 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-14 11:15:26.871 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-14 11:15:27.929 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-14 11:15:30.904 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:15:30.909 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-14 11:15:31.346 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 410 ms. Found 4 JPA repository interfaces.
+2026-07-14 11:15:31.411 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:15:31.423 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-14 11:15:31.522 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:15:31.524 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:15:31.525 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:15:31.526 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:15:31.527 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
+2026-07-14 11:15:33.210 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-07-14 11:15:34.933 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-07-14 11:15:34.986 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:15:34.995 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-14 11:15:34.996 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-07-14 11:15:35.284 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 8126 ms
+2026-07-14 11:15:37.523 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-14 11:15:37.707 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-07-14 11:15:38.920 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-14 11:15:38.995 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-14 11:15:39.381 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c555e1e
+2026-07-14 11:15:39.383 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-14 11:15:39.433 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-14 11:15:39.470 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -170,77 +149,164 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-29 10:11:18.284 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-29 10:11:18.508 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-29 10:11:18.716 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-29 10:11:20.389 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-06-29 10:11:20.575 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-06-29 10:11:23.845 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
-2026-06-29 10:11:23.922 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-29 10:11:23.961 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-06-29 10:11:24.173 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-06-29 10:11:24.245 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-06-29 10:11:24.253 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:11:24.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-06-29 10:11:24.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-06-29 10:11:24.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-06-29 10:11:24.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-06-29 10:11:24.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-06-29 10:11:24.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-06-29 10:11:24.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-06-29 10:11:25.116 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
-2026-06-29 10:11:25.124 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-06-29 10:11:25.129 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-29 10:11:25.133 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1782708085131 with initial instances count: 6
-2026-06-29 10:11:25.210 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
-2026-06-29 10:11:25.211 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782708085211, current=UP, previous=STARTING]
-2026-06-29 10:11:25.222 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086: registering service...
-2026-06-29 10:11:25.222 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
-2026-06-29 10:11:25.307 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
-2026-06-29 10:11:25.313 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
-2026-06-29 10:11:25.390 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - registration status: 204
-2026-06-29 10:11:25.534 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 20.266 seconds (process running for 22.516)
-2026-06-29 10:12:28.456 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-29 10:12:28.457 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-29 10:12:28.462 INFO  [http-nio-8086-exec-1] [traceId=, spanId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
-2026-06-29 10:12:28.706 INFO  [http-nio-8086-exec-1] [traceId=6a41f7b49b34742a6fdb737e7ebc65be, spanId=6fdb737e7ebc65be] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 1 IDs
-2026-06-29 10:12:41.223 INFO  [http-nio-8086-exec-2] [traceId=6a41f7c1769d52127efc2e57ef2dba53, spanId=7efc2e57ef2dba53] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 1 IDs
-2026-06-29 10:16:24.279 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:19:28.287 INFO  [http-nio-8086-exec-5] [traceId=6a41f95847499fecdd60f4ac2fc3330b, spanId=dd60f4ac2fc3330b] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 1 IDs
-2026-06-29 10:21:24.280 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:21:29.012 INFO  [http-nio-8086-exec-7] [traceId=6a41f9d1aec127c8499cd1aa4b64d3f7, spanId=499cd1aa4b64d3f7] c.p.user.controller.GetStudents - Redis Cache MISS - Loading student roster from database for deptId=ae3c05de-f8cc-4f4d-b67a-20bc49beacf9
-2026-06-29 10:21:37.554 INFO  [http-nio-8086-exec-4] [traceId=6a41f9d9e513884a384a1ed79789e94f, spanId=384a1ed79789e94f] c.p.user.controller.GetStudents - Redis Cache MISS - Loading student roster from database for deptId=14050f3d-d6d9-4345-a8de-2560f57d1bcb
-2026-06-29 10:26:24.282 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:31:24.283 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:36:24.284 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:41:24.285 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:44:10.721 INFO  [http-nio-8086-exec-10] [traceId=6a41ff2219d7325b13038972f1bfe912, spanId=13038972f1bfe912] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 1 IDs
-2026-06-29 10:46:24.286 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:51:24.287 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:56:24.288 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 10:59:50.218 INFO  [http-nio-8086-exec-1] [traceId=6a4202ce0e78df9e73c7617252590ab6, spanId=73c7617252590ab6] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 1 IDs
-2026-06-29 11:01:03.084 INFO  [http-nio-8086-exec-3] [traceId=6a420317e66533429e0859a9b9640100, spanId=9e0859a9b9640100] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 9 IDs
-2026-06-29 11:01:08.393 INFO  [http-nio-8086-exec-5] [traceId=6a42031c54eee13144bc58d0ad2001ec, spanId=44bc58d0ad2001ec] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=7c958930-51b3-40fe-9baa-0ce437f1e235
-2026-06-29 11:01:08.474 INFO  [http-nio-8086-exec-6] [traceId=6a42031ccb73cb34e4757a8ae88cb620, spanId=e4757a8ae88cb620] c.p.user.controller.GetStudents - Redis Cache MISS - Mapping literal name from DB for studentId=d4ad79a7-b09d-40a5-84aa-4b670ee8cdd2
-2026-06-29 11:01:16.255 INFO  [http-nio-8086-exec-7] [traceId=6a4203242dea67279dc7e53776d2a6cf, spanId=9dc7e53776d2a6cf] c.p.user.controller.GetStudents - Redis Cache MISS - Loading student roster from database for programId=3937139c-874e-4990-a56f-2598746d1720
-2026-06-29 11:01:24.289 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 11:01:26.345 INFO  [http-nio-8086-exec-4] [traceId=6a42032e8bc5dd7932e6417461064d9d, spanId=32e6417461064d9d] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk details for 2 IDs
-2026-06-29 11:06:24.290 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 11:11:24.292 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 11:12:42.672 INFO  [http-nio-8086-exec-10] [traceId=6a4205d2166ba3bd810ab5fc38a12ae4, spanId=810ab5fc38a12ae4] c.p.u.c.InternalSyncController - USER-SERVICE: Fetching bulk profiles for 9 IDs
-2026-06-29 11:16:24.293 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-06-29 11:20:46.527 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
-2026-06-29 11:20:46.528 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1782712246527, current=DOWN, previous=UP]
-2026-06-29 11:20:46.530 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086: registering service...
-2026-06-29 11:20:46.544 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-06-29 11:20:46.555 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-06-29 11:20:46.561 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - registration status: 204
-2026-06-29 11:20:46.738 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-29 11:20:46.770 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-29 11:20:46.876 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-29 11:20:47.189 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-06-29 11:20:50.191 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-06-29 11:20:50.208 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 11:15:41.575 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-14 11:15:41.696 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:15:41.861 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-14 11:15:43.284 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-14 11:15:43.437 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-14 11:15:46.022 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-07-14 11:15:46.103 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-14 11:15:46.143 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-14 11:15:46.360 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-14 11:15:46.405 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-14 11:15:46.411 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:15:46.435 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 11:15:46.435 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 11:15:46.435 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 11:15:46.436 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 11:15:46.436 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 11:15:46.436 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-14 11:15:46.436 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 11:15:47.136 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 11:15:47.142 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-14 11:15:47.146 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-14 11:15:47.150 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1784007947148 with initial instances count: 3
+2026-07-14 11:15:47.160 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-07-14 11:15:47.161 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784007947161, current=UP, previous=STARTING]
+2026-07-14 11:15:47.165 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:15:47.164 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:15:47.199 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-07-14 11:15:47.203 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-07-14 11:15:47.263 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 22.872 seconds (process running for 25.576)
+2026-07-14 11:15:47.303 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:15:48.212 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-07-14 11:15:48.213 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to ConnectException()
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:900)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.springframework.boot.zipkin.autoconfigure.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:59)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1107)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:238)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:214)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 common frames omitted
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:187)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:189)
+	... 9 common frames omitted
+2026-07-14 11:20:46.440 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:23:00.689 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
+2026-07-14 11:23:00.690 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784008380690, current=DOWN, previous=UP]
+2026-07-14 11:23:00.691 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:23:00.702 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-14 11:23:00.709 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:23:00.710 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-14 11:23:00.774 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:23:00.781 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-14 11:23:00.853 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-14 11:23:01.486 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-14 11:23:04.487 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-14 11:23:04.507 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - deregister  status: 200
+2026-07-14 11:23:04.508 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-14 11:23:15.129 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 358513 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-14 11:23:15.140 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-14 11:23:17.097 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-14 11:23:21.617 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:23:21.625 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-14 11:23:22.584 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 875 ms. Found 4 JPA repository interfaces.
+2026-07-14 11:23:22.782 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 11:23:22.795 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-14 11:23:22.962 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:23:22.972 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:23:22.976 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:23:22.986 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 11:23:22.987 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 0 Redis repository interfaces.
+2026-07-14 11:23:26.032 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-07-14 11:23:29.191 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-07-14 11:23:29.229 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:23:29.238 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-14 11:23:29.240 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-07-14 11:23:29.707 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 14084 ms
+2026-07-14 11:23:33.131 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-14 11:23:33.452 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-07-14 11:23:35.616 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-14 11:23:35.726 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-14 11:23:36.698 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ef59aee
+2026-07-14 11:23:36.708 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-14 11:23:36.981 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-14 11:23:37.146 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: user_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-14 11:23:42.399 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-14 11:23:43.106 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:23:43.852 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-14 11:23:52.156 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-14 11:23:52.781 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-14 11:24:02.806 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-07-14 11:24:03.014 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-14 11:24:03.097 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-14 11:24:03.657 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-14 11:24:03.785 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-14 11:24:03.835 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:24:03.920 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 11:24:03.921 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 11:24:03.928 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 11:24:03.928 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 11:24:03.928 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 11:24:03.929 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-14 11:24:03.929 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 11:24:06.000 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 11:24:06.021 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-14 11:24:06.036 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-14 11:24:06.049 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1784008446043 with initial instances count: 3
+2026-07-14 11:24:06.087 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-07-14 11:24:06.092 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784008446092, current=UP, previous=STARTING]
+2026-07-14 11:24:06.101 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:24:06.114 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-07-14 11:24:06.271 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-07-14 11:24:06.282 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-07-14 11:24:06.498 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 55.308 seconds (process running for 58.58)
+2026-07-14 11:24:06.595 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:29:03.939 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:34:03.940 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 11:36:13.397 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
+2026-07-14 11:36:13.404 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784009173404, current=DOWN, previous=UP]
+2026-07-14 11:36:13.412 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 11:36:13.432 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-14 11:36:13.440 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-14 11:36:13.477 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 11:36:13.725 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 11:36:13.756 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-14 11:36:13.897 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-14 11:36:14.289 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-14 11:36:17.299 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-14 11:36:17.312 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:776)
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:624)
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:572)
@@ -322,8 +388,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:614)
 	... 41 more
 
-2026-06-29 11:20:50.209 WARN  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
-2026-06-29 11:20:50.223 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 11:36:17.313 WARN  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 11:36:17.328 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:776)
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:624)
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:572)
@@ -406,8 +472,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:614)
 	... 42 more
 
-2026-06-29 11:20:50.223 WARN  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.160.46.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
-2026-06-29 11:20:50.224 ERROR [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.160.46.181:USER-SERVICE:8086 - de-registration failedCannot execute request on any known server
+2026-07-14 11:36:17.329 WARN  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 11:36:17.329 ERROR [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -441,4 +507,491 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-06-29 11:20:50.229 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-14 11:36:17.335 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-14 21:22:28.780 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 283073 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-14 21:22:28.791 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-14 21:22:30.726 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-14 21:22:35.253 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 21:22:35.259 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-14 21:22:36.030 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 720 ms. Found 4 JPA repository interfaces.
+2026-07-14 21:22:36.190 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 21:22:36.197 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-14 21:22:36.300 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:22:36.301 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:22:36.303 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:22:36.308 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:22:36.309 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
+2026-07-14 21:22:40.969 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-07-14 21:22:44.165 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-07-14 21:22:44.220 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-07-14 21:22:44.228 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-14 21:22:44.230 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-07-14 21:22:44.543 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 15462 ms
+2026-07-14 21:22:50.121 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-14 21:22:50.643 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-07-14 21:22:54.909 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-14 21:22:55.218 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-14 21:22:57.538 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a491a60
+2026-07-14 21:22:57.555 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-14 21:22:57.878 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-14 21:22:58.025 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: user_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-14 21:23:06.856 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-14 21:23:07.544 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 21:23:08.797 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-14 21:23:18.825 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-14 21:23:19.438 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-14 21:23:31.541 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-07-14 21:23:31.803 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-14 21:23:31.919 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-14 21:23:32.455 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-14 21:23:32.695 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-14 21:23:32.737 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:23:32.880 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 21:23:32.881 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 21:23:32.891 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 21:23:32.892 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 21:23:32.892 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 21:23:32.892 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-14 21:23:32.892 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 21:23:38.602 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 21:23:38.636 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-14 21:23:38.652 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-14 21:23:38.671 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1784044418664 with initial instances count: 0
+2026-07-14 21:23:38.705 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-07-14 21:23:38.714 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784044418714, current=UP, previous=STARTING]
+2026-07-14 21:23:38.729 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-07-14 21:23:38.739 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 21:23:38.920 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-07-14 21:23:38.929 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-07-14 21:23:39.133 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 74.12 seconds (process running for 76.762)
+2026-07-14 21:23:40.461 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-07-14 21:23:40.470 WARN  [AsyncReporter{ZipkinHttpClientSender{http://localhost:9411/api/v2/spans}}] [traceId=, spanId=] z.r.i.AsyncReporter$BoundedAsyncReporter - Dropped 1 spans due to ConnectException()
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:900)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.springframework.boot.zipkin.autoconfigure.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:59)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1107)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:238)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:214)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 common frames omitted
+Caused by: java.nio.channels.ClosedChannelException
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:187)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:189)
+	... 9 common frames omitted
+2026-07-14 21:23:41.297 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 21:24:08.637 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 21:24:08.638 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 21:24:08.638 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 21:24:08.638 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 21:24:08.639 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 21:24:08.641 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2026-07-14 21:24:08.645 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 21:24:08.753 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 21:28:34.167 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:32:42.363 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
+2026-07-14 21:32:42.364 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784044962364, current=DOWN, previous=UP]
+2026-07-14 21:32:42.365 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 21:32:42.376 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-14 21:32:42.384 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-14 21:32:42.387 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 21:32:42.458 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 21:32:42.466 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-14 21:32:42.537 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-14 21:32:43.318 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-14 21:32:46.323 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-14 21:32:46.340 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - deregister  status: 200
+2026-07-14 21:32:46.341 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-14 21:32:55.258 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Starting UserServiceApplication using Java 17.0.19 with PID 296058 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/user-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-14 21:32:55.284 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-14 21:32:56.845 INFO  [background-preinit] [traceId=, spanId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-14 21:32:59.589 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 21:32:59.594 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-14 21:33:00.068 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 443 ms. Found 4 JPA repository interfaces.
+2026-07-14 21:33:00.143 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-14 21:33:00.148 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-14 21:33:00.228 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:33:00.234 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:33:00.235 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserPreferenceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:33:00.236 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.user.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-14 21:33:00.237 INFO  [main] [traceId=, spanId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
+2026-07-14 21:33:01.962 INFO  [main] [traceId=, spanId=] o.s.cloud.context.scope.GenericScope - BeanFactory id=be21e87a-95c5-363d-b972-abd627fbf323
+2026-07-14 21:33:05.107 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-07-14 21:33:05.178 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2026-07-14 21:33:05.191 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-14 21:33:05.193 INFO  [main] [traceId=, spanId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-07-14 21:33:05.607 INFO  [main] [traceId=, spanId=] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 9997 ms
+2026-07-14 21:33:09.765 INFO  [main] [traceId=, spanId=] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-14 21:33:10.064 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-07-14 21:33:13.515 INFO  [main] [traceId=, spanId=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-14 21:33:13.789 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-14 21:33:15.323 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1fd77205
+2026-07-14 21:33:15.328 INFO  [main] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-14 21:33:15.452 WARN  [main] [traceId=, spanId=] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-14 21:33:15.532 INFO  [main] [traceId=, spanId=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/user_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.14
+	Default catalog/schema: user_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-14 21:33:19.569 INFO  [main] [traceId=, spanId=] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-14 21:33:19.741 INFO  [main] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 21:33:19.937 INFO  [main] [traceId=, spanId=] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-14 21:33:22.600 WARN  [main] [traceId=, spanId=] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-14 21:33:22.942 INFO  [main] [traceId=, spanId=] o.s.c.o.FeignClientFactoryBean - For 'AUTH-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-14 21:33:26.811 INFO  [main] [traceId=, spanId=] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestClient.
+2026-07-14 21:33:26.893 WARN  [main] [traceId=, spanId=] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-14 21:33:26.939 INFO  [main] [traceId=, spanId=] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-14 21:33:27.168 INFO  [main] [traceId=, spanId=] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-14 21:33:27.243 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-14 21:33:27.253 INFO  [main] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:33:27.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-14 21:33:27.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-14 21:33:27.275 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-14 21:33:27.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-14 21:33:27.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-14 21:33:27.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-14 21:33:27.276 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-14 21:33:28.905 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-07-14 21:33:28.909 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-14 21:33:28.913 INFO  [main] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-14 21:33:28.919 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1784045008917 with initial instances count: 4
+2026-07-14 21:33:28.930 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Registering application USER-SERVICE with eureka with status UP
+2026-07-14 21:33:28.932 INFO  [main] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784045008932, current=UP, previous=STARTING]
+2026-07-14 21:33:28.935 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 21:33:28.938 INFO  [main] [traceId=, spanId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2026-07-14 21:33:28.974 INFO  [main] [traceId=, spanId=] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-07-14 21:33:28.977 INFO  [main] [traceId=, spanId=] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+2026-07-14 21:33:29.047 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration status: 204
+2026-07-14 21:33:29.077 INFO  [main] [traceId=, spanId=] c.p.user.UserServiceApplication - Started UserServiceApplication in 36.538 seconds (process running for 39.372)
+2026-07-14 21:38:27.279 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:43:27.281 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:48:27.282 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:53:27.283 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 21:58:27.284 INFO  [AsyncResolver-bootstrap-executor-%d] [traceId=, spanId=] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-14 22:00:49.241 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application USER-SERVICE with eureka with status DOWN
+2026-07-14 22:00:49.245 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1784046649245, current=DOWN, previous=UP]
+2026-07-14 22:00:49.258 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086: registering service...
+2026-07-14 22:00:49.573 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-14 22:00:49.621 INFO  [tomcat-shutdown] [traceId=, spanId=] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-14 22:00:49.730 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:776)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:624)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:572)
+	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:747)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:921)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:885)
+	at org.springframework.cloud.netflix.eureka.http.RestClientEurekaHttpClient.register(RestClientEurekaHttpClient.java:64)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:226)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:168)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeWithRequest(AbstractBufferingClientHttpRequest.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest$EndOfChainRequestExecution.execute(InterceptingClientHttpRequest.java:102)
+	at org.springframework.cloud.netflix.eureka.http.RestClientTransportClientFactory.lambda$newClient$2(RestClientTransportClientFactory.java:98)
+	at org.springframework.http.client.ClientHttpRequestInterceptor.lambda$apply$0(ClientHttpRequestInterceptor.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:73)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:50)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:614)
+	... 23 more
+
+2026-07-14 22:00:49.744 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 22:00:49.970 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:776)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:624)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:572)
+	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:747)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:921)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:885)
+	at org.springframework.cloud.netflix.eureka.http.RestClientEurekaHttpClient.register(RestClientEurekaHttpClient.java:64)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:226)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:168)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeWithRequest(AbstractBufferingClientHttpRequest.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest$EndOfChainRequestExecution.execute(InterceptingClientHttpRequest.java:102)
+	at org.springframework.cloud.netflix.eureka.http.RestClientTransportClientFactory.lambda$newClient$2(RestClientTransportClientFactory.java:98)
+	at org.springframework.http.client.ClientHttpRequestInterceptor.lambda$apply$0(ClientHttpRequestInterceptor.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:73)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:50)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:614)
+	... 24 more
+
+2026-07-14 22:00:49.975 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 22:00:49.976 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-14 22:00:50.005 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] [traceId=, spanId=] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
+	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-14 22:00:50.226 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-14 22:00:50.386 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-14 22:00:50.515 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-14 22:00:51.064 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-14 22:00:54.066 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-14 22:00:54.095 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.createResourceAccessException(DefaultRestClient.java:776)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:624)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:572)
+	at org.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:747)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:921)
+	at org.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:885)
+	at org.springframework.cloud.netflix.eureka.http.RestClientEurekaHttpClient.cancel(RestClientEurekaHttpClient.java:73)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:411)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:237)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:193)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:209)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:795)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:745)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1500)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:704)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1493)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1246)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1207)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:176)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1153)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:684)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:226)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:497)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:168)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:112)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeWithRequest(AbstractBufferingClientHttpRequest.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest$EndOfChainRequestExecution.execute(InterceptingClientHttpRequest.java:102)
+	at org.springframework.cloud.netflix.eureka.http.RestClientTransportClientFactory.lambda$newClient$2(RestClientTransportClientFactory.java:98)
+	at org.springframework.http.client.ClientHttpRequestInterceptor.lambda$apply$0(ClientHttpRequestInterceptor.java:89)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:73)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:50)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:80)
+	at org.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:614)
+	... 42 more
+
+2026-07-14 22:00:54.097 WARN  [SpringApplicationShutdownHook] [traceId=, spanId=] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/10.123.163.181:USER-SERVICE:8086": Connect to http://localhost:8761 failed: Connection refused
+2026-07-14 22:00:54.097 ERROR [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-SERVICE/10.123.163.181:USER-SERVICE:8086 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:453)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:411)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:237)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:193)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:387)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:134)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:209)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:795)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:745)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1500)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:704)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1493)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1246)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1207)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:176)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1153)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-07-14 22:00:54.099 INFO  [SpringApplicationShutdownHook] [traceId=, spanId=] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

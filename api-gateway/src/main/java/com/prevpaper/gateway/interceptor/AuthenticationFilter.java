@@ -43,7 +43,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/get/universities",
             "/api/v1/get/departments/**",
             "/api/v1/auth/refresh",
-            "/api/v1/get/**"
+            "/api/v1/get/**",
+            "/actuator/**"
     );
 
     private final List<String> UPLOADER_ROLES = List.of(

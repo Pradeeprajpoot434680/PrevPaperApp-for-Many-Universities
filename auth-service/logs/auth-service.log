@@ -1,30 +1,30 @@
-2026-07-05 16:24:06.578 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-07-05 16:24:06.725 INFO  [main] c.p.auth.AuthServiceApplicationTests - Starting AuthServiceApplicationTests using Java 17.0.19 with PID 26682 (started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service)
-2026-07-05 16:24:06.750 INFO  [main] c.p.auth.AuthServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-07-05 16:24:08.711 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-07-05 16:24:08.712 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-07-05 16:24:08.736 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/repositories] does not exist
-2026-07-05 16:24:08.967 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*Impl.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/repositories] does not exist
-2026-07-05 16:24:09.001 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 269 ms. Found 5 JPA repository interfaces.
-2026-07-05 16:24:09.930 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-07-05 16:24:09.936 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-07-05 16:24:09.984 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-05 16:24:09.985 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-05 16:24:09.986 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-05 16:24:09.987 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-05 16:24:09.988 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-05 16:24:09.988 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
-2026-07-05 16:24:10.905 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=9812a011-22f0-3c0a-910a-0882c659b7a8
-2026-07-05 16:24:12.123 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/entities] does not exist
-2026-07-05 16:24:12.174 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-07-05 16:24:12.287 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
-2026-07-05 16:24:12.354 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-07-05 16:24:13.379 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-07-05 16:24:13.575 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-07-05 16:24:14.639 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e5f05f8
-2026-07-05 16:24:14.647 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-07-05 16:24:14.867 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-07-05 16:24:14.976 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-07-09 20:41:57.518 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-07-09 20:41:57.621 INFO  [main] c.p.auth.AuthServiceApplicationTests - Starting AuthServiceApplicationTests using Java 17.0.19 with PID 713170 (started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service)
+2026-07-09 20:41:57.623 INFO  [main] c.p.auth.AuthServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-07-09 20:41:59.120 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-09 20:41:59.121 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-09 20:41:59.143 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/repositories] does not exist
+2026-07-09 20:41:59.342 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*Impl.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/repositories] does not exist
+2026-07-09 20:41:59.364 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 226 ms. Found 5 JPA repository interfaces.
+2026-07-09 20:42:00.202 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-09 20:42:00.206 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-09 20:42:00.266 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.AuditLogRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-09 20:42:00.268 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-09 20:42:00.269 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.SessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-09 20:42:00.270 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-09 20:42:00.271 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.auth.repositories.VerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-09 20:42:00.271 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+2026-07-09 20:42:00.962 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=9812a011-22f0-3c0a-910a-0882c659b7a8
+2026-07-09 20:42:02.035 INFO  [main] o.s.c.i.s.PathMatchingResourcePatternResolver - Skipping search for files matching pattern [**/*.class]: directory [/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/auth-service/target/test-classes/com/prevpaper/auth/entities] does not exist
+2026-07-09 20:42:02.104 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-09 20:42:02.226 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-07-09 20:42:02.315 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-09 20:42:02.811 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-09 20:42:02.883 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-09 20:42:03.433 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c04ec8
+2026-07-09 20:42:03.437 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-09 20:42:03.516 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-09 20:42:03.559 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 16.14
@@ -32,16 +32,16 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-07-05 16:24:20.236 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-07-05 16:24:20.840 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-07-05 16:24:22.091 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-07-05 16:24:26.684 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-07-05 16:24:27.351 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
-2026-07-05 16:24:29.654 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-07-05 16:24:30.376 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
-2026-07-05 16:24:31.796 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-07-05 16:24:35.733 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2026-07-05 16:24:36.608 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+2026-07-09 20:42:06.653 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-09 20:42:07.023 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-09 20:42:07.703 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-09 20:42:08.901 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-09 20:42:09.214 INFO  [main] o.s.c.o.FeignClientFactoryBean - For 'UNIVERSITY-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2026-07-09 20:42:10.182 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-07-09 20:42:10.476 WARN  [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.prevpaper.auth.controllers.InternalAuthController.findAllStudents(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/{universityId}/students"}, produces={"application/json"}, value={"/{universityId}/students"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2026-07-09 20:42:11.246 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-07-09 20:42:13.405 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-07-09 20:42:13.835 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
 	auto.include.jmx.reporter = true
 	bootstrap.controllers = []
 	bootstrap.servers = [localhost:9092]
@@ -116,44 +116,225 @@
 	ssl.truststore.password = null
 	ssl.truststore.type = JKS
 
-2026-07-05 16:24:37.002 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-07-05 16:24:37.003 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-07-05 16:24:37.003 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783248876997
-2026-07-05 16:24:37.067 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:37.073 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:37.180 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:37.181 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:37.292 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:37.297 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:37.604 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:37.608 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:38.018 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:38.023 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:38.738 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:38.739 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:39.655 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:39.656 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:40.665 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:40.665 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:41.671 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:41.672 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:42.679 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
-2026-07-05 16:24:42.680 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-05 16:24:44.357 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
-2026-07-05 16:24:44.382 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-07-05 16:24:44.383 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-07-05 16:24:44.383 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-07-05 16:24:44.436 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-07-05 16:24:44.595 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-07-05 16:24:44.614 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-07-05 16:24:44.644 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-07-05 16:24:44.647 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-07-05 16:24:44.647 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-07-05 16:24:44.647 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-07-05 16:24:44.648 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-07-05 16:24:44.648 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-07-05 16:24:44.648 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-07-05 16:24:45.237 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:14.040 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-07-09 20:42:14.041 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-07-09 20:42:14.041 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783609934038
+2026-07-09 20:42:14.073 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:14.077 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:14.183 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:14.183 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:14.286 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:14.286 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:14.489 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:14.489 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:14.892 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:14.893 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:15.698 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:15.698 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:16.704 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:16.705 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:17.711 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:17.711 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:18.616 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:18.617 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:19.623 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:19.624 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:20.429 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:20.429 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:21.435 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:21.435 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:22.441 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:22.442 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:23.447 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:23.447 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:24.352 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:24.353 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:25.158 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:25.158 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:26.164 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:26.165 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:27.070 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:27.070 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:27.975 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:27.976 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:28.880 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:28.880 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:29.787 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:29.788 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:30.793 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:30.794 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:31.799 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:31.800 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:32.805 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:32.806 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:33.811 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:33.812 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:34.716 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:34.717 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:35.723 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:35.724 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:36.730 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:36.730 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:37.735 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:37.736 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:38.640 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:38.641 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:39.545 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:39.546 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:40.551 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:40.552 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:41.456 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:41.457 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:42.461 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:42.462 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:43.466 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:43.467 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:44.046 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=AUTH-SERVICE-admin-0] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: fetchMetadata
+2026-07-09 20:42:44.053 ERROR [main] o.s.kafka.core.KafkaAdmin - Could not configure topics
+org.springframework.kafka.KafkaException: Timed out waiting to get existing topics
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:558)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at java.base/java.util.Collections$UnmodifiableMap.forEach(Collections.java:1554)
+	at org.springframework.kafka.core.KafkaAdmin.checkPartitions(KafkaAdmin.java:537)
+	at org.springframework.kafka.core.KafkaAdmin.addOrModifyTopicsIfNeeded(KafkaAdmin.java:430)
+	at org.springframework.kafka.core.KafkaAdmin.initialize(KafkaAdmin.java:276)
+	at org.springframework.kafka.core.KafkaAdmin.afterSingletonsInstantiated(KafkaAdmin.java:240)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1057)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:180)
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:540)
+	... 96 common frames omitted
+2026-07-09 20:42:44.361 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:44.362 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:45.368 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:45.369 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:46.374 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:46.374 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:47.279 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:47.280 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:48.285 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:48.286 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:49.190 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:49.191 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:50.195 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:50.196 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:51.201 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:51.201 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:52.206 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:52.207 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:53.212 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Node -1 disconnected.
+2026-07-09 20:42:53.212 WARN  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:54.058 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.
+2026-07-09 20:42:54.059 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for AUTH-SERVICE-admin-0 unregistered
+2026-07-09 20:42:54.060 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=AUTH-SERVICE-admin-0] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: The AdminClient thread has exited. Call: fetchMetadata
+2026-07-09 20:42:54.060 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=AUTH-SERVICE-admin-0] Timed out 2 remaining operation(s) during close.
+2026-07-09 20:42:54.066 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-09 20:42:54.066 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-09 20:42:54.067 INFO  [kafka-admin-client-thread | AUTH-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-09 20:42:54.089 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-09 20:42:54.142 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-09 20:42:54.148 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-09 20:42:54.165 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-09 20:42:54.165 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-09 20:42:54.165 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-09 20:42:54.165 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-09 20:42:54.166 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-09 20:42:54.166 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-09 20:42:54.166 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-09 20:42:54.716 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -341,8 +522,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 148 more
 
-2026-07-05 16:24:45.244 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-05 16:24:45.246 INFO  [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+2026-07-09 20:42:54.718 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:54.720 INFO  [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
@@ -483,16 +664,16 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-2026-07-05 16:24:45.251 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from primary servers failed
-2026-07-05 16:24:45.252 WARN  [main] c.netflix.discovery.DiscoveryClient - Using default backup registry implementation which does not do anything.
-2026-07-05 16:24:45.253 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from backup servers failed
-2026-07-05 16:24:45.255 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-07-05 16:24:45.259 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-07-05 16:24:45.264 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1783248885262 with initial instances count: 0
-2026-07-05 16:24:45.282 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
-2026-07-05 16:24:45.284 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1783248885284, current=UP, previous=STARTING]
-2026-07-05 16:24:45.290 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081: registering service...
-2026-07-05 16:24:45.359 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+2026-07-09 20:42:54.722 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from primary servers failed
+2026-07-09 20:42:54.723 WARN  [main] c.netflix.discovery.DiscoveryClient - Using default backup registry implementation which does not do anything.
+2026-07-09 20:42:54.724 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from backup servers failed
+2026-07-09 20:42:54.725 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-09 20:42:54.730 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-09 20:42:54.734 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1783609974732 with initial instances count: 0
+2026-07-09 20:42:54.752 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2026-07-09 20:42:54.754 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1783609974754, current=UP, previous=STARTING]
+2026-07-09 20:42:54.758 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081: registering service...
+2026-07-09 20:42:54.834 INFO  [main] o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -591,7 +772,7 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	ssl.truststore.type = JKS
 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
 
-2026-07-05 16:24:45.445 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:54.869 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -653,8 +834,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 22 more
 
-2026-07-05 16:24:45.447 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-05 16:24:45.448 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - registration failed Cannot execute request on any known server
+2026-07-09 20:42:54.870 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:54.871 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081 - registration failed Cannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -670,7 +851,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-05 16:24:45.454 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
+2026-07-09 20:42:54.872 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -686,140 +867,16 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-05 16:24:45.477 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-07-05 16:24:45.704 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-07-05 16:24:45.704 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-07-05 16:24:45.705 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783248885701
-2026-07-05 16:24:45.718 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
-2026-07-05 16:24:45.886 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Cluster ID: R6TTCC9GTKKiczZQns7GYw
-2026-07-05 16:24:45.933 INFO  [main] c.p.auth.AuthServiceApplicationTests - Started AuthServiceApplicationTests in 40.364 seconds (process running for 43.69)
-2026-07-05 16:24:46.140 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.167 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:46.302 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.305 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.306 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:46.309 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:46.325 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.326 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.327 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.469 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.478 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:46.485 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:46.517 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.517 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.518 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:46.523 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:46.535 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.536 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.536 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.676 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.693 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:46.695 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:46.736 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.737 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.738 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:46.738 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:46.836 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.837 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:46.838 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.960 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:46.974 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:46.982 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:47.031 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.032 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.033 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:47.033 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:47.072 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.073 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.074 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.191 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.205 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:47.212 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:47.260 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.261 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.302 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:47.303 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:47.328 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.329 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.329 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.473 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.488 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:47.491 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:47.534 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.534 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.535 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:47.535 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:47.575 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.577 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.582 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.697 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.704 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:47.712 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:47.733 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.733 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.733 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:47.734 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:47.735 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:47.746 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.748 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.749 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.868 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.877 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:47.926 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.927 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.928 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:47.928 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:47.967 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:47.969 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:47.969 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.084 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.097 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:48.099 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:48.121 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.122 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.122 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:48.123 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:48.142 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.143 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.143 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.263 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.276 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:48.279 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:48.311 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.312 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.312 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:48.313 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:48.354 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.355 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.355 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.464 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.481 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:48.490 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:48.512 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.513 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.514 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
-2026-07-05 16:24:48.514 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Client requested disconnect from node 2147483646
-2026-07-05 16:24:48.525 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.529 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
-2026-07-05 16:24:48.529 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.648 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
-2026-07-05 16:24:48.659 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
-2026-07-05 16:24:48.666 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:48.763 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] JoinGroup failed: Coordinator localhost:9092 (id: 2147483646 rack: null) is loading the group.
-2026-07-05 16:24:48.764 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: rebalance failed due to 'The coordinator is loading and hence can't process requests.' (CoordinatorLoadInProgressException)
-2026-07-05 16:24:48.866 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:48.971 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: need to re-join with the given member-id: consumer-auth-role-group-1-c2d83c50-c7fe-44c9-b270-63b6191e2d6f
-2026-07-05 16:24:48.976 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] (Re-)joining group
-2026-07-05 16:24:50.490 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
-2026-07-05 16:24:50.491 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1783248890491, current=DOWN, previous=UP]
-2026-07-05 16:24:50.492 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081: registering service...
-2026-07-05 16:24:50.505 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Member consumer-auth-role-group-1-c2d83c50-c7fe-44c9-b270-63b6191e2d6f sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
-2026-07-05 16:24:50.509 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 16:24:50.509 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 16:24:50.509 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Unsubscribed all topics or patterns and assigned partitions
-2026-07-05 16:24:50.523 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 16:24:50.524 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 16:24:50.530 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:54.934 INFO  [main] o.a.k.c.t.i.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-09 20:42:55.051 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-07-09 20:42:55.051 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-07-09 20:42:55.051 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783609975051
+2026-07-09 20:42:55.057 INFO  [main] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Subscribed to topic(s): role-change-events
+2026-07-09 20:42:55.140 INFO  [main] c.p.auth.AuthServiceApplicationTests - Started AuthServiceApplicationTests in 58.331 seconds (process running for 60.842)
+2026-07-09 20:42:55.143 INFO  [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2026-07-09 20:42:55.143 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1783609975143, current=DOWN, previous=UP]
+2026-07-09 20:42:55.144 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081: registering service...
+2026-07-09 20:42:55.177 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -881,8 +938,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 22 more
 
-2026-07-05 16:24:50.531 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-05 16:24:50.531 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - registration failed Cannot execute request on any known server
+2026-07-09 20:42:55.178 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:55.178 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081 - registration failed Cannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -898,7 +955,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-05 16:24:50.532 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
+2026-07-09 20:42:55.179 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -914,18 +971,433 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-05 16:24:52.171 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-07-05 16:24:52.173 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-07-05 16:24:52.174 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-07-05 16:24:52.180 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-07-05 16:24:52.217 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-auth-role-group-1 unregistered
-2026-07-05 16:24:52.222 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: Consumer stopped
-2026-07-05 16:24:52.382 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-07-05 16:24:52.396 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-07-05 16:24:52.470 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-07-05 16:24:52.473 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-07-05 16:24:55.474 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-07-05 16:24:55.495 INFO  [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:55.701 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Node -1 disconnected.
+2026-07-09 20:42:55.704 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-09 20:42:55.705 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2026-07-09 20:42:55.720 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-09 20:42:55.725 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-09 20:42:55.725 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.LegacyKafkaConsumer - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-09 20:42:55.732 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-09 20:42:55.733 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-auth-role-group-1, groupId=auth-role-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-09 20:42:55.749 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-09 20:42:55.750 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-09 20:42:55.750 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-09 20:42:55.750 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-09 20:42:55.776 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-auth-role-group-1 unregistered
+2026-07-09 20:42:55.777 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - auth-role-group: Consumer stopped
+2026-07-09 20:42:55.853 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-09 20:42:55.858 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-09 20:42:55.901 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-09 20:42:55.904 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-09 20:42:55.931 WARN  [main] c.zaxxer.hikari.pool.ProxyConnection - HikariPool-1 - Connection org.postgresql.jdbc.PgConnection@5c04ec8 marked as broken because of SQLSTATE(08003), ErrorCode(0)
+org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1009)
+	at org.postgresql.jdbc.PgConnection.rollback(PgConnection.java:1016)
+	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:386)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:127)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:289)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:589)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:897)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:866)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:716)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:384)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727)
+	at com.prevpaper.auth.config.DataInitializer$$SpringCGLIB$$0.run(<generated>)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-07-09 20:42:55.937 ERROR [main] o.s.t.i.TransactionInterceptor - Application exception overridden by rollback exception
+org.springframework.dao.InvalidDataAccessApiUsageException: Session/EntityManager is closed
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:368)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:246)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy186.count(Unknown Source)
+	at com.prevpaper.auth.config.DataInitializer.run(DataInitializer.java:38)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727)
+	at com.prevpaper.auth.config.DataInitializer$$SpringCGLIB$$0.run(<generated>)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.IllegalStateException: Session/EntityManager is closed
+	at org.hibernate.internal.AbstractSharedSessionContract.checkOpen(AbstractSharedSessionContract.java:517)
+	at org.hibernate.engine.spi.SharedSessionContractImplementor.checkOpen(SharedSessionContractImplementor.java:186)
+	at org.hibernate.internal.AbstractSharedSessionContract.prepareForQueryExecution(AbstractSharedSessionContract.java:523)
+	at org.hibernate.query.spi.AbstractSelectionQuery.beforeQuery(AbstractSelectionQuery.java:171)
+	at org.hibernate.query.spi.AbstractSelectionQuery.beforeQueryHandlingFetchProfiles(AbstractSelectionQuery.java:159)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:140)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:275)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.count(SimpleJpaRepository.java:608)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:515)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:284)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:752)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:174)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 119 common frames omitted
+2026-07-09 20:42:55.984 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-09 20:42:56.027 ERROR [main] o.s.boot.SpringApplication - Application run failed
+org.springframework.dao.DataAccessResourceFailureException: Hibernate transaction: Unable to rollback against JDBC Connection; This connection has been closed.
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:121)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:265)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:593)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:897)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:866)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:716)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:384)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727)
+	at com.prevpaper.auth.config.DataInitializer$$SpringCGLIB$$0.run(<generated>)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1009)
+	at org.postgresql.jdbc.PgConnection.rollback(PgConnection.java:1016)
+	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:386)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:127)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:289)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:589)
+	... 109 common frames omitted
+2026-07-09 20:42:58.905 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-09 20:42:58.923 INFO  [SpringApplicationShutdownHook] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -1004,8 +1476,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 39 more
 
-2026-07-05 16:24:55.496 WARN  [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-05 16:24:55.496 ERROR [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/10.160.46.181:AUTH-SERVICE:8081 - de-registration failedCannot execute request on any known server
+2026-07-09 20:42:58.924 WARN  [SpringApplicationShutdownHook] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-09 20:42:58.924 ERROR [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/172.24.0.1:AUTH-SERVICE:8081 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -1038,4 +1510,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-05 16:24:55.497 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-09 20:42:58.925 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

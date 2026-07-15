@@ -1,12 +1,24 @@
-version: '3.8'
+networks:
+  prevpaper-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  mysql_data:
+  redis_data:
 
 services:
+  # =========================================================================
+  # INFRASTRUCTURE BACKBONE LAYER
+  # =========================================================================
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
     ports:
       - "9411:9411"
     restart: always
+    networks:
+      - prevpaper-network
 
   clamav:
     image: clamav/clamav:latest
@@ -14,6 +26,8 @@ services:
     ports:
       - "3310:3310"
     restart: always
+    networks:
+      - prevpaper-network
 
   redis:
     image: redis:7.2-alpine
@@ -24,6 +38,259 @@ services:
       - redis_data:/data
     command: redis-server --appendonly yes
     restart: always
+    networks:
+      - prevpaper-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 3
 
-volumes:
-  redis_data:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: prevpaper-postgres
+    environment:
+      POSTGRES_USER: pradeep
+      POSTGRES_PASSWORD: pradeep@434680
+      POSTGRES_DB: prevpaper_content_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - prevpaper-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pradeep -d prevpaper_content_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: prevpaper-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pradeep@434680
+      MYSQL_USER: pradeep
+      MYSQL_PASSWORD: 434680
+      MYSQL_DATABASE: university_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - prevpaper-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "pradeep", "-p434680"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  kafka-broker:
+    image: apache/kafka:3.7.0
+    container_name: prevpaper-kafka
+    ports:
+      - "9094:9094" # 🟢 CHANGED: Expose container Kafka to your laptop host on 9094 instead of 9092!
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093
+
+      # 🟢 FIXED: Internal containers use 29092, host system utilities use 9094
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-broker:29092,EXTERNAL://localhost:9094
+
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      KAFKA_MESSAGE_MAX_BYTES: 20971520
+      KAFKA_REPLICA_FETCH_MAX_BYTES: 20971520
+    networks:
+      - prevpaper-network
+
+  # =========================================================================
+  # MICROSERVICES CORE SERVICE LAYER (EUREKA CLIENT DISABLED NATIVELY)
+  # =========================================================================
+    # =========================================================================
+    # AUTH-SERVICE CONFIGURATION
+    # =========================================================================
+  auth-service:
+    image: prevpaper-auth-service:1.0.0
+    container_name: prevpaper-auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
+
+      # 🟢 FIXED: Exact match for your custom @Value placeholder key pointing to internal broker port
+      spring.kafka.bootstrap-servers: "kafka-broker:29092"
+
+      SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
+      JWT_SECRET: "mySuperSecureSecretKeyThatIsAtLeast32Characters12345"
+      RESEND_API_KEY: "re_bQk9PJtY_fB7CpPjKNiGrNuBbDZ6ZnDVh"
+      RESEND_FROM_EMAIL: "PrevYearPaper App <noreply@pdeep.store>"
+      OAUTH2_REDIRECT_URI: "http://localhost:8080/login/oauth2/code/google"
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka-broker:
+        condition: service_started
+    networks:
+      - prevpaper-network
+
+  # =========================================================================
+  # NOTIFICATION-SERVICE CONFIGURATION
+  # =========================================================================
+  notification-service:
+    image: prevpaper-notification-service:1.0.0
+    container_name: prevpaper-notification-service
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
+
+      # 🟢 FIXED: Exact match for your custom @Value placeholder key pointing to internal broker port
+      spring.kafka.bootstrap-servers: "kafka-broker:29092"
+
+      # 🟢 FIXED: Inject group-id dynamically matching your config property variable lookup
+      spring.kafka.consumer.group-id: "notification-group"
+
+      SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
+      RESEND_API_KEY: "re_bQk9PJtY_fB7CpPjKNiGrNuBbDZ6ZnDVh"
+      RESEND_FROM_EMAIL: "noreply@pdeep.store"
+      resend.email.from: "noreply@pdeep.store"
+      TWILIO_ACCOUNT_SID: "ACacad4a981f0d369bb88592fa26cd5aaf"
+      TWILIO_AUTH_TOKEN: "c4be76aa8b14b6753302c844595e6b22"
+      TWILIO_PHONE_NUMBER: "+15005550006"
+      TWILIO_VERIFY_SERVICE_SID: "VA1cd5db3587ec53bd630e7d8973f459dd"
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      kafka-broker:
+        condition: service_started
+    networks:
+      - prevpaper-network
+
+  user-service:
+    image: prevpaper-user-service:1.0.0
+    container_name: prevpaper-user-service
+    ports:
+      - "8086:8086"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
+      # Disable Eureka
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    networks:
+      - prevpaper-network
+
+  content-service:
+    image: prevpaper-content-service:1.0.0
+    container_name: prevpaper-content-service
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
+      # Disable Eureka
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - prevpaper-network
+
+  university-service:
+    image: prevpaper-university-service:1.0.0
+    container_name: prevpaper-university-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-db:3306/university_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "434680"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
+      SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
+      SPRING_DATA_REDIS_HOST: "redis"
+      SPRING_DATA_REDIS_PORT: "6379"
+      # Disable Eureka
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - prevpaper-network
+
+
+
+  upload-service:
+    image: prevpaper-upload-service:1.0.0
+    container_name: prevpaper-upload-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
+      # Disable Eureka
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      - kafka-broker
+    networks:
+      - prevpaper-network
+
+  # =========================================================================
+  # API GATEWAY LAYER
+  # =========================================================================
+  api-gateway:
+    image: prevpaper-api-gateway:1.0.0
+    container_name: prevpaper-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      UNIVERSITY_SERVICE_URL: "http://university-service:8082"
+      AUTH_SERVICE_URL: "http://auth-service:8081"
+      NOTIFICATION_SERVICE_URL: "http://notification-service:8085"
+      USER_SERVICE_URL: "http://user-service:8086"
+      CONTENT_SERVICE_URL: "http://content-service:8090"
+      # Disable Eureka
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      - auth-service
+      - university-service
+      - user-service
+      - content-service
+    networks:
+      - prevpaper-network

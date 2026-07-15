@@ -4,20 +4,13 @@
 FROM maven:3.9.6-eclipse-temurin-17-alpine AS builder
 WORKDIR /build
 
-# Copy structural project descriptors
 COPY pom.xml .
 COPY common-lib/ ./common-lib/
 
-# 1. 🟢 FIXED: Install parent coordinates to container cache non-recursively
 RUN mvn clean install -N -DskipTests
-
-# 2. 🟢 FIXED: Compile and install the shared common core module
 RUN mvn -f common-lib/pom.xml clean install -DskipTests
 
-# Copy target service layer source
 COPY upload-service/ ./upload-service/
-
-# 3. Package the target service explicitly
 RUN mvn -f upload-service/pom.xml clean package -DskipTests
 
 # ==========================================
@@ -26,7 +19,15 @@ RUN mvn -f upload-service/pom.xml clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
+# 1. 🟢 FIXED: Pre-create both internal and external root logging targets
+RUN mkdir -p /app/logs /logs
+
+# 2. Add your non-privileged system user profile
 RUN addgroup -S spring && adduser -S spring -G spring
+
+# 3. 🟢 FIXED: Grant explicit write permissions to both folders
+RUN chown -R spring:spring /app /logs
+
 USER spring:spring
 
 COPY --from=builder /build/upload-service/target/*.jar app.jar

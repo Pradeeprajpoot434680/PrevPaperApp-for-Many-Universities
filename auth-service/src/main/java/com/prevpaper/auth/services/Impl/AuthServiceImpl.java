@@ -107,7 +107,7 @@ public class AuthServiceImpl implements AuthService {
                 return new ApiResponse<>(false, "Invalid University: This institution is not registered.", null, System.currentTimeMillis());
             }
         } catch (Exception e) {
-            log.error("University validation failed: {}", e.getMessage());
+            log.error("🔴 CRITICAL: University verification failed over network connection!", e); // 🟢 FIXED: Logs the full stack trace instead of just e.getMessage()
             return new ApiResponse<>(false, "University validation failed. Please try again later.", null, System.currentTimeMillis());
         }
 
@@ -218,6 +218,16 @@ public class AuthServiceImpl implements AuthService {
                 .eventType(NotificationEventType.OTP_SENT)
                 .build();
 
+
+        sessionRepository.save(
+                Session.builder()
+                        .user(user)
+                        .refreshToken(refreshToken)
+                        .expiresAt(LocalDateTime.now().plusSeconds(refreshExpiration / 1000))
+                        .isRevoked(false)
+                        .build()
+        );
+
         // Delay Kafka push until transaction commits successfully
 //        if (TransactionSynchronizationManager.isActualTransactionActive()) {
 //            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
@@ -235,14 +245,7 @@ public class AuthServiceImpl implements AuthService {
 
 
 
-        sessionRepository.save(
-                Session.builder()
-                        .user(user)
-                        .refreshToken(refreshToken)
-                        .expiresAt(LocalDateTime.now().plusSeconds(refreshExpiration / 1000))
-                        .isRevoked(false)
-                        .build()
-        );
+
 
         Map<String, String> tokens = new HashMap<>();
         tokens.put("Success", "true");
