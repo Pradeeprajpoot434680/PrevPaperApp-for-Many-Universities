@@ -58,6 +58,7 @@ public class GlobalAdminServiceImpl implements GlobalAdminService {
     @Override
     @Transactional
     @Caching(evict = {
+            @CacheEvict(value = "allUniversitiesDTO", allEntries = true),
             @CacheEvict(value = "allUniversities", allEntries = true),
             @CacheEvict(value = "globalStats", allEntries = true),
             @CacheEvict(value = "globalUniversityDashboard", allEntries = true)

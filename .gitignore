@@ -19,3 +19,7 @@ notificationService/logs/*.zip
 /university-service/logs
 /upload-service/logs
 /user-service/logs
+
+*.yml
+*.yaml
+*.properties

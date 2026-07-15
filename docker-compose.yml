@@ -9,7 +9,7 @@ volumes:
 
 services:
   # =========================================================================
-  # INFRASTRUCTURE BACKBONE LAYER
+  # BACKBONE INFRASTRUCTURE LAYER
   # =========================================================================
   zipkin:
     image: openzipkin/zipkin
@@ -90,31 +90,35 @@ services:
     image: apache/kafka:3.7.0
     container_name: prevpaper-kafka
     ports:
-      - "9094:9094" # 🟢 CHANGED: Expose container Kafka to your laptop host on 9094 instead of 9092!
+      - "9094:9094"
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
       KAFKA_LISTENERS: INTERNAL://0.0.0.0:29092,EXTERNAL://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093
-
-      # 🟢 FIXED: Internal containers use 29092, host system utilities use 9094
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-broker:29092,EXTERNAL://localhost:9094
-
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
       KAFKA_MESSAGE_MAX_BYTES: 20971520
       KAFKA_REPLICA_FETCH_MAX_BYTES: 20971520
+      # 🟢 CRITICAL SINGLE-NODE INFRASTRUCTURE FIXES
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+    # 🟢 ADDED HEALTHCHECK PIPELINE
+    healthcheck:
+      test: ["CMD", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "localhost:29092", "--list"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - prevpaper-network
 
   # =========================================================================
-  # MICROSERVICES CORE SERVICE LAYER (EUREKA CLIENT DISABLED NATIVELY)
+  # CORE SERVICES MESH
   # =========================================================================
-    # =========================================================================
-    # AUTH-SERVICE CONFIGURATION
-    # =========================================================================
   auth-service:
     image: prevpaper-auth-service:1.0.0
     container_name: prevpaper-auth-service
@@ -124,10 +128,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
       SPRING_DATASOURCE_USERNAME: "pradeep"
       SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
-
-      # 🟢 FIXED: Exact match for your custom @Value placeholder key pointing to internal broker port
-      spring.kafka.bootstrap-servers: "kafka-broker:29092"
-
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
       SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
       JWT_SECRET: "mySuperSecureSecretKeyThatIsAtLeast32Characters12345"
       RESEND_API_KEY: "re_bQk9PJtY_fB7CpPjKNiGrNuBbDZ6ZnDVh"
@@ -142,45 +143,7 @@ services:
       redis:
         condition: service_healthy
       kafka-broker:
-        condition: service_started
-    networks:
-      - prevpaper-network
-
-  # =========================================================================
-  # NOTIFICATION-SERVICE CONFIGURATION
-  # =========================================================================
-  notification-service:
-    image: prevpaper-notification-service:1.0.0
-    container_name: prevpaper-notification-service
-    ports:
-      - "8085:8085"
-    environment:
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
-      SPRING_DATASOURCE_USERNAME: "pradeep"
-      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
-
-      # 🟢 FIXED: Exact match for your custom @Value placeholder key pointing to internal broker port
-      spring.kafka.bootstrap-servers: "kafka-broker:29092"
-
-      # 🟢 FIXED: Inject group-id dynamically matching your config property variable lookup
-      spring.kafka.consumer.group-id: "notification-group"
-
-      SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
-      RESEND_API_KEY: "re_bQk9PJtY_fB7CpPjKNiGrNuBbDZ6ZnDVh"
-      RESEND_FROM_EMAIL: "noreply@pdeep.store"
-      resend.email.from: "noreply@pdeep.store"
-      TWILIO_ACCOUNT_SID: "ACacad4a981f0d369bb88592fa26cd5aaf"
-      TWILIO_AUTH_TOKEN: "c4be76aa8b14b6753302c844595e6b22"
-      TWILIO_PHONE_NUMBER: "+15005550006"
-      TWILIO_VERIFY_SERVICE_SID: "VA1cd5db3587ec53bd630e7d8973f459dd"
-      EUREKA_CLIENT_ENABLED: "false"
-      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
-      EUREKA_CLIENT_FETCH_REGISTRY: "false"
-    depends_on:
-      postgres-db:
-        condition: service_healthy
-      kafka-broker:
-        condition: service_started
+        condition: service_healthy # 🟢 WAIT FOR HEALTHY BROKER
     networks:
       - prevpaper-network
 
@@ -194,12 +157,13 @@ services:
       SPRING_DATASOURCE_USERNAME: "pradeep"
       SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
-      # Disable Eureka
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
     depends_on:
       postgres-db:
+        condition: service_healthy
+      kafka-broker:
         condition: service_healthy
     networks:
       - prevpaper-network
@@ -214,7 +178,6 @@ services:
       SPRING_DATASOURCE_USERNAME: "pradeep"
       SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
-      # Disable Eureka
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
@@ -222,6 +185,8 @@ services:
       postgres-db:
         condition: service_healthy
       redis:
+        condition: service_healthy
+      kafka-broker:
         condition: service_healthy
     networks:
       - prevpaper-network
@@ -239,7 +204,6 @@ services:
       SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
       SPRING_DATA_REDIS_HOST: "redis"
       SPRING_DATA_REDIS_PORT: "6379"
-      # Disable Eureka
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
@@ -248,10 +212,38 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      kafka-broker:
+        condition: service_healthy
     networks:
       - prevpaper-network
 
-
+  notification-service:
+    image: prevpaper-notification-service:1.0.0
+    container_name: prevpaper-notification-service
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-db:5432/prevpaper_content_db"
+      SPRING_DATASOURCE_USERNAME: "pradeep"
+      SPRING_DATASOURCE_PASSWORD: "pradeep@434680"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
+      SPRING_ZIPKIN_BASE_URL: "http://zipkin:9411"
+      RESEND_API_KEY: "re_bQk9PJtY_fB7CpPjKNiGrNuBbDZ6ZnDVh"
+      RESEND_FROM_EMAIL: "noreply@pdeep.store"
+      TWILIO_ACCOUNT_SID: "ACacad4a981f0d369bb88592fa26cd5aaf"
+      TWILIO_AUTH_TOKEN: "c4be76aa8b14b6753302c844595e6b22"
+      TWILIO_PHONE_NUMBER: "+15005550006"
+      TWILIO_VERIFY_SERVICE_SID: "VA1cd5db3587ec53bd630e7d8973f459dd"
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      kafka-broker:
+        condition: service_healthy
+    networks:
+      - prevpaper-network
 
   upload-service:
     image: prevpaper-upload-service:1.0.0
@@ -260,18 +252,15 @@ services:
       - "8084:8084"
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka-broker:29092"
-      # Disable Eureka
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
     depends_on:
-      - kafka-broker
+      kafka-broker:
+        condition: service_healthy
     networks:
       - prevpaper-network
 
-  # =========================================================================
-  # API GATEWAY LAYER
-  # =========================================================================
   api-gateway:
     image: prevpaper-api-gateway:1.0.0
     container_name: prevpaper-api-gateway
@@ -283,7 +272,7 @@ services:
       NOTIFICATION_SERVICE_URL: "http://notification-service:8085"
       USER_SERVICE_URL: "http://user-service:8086"
       CONTENT_SERVICE_URL: "http://content-service:8090"
-      # Disable Eureka
+      SPRING_PROFILES_ACTIVE: "docker" # 🟢 ACTIVATED THE DOCKER REVERSE PROXY PROFILE STRATEGY
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
