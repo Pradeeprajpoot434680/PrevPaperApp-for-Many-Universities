@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public interface UniversityRepresentativeService {
     DepartmentTinyDTO createDepartment(UUID universityId, DepartmentRequest request);
-    void assignDepartmentRep(AssignRepRequest request, UUID adminId);
+    void assignDepartmentRep(UUID universityId, AssignRepRequest request, UUID adminId);
     boolean existsById(UUID universityId);
 
     // 🟢 DECLARE BOTH METHODS IN THE INTERFACE

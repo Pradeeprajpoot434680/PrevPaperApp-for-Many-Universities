@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.UUID;
 
-@FeignClient(name = "AUTH-SERVICE")
+@FeignClient(
+        name = "AUTH-SERVICE",
+        url = "${AUTH_SERVICE_URL:http://auth-service:8081}"
+)
 public interface AuthServiceClient {
     @GetMapping("/api/v1/auth/internal/user/{id}")
     UserInternalInfoDTO getAuthUserInfo(@PathVariable("id") UUID id);

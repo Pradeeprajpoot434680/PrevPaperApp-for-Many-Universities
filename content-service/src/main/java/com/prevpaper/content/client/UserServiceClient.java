@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.UUID;
 
-@FeignClient(name = "USER-SERVICE")
+@FeignClient(
+        name = "USER-SERVICE",
+        url = "${USER_SERVICE_URL:http://user-service:8086}"
+)
 public interface UserServiceClient {
     @GetMapping("/api/v1/users/internal/{userId}")
     UserInternalDTO getUserInternalInfo(@PathVariable UUID userId);

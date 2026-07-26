@@ -34,7 +34,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/api/v1/session-rep", "SESSION_REP",
             "/api/v1/users/internal/store", "STUDENT",
             "/api/v1/users/me/profile", "STUDENT",
-            "/api/v1/content", "STUDENT" // Unified content security rule path mapping
+            "/api/v1/content", "STUDENT" ,// Unified content security rule path mapping
+                "/api/v1","DEPT_REP"
     );
 
     private final List<String> openEndpoints = List.of(

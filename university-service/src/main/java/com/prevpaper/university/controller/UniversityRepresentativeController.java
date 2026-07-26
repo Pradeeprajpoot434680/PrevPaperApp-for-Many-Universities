@@ -61,7 +61,7 @@ public class UniversityRepresentativeController {
         UUID adminId = UUID.fromString(adminIdHeader);
 
         universityRepresentativeService.assignDepartmentRep(
-
+                universityId,
                 request,
                 adminId
         );

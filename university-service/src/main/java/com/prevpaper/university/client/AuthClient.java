@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(name = "AUTH-SERVICE")
+// 🟢 FIXED: Simplified URL placeholder that delegates cleanly to property resolution
+@FeignClient(
+        name = "AUTH-SERVICE",
+        url = "${AUTH_SERVICE_URL:http://auth-service:8081}"
+)
 public interface AuthClient {
 
     @PostMapping("/api/v1/auth/internal/users/details-batch")
@@ -20,5 +24,4 @@ public interface AuthClient {
 
     @GetMapping("/api/v1/auth/internal/user/{id}")
     UserInternalInfoDTO getAuthUserInfo(@PathVariable("id") UUID id);
-
 }

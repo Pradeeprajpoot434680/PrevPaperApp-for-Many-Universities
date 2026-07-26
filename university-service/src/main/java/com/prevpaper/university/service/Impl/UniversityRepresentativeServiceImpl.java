@@ -123,13 +123,15 @@ public class UniversityRepresentativeServiceImpl implements UniversityRepresenta
     @Override
     @Transactional
     @Caching(evict = {
+            // 🟢 FIXED: SpEL can now resolve #universityId directly from the method parameter
             @CacheEvict(value = "departments", key = "#universityId"),
             @CacheEvict(value = "universityTeam", key = "#universityId"),
-            // 🟢 CRITICAL FIX: Explicitly flushes the department-rep lists view cache instantly
             @CacheEvict(value = "deptReps", allEntries = true),
             @CacheEvict(value = "programReps", allEntries = true)
     })
-    public void assignDepartmentRep(AssignRepRequest request, UUID adminId) {
+
+
+    public void assignDepartmentRep(UUID universityId, AssignRepRequest request, UUID adminId) {
         try {
             log.info("Assign department representative request received: userId={}, scopeId={}", request.getUserId(), request.getScopeId());
 

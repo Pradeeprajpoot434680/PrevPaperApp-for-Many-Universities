@@ -20,6 +20,10 @@ notificationService/logs/*.zip
 /upload-service/logs
 /user-service/logs
 
-*.yml
-*.yaml
-*.properties
+application.properties
+application*.properties
+application.yml
+application*.yml
+application.yaml
+
+/docker-compose.yml 

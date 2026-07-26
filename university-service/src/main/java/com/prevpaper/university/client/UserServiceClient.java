@@ -12,7 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-@FeignClient(name = "USER-SERVICE")
+// 🟢 FIXED: Injected explicit url parameter with environment fallback for UserServiceClient
+@FeignClient(
+        name = "USER-SERVICE",
+        url = "${USER_SERVICE_URL:http://user-service:8086}"
+)
 public interface UserServiceClient {
 
     @GetMapping("/api/v1/students/department/{deptId}")
@@ -29,4 +33,4 @@ public interface UserServiceClient {
 
     @PostMapping("/api/v1/users/internal/bulk-profiles")
     Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds);
-};
+}

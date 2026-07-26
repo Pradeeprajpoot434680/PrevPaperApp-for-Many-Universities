@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(name = "CONTENT-SERVICE")
+// 🟢 FIXED: Injected explicit url parameter with environment fallback for ContentClient
+@FeignClient(
+        name = "CONTENT-SERVICE",
+        url = "${CONTENT_SERVICE_URL:http://content-service:8090}"
+)
 public interface ContentClient {
+
     @GetMapping("/api/v1/content/internal/stats/semester")
     ContentStatsDTO getSemesterStats(
             @RequestParam UUID programId,
@@ -18,8 +23,6 @@ public interface ContentClient {
 
     @GetMapping("/api/v1/content/internal/pending/{scopeId}")
     List<PendingContentDTO> getPendingByScope(@PathVariable UUID scopeId);
-
-
 
     @GetMapping("/api/v1/content/internal/pending/session")
     List<PendingContentDTO> getPendingBySession(

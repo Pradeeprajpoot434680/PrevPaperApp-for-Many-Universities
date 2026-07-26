@@ -143,6 +143,8 @@ public class GatewayRoutesConfig {
     public RouterFunction<ServerResponse> universityServiceRoutes() {
         return GatewayRouterFunctions.route("university-service")
                 .nest(RequestPredicates.path("/api/v1/get/**")
+                                .or(RequestPredicates.path("/api/v1/department/**"))   // 🟢 ADDED: Route department metadata queries
+                                .or(RequestPredicates.path("/api/v1/university/**"))
                                 .or(RequestPredicates.path("/api/v1/global-admin/**"))
                                 .or(RequestPredicates.path("/api/v1/university-rep/**"))
                                 .or(RequestPredicates.path("/api/v1/department-rep/**"))

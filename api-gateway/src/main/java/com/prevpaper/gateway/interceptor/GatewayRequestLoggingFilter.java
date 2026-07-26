@@ -93,6 +93,8 @@ public class GatewayRequestLoggingFilter extends OncePerRequestFilter {
             return "AUTH-SERVICE";
         }
         if (path.startsWith("/api/v1/get")
+                || path.startsWith("/api/v1/department")
+                || path.startsWith("/api/v1/university")
                 || path.startsWith("/api/v1/global-admin")
                 || path.startsWith("/api/v1/university-rep")
                 || path.startsWith("/api/v1/department-rep")
