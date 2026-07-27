@@ -2,6 +2,7 @@ package com.prevpaper.user.controller;
 
 import com.prevpaper.comman.dto.StudentDTO;
 import com.prevpaper.comman.dto.UserData;
+import com.prevpaper.comman.producer.StudentEventProducer;
 import com.prevpaper.user.dto.UserInternalResponseDTO;
 import com.prevpaper.user.dto.UserRequest;
 import com.prevpaper.user.dto.UserSyncRequest;
@@ -25,10 +26,12 @@ public class InternalSyncController {
 
     private final InternalSyncService internalSyncService;
     private final UserRepository userRepository;
+    private final StudentEventProducer studentEventProducer;
 
-    public InternalSyncController(InternalSyncService internalSyncService, UserRepository userRepository) {
+    public InternalSyncController(InternalSyncService internalSyncService, UserRepository userRepository, StudentEventProducer studentEventProducer) {
         this.internalSyncService = internalSyncService;
         this.userRepository = userRepository;
+        this.studentEventProducer = studentEventProducer;
     }
 
     @PostMapping("/store")
@@ -36,8 +39,20 @@ public class InternalSyncController {
             @RequestBody UserRequest request,
             @RequestHeader("X-User-Id") String authUserId
     ) {
+        UUID userUuid = UUID.fromString(authUserId);
+        UUID universityId = UUID.fromString(request.getUniversityId());
+        UUID departmentId = UUID.fromString(request.getDepartmentId());
+        UUID programId = UUID.fromString(request.getProgramId());
         log.info("Store user request received for authUserId={}", authUserId);
         UserInternalResponseDTO savedUser = internalSyncService.storeUser(request, authUserId);
+
+        studentEventProducer.emitStudentRegistration(
+                userUuid,
+                universityId,
+                departmentId,  // Pass department ID if provided in request
+                programId     // Pass program ID if provided in request
+        );
+
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
@@ -52,7 +67,6 @@ public class InternalSyncController {
     public Map<UUID, StudentDTO> getBulkUserDetails(@RequestBody List<UUID> userIds) {
         log.info("USER-SERVICE: Fetching bulk details for {} IDs", userIds.size());
 
-        // 🟢 FIXED: Method name now perfectly matches the UserRepository definition interface
         List<User> users = userRepository.findAllByAuthUserIdIn(userIds);
 
         return users.stream().collect(Collectors.toMap(
@@ -73,13 +87,12 @@ public class InternalSyncController {
     public Map<UUID, UserData> getUsersByIds(@RequestBody List<UUID> userIds) {
         log.info("USER-SERVICE: Fetching bulk profiles for {} IDs", userIds.size());
 
-        // Query by your matching repository field
         List<User> users = userRepository.findAllByAuthUserIdIn(userIds);
 
         return users.stream().collect(Collectors.toMap(
-                User::getAuthUserId, // 🟢 FIXED: Changed from getUserId() to getAuthUserId()
+                User::getAuthUserId,
                 user -> new UserData(
-                        user.getAuthUserId(), // 🟢 FIXED: Changed here as well
+                        user.getAuthUserId(),
                         user.getFirstName(),
                         user.getLastName(),
                         user.getProfileImageUrl()

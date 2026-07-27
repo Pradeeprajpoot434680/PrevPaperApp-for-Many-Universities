@@ -12,6 +12,7 @@ import com.prevpaper.university.dtos.SessionRepDetailsDTO;
 import com.prevpaper.university.dtos.SessionRequest;
 import com.prevpaper.university.entities.AcademicSession;
 import com.prevpaper.university.entities.Program;
+import com.prevpaper.university.repository.AcademicSessionRepository;
 import com.prevpaper.university.service.ProgramRepService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class ProgramRepController {
     private final ProgramRepService programRepService;
     private final UserServiceClient userServiceClient;
     private final AuthClient authClient;
-
+    private final AcademicSessionRepository academicSessionRepository;
 
     @PostMapping("/create-session")
     public ResponseEntity<ApiResponse<AcademicSession>> createSession(@RequestBody SessionRequest request,
@@ -95,6 +96,42 @@ public class ProgramRepController {
         )).toList();
 
         return ResponseEntity.ok(ApiResponse.success("All User",allStudents));
+    }
+
+    @GetMapping("/session/{sessionId}/students")
+    public ResponseEntity<ApiResponse<List<StudentDTO>>> getEnrichedStudentsBySession(
+            @PathVariable UUID programId,
+            @PathVariable UUID sessionId
+    ) {
+        // 1. Resolve batch year from AcademicSession entity
+        AcademicSession session = academicSessionRepository.findById(sessionId)
+                .orElseThrow(() -> new RuntimeException("Academic Session not found for ID: " + sessionId));
+
+        Integer batchYear = session.getStartYear(); // 🟢 Maps session start year to account batchYear
+
+        // 2. Fetch student profiles from user-service using programId + batchYear
+        List<StudentDTO> students = userServiceClient.getStudentsByProgramAndBatch(programId, batchYear);
+
+        if (students == null || students.isEmpty()) {
+            return ResponseEntity.ok(ApiResponse.success("Session Students", Collections.emptyList()));
+        }
+
+        // 3. Batch fetch emails from auth-service
+        List<UUID> userIds = students.stream().map(StudentDTO::authUserId).toList();
+        UserBatchRequest batchRequest = new UserBatchRequest(userIds);
+        List<UserDetailDTO> authDetails = authClient.getUserDetailsBatch(batchRequest);
+
+        Map<UUID, String> emailMap = authDetails.stream()
+                .collect(Collectors.toMap(UserDetailDTO::userId, UserDetailDTO::email));
+
+        // 4. Enrich student DTOs with email addresses
+        List<StudentDTO> enrichedStudents = students.stream().map(s -> new StudentDTO(
+                s.authUserId(),
+                s.fullName(),
+                emailMap.getOrDefault(s.authUserId(), "N/A")
+        )).toList();
+
+        return ResponseEntity.ok(ApiResponse.success("Session Students Fetched Successfully", enrichedStudents));
     }
 
     @GetMapping("/dashboard")
