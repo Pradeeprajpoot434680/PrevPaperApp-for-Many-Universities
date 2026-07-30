@@ -37,7 +37,7 @@ jobs:
             university-service:
               - 'university-service/**'
             notification-service:
-              - 'notification-service/**'
+              - 'notificationService/**'
             upload-service:
               - 'upload-service/**'
 
@@ -62,7 +62,7 @@ jobs:
           - name: university-service
             dockerfile: ./university-service/Dockerfile
           - name: notification-service
-            dockerfile: ./notification-service/Dockerfile
+            dockerfile: ./notificationService/Dockerfile
           - name: upload-service
             dockerfile: ./upload-service/Dockerfile
 
