@@ -24,6 +24,7 @@ jobs:
           filters: |
             common:
               - 'pom.xml'
+              - 'common-lib/**'
               - '.github/workflows/**'
             api-gateway:
               - 'api-gateway/**'
@@ -40,78 +41,77 @@ jobs:
             upload-service:
               - 'upload-service/**'
 
+  # =========================================================================
+  # JOB 2: PARALLEL MATRIX BUILD & DOCKER HUB PUSH
+  # =========================================================================
+  build-and-push:
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - name: api-gateway
+            dockerfile: ./api-gateway/Dockerfile
+          - name: auth-service
+            dockerfile: ./auth-service/Dockerfile
+          - name: user-service
+            dockerfile: ./user-service/Dockerfile
+          - name: content-service
+            dockerfile: ./content-service/Dockerfile
+          - name: university-service
+            dockerfile: ./university-service/Dockerfile
+          - name: notification-service
+            dockerfile: ./notification-service/Dockerfile
+          - name: upload-service
+            dockerfile: ./upload-service/Dockerfile
 
-    # =========================================================================
-    # JOB 2: PARALLEL MATRIX BUILD & DOCKER HUB PUSH
-    # =========================================================================
-    build-and-push:
-      needs: changes
-      runs-on: ubuntu-latest
-      strategy:
-        fail-fast: false
-        matrix:
-          service:
-            - name: api-gateway
-              dockerfile: ./api-gateway/Dockerfile
-            - name: auth-service
-              dockerfile: ./auth-service/Dockerfile
-            - name: user-service
-              dockerfile: ./user-service/Dockerfile
-            - name: content-service
-              dockerfile: ./content-service/Dockerfile
-            - name: university-service
-              dockerfile: ./university-service/Dockerfile
-            - name: notification-service
-              dockerfile: ./notification-service/Dockerfile
-            - name: upload-service
-              dockerfile: ./upload-service/Dockerfile
+    steps:
+      - name: Check if service needs build
+        id: check
+        run: |
+          CHANGES='${{ needs.changes.outputs.services }}'
+          SERVICE_NAME='${{ matrix.service.name }}'
+          if [[ "$CHANGES" == *"$SERVICE_NAME"* ]] || [[ "$CHANGES" == *"common"* ]]; then
+            echo "build=true" >> $GITHUB_OUTPUT
+          else
+            echo "build=false" >> $GITHUB_OUTPUT
+            echo "Skipping build for $SERVICE_NAME (No changes detected)."
+          fi
 
-      steps:
-        - name: Check if service needs build
-          id: check
-          run: |
-            CHANGES='${{ needs.changes.outputs.services }}'
-            SERVICE_NAME='${{ matrix.service.name }}'
-            if [[ "$CHANGES" == *"$SERVICE_NAME"* ]] || [[ "$CHANGES" == *"common"* ]]; then
-              echo "build=true" >> $GITHUB_OUTPUT
-            else
-              echo "build=false" >> $GITHUB_OUTPUT
-              echo "Skipping build for $SERVICE_NAME (No changes detected)."
-            fi
+      - name: Checkout Repository
+        if: steps.check.outputs.build == 'true'
+        uses: actions/checkout@v4
 
-        - name: Checkout Repository
-          if: steps.check.outputs.build == 'true'
-          uses: actions/checkout@v4
+      - name: Set up JDK 17
+        if: steps.check.outputs.build == 'true'
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-        - name: Set up JDK 17
-          if: steps.check.outputs.build == 'true'
-          uses: actions/setup-java@v4
-          with:
-            java-version: '17'
-            distribution: 'temurin'
-            cache: maven
+      - name: Set up Docker Buildx
+        if: steps.check.outputs.build == 'true'
+        uses: docker/setup-buildx-action@v3
 
-        - name: Set up Docker Buildx
-          if: steps.check.outputs.build == 'true'
-          uses: docker/setup-buildx-action@v3
+      - name: Log in to Docker Hub
+        if: steps.check.outputs.build == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-        - name: Log in to Docker Hub
-          if: steps.check.outputs.build == 'true'
-          uses: docker/login-action@v3
-          with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-        - name: Build and Push Docker Image
-          if: steps.check.outputs.build == 'true'
-          uses: docker/build-push-action@v5
-          with:
-            context: . # 🟢 SET CONTEXT TO REPOSITORY ROOT SO common-lib/ AND SERVICE DIRECTORIES ARE VISIBLE
-            file: ${{ matrix.service.dockerfile }} # 🟢 POINT TO SPECIFIC DOCKERFILE LOCATION
-            push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/prevpaper-${{ matrix.service.name }}:latest
-            cache-from: type=gha
-            cache-to: type=gha,mode=max
+      - name: Build and Push Docker Image
+        if: steps.check.outputs.build == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: . # Root context so common-lib/ is accessible in Dockerfiles
+          file: ${{ matrix.service.dockerfile }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prevpaper-${{ matrix.service.name }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   # =========================================================================
   # JOB 3: SSH TO AWS VM & DEPLOY VIA DOCKER COMPOSE
