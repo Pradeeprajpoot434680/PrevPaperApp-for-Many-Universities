@@ -11,8 +11,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 @Order(-2)
@@ -73,10 +75,34 @@ public class GatewayRequestLoggingFilter extends OncePerRequestFilter {
         return requestId == null || requestId.isBlank() ? UUID.randomUUID().toString() : requestId;
     }
 
+    /**
+     * 🟢 SAFE QUERY KEY EXTRACTION:
+     * Never calls getParameterMap() or getParameterNames() on multipart requests to prevent
+     * premature parsing/consumption of the multipart request input stream at the Gateway.
+     */
     private String getQueryKeys(HttpServletRequest request) {
-        if (request.getParameterMap().isEmpty()) {
+        String contentType = request.getContentType();
+        boolean isMultipart = contentType != null && contentType.toLowerCase().startsWith("multipart/");
+
+        // 1. For multipart uploads, extract URL query parameter names directly from raw query string safely
+        if (isMultipart) {
+            String queryString = request.getQueryString();
+            if (queryString == null || queryString.isBlank()) {
+                return "[]";
+            }
+            return Arrays.stream(queryString.split("&"))
+                    .map(pair -> pair.split("=")[0])
+                    .distinct()
+                    .collect(Collectors.toList())
+                    .toString();
+        }
+
+        // 2. For standard non-multipart requests, safely inspect parameter keys
+        String queryString = request.getQueryString();
+        if (queryString == null || queryString.isBlank()) {
             return "[]";
         }
+
         return Collections.list(request.getParameterNames()).toString();
     }
 

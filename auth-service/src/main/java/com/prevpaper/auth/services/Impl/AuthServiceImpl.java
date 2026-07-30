@@ -21,6 +21,7 @@ import com.prevpaper.comman.dto.CommonNotificationRequest;
 import com.prevpaper.comman.enums.*;
 import com.prevpaper.comman.exception.*;
 import com.prevpaper.comman.producer.NotificationProducer;
+import com.prevpaper.comman.producer.StudentEventProducer;
 import com.twilio.Twilio;
 
 import jakarta.annotation.PostConstruct;
@@ -54,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
     private final NotificationProducer producer;
     private final SendNotification sendNotification;
     private final UniversityClient universityClient;
+
 
     @Value("${jwt.refresh-expiration}")
     private long refreshExpiration;
@@ -126,7 +128,9 @@ public class AuthServiceImpl implements AuthService {
                 .roles(Set.of(studentRole))
                 .build();
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+
+
 
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);

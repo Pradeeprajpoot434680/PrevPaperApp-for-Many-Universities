@@ -1,8 +1,126 @@
+//package com.prevpaper.university.controller;
+//
+//import com.prevpaper.comman.dto.ApiResponse;
+//import com.prevpaper.university.dtos.*;
+//import com.prevpaper.university.entities.University;
+//import com.prevpaper.university.service.DepartmentRepService;
+//import com.prevpaper.university.service.GlobalAdminService;
+//import com.prevpaper.university.service.ProgramRepService;
+//import com.prevpaper.university.service.UniversityRepresentativeService;
+//import jakarta.validation.Valid;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//import java.util.UUID;
+//
+//@RestController
+//@RequestMapping("/api/v1/global-admin")
+//@RequiredArgsConstructor
+//@Slf4j
+//public class GlobalAdminController {
+//
+//    private final GlobalAdminService globalAdminService;
+//    private  final UniversityRepresentativeService universityRepresentativeService;
+//    private  final DepartmentRepService departmentRepService;
+//
+//    private  final ProgramRepService programRepService;
+//
+//    // Create a new university
+//    @PostMapping("/create-university")
+//    public ApiResponse<UniversitySaveResponseDTO> createUniversity(@RequestBody UniversityRequest request) {
+//        try {
+//            UniversitySaveResponseDTO university = globalAdminService.createUniversity(request);
+//            return ApiResponse.success("University created successfully", university);
+//        } catch (Exception e) {
+//            return ApiResponse.error("Failed to create university: " + e.getMessage());
+//        }
+//    }
+//
+//    // Assign a university representative
+//    @PostMapping("/assign-rep")
+//    public ApiResponse<String> assignUniversityRep(@RequestBody AssignRepRequest request,
+//                                                   @RequestHeader("X-User-Id") String adminIdStr) {
+//        try {
+//            UUID currentAdminId = UUID.fromString(adminIdStr);
+//
+//            globalAdminService.assignUniversityRep(request, currentAdminId);
+//
+//            // TODO send request to change roles in user service user_roles (userId,scopeId)
+//
+//            return ApiResponse.success("Representative assigned successfully", null);
+//        } catch (Exception e) {
+//            return ApiResponse.error("Failed to assign representative: " + e.getMessage());
+//        }
+//    }
+//
+//    @GetMapping("/get-universities")
+//    public ResponseEntity<ApiResponse<List<UniversityDashboardDTO>>> getAllUniversityData(){
+//        List<UniversityDashboardDTO> universities = globalAdminService.getUniversityDashboard();
+//
+//        return ResponseEntity.ok(ApiResponse.success("Fetched Data Successfully",universities));
+//    }
+//
+//    @GetMapping("/stats")
+//    public ApiResponse<GlobalStatsDTO> getStats() {
+//        try {
+//            GlobalStatsDTO stats = globalAdminService.getGlobalStats();
+//            return ApiResponse.success("Stats fetched successfully", stats);
+//        } catch (Exception e) {
+//            return ApiResponse.error("Failed to fetch stats");
+//        }
+//    }
+//
+//
+//    /**
+//     * 1. ADD DEPARTMENT (Specifies targeted University via Path)
+//     */
+//    @PostMapping("/university/{universityId}/create-department")
+//    public ResponseEntity<ApiResponse<DepartmentTinyDTO>> globalCreateDepartment(
+//            @PathVariable UUID universityId,
+//            @Valid @RequestBody DepartmentRequest request) {
+//
+//        log.info("GLOBAL ADMIN OVERRIDE - Creating department for universityId={}", universityId);
+//        DepartmentTinyDTO savedDept = universityRepresentativeService.createDepartment(universityId, request);
+//        return ResponseEntity.ok(ApiResponse.success("Department created by global admin successfully", savedDept));
+//    }
+//
+//    /**
+//     * 2. ADD PROGRAM (University is resolved automatically via Department parent mapping)
+//     */
+//    @PostMapping("/department/{departmentId}/create-program")
+//    public ResponseEntity<ApiResponse<Object>> globalCreateProgram(
+//            @PathVariable UUID departmentId,
+//            @RequestBody ProgramRequest request) {
+//
+//        log.info("GLOBAL ADMIN OVERRIDE - Creating program for departmentId={}", departmentId);
+//        // Note: Replace 'Object' with your 'Program' or 'ProgramTinyDTO' response class
+//        Object savedProgram = departmentRepService.createProgram(departmentId, request);
+//        return ResponseEntity.ok(ApiResponse.success("Program created by global admin successfully", savedProgram));
+//    }
+//
+//    /**
+//     * 3. ADD ACADEMIC SESSION (University/Dept resolved automatically via Program parent mapping)
+//     */
+//    @PostMapping("/program/{programId}/create-session")
+//    public ResponseEntity<ApiResponse<Object>> globalCreateSession(
+//            @PathVariable UUID programId,
+//            @RequestBody SessionRequest request) {
+//
+//        log.info("GLOBAL ADMIN OVERRIDE - Creating academic session for programId={}", programId);
+//        // Note: Replace 'Object' with your 'AcademicSession' or 'SessionTinyDTO' response class
+//        Object savedSession = programRepService.createSession(programId, request);
+//        return ResponseEntity.ok(ApiResponse.success("Session created by global admin successfully", savedSession));
+//    }
+//
+//}
+
 package com.prevpaper.university.controller;
 
 import com.prevpaper.comman.dto.ApiResponse;
 import com.prevpaper.university.dtos.*;
-import com.prevpaper.university.entities.University;
 import com.prevpaper.university.service.DepartmentRepService;
 import com.prevpaper.university.service.GlobalAdminService;
 import com.prevpaper.university.service.ProgramRepService;
@@ -23,83 +141,40 @@ import java.util.UUID;
 public class GlobalAdminController {
 
     private final GlobalAdminService globalAdminService;
-    private  final UniversityRepresentativeService universityRepresentativeService;
-    private  final DepartmentRepService departmentRepService;
+    private final UniversityRepresentativeService universityRepresentativeService;
+    private final DepartmentRepService departmentRepService;
+    private final ProgramRepService programRepService;
 
-    private  final ProgramRepService programRepService;
-
-    // Create a new university
     @PostMapping("/create-university")
-    public ApiResponse<UniversitySaveResponseDTO> createUniversity(@RequestBody UniversityRequest request) {
-        try {
-            UniversitySaveResponseDTO university = globalAdminService.createUniversity(request);
-            return ApiResponse.success("University created successfully", university);
-        } catch (Exception e) {
-            return ApiResponse.error("Failed to create university: " + e.getMessage());
-        }
+    public ResponseEntity<ApiResponse<UniversitySaveResponseDTO>> createUniversity(@RequestBody UniversityRequest request) {
+        UniversitySaveResponseDTO university = globalAdminService.createUniversity(request);
+        return ResponseEntity.ok(ApiResponse.success("University created successfully", university));
     }
 
-    // Assign a university representative
     @PostMapping("/assign-rep")
-    public ApiResponse<String> assignUniversityRep(@RequestBody AssignRepRequest request,
-                                                   @RequestHeader("X-User-Id") String adminIdStr) {
-        try {
-            UUID currentAdminId = UUID.fromString(adminIdStr);
+    public ResponseEntity<ApiResponse<String>> assignUniversityRep(
+            @RequestBody AssignRepRequest request,
+            @RequestHeader("X-User-Id") String adminIdStr) {
 
-            globalAdminService.assignUniversityRep(request, currentAdminId);
-
-            // TODO send request to change roles in user service user_roles (userId,scopeId)
-
-            return ApiResponse.success("Representative assigned successfully", null);
-        } catch (Exception e) {
-            return ApiResponse.error("Failed to assign representative: " + e.getMessage());
-        }
+        UUID currentAdminId = UUID.fromString(adminIdStr);
+        globalAdminService.assignUniversityRep(request, currentAdminId);
+        return ResponseEntity.ok(ApiResponse.success("Representative assigned successfully", null));
     }
 
     @GetMapping("/get-universities")
-    public ResponseEntity<ApiResponse<List<UniversityDashboardDTO>>> getAllUniversityData(){
+    public ResponseEntity<ApiResponse<List<UniversityDashboardDTO>>> getAllUniversityData() {
         List<UniversityDashboardDTO> universities = globalAdminService.getUniversityDashboard();
-
-        return ResponseEntity.ok(ApiResponse.success("Fetched Data Successfully",universities));
+        return ResponseEntity.ok(ApiResponse.success("Fetched Data Successfully", universities));
     }
 
     @GetMapping("/stats")
-    public ApiResponse<GlobalStatsDTO> getStats() {
-        try {
-            GlobalStatsDTO stats = globalAdminService.getGlobalStats();
-            return ApiResponse.success("Stats fetched successfully", stats);
-        } catch (Exception e) {
-            return ApiResponse.error("Failed to fetch stats");
-        }
+    public ResponseEntity<ApiResponse<GlobalStatsDTO>> getStats() {
+        GlobalStatsDTO stats = globalAdminService.getGlobalStats();
+        return ResponseEntity.ok(ApiResponse.success("Stats fetched successfully", stats));
     }
 
-    /*
-    * add department
-    * @GetMapping("/addDepartment")
-    * public ApiResponse addDepartment(){
-    *   // here we will send requrest to universtity controller who has the controll of departments
-    * }
-    * add program
-    * public ApiResponse addProgram(){
-     *   // here we will send requrest to Department Representative controller who has the controll of departments
-     * }
-     *
-     *
-    * add session
-    *
-    * similarly here
-    * */
-
-
-    /*
-    * in this whole work i have to confirm as a global admin , in which university i am add accrding to controllers
-    * */
-
-
-    // ================= 🟢 NEW GLOBAL ADMIN OVERRIDE ENDPOINTS =================
-
     /**
-     * 1. ADD DEPARTMENT (Specifies targeted University via Path)
+     * 1. ADD DEPARTMENT (Explicitly scoped to University)
      */
     @PostMapping("/university/{universityId}/create-department")
     public ResponseEntity<ApiResponse<DepartmentTinyDTO>> globalCreateDepartment(
@@ -112,31 +187,28 @@ public class GlobalAdminController {
     }
 
     /**
-     * 2. ADD PROGRAM (University is resolved automatically via Department parent mapping)
+     * 2. ADD PROGRAM (Explicitly scoped to Department)
      */
     @PostMapping("/department/{departmentId}/create-program")
     public ResponseEntity<ApiResponse<Object>> globalCreateProgram(
             @PathVariable UUID departmentId,
-            @RequestBody ProgramRequest request) {
+            @Valid @RequestBody ProgramRequest request) {
 
         log.info("GLOBAL ADMIN OVERRIDE - Creating program for departmentId={}", departmentId);
-        // Note: Replace 'Object' with your 'Program' or 'ProgramTinyDTO' response class
         Object savedProgram = departmentRepService.createProgram(departmentId, request);
         return ResponseEntity.ok(ApiResponse.success("Program created by global admin successfully", savedProgram));
     }
 
     /**
-     * 3. ADD ACADEMIC SESSION (University/Dept resolved automatically via Program parent mapping)
+     * 3. ADD ACADEMIC SESSION (Explicitly scoped to Program)
      */
     @PostMapping("/program/{programId}/create-session")
     public ResponseEntity<ApiResponse<Object>> globalCreateSession(
             @PathVariable UUID programId,
-            @RequestBody SessionRequest request) {
+            @Valid @RequestBody SessionRequest request) {
 
         log.info("GLOBAL ADMIN OVERRIDE - Creating academic session for programId={}", programId);
-        // Note: Replace 'Object' with your 'AcademicSession' or 'SessionTinyDTO' response class
         Object savedSession = programRepService.createSession(programId, request);
         return ResponseEntity.ok(ApiResponse.success("Session created by global admin successfully", savedSession));
     }
-
 }

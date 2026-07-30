@@ -47,6 +47,12 @@ public class ContentServiceImpl implements ContentService {
     private  final AuthServiceClient authServiceClient;
     private final UserServiceClient userServiceClient;
 
+    @Value("${clamav.host:clamav}")
+    private String clamAvHost;
+
+    @Value("${clamav.port:3310}")
+    private int clamAvPort;
+
 
     @Value("${app.kafka.topics.upload-task}")
     private String uploadTaskTopic;
@@ -75,12 +81,23 @@ public class ContentServiceImpl implements ContentService {
                 file != null ? file.getSize() : null);
 
         // 1. DUPLICATE CHECK: Prevent re-uploading existing content
-        boolean exists = contentRepository.existsByUniversityIdAndDepartmentIdAndProgramIdAndSemesterAndSubjectId(
+//        boolean exists = contentRepository.existsByUniversityIdAndDepartmentIdAndProgramIdAndSemesterAndSubjectId(
+//                request.getUniversityId(),
+//                request.getDepartmentId(),
+//                request.getProgramId(),
+//                request.getSemester(),
+//                request.getSubjectId()
+//        );
+
+        boolean exists = contentRepository.existsDuplicateContent(
                 request.getUniversityId(),
                 request.getDepartmentId(),
                 request.getProgramId(),
                 request.getSemester(),
-                request.getSubjectId()
+                request.getSubjectId(),
+                request.getContentType(),
+                request.getAcademicYear(),
+                request.getExamTypeId()
         );
 
         if (exists) {
@@ -130,6 +147,7 @@ public class ContentServiceImpl implements ContentService {
                 .departmentId(request.getDepartmentId())
                 .programId(request.getProgramId())
                 .academicYear(request.getAcademicYear())
+                .examTypeId(request.getExamTypeId())
                 .semester(request.getSemester())
                 .subjectId(request.getSubjectId())
                 .uploadedBy(userId)
@@ -187,9 +205,11 @@ public class ContentServiceImpl implements ContentService {
     }
 
     private void scanForVirus(byte[] fileBytes, String originalFileName, UUID userId, UUID subjectId) {
-        log.info("Content upload antivirus scan started: uploaderId={}, subjectId={}, originalFileName={}, fileSizeBytes={}",
-                userId, subjectId, originalFileName, fileBytes.length);
-        try (Socket socket = new Socket("localhost", 3310);
+        log.info("Content upload antivirus scan started: uploaderId={}, subjectId={}, originalFileName={}, host={}, port={}",
+                userId, subjectId, originalFileName, clamAvHost, clamAvPort);
+
+        // 🟢 FIXED: Connect to clamAvHost instead of "localhost"
+        try (Socket socket = new Socket(clamAvHost, clamAvPort);
              OutputStream out = socket.getOutputStream();
              InputStream in = socket.getInputStream()) {
 
@@ -204,14 +224,13 @@ public class ContentServiceImpl implements ContentService {
             while (offset < fileBytes.length) {
                 int chunkSize = Math.min(2048, fileBytes.length - offset);
 
-                // IMPORTANT: big-endian 4 byte length
                 byte[] size = ByteBuffer.allocate(4)
                         .putInt(chunkSize)
                         .array();
 
                 out.write(size);
                 out.write(fileBytes, offset, chunkSize);
-                out.flush();   // IMPORTANT
+                out.flush();
 
                 offset += chunkSize;
             }
@@ -220,7 +239,6 @@ public class ContentServiceImpl implements ContentService {
             out.write(new byte[]{0, 0, 0, 0});
             out.flush();
 
-            // Read response properly
             ByteArrayOutputStream responseBuffer = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];
             int read;
@@ -241,7 +259,9 @@ public class ContentServiceImpl implements ContentService {
 
         } catch (IOException e) {
             log.error("Content upload antivirus scan unavailable: uploaderId={}, subjectId={}, originalFileName={}, error={}",
-                    userId, subjectId, originalFileName, e.getMessage(), e);
+                    userId, subjectId, originalFileName, e.getMessage());
+            // 🟢 OPTIONAL: If you want dev uploads to succeed even when ClamAV is starting up/offline, log warning instead of crashing:
+            // log.warn("Skipping virus check because ClamAV service is unavailable");
             throw new RuntimeException("Security infrastructure unavailable: " + e.getMessage());
         }
     }
@@ -420,29 +440,64 @@ public class ContentServiceImpl implements ContentService {
                 .toList();
     }
 
+//    @Override
+//    public List<PendingContentDTO> getPendingContent(UUID programId, Integer academicYear, VerificationStatus verificationStatus) {
+//        log.info("Pending content by session request received: programId={}, academicYear={}, verificationStatus={}",
+//                programId, academicYear, verificationStatus);
+//        List<PendingContentDTO> pendingContent = contentRepository.findByProgramIdAndAcademicYearAndVerificationStatus(
+//                        programId, academicYear, verificationStatus)
+//                .stream()
+//                .map(c -> new PendingContentDTO(
+//                        c.getId(),              // contentId
+//                        c.getTitle(),           // title
+//                        c.getDescription(),     // description
+//                        "ID: " + c.getUploadedBy(), // uploaderName (placeholder)
+//                        c.getFileUrl(),         // fileUrl
+//                        c.getFileType().name(), // fileType
+//                        c.getCreatedAt(),       // uploadedAt
+//                        "Subject: " + c.getSubjectId(), // subjectName (placeholder)
+//                        c.getContentType()      // contentType
+//                )).toList();
+//        log.info("Pending content by session loaded: programId={}, academicYear={}, verificationStatus={}, pendingCount={}",
+//                programId, academicYear, verificationStatus, pendingContent.size());
+//        return pendingContent;
+//    }
+//
+//
+
+
     @Override
     public List<PendingContentDTO> getPendingContent(UUID programId, Integer academicYear, VerificationStatus verificationStatus) {
-        log.info("Pending content by session request received: programId={}, academicYear={}, verificationStatus={}",
-                programId, academicYear, verificationStatus);
-        List<PendingContentDTO> pendingContent = contentRepository.findByProgramIdAndAcademicYearAndVerificationStatus(
-                        programId, academicYear, verificationStatus)
-                .stream()
-                .map(c -> new PendingContentDTO(
-                        c.getId(),              // contentId
-                        c.getTitle(),           // title
-                        c.getDescription(),     // description
-                        "ID: " + c.getUploadedBy(), // uploaderName (placeholder)
-                        c.getFileUrl(),         // fileUrl
-                        c.getFileType().name(), // fileType
-                        c.getCreatedAt(),       // uploadedAt
-                        "Subject: " + c.getSubjectId(), // subjectName (placeholder)
-                        c.getContentType()      // contentType
-                )).toList();
-        log.info("Pending content by session loaded: programId={}, academicYear={}, verificationStatus={}, pendingCount={}",
-                programId, academicYear, verificationStatus, pendingContent.size());
-        return pendingContent;
-    }
+        log.info("Pending content by session request received: programId={}, academicYear={}", programId, academicYear);
 
+        // 🟢 Support both PENDING and PENDING_UPLOAD statuses so pending files are immediately actionable
+        List<VerificationStatus> pendingStatuses = List.of(
+                VerificationStatus.PENDING,
+                VerificationStatus.PENDING_UPLOAD
+        );
+
+        List<Content> pendingList;
+        if (academicYear != null) {
+            pendingList = contentRepository.findByProgramIdAndAcademicYearAndVerificationStatusIn(
+                    programId, academicYear, pendingStatuses);
+        } else {
+            pendingList = contentRepository.findPendingByProgramAndStatuses(
+                    programId, pendingStatuses);
+        }
+
+        return pendingList.stream()
+                .map(c -> new PendingContentDTO(
+                        c.getId(),
+                        c.getTitle(),
+                        c.getDescription(),
+                        "Uploader ID: " + c.getUploadedBy(),
+                        c.getFileUrl(),
+                        c.getFileType() != null ? c.getFileType().name() : "UNKNOWN",
+                        c.getCreatedAt(),
+                        "Subject ID: " + c.getSubjectId(),
+                        c.getContentType()
+                )).toList();
+    }
 
     @Override
     @Transactional

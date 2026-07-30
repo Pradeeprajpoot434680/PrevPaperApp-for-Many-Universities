@@ -1,5 +1,6 @@
 package com.prevpaper.content.repository;
 
+import com.prevpaper.comman.enums.ContentType;
 import com.prevpaper.content.dto.ContentTypeCountDTO;
 import com.prevpaper.content.entities.Content;
 import com.prevpaper.content.enums.VerificationStatus;
@@ -18,6 +19,28 @@ public interface ContentRepository extends JpaRepository<Content, UUID>, JpaSpec
             UUID programId,
             Integer semester,
             VerificationStatus status
+    );
+
+    @Query("""
+        SELECT COUNT(c) > 0 FROM Content c
+        WHERE c.universityId = :universityId
+          AND c.departmentId = :departmentId
+          AND c.programId = :programId
+          AND c.semester = :semester
+          AND c.subjectId = :subjectId
+          AND c.contentType = :contentType
+          AND c.academicYear = :academicYear
+          AND (:examTypeId IS NULL OR c.examTypeId = :examTypeId)
+    """)
+    boolean existsDuplicateContent(
+            @Param("universityId") UUID universityId,
+            @Param("departmentId") UUID departmentId,
+            @Param("programId") UUID programId,
+            @Param("semester") Integer semester,
+            @Param("subjectId") UUID subjectId,
+            @Param("contentType") ContentType contentType,
+            @Param("academicYear") Integer academicYear,
+            @Param("examTypeId") UUID examTypeId
     );
 
 
@@ -55,6 +78,19 @@ public interface ContentRepository extends JpaRepository<Content, UUID>, JpaSpec
             UUID subjectId
     );
 
+
+    @Query("SELECT c FROM Content c WHERE c.programId = :programId AND c.verificationStatus IN :statuses")
+    List<Content> findPendingByProgramAndStatuses(
+            @Param("programId") UUID programId,
+            @Param("statuses") List<VerificationStatus> statuses
+    );
+
+    // Keep existing method for exact academic year matching if needed
+    List<Content> findByProgramIdAndAcademicYearAndVerificationStatusIn(
+            UUID programId,
+            Integer academicYear,
+            List<VerificationStatus> statuses
+    );
 
 
 }

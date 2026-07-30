@@ -183,18 +183,35 @@ public class SessionRepServiceImpl implements SessionRepService {
     /**
      * READ CACHE: Caches the unverified document data array lists for document verifiers (CRs).
      */
+//    @Override
+//    @Cacheable(value = "pendingContent", key = "#sessionId") // 🟢 READ CACHE FOR PENDING TASKS LISTS
+//    public List<PendingContentDTO> getPendingContentBySession(UUID sessionId) {
+//        log.info("Redis Cache MISS - Fetching pending verifications content array from Content Feign for sessionId={}", sessionId);
+//
+//        AcademicSession session = sessionRepository.findById(sessionId)
+//                .orElseThrow(() -> new RuntimeException("Session not found"));
+//
+//        return contentClient.getPendingBySession(
+//                session.getProgram().getId(),
+//                session.getStartYear()
+//        );
+//    }
+
     @Override
-    @Cacheable(value = "pendingContent", key = "#sessionId") // 🟢 READ CACHE FOR PENDING TASKS LISTS
+    @Cacheable(value = "pendingContent", key = "#sessionId")
     public List<PendingContentDTO> getPendingContentBySession(UUID sessionId) {
-        log.info("Redis Cache MISS - Fetching pending verifications content array from Content Feign for sessionId={}", sessionId);
+        log.info("Fetching pending verifications for sessionId={}", sessionId);
 
         AcademicSession session = sessionRepository.findById(sessionId)
-                .orElseThrow(() -> new RuntimeException("Session not found"));
+                .orElseThrow(() -> new RuntimeException("Academic Session not found: " + sessionId));
 
-        return contentClient.getPendingBySession(
-                session.getProgram().getId(),
-                session.getStartYear()
-        );
+        UUID programId = session.getProgram().getId();
+        Integer sessionStartYear = session.getStartYear();
+
+        log.info("Resolved session parameters: programId={}, startYear={}", programId, sessionStartYear);
+
+        // 🟢 Query content client by program track and session batch year
+        return contentClient.getPendingBySession(programId, sessionStartYear);
     }
 
     /**

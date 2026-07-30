@@ -1,0 +1,170 @@
+name: CI/CD Pipeline - PrevPaper Microservices
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # =========================================================================
+  # JOB 1: DETECT WHICH SERVICES CHANGED (Smart Path Filter)
+  # =========================================================================
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      services: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Detect Changed Paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            common:
+              - 'pom.xml'
+              - '.github/workflows/**'
+            api-gateway:
+              - 'api-gateway/**'
+            auth-service:
+              - 'auth-service/**'
+            user-service:
+              - 'user-service/**'
+            content-service:
+              - 'content-service/**'
+            university-service:
+              - 'university-service/**'
+            notification-service:
+              - 'notification-service/**'
+            upload-service:
+              - 'upload-service/**'
+
+  # =========================================================================
+  # JOB 2: PARALLEL MATRIX BUILD & DOCKER HUB PUSH
+  # =========================================================================
+  build-and-push:
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - name: api-gateway
+            context: ./api-gateway
+          - name: auth-service
+            context: ./auth-service
+          - name: user-service
+            context: ./user-service
+          - name: content-service
+            context: ./content-service
+          - name: university-service
+            context: ./university-service
+          - name: notification-service
+            context: ./notification-service
+          - name: upload-service
+            context: ./upload-service
+
+    steps:
+      # Build ONLY if service files changed OR global pom.xml / workflow files changed
+      - name: Check if service needs build
+        id: check
+        run: |
+          CHANGES='${{ needs.changes.outputs.services }}'
+          SERVICE_NAME='${{ matrix.service.name }}'
+          if [[ "$CHANGES" == *"$SERVICE_NAME"* ]] || [[ "$CHANGES" == *"common"* ]]; then
+            echo "build=true" >> $GITHUB_OUTPUT
+          else
+            echo "build=false" >> $GITHUB_OUTPUT
+            echo "Skipping build for $SERVICE_NAME (No changes detected)."
+          fi
+
+      - name: Checkout Repository
+        if: steps.check.outputs.build == 'true'
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        if: steps.check.outputs.build == 'true'
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build Java Service Package
+        if: steps.check.outputs.build == 'true'
+        run: mvn clean package -DskipTests -pl ${{ matrix.service.name }} -am
+
+      - name: Set up Docker Buildx
+        if: steps.check.outputs.build == 'true'
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        if: steps.check.outputs.build == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        if: steps.check.outputs.build == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.service.context }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prevpaper-${{ matrix.service.name }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # =========================================================================
+  # JOB 3: SSH TO AWS VM & DEPLOY VIA DOCKER COMPOSE
+  # =========================================================================
+  deploy:
+    needs: [changes, build-and-push]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Transfer docker-compose.yml to AWS VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "docker-compose.yml"
+          target: "/home/${{ secrets.VM_USERNAME }}/prevpaper/"
+
+      - name: SSH and Trigger Docker Deployment
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd /home/${{ secrets.VM_USERNAME }}/prevpaper/
+
+            # 1. Generate runtime .env file with secrets
+            cat <<EOF > .env
+            DOCKER_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            RESEND_FROM_EMAIL=${{ secrets.RESEND_FROM_EMAIL }}
+            TWILIO_ACCOUNT_SID=${{ secrets.TWILIO_ACCOUNT_SID }}
+            TWILIO_AUTH_TOKEN=${{ secrets.TWILIO_AUTH_TOKEN }}
+            TWILIO_PHONE_NUMBER=${{ secrets.TWILIO_PHONE_NUMBER }}
+            TWILIO_VERIFY_SERVICE_SID=${{ secrets.TWILIO_VERIFY_SERVICE_SID }}
+            CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}
+            CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}
+            CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}
+            EOF
+
+            # 2. Pull updated images from Docker Hub
+            docker compose pull
+
+            # 3. Apply changes and restart updated containers
+            docker compose up -d --remove-orphans
+
+            # 4. Prune unused dangling images to preserve disk space
+            docker image prune -f

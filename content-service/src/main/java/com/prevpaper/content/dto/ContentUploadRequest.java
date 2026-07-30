@@ -46,5 +46,8 @@ public class ContentUploadRequest {
     @NotNull(message = "File type (PDF/IMAGE) is required")
     private FileType fileType; // [cite: 24]
 
+    // 🟢 ADDED: Exam Type ID for granular CIA-1/CIA-2 duplicate checks (Nullable for NOTES)
+    private UUID examTypeId;
+
     private UUID teacherId; // Optional [cite: 21]
 }

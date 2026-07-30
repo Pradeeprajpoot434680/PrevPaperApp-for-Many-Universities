@@ -1,36 +1,36 @@
-2026-07-26 10:09:01.311 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-07-26 10:09:01.386 INFO  [main] c.p.u.UniversityServiceApplication - Starting UniversityServiceApplication using Java 17.0.19 with PID 712467 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/university-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
-2026-07-26 10:09:01.388 INFO  [main] c.p.u.UniversityServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2026-07-26 10:09:03.048 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-07-26 10:09:03.050 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-07-26 10:09:03.234 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 169 ms. Found 8 JPA repository interfaces.
-2026-07-26 10:09:03.257 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-07-26 10:09:03.259 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-07-26 10:09:03.288 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.AcademicSessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.288 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.DepartmentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.288 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ExamConfigRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.289 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ProgramRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.289 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.RepresentativeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.289 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SemesterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.290 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SubjectRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.290 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.UniversityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-07-26 10:09:03.290 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-2026-07-26 10:09:03.701 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=175324e3-7597-3619-a818-71bac479ebe1
-2026-07-26 10:09:04.524 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
-2026-07-26 10:09:04.544 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
-2026-07-26 10:09:04.547 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-07-26 10:09:04.548 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
-2026-07-26 10:09:04.631 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-07-26 10:09:04.631 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3184 ms
-2026-07-26 10:09:05.826 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-07-26 10:09:05.878 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
-2026-07-26 10:09:05.924 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-07-26 10:09:06.218 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-07-26 10:09:06.250 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-07-26 10:09:06.627 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d2fe68a
-2026-07-26 10:09:06.630 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-07-26 10:09:06.709 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-07-26 10:09:06.739 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-07-27 09:34:49.645 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-07-27 09:34:49.782 INFO  [main] c.p.u.UniversityServiceApplication - Starting UniversityServiceApplication using Java 17.0.19 with PID 115781 (/home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/university-service/target/classes started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp)
+2026-07-27 09:34:49.784 INFO  [main] c.p.u.UniversityServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-27 09:34:53.034 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-27 09:34:53.039 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27 09:34:53.561 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 484 ms. Found 8 JPA repository interfaces.
+2026-07-27 09:34:53.612 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-27 09:34:53.615 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-27 09:34:53.666 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.AcademicSessionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.668 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.DepartmentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.669 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ExamConfigRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.670 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.ProgramRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.671 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.RepresentativeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.672 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SemesterRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.672 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.SubjectRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.673 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.prevpaper.university.repository.UniversityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-07-27 09:34:53.673 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2026-07-27 09:34:54.359 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=5c21909d-46df-324c-b41c-239ea0f2df02
+2026-07-27 09:34:55.727 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-07-27 09:34:55.746 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-07-27 09:34:55.750 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-27 09:34:55.750 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2026-07-27 09:34:55.863 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-07-27 09:34:55.864 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5938 ms
+2026-07-27 09:34:57.780 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-27 09:34:57.933 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2026-07-27 09:34:58.037 INFO  [main] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-27 09:34:58.556 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27 09:34:58.607 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-27 09:34:59.491 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@28200d43
+2026-07-27 09:34:59.496 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-27 09:34:59.687 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-27 09:34:59.743 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.45
@@ -38,13 +38,13 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-07-26 10:09:07.914 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-07-26 10:09:08.315 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-07-26 10:09:09.126 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-07-26 10:09:11.690 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2026-07-26 10:09:11.767 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-07-26 10:09:11.791 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
-2026-07-26 10:09:11.920 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+2026-07-27 09:35:04.020 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27 09:35:05.447 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27 09:35:08.065 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27 09:35:18.240 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-07-27 09:35:18.429 WARN  [main] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-07-27 09:35:18.530 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2026-07-27 09:35:19.014 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
 	auto.include.jmx.reporter = true
 	bootstrap.controllers = []
 	bootstrap.servers = [localhost:9092]
@@ -119,80 +119,80 @@
 	ssl.truststore.password = null
 	ssl.truststore.type = JKS
 
-2026-07-26 10:09:12.003 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
-2026-07-26 10:09:12.003 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
-2026-07-26 10:09:12.003 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1785040752002
-2026-07-26 10:09:12.019 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:12.021 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:12.126 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:12.126 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:12.328 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:12.329 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:12.631 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:12.631 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:13.134 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:13.135 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:13.939 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:13.940 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:14.944 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:14.945 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:15.856 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:15.857 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:16.868 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:16.869 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:17.873 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:17.874 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:18.878 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:18.879 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:19.782 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:19.783 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:20.787 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:20.787 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:21.792 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:21.792 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:22.797 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:22.798 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:23.802 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:23.802 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:24.806 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:24.807 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:25.812 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:25.812 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:26.816 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:26.817 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:27.821 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:27.821 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:28.825 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:28.826 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:29.830 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:29.830 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:30.835 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:30.835 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:31.839 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:31.840 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:32.743 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:32.744 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:33.648 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:33.648 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:34.552 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:34.552 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:35.457 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:35.457 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:36.461 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:36.462 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:37.466 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:37.466 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:38.469 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:38.470 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:39.473 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:39.474 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:40.378 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:40.378 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:41.282 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:41.283 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:42.007 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Metadata update failed
+2026-07-27 09:35:19.285 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.8.1
+2026-07-27 09:35:19.287 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2026-07-27 09:35:19.288 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1785125119280
+2026-07-27 09:35:19.405 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:19.420 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:19.542 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:19.548 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:19.651 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:19.653 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:19.957 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:19.960 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:20.467 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:20.468 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:21.176 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:21.180 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:22.095 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:22.096 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:23.019 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:23.020 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:24.041 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:24.043 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:25.105 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:25.107 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:26.131 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:26.136 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:27.157 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:27.161 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:27.974 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:27.979 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:28.999 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:29.025 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:29.940 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:29.941 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:31.003 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:31.014 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:32.092 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:32.094 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:33.105 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:33.105 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:34.113 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:34.114 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:35.030 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:35.032 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:36.046 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:36.047 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:37.063 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:37.064 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:38.075 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:38.075 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:39.088 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:39.089 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:40.124 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:40.125 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:41.164 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:41.169 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:42.194 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:42.199 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:43.208 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:43.209 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:44.220 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:44.221 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:45.143 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:45.151 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:46.176 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:46.178 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:47.127 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:47.144 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:48.037 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:48.038 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:49.127 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:49.130 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:49.301 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Metadata update failed
 org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: fetchMetadata
-2026-07-26 10:09:42.011 ERROR [main] o.s.kafka.core.KafkaAdmin - Could not configure topics
+2026-07-27 09:35:49.339 ERROR [main] o.s.kafka.core.KafkaAdmin - Could not configure topics
 org.springframework.kafka.KafkaException: Timed out waiting to get existing topics
 	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:558)
 	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
@@ -217,45 +217,45 @@ Caused by: java.util.concurrent.TimeoutException: null
 	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:180)
 	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$13(KafkaAdmin.java:540)
 	... 16 common frames omitted
-2026-07-26 10:09:42.215 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:42.215 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:43.220 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:43.220 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:44.225 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:44.225 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:45.229 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:45.229 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:46.234 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:46.234 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:47.238 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:47.238 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:48.242 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:48.243 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:49.146 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:49.147 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:50.051 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:50.051 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:51.055 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
-2026-07-26 10:09:51.055 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
-2026-07-26 10:09:52.013 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.
-2026-07-26 10:09:52.014 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for UNIVERSITY-SERVICE-admin-0 unregistered
-2026-07-26 10:09:52.015 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Metadata update failed
+2026-07-27 09:35:50.056 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:50.057 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:50.972 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:50.972 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:51.981 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:51.982 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:53.006 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:53.008 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:53.917 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:53.918 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:54.924 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:54.925 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:55.932 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:55.932 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:56.941 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:56.942 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:57.950 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:57.953 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:58.965 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Node -1 disconnected.
+2026-07-27 09:35:58.965 WARN  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-07-27 09:35:59.348 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.
+2026-07-27 09:35:59.350 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for UNIVERSITY-SERVICE-admin-0 unregistered
+2026-07-27 09:35:59.362 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Metadata update failed
 org.apache.kafka.common.errors.TimeoutException: The AdminClient thread has exited. Call: fetchMetadata
-2026-07-26 10:09:52.016 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Timed out 2 remaining operation(s) during close.
-2026-07-26 10:09:52.021 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-07-26 10:09:52.022 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-07-26 10:09:52.022 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-07-26 10:09:52.043 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2026-07-26 10:09:52.085 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
-2026-07-26 10:09:52.092 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
-2026-07-26 10:09:52.107 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
-2026-07-26 10:09:52.314 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:35:59.364 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=UNIVERSITY-SERVICE-admin-0] Timed out 2 remaining operation(s) during close.
+2026-07-27 09:35:59.409 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-27 09:35:59.414 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-27 09:35:59.418 INFO  [kafka-admin-client-thread | UNIVERSITY-SERVICE-admin-0] o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-27 09:35:59.467 INFO  [main] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-07-27 09:35:59.651 INFO  [main] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-07-27 09:35:59.665 INFO  [main] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-07-27 09:35:59.697 INFO  [main] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-07-27 09:35:59.699 INFO  [main] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-07-27 09:35:59.699 INFO  [main] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-07-27 09:35:59.699 INFO  [main] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-07-27 09:35:59.699 INFO  [main] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-07-27 09:35:59.700 INFO  [main] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-07-27 09:35:59.700 INFO  [main] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-07-27 09:36:00.878 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -363,8 +363,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 68 more
 
-2026-07-26 10:09:52.314 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-26 10:09:52.315 INFO  [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+2026-07-27 09:36:00.882 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:00.886 INFO  [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
@@ -425,22 +425,20 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.prevpaper.university.UniversityServiceApplication.main(UniversityServiceApplication.java:23)
 
-2026-07-26 10:09:52.315 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from primary servers failed
-2026-07-26 10:09:52.315 WARN  [main] c.netflix.discovery.DiscoveryClient - Using default backup registry implementation which does not do anything.
-2026-07-26 10:09:52.316 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from backup servers failed
-2026-07-26 10:09:52.317 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
-2026-07-26 10:09:52.319 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-07-26 10:09:52.322 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1785040792320 with initial instances count: 0
-2026-07-26 10:09:52.339 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application UNIVERSITY-SERVICE with eureka with status UP
-2026-07-26 10:09:52.340 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1785040792340, current=UP, previous=STARTING]
-2026-07-26 10:09:52.342 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082: registering service...
-2026-07-26 10:09:52.356 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application UNIVERSITY-SERVICE with eureka with status DOWN
-2026-07-26 10:09:52.356 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1785040792356, current=DOWN, previous=UP]
-2026-07-26 10:09:52.357 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-07-26 10:09:52.379 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-07-26 10:09:52.382 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-07-26 10:09:52.392 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-07-26 10:09:52.395 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:00.887 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from primary servers failed
+2026-07-27 09:36:00.889 WARN  [main] c.netflix.discovery.DiscoveryClient - Using default backup registry implementation which does not do anything.
+2026-07-27 09:36:00.891 INFO  [main] c.netflix.discovery.DiscoveryClient - Initial registry fetch from backup servers failed
+2026-07-27 09:36:00.903 INFO  [main] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-07-27 09:36:00.922 INFO  [main] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-07-27 09:36:00.938 INFO  [main] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1785125160927 with initial instances count: 0
+2026-07-27 09:36:01.001 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Registering application UNIVERSITY-SERVICE with eureka with status UP
+2026-07-27 09:36:01.011 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1785125161011, current=UP, previous=STARTING]
+2026-07-27 09:36:01.036 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082: registering service...
+2026-07-27 09:36:01.039 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-07-27 09:36:01.114 INFO  [main] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application UNIVERSITY-SERVICE with eureka with status DOWN
+2026-07-27 09:36:01.118 INFO  [main] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1785125161118, current=DOWN, previous=UP]
+2026-07-27 09:36:01.122 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-07-27 09:36:01.230 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -502,8 +500,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 22 more
 
-2026-07-26 10:09:52.395 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-26 10:09:52.395 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - registration failed Cannot execute request on any known server
+2026-07-27 09:36:01.231 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:01.231 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - registration failed Cannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -519,7 +517,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-26 10:09:52.396 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
+2026-07-27 09:36:01.239 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -535,8 +533,10 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-26 10:09:52.396 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082: registering service...
-2026-07-26 10:09:52.413 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:01.240 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082: registering service...
+2026-07-27 09:36:01.249 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27 09:36:01.263 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-27 09:36:01.332 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -598,8 +598,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 22 more
 
-2026-07-26 10:09:52.413 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-26 10:09:52.413 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - registration failed Cannot execute request on any known server
+2026-07-27 09:36:01.333 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:01.333 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - registration failed Cannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -615,7 +615,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-26 10:09:52.413 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
+2026-07-27 09:36:01.336 WARN  [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator - There was a problem with the instance info replicator
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
@@ -631,9 +631,10 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-2026-07-26 10:09:53.341 INFO  [main] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
-2026-07-26 10:09:56.342 INFO  [main] c.netflix.discovery.DiscoveryClient - Unregistering ...
-2026-07-26 10:09:56.351 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:01.351 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-27 09:36:02.141 INFO  [main] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-07-27 09:36:05.143 INFO  [main] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-07-27 09:36:05.163 INFO  [main] c.n.d.s.t.d.RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -714,8 +715,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 41 more
 
-2026-07-26 10:09:56.351 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
-2026-07-26 10:09:56.351 ERROR [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - de-registration failedCannot execute request on any known server
+2026-07-27 09:36:05.164 WARN  [main] c.n.d.s.t.d.RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082": Connect to http://localhost:8761 [localhost/127.0.0.1] failed: Connection refused
+2026-07-27 09:36:05.164 ERROR [main] c.netflix.discovery.DiscoveryClient - DiscoveryClient_UNIVERSITY-SERVICE/10.123.163.181:UNIVERSITY-SERVICE:8082 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -750,4 +751,21 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.prevpaper.university.UniversityServiceApplication.main(UniversityServiceApplication.java:23)
-2026-07-26 10:09:56.352 INFO  [main] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-27 09:36:05.165 INFO  [main] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-07-27 09:36:05.238 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-07-27 09:36:05.276 ERROR [main] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+

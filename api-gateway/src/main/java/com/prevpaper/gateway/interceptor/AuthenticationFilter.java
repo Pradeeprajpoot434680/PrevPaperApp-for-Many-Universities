@@ -26,17 +26,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private final RedisService redisService;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    private final Map<String, String> roleRequirements = Map.of(
-            "/api/v1/global-admin", "GLOBAL_ADMIN",
-            "/api/v1/university-rep", "UNIVERSITY_ADMIN",
-            "/api/v1/department-rep", "DEPT_REP",
-            "/api/v1/program-rep", "PROGRAM_REP",
-            "/api/v1/session-rep", "SESSION_REP",
-            "/api/v1/users/internal/store", "STUDENT",
-            "/api/v1/users/me/profile", "STUDENT",
-            "/api/v1/content", "STUDENT" ,// Unified content security rule path mapping
-                "/api/v1","DEPT_REP"
-    );
+    // 🟢 Preserves insertion order: Specific paths MUST be evaluated before broad fallback paths
+    private final Map<String, String> roleRequirements = new LinkedHashMap<>();
 
     private final List<String> openEndpoints = List.of(
             "/api/v1/auth/**",
@@ -55,6 +46,16 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     public AuthenticationFilter(AuthClient authClient, RedisService redisService) {
         this.authClient = authClient;
         this.redisService = redisService;
+
+        // Populate role requirements in strict order of specificity
+        roleRequirements.put("/api/v1/global-admin", "GLOBAL_ADMIN");
+        roleRequirements.put("/api/v1/university-rep", "UNIVERSITY_ADMIN");
+        roleRequirements.put("/api/v1/department-rep", "DEPT_REP");
+        roleRequirements.put("/api/v1/program-rep", "PROGRAM_REP");
+        roleRequirements.put("/api/v1/session-rep", "SESSION_REP");
+        roleRequirements.put("/api/v1/users/internal/store", "STUDENT");
+        roleRequirements.put("/api/v1/users/me/profile", "STUDENT");
+        roleRequirements.put("/api/v1/content", "STUDENT");
     }
 
     @Override
@@ -62,6 +63,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+        // 1. Handle CORS Preflight Requests
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             filterChain.doFilter(request, response);
             return;
@@ -70,12 +72,14 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         Object requestId = getRequestId(request);
 
+        // 2. Pass open/public endpoints directly
         boolean isOpen = openEndpoints.stream().anyMatch(pattern -> pathMatcher.match(pattern, path));
         if (isOpen) {
             filterChain.doFilter(request, response);
             return;
         }
 
+        // 3. Extract & Validate Bearer Token Header
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             handleError(response, "Missing Authorization Header", 401);
@@ -90,9 +94,9 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             authInfo = redisService.get(redisTokenKey, AuthResponse.class);
 
             if (authInfo != null) {
-                log.debug("Redis Cache HIT for token tracking. RequestId={}", requestId);
+                log.debug("Redis Cache HIT for token. RequestId={}", requestId);
             } else {
-                log.info("Redis Cache MISS for token tracking. Executing Feign call to AUTH-SERVICE. RequestId={}", requestId);
+                log.info("Redis Cache MISS for token. Calling AUTH-SERVICE. RequestId={}", requestId);
                 authInfo = authClient.validateToken(token);
 
                 if (authInfo != null && authInfo.isValid()) {
@@ -105,6 +109,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
+            // 🟢 Handle users with multiple roles correctly
             List<String> userRoles = authInfo.roles() != null ? authInfo.roles() : Collections.emptyList();
             boolean pathMatched = false;
 
@@ -117,28 +122,39 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                     if (path.startsWith("/api/v1/content")) {
                         isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
                     } else {
-                        // 🟢 FEATURE ADDED: Allow either the explicit required local representative role OR the supreme GLOBAL_ADMIN role
+                        // 🟢 Authorized if user possesses the required role OR possesses GLOBAL_ADMIN
                         isAuthorized = userRoles.contains(requiredRole) || userRoles.contains("GLOBAL_ADMIN");
                     }
 
                     if (!isAuthorized) {
+                        log.warn("Authorization failure: Path={}, RequiredRole={}, UserRoles={}", path, requiredRole, userRoles);
                         handleError(response, "Access Denied: Missing role permissions", 403);
                         return;
                     }
 
-                    // Scope multi-tenancy verification checks
+                    // 4. Multi-Tenant Scope Validation (Handles multi-role accounts safely)
                     if (!userRoles.contains("GLOBAL_ADMIN")) {
-                        String targetIdInUrl = extractIdDynamically(path);
+                        String targetIdInUrl = extractUuidFromPath(path);
 
-                        if (userRoles.contains("UNIVERSITY_ADMIN") || path.contains("/university/")) {
-                            if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.universityId())) {
-                                handleError(response, "Access Denied: University scope mismatch", 403);
-                                return;
+                        if (targetIdInUrl != null) {
+                            // 🟢 University-scoped routes (e.g., /university-rep/{uniId}, /content/internal/stats/university/{uniId})
+                            if (path.contains("/university") || path.contains("/stats/university/")) {
+                                if (!targetIdInUrl.equalsIgnoreCase(authInfo.universityId())) {
+                                    log.warn("University Scope Mismatch! targetInUrl={}, userUniId={}", targetIdInUrl, authInfo.universityId());
+                                    handleError(response, "Access Denied: University scope mismatch", 403);
+                                    return;
+                                }
                             }
-                        } else if (userRoles.stream().anyMatch(r -> List.of("DEPT_REP", "PROGRAM_REP", "SESSION_REP").contains(r))) {
-                            if (targetIdInUrl != null && !targetIdInUrl.equals(authInfo.scopeId())) {
-                                handleError(response, "Access Denied: Management scope mismatch", 403);
-                                return;
+                            // 🟢 Management-scoped routes (e.g., /program-rep/{scopeId}, /department-rep/{scopeId})
+                            else if (path.contains("-rep/")) {
+                                boolean isUniAdminAuthorized = userRoles.contains("UNIVERSITY_ADMIN") && targetIdInUrl.equalsIgnoreCase(authInfo.universityId());
+                                boolean isScopeRepAuthorized = targetIdInUrl.equalsIgnoreCase(authInfo.scopeId());
+
+                                if (!isUniAdminAuthorized && !isScopeRepAuthorized) {
+                                    log.warn("Management Scope Mismatch! targetInUrl={}, userScopeId={}, userUniId={}", targetIdInUrl, authInfo.scopeId(), authInfo.universityId());
+                                    handleError(response, "Access Denied: Management scope mismatch", 403);
+                                    return;
+                                }
                             }
                         }
                     }
@@ -151,7 +167,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            // Context Header Injection
+            // 5. Inject Security Context Headers for Downstream Microservices
             Map<String, String> customHeaders = new HashMap<>();
             customHeaders.put("X-User-Id", String.valueOf(authInfo.userId()));
             customHeaders.put("X-User-Roles", String.join(",", userRoles));
@@ -165,15 +181,21 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             request.setAttribute("gateway.scopeId", authInfo.scopeId());
 
             HttpServletRequest wrappedRequest = new HttpServletRequestWrapper(request) {
-                @Override public String getHeader(String name) { return customHeaders.getOrDefault(name, super.getHeader(name)); }
+                @Override public String getHeader(String name) {
+                    return customHeaders.getOrDefault(name, super.getHeader(name));
+                }
                 @Override public Enumeration<String> getHeaders(String name) {
-                    if (customHeaders.containsKey(name)) return Collections.enumeration(List.of(customHeaders.get(name)));
+                    if (customHeaders.containsKey(name)) {
+                        return Collections.enumeration(List.of(customHeaders.get(name)));
+                    }
                     return super.getHeaders(name);
                 }
                 @Override public Enumeration<String> getHeaderNames() {
                     Set<String> headerNames = new HashSet<>(customHeaders.keySet());
                     Enumeration<String> original = super.getHeaderNames();
-                    while (original != null && original.hasMoreElements()) { headerNames.add(original.nextElement()); }
+                    while (original != null && original.hasMoreElements()) {
+                        headerNames.add(original.nextElement());
+                    }
                     return Collections.enumeration(headerNames);
                 }
             };
@@ -187,13 +209,16 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     }
 
     /**
-     * FIXED: Dynamically isolates resource UUID strings regardless of nested folder index paths
+     * 🟢 Reliably extracts UUIDs from anywhere in the URL path segment array
      */
-    private String extractIdDynamically(String path) {
+    private String extractUuidFromPath(String path) {
         String[] segments = path.split("/");
-        if (segments.length == 0) return null;
-        String finalSegment = segments[segments.length - 1];
-        return (finalSegment.length() == 36) ? finalSegment : null;
+        for (String segment : segments) {
+            if (segment.length() == 36 && segment.contains("-")) {
+                return segment;
+            }
+        }
+        return null;
     }
 
     private void handleError(HttpServletResponse response, String message, int status) throws IOException {

@@ -50,6 +50,13 @@ public class KafkaConsumerConfig {
             if (topic.equals("role-change-events")) {
                 return TypeFactory.defaultInstance().constructType(RoleChangedEvent.class);
             }
+
+            if (topic.equals("student-events")) {
+                return TypeFactory.defaultInstance().constructType(
+                        com.prevpaper.comman.dto.StudentRegisteredEvent.class
+                );
+            }
+
             return TypeFactory.defaultInstance().constructType(Object.class);
         });
 

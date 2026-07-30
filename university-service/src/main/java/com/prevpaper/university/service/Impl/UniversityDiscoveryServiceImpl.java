@@ -62,13 +62,13 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
         List<RepresentativeAssignment> assignments = representativeRepository.findAllByScopeIdInAndIsActiveTrue(allScopeIds);
 
-        List<UUID> userIds = assignments.stream().map(RepresentativeAssignment::getUserId   ).distinct().toList();
+        List<UUID> userIds = assignments.stream().map(RepresentativeAssignment::getUserId).distinct().toList();
         if (userIds.isEmpty()) return Collections.emptyList();
 
-        // 1. Fetch raw remote map profiles data payload block
+        // 1. Fetch raw remote map profiles data payload
         Map<UUID, UserData> rawProfileMap = userServiceClient.getUsersByIds(userIds);
 
-        // 🟢 2. FIXED: Normalize profileMap keys to standard uppercase strings to handle mapping lookups safely
+        // 2. Normalize profileMap keys to standard lowercase strings
         Map<String, UserData> profileMap = new HashMap<>();
         if (rawProfileMap != null) {
             rawProfileMap.forEach((key, value) -> {
@@ -84,7 +84,6 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
 
         return assignments.stream()
                 .map(assign -> {
-                    // 🟢 3. FIXED: Extract profiles safely using converted lower-case string keys
                     String userLookupKey = assign.getUserId() != null ? assign.getUserId().toString().toLowerCase() : "";
                     UserData profile = profileMap.get(userLookupKey);
 
@@ -100,6 +99,7 @@ public class UniversityDiscoveryServiceImpl implements UniversityDiscoveryServic
                 })
                 .toList();
     }
+
 
     @Override
     @Cacheable(value = "departments", key = "#universityId")

@@ -56,4 +56,8 @@ public class KafkaProducerConfig {
     public NewTopic uploadTaskTopic() {
         return TopicBuilder.name("file-upload-task").partitions(3).replicas(1).build();
     }
+    @Bean
+    public NewTopic studentEventsTopic() {
+        return TopicBuilder.name("student-events").partitions(3).replicas(1).build();
+    }
 }

@@ -25,42 +25,50 @@ public class UploadTaskConsumer {
     @KafkaListener(
             topics = "${app.kafka.topics.upload-task}",
             groupId = "upload-service-group",
-            containerFactory = "kafkaListenerContainerFactory" // Ensure JSON deserialization is used
+            containerFactory = "kafkaListenerContainerFactory"
     )
     public void consumeUploadTask(FileTaskEvent event) {
-        log.info("Received upload task for Content ID: {}", event.getContentId());
+        if (event == null || event.getContentId() == null) {
+            log.error("Received null or invalid FileTaskEvent");
+            return;
+        }
+
+        log.info("Received async upload task for Content ID: {}, FileName: {}",
+                event.getContentId(), event.getFileName());
 
         try {
-            // 1. Convert bytes to MultipartFile
+            // 1. Convert byte payload back to MultipartFile
             MultipartFile file = new InMemoryMultipartFile(event.getFileBytes(), event.getFileName());
 
-            // 2. Process via Facade (Factory -> Strategy -> Storage)
-            // Passing a System UUID or extracting from event if available
+            // 2. Delegate file storage to Cloudinary via UploadService
             FileMetadata metadata = uploadService.uploadFile(file, UUID.randomUUID());
 
-            // 3. Step 6: Build Success Result
+            // 3. Construct success status payload
             UploadResultDTO result = UploadResultDTO.builder()
                     .success(true)
                     .fileUrl(metadata.getFileUrl())
                     .build();
 
-            // 4. Update Content Service via Feign
+            // 4. Update Content Service status via Feign Client
             contentClient.updateUploadStatus(event.getContentId(), result);
-            log.info("Successfully updated Content Service for ID: {}", event.getContentId());
+            log.info("Successfully uploaded file and updated Content Service for Content ID: {}", event.getContentId());
 
         } catch (Exception e) {
-            log.error("Failed to process upload for Content ID: {}. Error: {}", event.getContentId(), e.getMessage());
+            log.error("Failed to process upload task for Content ID: {}. Error: {}",
+                    event.getContentId(), e.getMessage(), e);
 
-            // Step 6: Failure Callback to notify Content Service of the error
+            // Failure Callback to update status in Content Service
             UploadResultDTO errorResult = UploadResultDTO.builder()
                     .success(false)
-                    .errorMessage(e.getMessage())
+                    .errorMessage(e.getMessage() != null ? e.getMessage() : "Unknown upload processing failure")
                     .build();
 
             try {
                 contentClient.updateUploadStatus(event.getContentId(), errorResult);
+                log.info("Notified Content Service of upload failure for Content ID: {}", event.getContentId());
             } catch (Exception feignException) {
-                log.error("Critial: Could not notify Content Service of failure for ID: {}", event.getContentId());
+                log.error("Critical: Could not notify Content Service of failure for Content ID: {}. Feign Error: {}",
+                        event.getContentId(), feignException.getMessage(), feignException);
             }
         }
     }

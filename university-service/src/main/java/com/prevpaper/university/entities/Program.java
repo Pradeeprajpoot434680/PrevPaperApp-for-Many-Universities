@@ -3,6 +3,7 @@ package com.prevpaper.university.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.ws.rs.DefaultValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
