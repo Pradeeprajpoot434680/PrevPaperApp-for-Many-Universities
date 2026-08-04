@@ -125,7 +125,10 @@ jobs:
             set -eu
             cd "$HOME/prevpaper/${{ matrix.service.name }}"
             ENV_FILE="$HOME/prevpaper/${{ matrix.service.env_file }}"
-            test -r "$ENV_FILE"
+            if [ ! -r "$ENV_FILE" ]; then
+              echo "Required VM environment file is missing or unreadable: $ENV_FILE" >&2
+              exit 1
+            fi
             printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml config -q
             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml pull
