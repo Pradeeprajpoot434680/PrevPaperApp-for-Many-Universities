@@ -17,7 +17,7 @@ jobs:
       - id: filter
         uses: dorny/paths-filter@v3
         with:
-          filters: |
+          fiprevpaperlters: |
             common:
               - 'pom.xml'
               - 'common-lib/**'
@@ -123,7 +123,7 @@ jobs:
           host: ${{ secrets[matrix.service.host_secret] }}
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_KEY }}
-          script: mkdir -p /opt/prevpaper/${{ matrix.service.name }}
+          script: mkdir -p "$HOME/prevpaper/${{ matrix.service.name }}"
       - name: Upload Compose file
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
         uses: appleboy/scp-action@v0.1.7
@@ -132,7 +132,7 @@ jobs:
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_KEY }}
           source: ${{ matrix.service.directory }}/docker-compose.yaml
-          target: /opt/prevpaper/${{ matrix.service.name }}/
+          target: /home/${{ secrets.VM_USERNAME }}/prevpaper/${{ matrix.service.name }}/
           strip_components: 1
       - name: Pull and start service
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
@@ -182,7 +182,7 @@ jobs:
           envs: DOCKER_USERNAME,DOCKERHUB_TOKEN,IMAGE_TAG,POSTGRES_URL,POSTGRES_USERNAME,POSTGRES_PASSWORD,MYSQL_URL,MYSQL_USERNAME,MYSQL_PASSWORD,REDIS_HOST,REDIS_PORT,REDIS_USERNAME,REDIS_PASSWORD,REDIS_SSL,KAFKA_BOOTSTRAP,KAFKA_SECURITY_PROTOCOL,KAFKA_SASL_MECHANISM,KAFKA_SASL_JAAS_CONFIG,AUTH_SERVICE_URL,USER_SERVICE_URL,UNIVERSITY_SERVICE_URL,CONTENT_SERVICE_URL,NOTIFICATION_SERVICE_URL,JWT_SECRET,JWT_ACCESS_EXPIRATION,JWT_REFRESH_EXPIRATION,GOOGLE_REDIRECT,RESEND_API_KEY,RESEND_FROM_EMAIL,TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,TWILIO_PHONE_NUMBER,TWILIO_VERIFY_SERVICE_SID,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET,ZIPKIN_ENDPOINT
           script: |
             set -eu
-            cd /opt/prevpaper/${{ matrix.service.name }}
+            cd "$HOME/prevpaper/${{ matrix.service.name }}"
             umask 077
             {
               for key in DOCKER_USERNAME IMAGE_TAG POSTGRES_URL POSTGRES_USERNAME POSTGRES_PASSWORD MYSQL_URL MYSQL_USERNAME MYSQL_PASSWORD REDIS_HOST REDIS_PORT REDIS_USERNAME REDIS_PASSWORD REDIS_SSL KAFKA_BOOTSTRAP KAFKA_SECURITY_PROTOCOL KAFKA_SASL_MECHANISM KAFKA_SASL_JAAS_CONFIG AUTH_SERVICE_URL USER_SERVICE_URL UNIVERSITY_SERVICE_URL CONTENT_SERVICE_URL NOTIFICATION_SERVICE_URL JWT_SECRET JWT_ACCESS_EXPIRATION JWT_REFRESH_EXPIRATION GOOGLE_REDIRECT RESEND_API_KEY RESEND_FROM_EMAIL TWILIO_ACCOUNT_SID TWILIO_AUTH_TOKEN TWILIO_PHONE_NUMBER TWILIO_VERIFY_SERVICE_SID CLOUDINARY_CLOUD_NAME CLOUDINARY_API_KEY CLOUDINARY_API_SECRET ZIPKIN_ENDPOINT; do
