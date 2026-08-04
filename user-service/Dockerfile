@@ -26,5 +26,5 @@ RUN chown -R spring:spring /app
 USER spring:spring
 
 COPY --from=builder /build/user-service/target/*.jar app.jar
-EXPOSE 8082
+EXPOSE 8086
 ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]

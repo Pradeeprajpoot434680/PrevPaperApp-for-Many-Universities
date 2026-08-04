@@ -31,5 +31,5 @@ RUN chown -R spring:spring /app /logs
 USER spring:spring
 
 COPY --from=builder /build/notificationService/target/*.jar app.jar
-EXPOSE 8086
+EXPOSE 8085
 ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]
