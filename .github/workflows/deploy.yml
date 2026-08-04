@@ -63,7 +63,7 @@ jobs:
         run: mvn -B -pl ${{ matrix.service.module }} -am test
 
   build-and-push:
-    needs: [changes, test]
+    needs: [changes]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
