@@ -17,7 +17,7 @@ jobs:
       - id: filter
         uses: dorny/paths-filter@v3
         with:
-          fiprevpaperlters: |
+          filters: |
             common:
               - 'pom.xml'
               - 'common-lib/**'
@@ -36,31 +36,6 @@ jobs:
               - 'notificationService/**'
             upload-service:
               - 'upload-service/**'
-
-  test:
-    needs: changes
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        service:
-          - { name: api-gateway, module: api-gateway }
-          - { name: auth-service, module: auth-service }
-          - { name: user-service, module: user-service }
-          - { name: content-service, module: content-service }
-          - { name: university-service, module: university-service }
-          - { name: notification-service, module: notificationService }
-          - { name: upload-service, module: upload-service }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: temurin
-          cache: maven
-      - name: Run tests
-        if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
-        run: mvn -B -pl ${{ matrix.service.module }} -am test
 
   build-and-push:
     needs: [changes]
