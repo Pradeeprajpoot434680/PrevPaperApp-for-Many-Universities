@@ -81,13 +81,13 @@ jobs:
       fail-fast: false
       matrix:
         service:
-          - { name: api-gateway, directory: api-gateway, host_secret: API_GATEWAY_VM_HOST }
-          - { name: auth-service, directory: auth-service, host_secret: AUTH_SERVICE_VM_HOST }
-          - { name: user-service, directory: user-service, host_secret: USER_SERVICE_VM_HOST }
-          - { name: content-service, directory: content-service, host_secret: CONTENT_SERVICE_VM_HOST }
-          - { name: university-service, directory: university-service, host_secret: UNIVERSITY_SERVICE_VM_HOST }
-          - { name: notification-service, directory: notificationService, host_secret: NOTIFICATION_SERVICE_VM_HOST }
-          - { name: upload-service, directory: upload-service, host_secret: UPLOAD_SERVICE_VM_HOST }
+          - { name: api-gateway, directory: api-gateway, host_secret: API_GATEWAY_VM_HOST, env_file: vm1.env }
+          - { name: auth-service, directory: auth-service, host_secret: AUTH_SERVICE_VM_HOST, env_file: vm2.env }
+          - { name: user-service, directory: user-service, host_secret: USER_SERVICE_VM_HOST, env_file: vm2.env }
+          - { name: content-service, directory: content-service, host_secret: CONTENT_SERVICE_VM_HOST, env_file: vm4.env }
+          - { name: university-service, directory: university-service, host_secret: UNIVERSITY_SERVICE_VM_HOST, env_file: vm3.env }
+          - { name: notification-service, directory: notificationService, host_secret: NOTIFICATION_SERVICE_VM_HOST, env_file: vm3.env }
+          - { name: upload-service, directory: upload-service, host_secret: UPLOAD_SERVICE_VM_HOST, env_file: vm4.env }
     steps:
       - uses: actions/checkout@v4
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
@@ -116,57 +116,18 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           IMAGE_TAG: ${{ github.sha }}
-          POSTGRES_URL: ${{ secrets.AIVEN_POSTGRES_URL }}
-          POSTGRES_USERNAME: ${{ secrets.AIVEN_POSTGRES_USERNAME }}
-          POSTGRES_PASSWORD: ${{ secrets.AIVEN_POSTGRES_PASSWORD }}
-          MYSQL_URL: ${{ secrets.AIVEN_MYSQL_URL }}
-          MYSQL_USERNAME: ${{ secrets.AIVEN_MYSQL_USERNAME }}
-          MYSQL_PASSWORD: ${{ secrets.AIVEN_MYSQL_PASSWORD }}
-          REDIS_HOST: ${{ secrets.UPSTASH_REDIS_HOST }}
-          REDIS_PORT: ${{ secrets.UPSTASH_REDIS_PORT }}
-          REDIS_USERNAME: ${{ secrets.UPSTASH_REDIS_USERNAME }}
-          REDIS_PASSWORD: ${{ secrets.UPSTASH_REDIS_PASSWORD }}
-          REDIS_SSL: "true"
-          KAFKA_BOOTSTRAP: ${{ secrets.AIVEN_KAFKA_BOOTSTRAP }}
-          KAFKA_SECURITY_PROTOCOL: SASL_SSL
-          KAFKA_SASL_MECHANISM: PLAIN
-          KAFKA_SASL_JAAS_CONFIG: ${{ secrets.AIVEN_KAFKA_JAAS_CONFIG }}
-          AUTH_SERVICE_URL: ${{ secrets.AUTH_SERVICE_URL }}
-          USER_SERVICE_URL: ${{ secrets.USER_SERVICE_URL }}
-          UNIVERSITY_SERVICE_URL: ${{ secrets.UNIVERSITY_SERVICE_URL }}
-          CONTENT_SERVICE_URL: ${{ secrets.CONTENT_SERVICE_URL }}
-          NOTIFICATION_SERVICE_URL: ${{ secrets.NOTIFICATION_SERVICE_URL }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          JWT_ACCESS_EXPIRATION: ${{ secrets.JWT_ACCESS_EXPIRATION }}
-          JWT_REFRESH_EXPIRATION: ${{ secrets.JWT_REFRESH_EXPIRATION }}
-          GOOGLE_REDIRECT: ${{ secrets.GOOGLE_REDIRECT }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-          TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
-          TWILIO_VERIFY_SERVICE_SID: ${{ secrets.TWILIO_VERIFY_SERVICE_SID }}
-          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-          ZIPKIN_ENDPOINT: ${{ secrets.ZIPKIN_ENDPOINT }}
         with:
           host: ${{ secrets[matrix.service.host_secret] }}
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_KEY }}
-          envs: DOCKER_USERNAME,DOCKERHUB_TOKEN,IMAGE_TAG,POSTGRES_URL,POSTGRES_USERNAME,POSTGRES_PASSWORD,MYSQL_URL,MYSQL_USERNAME,MYSQL_PASSWORD,REDIS_HOST,REDIS_PORT,REDIS_USERNAME,REDIS_PASSWORD,REDIS_SSL,KAFKA_BOOTSTRAP,KAFKA_SECURITY_PROTOCOL,KAFKA_SASL_MECHANISM,KAFKA_SASL_JAAS_CONFIG,AUTH_SERVICE_URL,USER_SERVICE_URL,UNIVERSITY_SERVICE_URL,CONTENT_SERVICE_URL,NOTIFICATION_SERVICE_URL,JWT_SECRET,JWT_ACCESS_EXPIRATION,JWT_REFRESH_EXPIRATION,GOOGLE_REDIRECT,RESEND_API_KEY,RESEND_FROM_EMAIL,TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,TWILIO_PHONE_NUMBER,TWILIO_VERIFY_SERVICE_SID,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET,ZIPKIN_ENDPOINT
+          envs: DOCKER_USERNAME,DOCKERHUB_TOKEN,IMAGE_TAG
           script: |
             set -eu
             cd "$HOME/prevpaper/${{ matrix.service.name }}"
-            umask 077
-            {
-              for key in DOCKER_USERNAME IMAGE_TAG POSTGRES_URL POSTGRES_USERNAME POSTGRES_PASSWORD MYSQL_URL MYSQL_USERNAME MYSQL_PASSWORD REDIS_HOST REDIS_PORT REDIS_USERNAME REDIS_PASSWORD REDIS_SSL KAFKA_BOOTSTRAP KAFKA_SECURITY_PROTOCOL KAFKA_SASL_MECHANISM KAFKA_SASL_JAAS_CONFIG AUTH_SERVICE_URL USER_SERVICE_URL UNIVERSITY_SERVICE_URL CONTENT_SERVICE_URL NOTIFICATION_SERVICE_URL JWT_SECRET JWT_ACCESS_EXPIRATION JWT_REFRESH_EXPIRATION GOOGLE_REDIRECT RESEND_API_KEY RESEND_FROM_EMAIL TWILIO_ACCOUNT_SID TWILIO_AUTH_TOKEN TWILIO_PHONE_NUMBER TWILIO_VERIFY_SERVICE_SID CLOUDINARY_CLOUD_NAME CLOUDINARY_API_KEY CLOUDINARY_API_SECRET ZIPKIN_ENDPOINT; do
-                eval "value=\${$key}"
-                printf '%s=%s\n' "$key" "$value"
-              done
-            } > .env
+            ENV_FILE="$HOME/prevpaper/${{ matrix.service.env_file }}"
+            test -r "$ENV_FILE"
             printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
-            docker compose --env-file .env -f docker-compose.yaml config -q
-            docker compose --env-file .env -f docker-compose.yaml pull
-            docker compose --env-file .env -f docker-compose.yaml up -d --remove-orphans
-            docker compose --env-file .env -f docker-compose.yaml ps
+            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml config -q
+            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml pull
+            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml up -d --remove-orphans
+            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml ps
