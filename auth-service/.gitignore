@@ -38,3 +38,6 @@ build/
 *.properties
 !docker-compose.yaml
 !.env.example
+
+*.pem
+kafka-*.jks
