@@ -3,7 +3,8 @@ package com.prevpaper.comman.config;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value; // 🟢 ADD IMPORT
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.boot.ssl.SslBundles;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
@@ -18,14 +19,21 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-    // 🟢 FIXED: Reads from environment variables, falls back to localhost if running outside Docker
-    @Value("${spring.kafka.bootstrap-servers:localhost:9092}")
-    private String bootstrapServers;
+    private final KafkaProperties kafkaProperties;
+
+   private final SslBundles sslBundles;
+
+    public KafkaProducerConfig(KafkaProperties kafkaProperties,
+                            SslBundles sslBundles) {
+        this.kafkaProperties = kafkaProperties;
+        this.sslBundles = sslBundles;
+    }
 
     @Bean
     public ProducerFactory<String, Object> producerFactory(){
-        Map<String,Object> config = new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers); // 🟢 FIXED
+         Map<String, Object> config =
+            new HashMap<>(kafkaProperties.buildProducerProperties(sslBundles));
+
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         config.put(ProducerConfig.MAX_REQUEST_SIZE_CONFIG, 20971520);
