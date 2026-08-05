@@ -70,7 +70,6 @@ COPY --from=builder /build/university-service/target/*.jar app.jar
 # Copy Kafka SSL certificate
 COPY university-service/kafka-truststore.jks /app/certs/kafka-truststore.jks
 
-
 # Give spring user access
 RUN chown -R spring:spring /app
 
