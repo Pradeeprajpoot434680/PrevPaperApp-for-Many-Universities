@@ -29,7 +29,6 @@
 # EXPOSE 8081
 # ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]
 
-
 # ==========================================
 # STAGE 1: Build Environment
 # ==========================================
@@ -61,7 +60,8 @@ RUN addgroup -S spring && adduser -S spring -G spring
 
 COPY --from=builder /build/auth-service/target/*.jar app.jar
 
-COPY kafka-truststore.jks /app/kafka-truststore.jks
+# IMPORTANT: path from repository root
+COPY auth-service/kafka-truststore.jks /app/kafka-truststore.jks
 
 RUN chown -R spring:spring /app
 
