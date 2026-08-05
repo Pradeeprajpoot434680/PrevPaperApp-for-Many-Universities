@@ -67,7 +67,7 @@ RUN chown -R spring:spring /app /logs
 
 COPY --from=builder /build/notificationService/target/*.jar app.jar
 
-COPY --from=builder /build/notificationService/kafka-truststore.jks /app/kafka-truststore.jks
+COPY kafka-truststore.jks /app/kafka-truststore.jks
 
 RUN chown spring:spring /app/kafka-truststore.jks
 
