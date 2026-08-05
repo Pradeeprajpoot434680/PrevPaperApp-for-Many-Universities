@@ -31,10 +31,7 @@ public class KafkaConsumerConfig {
         this.kafkaProperties = kafkaProperties;
         this.sslBundles = sslBundles;
     }
-    public KafkaConsumerConfig(KafkaProperties kafkaProperties) {
-        this.kafkaProperties = kafkaProperties;
-        this.sslBundles = null;
-    }
+   
 
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
