@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    loadbalancer:
+      clients:
+        UNIVERSITY-SERVICE:
+          instances:
+            - uri: http://university-service:8082
+        AUTH-SERVICE:
+          instances:
+            - uri: http://auth-service:8081
+        NOTIFICATION-SERVICE:
+          instances:
+            - uri: http://notification-service:8085
+        USER-SERVICE:
+          instances:
+            - uri: http://user-service:8086
+        CONTENT-SERVICE:
+          instances:
+            - uri: http://content-service:8090
+
+feign:
+  client:
+    config:
+      AUTH-SERVICE:
+        url: http://auth-service:8081
