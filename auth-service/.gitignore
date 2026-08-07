@@ -40,4 +40,3 @@ build/
 !.env.example
 
 *.pem
-kafka-*.jks

@@ -10928,3 +10928,167 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
 	at java.base/java.lang.Thread.run(Thread.java:840)
 2026-07-14 22:00:53.714 INFO  [SpringApplicationShutdownHook] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-08-07 23:16:18.916 INFO  [main] c.p.u.UploadServiceApplicationTests - Starting UploadServiceApplicationTests using Java 17.0.19 with PID 180348 (started by pradeep in /home/pradeep/Desktop/coding/web_2_projects/Software-Engineering/PrevPaperApp/upload-service)
+2026-08-07 23:16:18.925 INFO  [main] c.p.u.UploadServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-08-07 23:16:18.996 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-08-07 23:16:18.997 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-08-07 23:16:18.998 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@7e2c64 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-08-07 23:16:18.999 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-08-07 23:16:18.999 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-08-07 23:16:18.999 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@36061cf3 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-08-07 23:16:19.000 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2026-08-07 23:16:19.001 INFO  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused. Will be trying the next url if available
+2026-08-07 23:16:19.002 WARN  [main] o.s.c.c.c.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@718dbd79 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/UPLOAD-SERVICE/default": Connection refused
+2026-08-07 23:16:21.460 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-07 23:16:21.466 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-07 23:16:21.561 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+2026-08-07 23:16:22.337 INFO  [main] o.s.cloud.context.scope.GenericScope - BeanFactory id=129e719c-e885-327b-842f-9326af3b1e76
+2026-08-07 23:16:26.828 INFO  [main] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-08-07 23:16:27.171 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-07 23:16:27.408 INFO  [main] o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = UPLOAD-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-08-07 23:16:27.666 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.9.2
+2026-08-07 23:16:27.671 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 5e9866f43ab8e7e4
+2026-08-07 23:16:27.673 INFO  [main] o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1786124787663
+2026-08-07 23:16:27.719 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:27.726 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:27.833 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:27.834 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:27.937 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:27.938 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:28.141 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:28.143 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:28.651 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:28.652 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:29.460 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:29.460 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:30.367 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:30.368 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:31.375 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:31.376 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:32.392 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:32.393 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:33.299 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:33.301 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:34.308 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:34.309 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:35.215 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:35.215 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:36.221 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:36.221 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:37.227 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:37.228 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:38.134 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:38.135 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:39.141 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:39.142 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:40.147 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:40.148 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:41.052 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:41.053 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:42.059 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:42.059 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:43.064 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:43.065 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:44.071 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:44.071 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:44.976 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:44.977 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:45.882 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:45.883 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:46.889 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:46.889 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:47.895 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:47.896 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:48.801 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:48.802 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:49.807 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:49.807 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:50.813 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:50.814 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:51.823 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:51.824 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:52.833 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:52.834 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:53.838 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:53.839 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:54.845 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:54.846 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:55.851 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:55.852 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-08-07 23:16:56.857 INFO  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Node -1 disconnected.
+2026-08-07 23:16:56.858 WARN  [kafka-admin-client-thread | UPLOAD-SERVICE-admin-0] o.apache.kafka.clients.NetworkClient - [AdminClient clientId=UPLOAD-SERVICE-admin-0] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
