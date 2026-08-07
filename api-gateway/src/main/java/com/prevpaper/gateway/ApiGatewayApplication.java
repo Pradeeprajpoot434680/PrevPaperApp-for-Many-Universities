@@ -14,10 +14,6 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication(
-        scanBasePackages = {
-                "com.prevpaper.gateway",
-                "com.prevpaper.comman"
-        },
         exclude = {
 
                 DataSourceAutoConfiguration.class,
@@ -39,14 +35,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
                 @ComponentScan.Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class),
                 // The gateway has no Kafka consumers/producers; skip common-lib's Kafka
                 // configs and producers so no KafkaAdmin/NewTopic beans are created.
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
+                        classes = {
+                                com.prevpaper.comman.config.KafkaProducerConfig.class,
+                                com.prevpaper.comman.config.KafkaConsumerConfig.class,
+                                com.prevpaper.comman.config.SendNotification.class
+                        }),
                 @ComponentScan.Filter(
                         type = FilterType.REGEX,
-                        pattern = {
-                                "com\\.prevpaper\\.comman\\.config\\.KafkaProducerConfig",
-                                "com\\.prevpaper\\.comman\\.config\\.KafkaConsumerConfig",
-                                "com\\.prevpaper\\.comman\\.config\\.SendNotification",
-                                "com\\.prevpaper\\.comman\\.producer\\..*"
-                        }
+                        pattern = "com\\.prevpaper\\.comman\\.producer\\..*"
                 )
         }
 )
