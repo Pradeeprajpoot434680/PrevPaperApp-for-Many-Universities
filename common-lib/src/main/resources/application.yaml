@@ -1,0 +1,13 @@
+app:
+  kafka:
+    topics:
+      upload-task: file-upload-task
+
+
+
+spring:
+  data:
+    redis:
+      host: localhost  # Change to 'redis' if deploying inside the same Docker network bridge
+      port: 6379
+      timeout: 2000ms

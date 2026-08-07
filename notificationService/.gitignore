@@ -37,4 +37,7 @@ build/
 *.yaml
 *.properties
 !docker-compose.yaml
+!application*.yaml
+!application*.yml
+!application*.properties
 !.env.example

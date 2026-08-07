@@ -4,9 +4,6 @@ target/
 .DS_Store
 out/
 *.env
-application*.yml
-application*.yaml
-application.properties
 upload-service/logs/*.log
 upload-service/logs/*.zip
 notificationService/logs/*.log
@@ -20,11 +17,5 @@ notificationService/logs/*.zip
 /university-service/logs
 /upload-service/logs
 /user-service/logs
-
-application.properties
-application*.properties
-application.yml
-application*.yml
-application.yaml
 
 /docker-compose.yml 

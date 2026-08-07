@@ -1,0 +1,84 @@
+server:
+  port: 8090
+
+spring:
+  
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  application:
+    name: CONTENT-SERVICE
+
+  # Database Configuration (PostgreSQL)
+  datasource:
+
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/content_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:434680}
+
+    hikari:
+      maximum-pool-size: 2
+      minimum-idle: 1
+      idle-timeout: 30000
+      max-lifetime: 600000
+      connection-timeout: 30000
+  # JPA / Hibernate Settings
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  # Kafka Configuration
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      ssl.truststore.location: ${SPRING_KAFKA_PROPERTIES_SSL_TRUSTSTORE_LOCATION:/app/certs/kafka-truststore.jks}
+      ssl.truststore.password: ${SPRING_KAFKA_PROPERTIES_SSL_TRUSTSTORE_PASSWORD:changeit}
+      ssl.truststore.type: JKS
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        max.request.size: 20971520 # 20MB
+    consumer:
+      group-id: content-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.prevpaper.content.dto,com.prevpaper.upload.dto"
+        max.partition.fetch.bytes: 20971520
+        fetch.max.bytes: 20971520
+
+# Eureka Discovery
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+
+# Custom Properties for your Service logic
+app:
+  kafka:
+    topics:
+      upload-task: file-upload-task
+      upload-result: file-upload-result
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+feign:
+  client:
+    config:
+      AUTH-SERVICE:
+        url: ${AUTH_SERVICE_URL:http://localhost:8081}
+      USER-SERVICE:
+        url: ${USER_SERVICE_URL:http://localhost:8086}

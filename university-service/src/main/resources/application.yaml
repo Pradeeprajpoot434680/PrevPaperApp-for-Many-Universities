@@ -1,0 +1,84 @@
+
+server:
+  port: 8082
+
+spring:
+ 
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      ssl.truststore.location: ${SPRING_KAFKA_PROPERTIES_SSL_TRUSTSTORE_LOCATION:/app/certs/kafka-truststore.jks}
+      ssl.truststore.password: ${SPRING_KAFKA_PROPERTIES_SSL_TRUSTSTORE_PASSWORD:changeit}
+      ssl.truststore.type: JKS
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+  application:
+    name: UNIVERSITY-SERVICE
+  datasource:
+
+
+
+    hikari:
+      maximum-pool-size: 2
+      minimum-idle: 1
+      idle-timeout: 30000
+      max-lifetime: 600000
+      connection-timeout: 30000
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/university_db}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:434680}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+app:
+  kafka:
+    topics:
+      upload-task: file-upload-task
+
+# TRACING CONFIGURATION
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: ${SPRING_ZIPKIN_BASE_URL:http://localhost:9411}/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,tracing
+
+
+
+
+feign:
+  client:
+    config:
+      auth-service:
+        url: ${AUTH_SERVICE_URL:http://localhost:8081}
+      content-service:
+        url: ${CONTENT_SERVICE_URL:http://localhost:8090}
+      user-service:
+        url: ${USER_SERVICE_URL:http://localhost:8086}
+
+
+
+
+

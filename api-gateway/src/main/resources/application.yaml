@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: API-GATEWAY
+
+  # KEEP THIS for AuthClient and internal logic
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 10000
+        response-timeout: 60s
+
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka/
+
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
