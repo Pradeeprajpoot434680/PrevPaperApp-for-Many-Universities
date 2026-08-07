@@ -46,6 +46,10 @@ COPY common-lib ./common-lib
 COPY content-service ./content-service
 
 
+# Install root parent POM into the local repo (required by common-lib's descriptor)
+RUN mvn clean install -N -DskipTests
+
+
 # Install common-lib
 RUN mvn -f common-lib/pom.xml clean install -DskipTests
 
