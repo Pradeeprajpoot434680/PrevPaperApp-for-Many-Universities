@@ -212,7 +212,7 @@ public class GatewayRoutesConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        config.setAllowedOrigins(List.of("http://localhost:5173","https://prevpaper.fun","https://app/prevpaper.fun","https://university-content-service-frontend-two.vercel.app"));
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","PATCH","OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type","X-Requested-With"));
         config.setAllowCredentials(true);
