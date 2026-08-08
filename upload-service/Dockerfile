@@ -20,7 +20,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # 1. 🟢 FIXED: Pre-create both internal and external root logging targets
-RUN mkdir -p /app/logs /logs
+RUN mkdir -p /app/logs /logs /app/certs
 
 # 2. Add your non-privileged system user profile
 RUN addgroup -S spring && adduser -S spring -G spring
@@ -31,5 +31,9 @@ RUN chown -R spring:spring /app /logs
 USER spring:spring
 
 COPY --from=builder /build/upload-service/target/*.jar app.jar
+
+# Kafka SSL truststore (Aiven CA) baked into the image
+COPY upload-service/kafka-truststore.jks /app/certs/kafka-truststore.jks
+
 EXPOSE 8084
 ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+ExitOnOutOfMemoryError", "-jar", "app.jar"]
