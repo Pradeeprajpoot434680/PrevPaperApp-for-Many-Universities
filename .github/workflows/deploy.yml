@@ -1,3 +1,142 @@
+# name: Deploy PrevPaper microservices
+
+# on:
+#   push:
+#     branches: [main]
+
+# permissions:
+#   contents: read
+
+# jobs:
+#   changes:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       services: ${{ steps.filter.outputs.changes }}
+#     steps:
+#       - uses: actions/checkout@v4
+#       - id: filter
+#         uses: dorny/paths-filter@v3
+#         with:
+#           filters: |
+#             common:
+#               - 'pom.xml'
+#               - 'common-lib/**'
+#               - '.github/workflows/deploy.yml'
+#             api-gateway:
+#               - 'api-gateway/**'
+#             auth-service:
+#               - 'auth-service/**'
+#             user-service:
+#               - 'user-service/**'
+#             content-service:
+#               - 'content-service/**'
+#             university-service:
+#               - 'university-service/**'
+#             notification-service:
+#               - 'notificationService/**'
+#             upload-service:
+#               - 'upload-service/**'
+
+#   build-and-push:
+#     needs: [changes]
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         service:
+#           - { name: api-gateway, dockerfile: api-gateway/Dockerfile }
+#           - { name: auth-service, dockerfile: auth-service/Dockerfile }
+#           - { name: user-service, dockerfile: user-service/Dockerfile }
+#           - { name: content-service, dockerfile: content-service/Dockerfile }
+#           - { name: university-service, dockerfile: university-service/Dockerfile }
+#           - { name: notification-service, dockerfile: notificationService/Dockerfile }
+#           - { name: upload-service, dockerfile: upload-service/Dockerfile }
+#     steps:
+#       - uses: actions/checkout@v4
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#       - uses: docker/setup-buildx-action@v3
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#       - uses: docker/login-action@v3
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Build and push immutable image
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#         uses: docker/build-push-action@v6
+#         with:
+#           context: .
+#           file: ${{ matrix.service.dockerfile }}
+#           push: true
+#           tags: |
+#             ${{ secrets.DOCKERHUB_USERNAME }}/prevpaper-${{ matrix.service.name }}:${{ github.sha }}
+#             ${{ secrets.DOCKERHUB_USERNAME }}/prevpaper-${{ matrix.service.name }}:latest
+#           cache-from: type=gha
+#           cache-to: type=gha,mode=max
+
+#   deploy:
+#     needs: [changes, build-and-push]
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         service:
+#           - { name: api-gateway, directory: api-gateway, host_secret: API_GATEWAY_VM_HOST, env_file: vm1.env }
+#           - { name: auth-service, directory: auth-service, host_secret: AUTH_SERVICE_VM_HOST, env_file: vm2.env }
+#           - { name: user-service, directory: user-service, host_secret: USER_SERVICE_VM_HOST, env_file: vm2.env }
+#           - { name: content-service, directory: content-service, host_secret: CONTENT_SERVICE_VM_HOST, env_file: vm4.env }
+#           - { name: university-service, directory: university-service, host_secret: UNIVERSITY_SERVICE_VM_HOST, env_file: vm3.env }
+#           - { name: notification-service, directory: notificationService, host_secret: NOTIFICATION_SERVICE_VM_HOST, env_file: vm3.env }
+#           - { name: upload-service, directory: upload-service, host_secret: UPLOAD_SERVICE_VM_HOST, env_file: vm4.env }
+#     steps:
+#       - uses: actions/checkout@v4
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#       - name: Create deployment directory
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#         uses: appleboy/ssh-action@v1.2.1
+#         with:
+#           host: ${{ secrets[matrix.service.host_secret] }}
+#           username: ${{ secrets.VM_USERNAME }}
+#           key: ${{ secrets.VM_SSH_KEY }}
+#           script: mkdir -p "$HOME/prevpaper/${{ matrix.service.name }}"
+#       - name: Upload Compose file
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#         uses: appleboy/scp-action@v0.1.7
+#         with:
+#           host: ${{ secrets[matrix.service.host_secret] }}
+#           username: ${{ secrets.VM_USERNAME }}
+#           key: ${{ secrets.VM_SSH_KEY }}
+#           source: ${{ matrix.service.directory }}/docker-compose.yaml
+#           target: /home/${{ secrets.VM_USERNAME }}/prevpaper/${{ matrix.service.name }}/
+#           strip_components: 1
+#       - name: Pull and start service
+#         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+#         uses: appleboy/ssh-action@v1.2.1
+#         env:
+#           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+#           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+#           IMAGE_TAG: ${{ github.sha }}
+#         with:
+#           host: ${{ secrets[matrix.service.host_secret] }}
+#           username: ${{ secrets.VM_USERNAME }}
+#           key: ${{ secrets.VM_SSH_KEY }}
+#           envs: DOCKER_USERNAME,DOCKERHUB_TOKEN,IMAGE_TAG
+#           script: |
+#             set -eu
+#             cd "$HOME/prevpaper/${{ matrix.service.name }}"
+#             ENV_FILE="$HOME/prevpaper/${{ matrix.service.env_file }}"
+#             if [ ! -r "$ENV_FILE" ]; then
+#               echo "Required VM environment file is missing or unreadable: $ENV_FILE" >&2
+#               exit 1
+#             fi
+#             printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
+#             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml config -q
+#             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml pull
+#             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml up -d --remove-orphans
+#             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml ps
+
+
+
 name: Deploy PrevPaper microservices
 
 on:
@@ -134,3 +273,15 @@ jobs:
             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml pull
             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml up -d --remove-orphans
             IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml ps
+            
+            # =========================================================================
+            # MODIFICATION ADDED HERE: DISK SPACE CLEANUP
+            # =========================================================================
+            # When the new container runs, the old image loses its ":latest" tag and 
+            # becomes untagged ("dangling"). Running 'docker image prune -f' removes 
+            # these old images immediately, preventing your EC2 instances from ever 
+            # running out of disk space over time.
+            # =========================================================================
+            echo "Starting post-deployment disk cleanup..."
+            docker image prune -f
+            # =========================================================================
