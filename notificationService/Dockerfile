@@ -100,7 +100,5 @@ EXPOSE 8085
 ENTRYPOINT ["java", \
  "-XX:+UseG1GC", \
  "-XX:+ExitOnOutOfMemoryError", \
- "-Djavax.net.ssl.trustStore=/app/kafka-truststore.jks", \
- "-Djavax.net.ssl.trustStorePassword=changeit", \
  "-jar", \
  "app.jar"]
