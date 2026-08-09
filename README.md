@@ -251,12 +251,9 @@ To maximize compute efficiency, fault isolation, and internal data security, the
 
 # Future Enhancements
 
-* Event-driven architecture using Kafka
-* Distributed caching with Redis
-* Service discovery using Eureka
-* Centralized configuration server
+
 * Kubernetes deployment
-* Search indexing with Elasticsearch
+* Gamification
 
 ---
 
