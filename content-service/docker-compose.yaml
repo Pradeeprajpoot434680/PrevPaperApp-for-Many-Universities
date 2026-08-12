@@ -8,8 +8,9 @@ services:
       # Persistent virus DB so the container can be recreated without re-downloading ~500MB
       - clamav_data:/var/lib/clamav
     healthcheck:
-      # Real ping to clamd - "clamdscan --version" reported healthy even when clamd was dead
-      test: ["CMD-SHELL", "clamdscan --ping"]
+      # Real ping to clamd - "clamdscan --version" reported healthy even when clamd was dead.
+      # ClamAV 1.5 requires an argument for --ping (plain --ping errors with exit 2).
+      test: ["CMD-SHELL", "clamdscan --ping=5"]
       interval: 30s
       timeout: 10s
       retries: 5
