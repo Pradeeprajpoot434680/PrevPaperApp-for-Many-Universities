@@ -48,13 +48,10 @@ public class InternalSyncServiceImpl implements InternalSyncService {
 
                     User persistedUser = userRepository.save(newUser);
 
-                    Account newAccount = Account.builder()
-                            .user(persistedUser)
-                            .totalPoints(0L)
-                            .status(AccountStatus.ACTIVE)
-                            .build();
-                    accountRepository.save(newAccount);
-
+                    // 🟢 FIXED: Do NOT create an Account here — academic fields
+                    // (university/department/program/batch) are @NotNull on Account.
+                    // The account is created lazily via PATCH /accounts/me/academic-info
+                    // once the user fills in their academic details.
                     preferenceRepository.save(UserPreference.builder()
                             .user(persistedUser)
                             .theme("light")

@@ -23,5 +23,6 @@ public interface UniversityRepresentativeService {
     List<DepartmentDTO> findDepartmentByUniversityId(UUID universityId);
     List<ProgramDTO> findProgramByDepartmentId(UUID departmentId);
     ApiResponse<String> addExamFormat(UUID universityId, ExamFormatRequest formats);
+    ApiResponse<String> deleteExamFormat(UUID universityId, UUID examFormatId);
     ApiResponse<List<ExamConfigurationDTO>> getExamTypes(UUID universityId);
 }

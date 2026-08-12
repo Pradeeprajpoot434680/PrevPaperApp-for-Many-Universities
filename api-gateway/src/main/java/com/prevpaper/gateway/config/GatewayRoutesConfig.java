@@ -138,6 +138,7 @@ public class GatewayRoutesConfig {
     private final String notificationUrl = System.getenv().getOrDefault("NOTIFICATION_SERVICE_URL", "http://localhost:8085");
     private final String userUrl = System.getenv().getOrDefault("USER_SERVICE_URL", "http://localhost:8086");
     private final String contentUrl = System.getenv().getOrDefault("CONTENT_SERVICE_URL", "http://localhost:8090");
+    private final String uploadUrl = System.getenv().getOrDefault("UPLOAD_SERVICE_URL", "http://localhost:8084");
 
     @Bean
     public RouterFunction<ServerResponse> universityServiceRoutes() {
@@ -188,10 +189,25 @@ public class GatewayRoutesConfig {
     @Bean
     public RouterFunction<ServerResponse> userServiceRoute() {
         return GatewayRouterFunctions.route("user-service")
-                .route(RequestPredicates.path("/api/v1/users/**"), HandlerFunctions.http())
+                .nest(RequestPredicates.path("/api/v1/users/**")
+                                .or(RequestPredicates.path("/api/v1/accounts/**")),
+                        builder -> builder
+                                .route(RequestPredicates.all(), HandlerFunctions.http()))
                 .before(request -> {
                     log.info("Gateway routing request path [{}] to USER-SERVICE base target={}", request.path(), userUrl);
                     MvcUtils.setRequestUrl(request, URI.create(userUrl));
+                    return request;
+                })
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> uploadServiceRoute() {
+        return GatewayRouterFunctions.route("upload-service")
+                .route(RequestPredicates.path("/api/v1/upload/**"), HandlerFunctions.http())
+                .before(request -> {
+                    log.info("Gateway routing request path [{}] to UPLOAD-SERVICE base target={}", request.path(), uploadUrl);
+                    MvcUtils.setRequestUrl(request, URI.create(uploadUrl));
                     return request;
                 })
                 .build();

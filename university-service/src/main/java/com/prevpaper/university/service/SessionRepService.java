@@ -14,6 +14,8 @@ public interface SessionRepService {
 
     SubjectResponseDTO addSubject( UUID semesterId, SubjectRequest request);
 
+    void deleteSubject(UUID semesterId, UUID subjectId);
+
 //    SessionRepDashboardDTO getSessionDashboard(UUID sessionId);
 
     List<SubjectResourceDTO> getSubjectsWithStats(UUID sessionId,Integer semesterNumber);

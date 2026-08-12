@@ -4,6 +4,7 @@ import com.prevpaper.comman.dto.ContentStatsDTO;
 import com.prevpaper.comman.dto.PendingContentDTO;
 import com.prevpaper.comman.exception.ResourceAlreadyExist;
 import com.prevpaper.comman.exception.ResourceNotFoundException;
+import jakarta.ws.rs.BadRequestException;
 import com.prevpaper.university.client.ContentClient;
 import com.prevpaper.university.dtos.*;
 import com.prevpaper.university.entities.AcademicSession;
@@ -106,6 +107,33 @@ public class SessionRepServiceImpl implements SessionRepService {
                 savedSubject.getSubjectCode(),
                 savedSubject.getSemester().getId()
         );
+    }
+
+    /**
+     * MUTATION: Evicts cached subjects for this semester (and dashboard subject
+     * counts) so the removal is reflected immediately.
+     */
+    @Override
+    @Transactional
+    @Caching(evict = {
+            @CacheEvict(value = "subjects", key = "#semesterId"),
+            @CacheEvict(value = "sessionDashboards", allEntries = true)
+    }) // 🟢 PURGES SUBJECT CACHE + DASHBOARD COUNTS
+    public void deleteSubject(UUID semesterId, UUID subjectId) {
+        log.info("Deleting subject subjectId={} from semesterId={}", subjectId, semesterId);
+
+        Semester semester = semesterRepository.findById(semesterId)
+                .orElseThrow(() -> new ResourceNotFoundException("Semester not found with ID: " + semesterId));
+
+        Subject subject = subjectRepository.findById(subjectId)
+                .orElseThrow(() -> new ResourceNotFoundException("Subject not found with ID: " + subjectId));
+
+        // 🟢 Safety check: the subject must belong to this semester
+        if (!subject.getSemester().getId().equals(semester.getId())) {
+            throw new BadRequestException("Subject does not belong to this semester.");
+        }
+
+        subjectRepository.delete(subject);
     }
 
     @Override

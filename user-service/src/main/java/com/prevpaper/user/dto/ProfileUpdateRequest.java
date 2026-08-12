@@ -9,4 +9,8 @@ public class ProfileUpdateRequest {
     private String lastName;
     private String profileImageUrl;
     private String bio;
+
+    // Preferences (optional — only applied when provided)
+    private String theme;
+    private String language;
 }
