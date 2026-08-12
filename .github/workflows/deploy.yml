@@ -230,58 +230,87 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+
+      # Uses the runner's built-in OpenSSH client instead of appleboy/ssh-action,
+      # which downloads a drone-ssh binary from GitHub Releases at runtime and kept
+      # failing with HTTP 503 / "Connection died" (GitHub release download outage).
+      - name: Set up SSH key
+        if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
+        env:
+          SSH_KEY: ${{ secrets.VM_SSH_KEY }}
+        run: |
+          set -eu
+          mkdir -p "$HOME/.ssh"
+          # tr -d '\r' guards against Windows-pasted secrets (CRLF breaks OpenSSH key parsing)
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' > "$HOME/.ssh/vm_key"
+          chmod 600 "$HOME/.ssh/vm_key"
+
       - name: Create deployment directory
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-          host: ${{ secrets[matrix.service.host_secret] }}
-          username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          script: mkdir -p "$HOME/prevpaper/${{ matrix.service.name }}"
+        env:
+          SSH_HOST: ${{ secrets[matrix.service.host_secret] }}
+          SSH_USER: ${{ secrets.VM_USERNAME }}
+          SERVICE_NAME: ${{ matrix.service.name }}
+        run: |
+          set -eu
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=15 \
+              -i "$HOME/.ssh/vm_key" \
+              "$SSH_USER@$SSH_HOST" \
+              "mkdir -p \"\$HOME/prevpaper/$SERVICE_NAME\""
+
       - name: Upload Compose file
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets[matrix.service.host_secret] }}
-          username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          source: ${{ matrix.service.directory }}/docker-compose.yaml
-          target: /home/${{ secrets.VM_USERNAME }}/prevpaper/${{ matrix.service.name }}/
-          strip_components: 1
+        env:
+          SSH_HOST: ${{ secrets[matrix.service.host_secret] }}
+          SSH_USER: ${{ secrets.VM_USERNAME }}
+          SERVICE_NAME: ${{ matrix.service.name }}
+        run: |
+          set -eu
+          scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=15 \
+              -i "$HOME/.ssh/vm_key" \
+              "${{ matrix.service.directory }}/docker-compose.yaml" \
+              "$SSH_USER@$SSH_HOST:/home/$SSH_USER/prevpaper/$SERVICE_NAME/"
+
       - name: Pull and start service
         if: contains(needs.changes.outputs.services, matrix.service.name) || contains(needs.changes.outputs.services, 'common')
-        uses: appleboy/ssh-action@v1.2.1
         env:
+          SSH_HOST: ${{ secrets[matrix.service.host_secret] }}
+          SSH_USER: ${{ secrets.VM_USERNAME }}
+          SERVICE_NAME: ${{ matrix.service.name }}
+          ENV_FILE: ${{ matrix.service.env_file }}
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           IMAGE_TAG: ${{ github.sha }}
-        with:
-          host: ${{ secrets[matrix.service.host_secret] }}
-          username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          envs: DOCKER_USERNAME,DOCKERHUB_TOKEN,IMAGE_TAG
-          script: |
-            set -eu
-            cd "$HOME/prevpaper/${{ matrix.service.name }}"
-            ENV_FILE="$HOME/prevpaper/${{ matrix.service.env_file }}"
-            if [ ! -r "$ENV_FILE" ]; then
-              echo "Required VM environment file is missing or unreadable: $ENV_FILE" >&2
-              exit 1
-            fi
-            printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
-            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml config -q
-            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml pull
-            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml up -d --remove-orphans
-            IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_FILE" -f docker-compose.yaml ps
-            
-            # =========================================================================
-            # MODIFICATION ADDED HERE: DISK SPACE CLEANUP
-            # =========================================================================
-            # When the new container runs, the old image loses its ":latest" tag and 
-            # becomes untagged ("dangling"). Running 'docker image prune -f' removes 
-            # these old images immediately, preventing your EC2 instances from ever 
-            # running out of disk space over time.
-            # =========================================================================
-            echo "Starting post-deployment disk cleanup..."
-            docker image prune -f
-            # =========================================================================
+        run: |
+          set -eu
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=15 \
+              -i "$HOME/.ssh/vm_key" \
+              "$SSH_USER@$SSH_HOST" \
+              "SERVICE_NAME='$SERVICE_NAME' ENV_FILE='$ENV_FILE' \
+               DOCKER_USERNAME='$DOCKER_USERNAME' \
+               DOCKERHUB_TOKEN='$DOCKERHUB_TOKEN' \
+               IMAGE_TAG='$IMAGE_TAG' bash -s" <<'REMOTE_EOF'
+          set -eu
+          cd "$HOME/prevpaper/$SERVICE_NAME"
+          ENV_PATH="$HOME/prevpaper/$ENV_FILE"
+          if [ ! -r "$ENV_PATH" ]; then
+            echo "Required VM environment file is missing or unreadable: $ENV_PATH" >&2
+            exit 1
+          fi
+          printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
+          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml config -q
+          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml pull
+          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml up -d --remove-orphans
+          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml ps
+
+          # =========================================================================
+          # DISK SPACE CLEANUP
+          # =========================================================================
+          # When the new container runs, the old image loses its ":latest" tag and
+          # becomes untagged ("dangling"). Running 'docker image prune -f' removes
+          # these old images immediately, preventing the VMs from ever running out
+          # of disk space over time.
+          # =========================================================================
+          echo "Starting post-deployment disk cleanup..."
+          docker image prune -f
+          REMOTE_EOF
