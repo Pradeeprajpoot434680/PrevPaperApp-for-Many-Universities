@@ -299,6 +299,18 @@ jobs:
           fi
           printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml config -q
+
+          # Pre-pull cleanup: the VMs have small root disks (6.7 GB). If disk is
+          # near-full, image extraction fails with "failed to Lchown ... no such file
+          # or directory" / "failed commit on ref ... rename ... no such file or directory".
+          # Free up old images BEFORE pulling so the new layers always fit.
+          docker image prune -f >/dev/null 2>&1 || true
+          for img in $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^$DOCKER_USERNAME/" | grep -v ":latest$"); do
+            if ! docker ps --format "{{.Image}}" | grep -q "$img"; then
+              docker rmi "$img" >/dev/null 2>&1 || true
+            fi
+          done
+
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml pull
 
           # `docker compose up` can race with another compose process on the same project
