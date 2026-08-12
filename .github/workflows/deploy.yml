@@ -300,7 +300,25 @@ jobs:
           printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml config -q
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml pull
-          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml up -d --remove-orphans
+
+          # `docker compose up` can race with another compose process on the same project
+          # ("Error response from daemon: No such container: <id>"). Retry before failing.
+          attempt=1
+          while [ "$attempt" -le 3 ]; do
+            if IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml up -d --remove-orphans; then
+              break
+            fi
+            echo "compose up attempt $attempt/3 failed, retrying in 10s..." >&2
+            attempt=$((attempt + 1))
+            if [ "$attempt" -le 3 ]; then
+              sleep 10
+              # A persistent "No such container" error means the compose project state is
+              # inconsistent (docker compose bug after a crashed recreate). Reset it - named
+              # volumes (e.g. the clamav virus DB) survive `down`.
+              IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml down --remove-orphans >/dev/null 2>&1 || true
+            fi
+          done
+          [ "$attempt" -le 3 ] || { echo "compose up failed after 3 attempts" >&2; exit 1; }
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml ps
 
           # =========================================================================
