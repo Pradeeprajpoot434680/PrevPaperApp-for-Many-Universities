@@ -298,12 +298,18 @@ jobs:
             exit 1
           fi
           printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+          # Serialize deploys on this VM: auth+user share vm2, university+notification
+          # share vm3, content+upload share vm4. If both jobs pull at once, the small
+          # root disk fills and one pull dies with "failed to Lchown ... no such file
+          # or directory" / "failed commit on ref ... rename ... no such file or directory".
+          # flock makes the second job wait for the first to finish.
+          exec 9>"$HOME/prevpaper/.deploy.lock"
+          flock 9
+
           IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml config -q
 
-          # Pre-pull cleanup: the VMs have small root disks (6.7 GB). If disk is
-          # near-full, image extraction fails with "failed to Lchown ... no such file
-          # or directory" / "failed commit on ref ... rename ... no such file or directory".
-          # Free up old images BEFORE pulling so the new layers always fit.
+          # Pre-pull cleanup: free old images BEFORE pulling so the new layers fit.
           docker image prune -f >/dev/null 2>&1 || true
           for img in $(docker images --format "{{.Repository}}:{{.Tag}}" | grep "^$DOCKER_USERNAME/" | grep -v ":latest$"); do
             if ! docker ps --format "{{.Image}}" | grep -q "$img"; then
@@ -311,7 +317,20 @@ jobs:
             fi
           done
 
-          IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml pull
+          # Pull with retry (disk pressure can still fail a pull transiently).
+          attempt=1
+          while [ "$attempt" -le 3 ]; do
+            if IMAGE_TAG="$IMAGE_TAG" docker compose --env-file "$ENV_PATH" -f docker-compose.yaml pull; then
+              break
+            fi
+            echo "compose pull attempt $attempt/3 failed, retrying in 10s..." >&2
+            attempt=$((attempt + 1))
+            if [ "$attempt" -le 3 ]; then
+              sleep 10
+              docker image prune -f >/dev/null 2>&1 || true
+            fi
+          done
+          [ "$attempt" -le 3 ] || { echo "compose pull failed after 3 attempts" >&2; exit 1; }
 
           # `docker compose up` can race with another compose process on the same project
           # ("Error response from daemon: No such container: <id>"). Retry before failing.
@@ -343,4 +362,5 @@ jobs:
           # =========================================================================
           echo "Starting post-deployment disk cleanup..."
           docker image prune -f
+          flock -u 9 2>/dev/null || true
           REMOTE_EOF

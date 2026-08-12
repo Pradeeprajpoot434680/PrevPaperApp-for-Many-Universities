@@ -313,27 +313,29 @@ public class ContentServiceImpl implements ContentService {
                 content.getId(), content.getUploadedBy(), content.getVerificationStatus());
 
         try {
-            //UserInternalInfoDTO userInfo = authServiceClient.getUserDetails(content.getUploadedBy());
+            // Fetch the actual uploader from User Service so the notification goes
+            // to the right person (no hardcoded email / user ID)
+            UserInternalDTO uploader = userServiceClient.getUserInternalInfo(content.getUploadedBy());
+            log.info("Content uploader info loaded for upload notification: contentId={}, uploaderId={}, emailPresent={}",
+                    content.getId(), content.getUploadedBy(), uploader != null && uploader.email() != null);
 
             SummarizedContentDTO summary = SummarizedContentDTO.builder()
-                    .contentId(content.getId()) // [cite: 11]
-                    .title(content.getTitle()) // [cite: 12]
+                    .contentId(content.getId())
+                    .title(content.getTitle())
                     .fileUrl(content.getFileUrl())
                     .universityId(content.getUniversityId())
                     .status(content.getVerificationStatus().name())
-                    .recipient("prrajpoot12234@gmail.com") // The target Gmail
-                    .userId(UUID.fromString("8d56e92b-32c8-4aea-8511-75e74f7c6710"))
+                    .recipient(uploader != null ? uploader.email() : null) // Dynamic email
+                    .userId(content.getUploadedBy()) // Dynamic user ID
                     .eventType(result.isSuccess() ?
                             NotificationEventType.UPLOAD_SUCCESS :
                             NotificationEventType.UPLOAD_FAILURE)
                     .notificationTypes(List.of(NotificationType.EMAIL))
                     .build();
 
-
-
-            notificationProducer.sendContentUploadNotification(summary,result.isSuccess());
-            log.info("Content upload notification emitted: contentId={}, uploaderId={}, eventType={}, success={}",
-                    content.getId(), content.getUploadedBy(), summary.getEventType(), result.isSuccess());
+            notificationProducer.sendContentUploadNotification(summary, result.isSuccess());
+            log.info("Content upload notification emitted: contentId={}, uploaderId={}, recipient={}, eventType={}, success={}",
+                    content.getId(), content.getUploadedBy(), summary.getRecipient(), summary.getEventType(), result.isSuccess());
 
         } catch (Exception e) {
             log.error("Content upload notification failed: contentId={}, uploaderId={}, success={}, error={}",
