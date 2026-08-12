@@ -2,6 +2,7 @@ package com.prevpaper.user.service.Impl;
 
 import com.prevpaper.comman.dto.UserProfileDTO;
 import com.prevpaper.comman.exception.ResourceNotFoundException;
+import com.prevpaper.user.client.AuthServiceClient;
 import com.prevpaper.user.dto.ProfileUpdateRequest;
 import com.prevpaper.user.dto.UserRequest;
 import com.prevpaper.user.dto.UserSaveResponseDTO;
@@ -19,6 +20,7 @@ import org.springframework.cache.annotation.CacheEvict; // 🟢 IMPORTED
 import org.springframework.cache.annotation.Cacheable; // 🟢 IMPORTED
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,6 +31,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
     private final UserPreferenceRepository userPreferenceRepository;
+    private final AuthServiceClient authServiceClient;
 
     @Override
     public UserSaveResponseDTO createUser(UserRequest request) {
@@ -105,8 +108,17 @@ public class UserServiceImpl implements UserService {
     public UserProfileDTO updateProfile(UUID authUserId, ProfileUpdateRequest request) {
         log.info("Redis Cache EVICT [userProfiles] - Updating profile components for authUserId={}", authUserId);
 
+        // 🟢 SELF-HEALING: If the user-service profile record is missing (e.g. the
+        // profile step was skipped during signup), create it on the fly so the
+        // user can still edit their name/bio/avatar without errors.
         User user = userRepository.findByAuthUserId(authUserId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+                .orElseGet(() -> userRepository.save(User.builder()
+                        .authUserId(authUserId)
+                        .firstName(request.getFirstName())
+                        .lastName(request.getLastName())
+                        .profileImageUrl(request.getProfileImageUrl())
+                        .bio(request.getBio())
+                        .build()));
 
         if (request.getFirstName() != null) user.setFirstName(request.getFirstName());
         if (request.getLastName() != null) user.setLastName(request.getLastName());
@@ -114,6 +126,35 @@ public class UserServiceImpl implements UserService {
         if (request.getProfileImageUrl() != null) user.setProfileImageUrl(request.getProfileImageUrl());
 
         User updatedUser = userRepository.save(user);
+
+        // 🟢 Sync the display name back to Auth-Service so student lists, rep lists
+        // and notifications all reflect the updated name.
+        String updatedFullName = (updatedUser.getFirstName() != null ? updatedUser.getFirstName() : "")
+                + " " + (updatedUser.getLastName() != null ? updatedUser.getLastName() : "");
+        if (!updatedFullName.isBlank()) {
+            try {
+                authServiceClient.setFullName(authUserId, updatedFullName.trim());
+                log.info("Synced updated fullName '{}' to Auth-Service for authUserId={}", updatedFullName.trim(), authUserId);
+            } catch (Exception e) {
+                log.warn("Failed to sync fullName to Auth-Service for authUserId={}: {}", authUserId, e.getMessage());
+            }
+        }
+
+        // 🟢 Persist preference changes (theme / language) alongside profile edits
+        UserPreference prefs = userPreferenceRepository.findByUserId(updatedUser.getId())
+                .orElseGet(() -> userPreferenceRepository.save(UserPreference.builder()
+                        .user(updatedUser)
+                        .theme("light")
+                        .language("en")
+                        .build()));
+
+        if (request.getTheme() != null && List.of("light", "dark").contains(request.getTheme())) {
+            prefs.setTheme(request.getTheme());
+        }
+        if (request.getLanguage() != null && List.of("en", "hi").contains(request.getLanguage())) {
+            prefs.setLanguage(request.getLanguage());
+        }
+        userPreferenceRepository.save(prefs);
 
         // Re-read or map composite account details to return full fresh state securely
         Optional<Account> accountOpt = accountRepository.findByUserId(updatedUser.getId());

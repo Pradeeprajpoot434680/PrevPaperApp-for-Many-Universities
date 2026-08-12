@@ -101,6 +101,15 @@ public class UniversityRepresentativeController {
         return ResponseEntity.ok(response);
     }
 
+    @DeleteMapping("/exam-formats/{examFormatId}")
+    public ResponseEntity<ApiResponse<String>> deleteExamFormat(
+            @PathVariable UUID universityId,
+            @PathVariable UUID examFormatId) {
+
+        ApiResponse<String> response = universityRepresentativeService.deleteExamFormat(universityId, examFormatId);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/department-rep")
     public ResponseEntity<ApiResponse<List<DepartmentRepResponse>>> getDepartmentRepresentatives(
             @PathVariable UUID universityId) {

@@ -470,6 +470,29 @@ public class UniversityRepresentativeServiceImpl implements UniversityRepresenta
     }
 
     @Override
+    @Transactional
+    @CacheEvict(value = "examConfigs", key = "#universityId")
+    public ApiResponse<String> deleteExamFormat(UUID universityId, UUID examFormatId) {
+        log.info("Deleting exam format examFormatId={} for universityId={}", examFormatId, universityId);
+
+        University university = universityRepository.findById(universityId)
+                .orElseThrow(() -> new ResourceNotFoundException("University not found with ID: " + universityId));
+
+        ExamConfiguration examConfig = examConfigRepository.findById(examFormatId)
+                .orElseThrow(() -> new ResourceNotFoundException("Exam format not found with ID: " + examFormatId));
+
+        // 🟢 Safety check: the exam format must belong to this university
+        if (!examConfig.getUniversity().getId().equals(university.getId())) {
+            throw new BadRequestException("Exam format does not belong to this university.");
+        }
+
+        String examName = examConfig.getExamName();
+        examConfigRepository.delete(examConfig);
+
+        return ApiResponse.success("Exam format deleted successfully: " + examName, null);
+    }
+
+    @Override
     @Cacheable(value = "examConfigs", key = "#universityId")
     public ApiResponse<List<ExamConfigurationDTO>> getExamTypes(UUID universityId) {
         University university = universityRepository.findById(universityId)

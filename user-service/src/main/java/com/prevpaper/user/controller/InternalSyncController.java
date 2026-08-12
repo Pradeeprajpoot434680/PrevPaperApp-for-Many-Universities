@@ -46,12 +46,18 @@ public class InternalSyncController {
         log.info("Store user request received for authUserId={}", authUserId);
         UserInternalResponseDTO savedUser = internalSyncService.storeUser(request, authUserId);
 
-        studentEventProducer.emitStudentRegistration(
-                userUuid,
-                universityId,
-                departmentId,  // Pass department ID if provided in request
-                programId     // Pass program ID if provided in request
-        );
+        // 🟢 The user profile is already saved above — a Kafka hiccup must NOT fail the
+        // signup. The event only evicts university-service caches, so log and continue.
+        try {
+            studentEventProducer.emitStudentRegistration(
+                    userUuid,
+                    universityId,
+                    departmentId,  // Pass department ID if provided in request
+                    programId     // Pass program ID if provided in request
+            );
+        } catch (Exception e) {
+            log.warn("Failed to emit StudentRegisteredEvent for authUserId={}: {}", authUserId, e.getMessage());
+        }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

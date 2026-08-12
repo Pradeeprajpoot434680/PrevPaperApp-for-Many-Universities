@@ -63,6 +63,20 @@ public class SessionRepController {
     }
 
 
+    // Delete subject from semester
+    @DeleteMapping("/semesters/{semesterId}/subjects/{subjectId}")
+    public ResponseEntity<ApiResponse<Void>> deleteSubject(
+            @PathVariable UUID sessionId,
+            @PathVariable UUID semesterId,
+            @PathVariable UUID subjectId,
+            @RequestHeader("X-Scope-Id") UUID xScopeId) {
+
+        validateScope(sessionId, xScopeId);
+
+        sessionRepService.deleteSubject(semesterId, subjectId);
+        return ResponseEntity.ok(ApiResponse.success("Subject deleted successfully", null));
+    }
+
     @GetMapping("/dashboard")
     public ResponseEntity<ApiResponse<SessionRepDashboardDTO>> getDashboard(
             @PathVariable UUID sessionId,

@@ -39,6 +39,14 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             "/actuator/**"
     );
 
+    // 🟢 SELF-SERVICE ENDPOINTS: Any authenticated user (valid token, any role)
+    // may access their own profile, academic info and file uploads.
+    private final List<String> authenticatedEndpoints = List.of(
+            "/api/v1/users/me",
+            "/api/v1/accounts/me",
+            "/api/v1/upload"
+    );
+
     private final List<String> UPLOADER_ROLES = List.of(
             "STUDENT", "SESSION_REP", "PROGRAM_REP", "DEPT_REP", "UNIVERSITY_ADMIN", "GLOBAL_ADMIN"
     );
@@ -54,7 +62,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         roleRequirements.put("/api/v1/program-rep", "PROGRAM_REP");
         roleRequirements.put("/api/v1/session-rep", "SESSION_REP");
         roleRequirements.put("/api/v1/users/internal/store", "STUDENT");
-        roleRequirements.put("/api/v1/users/me/profile", "STUDENT");
         roleRequirements.put("/api/v1/content", "STUDENT");
     }
 
@@ -113,58 +120,66 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             List<String> userRoles = authInfo.roles() != null ? authInfo.roles() : Collections.emptyList();
             boolean pathMatched = false;
 
-            for (Map.Entry<String, String> entry : roleRequirements.entrySet()) {
-                if (path.startsWith(entry.getKey())) {
-                    pathMatched = true;
-                    String requiredRole = entry.getValue();
-                    boolean isAuthorized = false;
+            // 🟢 Self-service paths need a valid token but no specific role.
+            // The role loop is skipped entirely so a future role-requirement prefix
+            // can never accidentally re-apply role/scope checks to "me" routes.
+            boolean authenticatedOnly = authenticatedEndpoints.stream().anyMatch(path::startsWith);
+            if (authenticatedOnly) {
+                pathMatched = true;
+            } else {
+                for (Map.Entry<String, String> entry : roleRequirements.entrySet()) {
+                    if (path.startsWith(entry.getKey())) {
+                        pathMatched = true;
+                        String requiredRole = entry.getValue();
+                        boolean isAuthorized = false;
 
-                    if (path.startsWith("/api/v1/content")) {
-                        isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
-                    } else {
-                        // 🟢 Authorized if user possesses the required role OR possesses GLOBAL_ADMIN
-                        isAuthorized = userRoles.contains(requiredRole) || userRoles.contains("GLOBAL_ADMIN");
-                    }
+                        if (path.startsWith("/api/v1/content")) {
+                            isAuthorized = userRoles.stream().anyMatch(UPLOADER_ROLES::contains);
+                        } else {
+                            // 🟢 Authorized if user possesses the required role OR possesses GLOBAL_ADMIN
+                            isAuthorized = userRoles.contains(requiredRole) || userRoles.contains("GLOBAL_ADMIN");
+                        }
 
-                    if (!isAuthorized) {
-                        log.warn("Authorization failure: Path={}, RequiredRole={}, UserRoles={}", path, requiredRole, userRoles);
-                        handleError(response, "Access Denied: Missing role permissions", 403);
-                        return;
-                    }
+                        if (!isAuthorized) {
+                            log.warn("Authorization failure: Path={}, RequiredRole={}, UserRoles={}", path, requiredRole, userRoles);
+                            handleError(response, "Access Denied: Missing role permissions", 403);
+                            return;
+                        }
 
-                    // 4. Multi-Tenant Scope Validation (Handles multi-role accounts safely)
-                    if (!userRoles.contains("GLOBAL_ADMIN")) {
-                        String targetIdInUrl = extractUuidFromPath(path);
+                        // 4. Multi-Tenant Scope Validation (Handles multi-role accounts safely)
+                        if (!userRoles.contains("GLOBAL_ADMIN")) {
+                            String targetIdInUrl = extractUuidFromPath(path);
 
-                        if (targetIdInUrl != null) {
-                            // 🟢 University-scoped routes (e.g., /university-rep/{uniId}, /content/internal/stats/university/{uniId})
-                            if (path.contains("/university") || path.contains("/stats/university/")) {
-                                if (!targetIdInUrl.equalsIgnoreCase(authInfo.universityId())) {
-                                    log.warn("University Scope Mismatch! targetInUrl={}, userUniId={}", targetIdInUrl, authInfo.universityId());
-                                    handleError(response, "Access Denied: University scope mismatch", 403);
-                                    return;
+                            if (targetIdInUrl != null) {
+                                // 🟢 University-scoped routes (e.g., /university-rep/{uniId}, /content/internal/stats/university/{uniId})
+                                if (path.contains("/university") || path.contains("/stats/university/")) {
+                                    if (!targetIdInUrl.equalsIgnoreCase(authInfo.universityId())) {
+                                        log.warn("University Scope Mismatch! targetInUrl={}, userUniId={}", targetIdInUrl, authInfo.universityId());
+                                        handleError(response, "Access Denied: University scope mismatch", 403);
+                                        return;
+                                    }
                                 }
-                            }
-                            // 🟢 Management-scoped routes (e.g., /program-rep/{scopeId}, /department-rep/{scopeId})
-                            else if (path.contains("-rep/")) {
-                                boolean isUniAdminAuthorized = userRoles.contains("UNIVERSITY_ADMIN") && targetIdInUrl.equalsIgnoreCase(authInfo.universityId());
-                                boolean isScopeRepAuthorized = targetIdInUrl.equalsIgnoreCase(authInfo.scopeId());
+                                // 🟢 Management-scoped routes (e.g., /program-rep/{scopeId}, /department-rep/{scopeId})
+                                else if (path.contains("-rep/")) {
+                                    boolean isUniAdminAuthorized = userRoles.contains("UNIVERSITY_ADMIN") && targetIdInUrl.equalsIgnoreCase(authInfo.universityId());
+                                    boolean isScopeRepAuthorized = targetIdInUrl.equalsIgnoreCase(authInfo.scopeId());
 
-                                if (!isUniAdminAuthorized && !isScopeRepAuthorized) {
-                                    log.warn("Management Scope Mismatch! targetInUrl={}, userScopeId={}, userUniId={}", targetIdInUrl, authInfo.scopeId(), authInfo.universityId());
-                                    handleError(response, "Access Denied: Management scope mismatch", 403);
-                                    return;
+                                    if (!isUniAdminAuthorized && !isScopeRepAuthorized) {
+                                        log.warn("Management Scope Mismatch! targetInUrl={}, userScopeId={}, userUniId={}", targetIdInUrl, authInfo.scopeId(), authInfo.universityId());
+                                        handleError(response, "Access Denied: Management scope mismatch", 403);
+                                        return;
+                                    }
                                 }
                             }
                         }
+                        break;
                     }
-                    break;
                 }
-            }
 
-            if (!pathMatched && !userRoles.contains("GLOBAL_ADMIN")) {
-                handleError(response, "Access Denied: Secure fallback path blocking", 403);
-                return;
+                if (!pathMatched && !userRoles.contains("GLOBAL_ADMIN")) {
+                    handleError(response, "Access Denied: Secure fallback path blocking", 403);
+                    return;
+                }
             }
 
             // 5. Inject Security Context Headers for Downstream Microservices

@@ -303,6 +303,7 @@ services:
       NOTIFICATION_SERVICE_URL: "http://notification-service:8085"
       USER_SERVICE_URL: "http://user-service:8086"
       CONTENT_SERVICE_URL: "http://content-service:8090"
+      UPLOAD_SERVICE_URL: "http://upload-service:8084"
       SPRING_PROFILES_ACTIVE: "docker"
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
