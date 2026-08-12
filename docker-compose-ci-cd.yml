@@ -6,6 +6,7 @@ volumes:
   postgres_data:
   mysql_data:
   redis_data:
+  clamav_data:
 
 services:
   # =========================================================================
@@ -25,6 +26,8 @@ services:
     container_name: clamav
     ports:
       - "3310:3310"
+    volumes:
+      - clamav_data:/var/lib/clamav
     restart: always
     networks:
       - prevpaper-network

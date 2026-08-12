@@ -19,3 +19,4 @@ notificationService/logs/*.zip
 /user-service/logs
 
 /docker-compose.yml 
+.github/workflows/singleMachineDep.yml

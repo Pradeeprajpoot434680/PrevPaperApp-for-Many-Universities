@@ -4,11 +4,17 @@ services:
     restart: unless-stopped
     expose:
       - "3310"
+    volumes:
+      # Persistent virus DB so the container can be recreated without re-downloading ~500MB
+      - clamav_data:/var/lib/clamav
     healthcheck:
-      test: ["CMD-SHELL", "clamdscan --version"]
+      # Real ping to clamd - "clamdscan --version" reported healthy even when clamd was dead
+      test: ["CMD-SHELL", "clamdscan --ping"]
       interval: 30s
       timeout: 10s
       retries: 5
+      # First start downloads the virus DB (can take 10+ min on a fresh environment)
+      start_period: 900s
 
   content-service:
     image: ${DOCKER_USERNAME}/prevpaper-content-service:${IMAGE_TAG:-latest}
@@ -40,3 +46,6 @@ services:
     depends_on:
       clamav:
         condition: service_healthy
+
+volumes:
+  clamav_data:
