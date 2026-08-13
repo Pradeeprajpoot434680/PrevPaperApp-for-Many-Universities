@@ -28,7 +28,10 @@ public interface ContentService {
     List<PendingContentDTO> findPendingContent(UUID scopeId);
     List<ContentSearchResponseDTO> search(ContentSearchRequest request);
 
-    List<PendingContentDTO> getPendingContent(UUID programId, Integer academicYear, VerificationStatus verificationStatus);
+    // 🟢 COHORT-BASED: batchStartYear represents the SessionRep's assigned batch (e.g., Batch 2023)
+    // Uses formula: batchStartYear = academicYear - FLOOR((semester - 1) / 2)
+    // This ensures a SessionRep only verifies papers from their own batch's academic progression.
+    List<PendingContentDTO> getPendingContent(UUID programId, Integer batchStartYear, VerificationStatus verificationStatus);
 
     void verifyOrRejectContent(UUID contentId, String status, UUID verifiedBy);
 }
