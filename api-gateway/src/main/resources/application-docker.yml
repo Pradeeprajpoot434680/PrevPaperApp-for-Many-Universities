@@ -3,23 +3,42 @@ spring:
     loadbalancer:
       clients:
         UNIVERSITY-SERVICE:
-          instances:
-            - uri: http://university-service:8082
+          - uri: http://university-service:8082
         AUTH-SERVICE:
-          instances:
-            - uri: http://auth-service:8081
+          - uri: http://auth-service:8081
         NOTIFICATION-SERVICE:
-          instances:
-            - uri: http://notification-service:8085
+          - uri: http://notification-service:8085
         USER-SERVICE:
-          instances:
-            - uri: http://user-service:8086
+          - uri: http://user-service:8086
         CONTENT-SERVICE:
-          instances:
-            - uri: http://content-service:8090
+          - uri: http://content-service:8090
 
 feign:
   client:
     config:
       AUTH-SERVICE:
         url: http://auth-service:8081
+
+# 🟢 Rate Limiting Configuration (Docker)
+rate-limiting:
+  enabled: true
+  ip:
+    default:
+      limit: 100
+      window-seconds: 60
+    auth:
+      limit: 10
+      window-seconds: 60
+    upload:
+      limit: 20
+      window-seconds: 60
+  user:
+    default:
+      limit: 1000
+      window-seconds: 60
+    auth:
+      limit: 50
+      window-seconds: 60
+    upload:
+      limit: 100
+      window-seconds: 60
