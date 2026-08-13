@@ -28,6 +28,31 @@ spring:
 #     service-url:
 #       defaultZone: http://localhost:8761/eureka/
 
+# 🟢 Rate Limiting Configuration
+rate-limiting:
+  enabled: true
+  # IP-based limits (applied to all requests)
+  ip:
+    default:
+      limit: 100
+      window-seconds: 60
+    auth:
+      limit: 10
+      window-seconds: 60
+    upload:
+      limit: 20
+      window-seconds: 60
+  # User-based limits (applied only to authenticated requests)
+  user:
+    default:
+      limit: 1000
+      window-seconds: 60
+    auth:
+      limit: 50
+      window-seconds: 60
+    upload:
+      limit: 100
+      window-seconds: 60
 
 management:
   tracing:
