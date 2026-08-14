@@ -46,7 +46,20 @@ services:
       - nginx-proxy
 
   # =========================================================================
-  # 3. Backend: Spring Boot API gateway
+  # 3. Redis (required for rate limiting)
+  # =========================================================================
+  redis:
+    image: redis:7.2-alpine
+    container_name: prevpaper-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - prevpaper-network
+
+  # =========================================================================
+  # 4. Backend: Spring Boot API gateway
   #    NO LONGER exposed directly to the internet - only reachable through
   #    nginx-proxy on the internal docker network.
   # =========================================================================
@@ -68,6 +81,8 @@ services:
       # --- app config ---
       SERVER_PORT: "8080"
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: "6379"
       AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
       USER_SERVICE_URL: ${USER_SERVICE_URL}
       UNIVERSITY_SERVICE_URL: ${UNIVERSITY_SERVICE_URL}
@@ -77,9 +92,12 @@ services:
       EUREKA_CLIENT_ENABLED: "false"
       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
+    depends_on:
+      - redis
 
 volumes:
   certs:
   vhost:
   html:
   acme:
+  redis_data:

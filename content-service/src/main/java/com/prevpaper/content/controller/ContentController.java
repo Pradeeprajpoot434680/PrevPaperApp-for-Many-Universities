@@ -54,9 +54,10 @@ public class ContentController {
     @GetMapping("/internal/pending/session")
     public List<PendingContentDTO> getPendingBySession(
             @RequestParam UUID programId,
-            @RequestParam Integer academicYear) {
+            @RequestParam Integer batchStartYear) {
+        // 🟢 COHORT-BASED: batchStartYear is the SessionRep's assigned batch (e.g., Batch 2023)
         // Pass the parameters to the service layer
-        return contentService.getPendingContent(programId, academicYear, VerificationStatus.PENDING);
+        return contentService.getPendingContent(programId, batchStartYear, VerificationStatus.PENDING);
     }
 
     @PostMapping("/search")

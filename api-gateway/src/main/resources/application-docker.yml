@@ -13,32 +13,97 @@ spring:
         CONTENT-SERVICE:
           - uri: http://content-service:8090
 
+  data:
+    redis:
+      host: redis_server
+      port: 6379
+      timeout: 2000ms
+
 feign:
   client:
     config:
       AUTH-SERVICE:
         url: http://auth-service:8081
 
-# 🟢 Rate Limiting Configuration (Docker)
+# 🟢 Strict Per-Route Rate Limiting Configuration (Docker)
 rate-limiting:
   enabled: true
-  ip:
-    default:
-      limit: 100
-      window-seconds: 60
-    auth:
-      limit: 10
-      window-seconds: 60
-    upload:
-      limit: 20
-      window-seconds: 60
-  user:
-    default:
-      limit: 1000
-      window-seconds: 60
-    auth:
-      limit: 50
-      window-seconds: 60
-    upload:
-      limit: 100
-      window-seconds: 60
+  routes:
+    # 🚨 AUTH ROUTES - Very strict to prevent brute-force and abuse
+    "/api/v1/auth/register":
+      ip-limit: 5
+      ip-window: 3600
+      user-limit: 10
+      user-window: 3600
+    "/api/v1/auth/login":
+      ip-limit: 10
+      ip-window: 3600
+      user-limit: 20
+      user-window: 3600
+    "/api/v1/auth/refresh":
+      ip-limit: 30
+      ip-window: 3600
+      user-limit: 100
+      user-window: 3600
+    "/api/v1/auth/verify-otp":
+      ip-limit: 10
+      ip-window: 3600
+      user-limit: 20
+      user-window: 3600
+    "/api/v1/auth/resend-otp":
+      ip-limit: 5
+      ip-window: 3600
+      user-limit: 10
+      user-window: 3600
+    "/api/v1/auth/forgot-password":
+      ip-limit: 5
+      ip-window: 3600
+      user-limit: 10
+      user-window: 3600
+    "/api/v1/auth/reset-password":
+      ip-limit: 5
+      ip-window: 3600
+      user-limit: 10
+      user-window: 3600
+
+    # 📤 UPLOAD ROUTES - Moderate limits to prevent abuse
+    "/api/v1/upload/**":
+      ip-limit: 50
+      ip-window: 3600
+      user-limit: 100
+      user-window: 3600
+
+    # 📄 CONTENT ROUTES - Higher limits for browsing
+    "/api/v1/content/**":
+      ip-limit: 100
+      ip-window: 3600
+      user-limit: 500
+      user-window: 3600
+
+    # 👤 USER ROUTES - Higher limits for profile management
+    "/api/v1/users/**":
+      ip-limit: 100
+      ip-window: 3600
+      user-limit: 500
+      user-window: 3600
+
+    # 🏫 UNIVERSITY ROUTES - Higher limits for public data
+    "/api/v1/universities/**":
+      ip-limit: 100
+      ip-window: 3600
+      user-limit: 500
+      user-window: 3600
+
+    # 🌍 PUBLIC READ ROUTES - Generous but not unlimited
+    "/api/v1/get/**":
+      ip-limit: 300
+      ip-window: 60
+      user-limit: 1000
+      user-window: 60
+
+  # Default fallback for any unmatched routes
+  default:
+    ip-limit: 200
+    ip-window: 60
+    user-limit: 1000
+    user-window: 60

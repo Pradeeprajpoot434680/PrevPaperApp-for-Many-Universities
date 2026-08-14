@@ -25,9 +25,12 @@ public interface ContentClient {
     List<PendingContentDTO> getPendingByScope(@PathVariable UUID scopeId);
 
     @GetMapping("/api/v1/content/internal/pending/session")
+    // 🟢 COHORT-BASED: batchStartYear is the SessionRep's assigned batch (e.g., Batch 2023)
+    // The content service uses formula: batchStartYear = academicYear - FLOOR((semester - 1) / 2)
+    // to return only papers belonging to this batch's academic progression.
     List<PendingContentDTO> getPendingBySession(
             @RequestParam("programId") UUID programId,
-            @RequestParam("academicYear") Integer academicYear
+            @RequestParam("batchStartYear") Integer batchStartYear
     );
 
     @PutMapping("/api/v1/content/internal/{contentId}/status")

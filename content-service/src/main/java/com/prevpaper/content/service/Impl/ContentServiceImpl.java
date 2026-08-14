@@ -469,8 +469,8 @@ public class ContentServiceImpl implements ContentService {
 
 
     @Override
-    public List<PendingContentDTO> getPendingContent(UUID programId, Integer academicYear, VerificationStatus verificationStatus) {
-        log.info("Pending content by session request received: programId={}, academicYear={}", programId, academicYear);
+    public List<PendingContentDTO> getPendingContent(UUID programId, Integer batchStartYear, VerificationStatus verificationStatus) {
+        log.info("Pending content by session request received: programId={}, batchStartYear={}", programId, batchStartYear);
 
         // 🟢 Support both PENDING and PENDING_UPLOAD statuses so pending files are immediately actionable
         List<VerificationStatus> pendingStatuses = List.of(
@@ -479,9 +479,16 @@ public class ContentServiceImpl implements ContentService {
         );
 
         List<Content> pendingList;
-        if (academicYear != null) {
-            pendingList = contentRepository.findByProgramIdAndAcademicYearAndVerificationStatusIn(
-                    programId, academicYear, pendingStatuses);
+        if (batchStartYear != null) {
+            // 🟢 COHORT-BASED FILTERING: Only return papers belonging to this batch/cohort
+            // Formula: batchStartYear = examYear - floor((semester - 1) / 2)
+            // Example: Batch 2023 rep sees papers from:
+            //   - 2023, sem 1-2  -> 2023 - 0 = 2023
+            //   - 2024, sem 3-4  -> 2024 - 1 = 2023
+            //   - 2025, sem 5-6  -> 2025 - 2 = 2023
+            //   - 2026, sem 7-8  -> 2026 - 3 = 2023
+            pendingList = contentRepository.findByProgramIdAndBatchStartYearAndVerificationStatusIn(
+                    programId, batchStartYear, pendingStatuses);
         } else {
             pendingList = contentRepository.findPendingByProgramAndStatuses(
                     programId, pendingStatuses);

@@ -3,6 +3,7 @@ package com.prevpaper.gateway.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
@@ -15,22 +16,16 @@ public class RateLimitingProperties {
     private boolean enabled = true;
 
     /**
-     * IP-based rate limits
+     * Per-route rate limit configurations.
+     * Keys are Ant-style path patterns (e.g. /api/v1/auth/login, /api/v1/upload/**).
+     * The first matching pattern wins; order matters (LinkedHashMap preserves insertion order).
      */
-    private Map<String, LimitConfig> ip = Map.of(
-            "default", new LimitConfig(100, 60),
-            "auth", new LimitConfig(10, 60),
-            "upload", new LimitConfig(20, 60)
-    );
+    private final Map<String, RouteLimitConfig> routes = new LinkedHashMap<>();
 
     /**
-     * User-based rate limits (applied only to authenticated requests)
+     * Default fallback configuration when no route pattern matches.
      */
-    private Map<String, LimitConfig> user = Map.of(
-            "default", new LimitConfig(1000, 60),
-            "auth", new LimitConfig(50, 60),
-            "upload", new LimitConfig(100, 60)
-    );
+    private final RouteLimitConfig defaultConfig = new RouteLimitConfig(200, 60, 1000, 60);
 
     public boolean isEnabled() {
         return enabled;
@@ -40,58 +35,78 @@ public class RateLimitingProperties {
         this.enabled = enabled;
     }
 
-    public Map<String, LimitConfig> getIp() {
-        return ip;
+    public Map<String, RouteLimitConfig> getRoutes() {
+        return routes;
     }
 
-    public void setIp(Map<String, LimitConfig> ip) {
-        this.ip = ip;
-    }
-
-    public Map<String, LimitConfig> getUser() {
-        return user;
-    }
-
-    public void setUser(Map<String, LimitConfig> user) {
-        this.user = user;
+    public RouteLimitConfig getDefaultConfig() {
+        return defaultConfig;
     }
 
     /**
-     * 🟢 Configuration holder for individual rate limit parameters
+     * Configuration holder for per-route rate limit parameters.
      */
-    public static class LimitConfig {
+    public static class RouteLimitConfig {
         /**
-         * Maximum number of requests allowed in the window
+         * Maximum number of IP-based requests allowed in the window
          */
-        private int limit;
+        private int ipLimit;
 
         /**
-         * Time window in seconds
+         * IP-based time window in seconds
          */
-        private int windowSeconds;
+        private int ipWindowSeconds;
 
-        public LimitConfig() {
+        /**
+         * Maximum number of user-based requests allowed in the window
+         */
+        private int userLimit;
+
+        /**
+         * User-based time window in seconds
+         */
+        private int userWindowSeconds;
+
+        public RouteLimitConfig() {
         }
 
-        public LimitConfig(int limit, int windowSeconds) {
-            this.limit = limit;
-            this.windowSeconds = windowSeconds;
+        public RouteLimitConfig(int ipLimit, int ipWindowSeconds, int userLimit, int userWindowSeconds) {
+            this.ipLimit = ipLimit;
+            this.ipWindowSeconds = ipWindowSeconds;
+            this.userLimit = userLimit;
+            this.userWindowSeconds = userWindowSeconds;
         }
 
-        public int getLimit() {
-            return limit;
+        public int getIpLimit() {
+            return ipLimit;
         }
 
-        public void setLimit(int limit) {
-            this.limit = limit;
+        public void setIpLimit(int ipLimit) {
+            this.ipLimit = ipLimit;
         }
 
-        public int getWindowSeconds() {
-            return windowSeconds;
+        public int getIpWindowSeconds() {
+            return ipWindowSeconds;
         }
 
-        public void setWindowSeconds(int windowSeconds) {
-            this.windowSeconds = windowSeconds;
+        public void setIpWindowSeconds(int ipWindowSeconds) {
+            this.ipWindowSeconds = ipWindowSeconds;
+        }
+
+        public int getUserLimit() {
+            return userLimit;
+        }
+
+        public void setUserLimit(int userLimit) {
+            this.userLimit = userLimit;
+        }
+
+        public int getUserWindowSeconds() {
+            return userWindowSeconds;
+        }
+
+        public void setUserWindowSeconds(int userWindowSeconds) {
+            this.userWindowSeconds = userWindowSeconds;
         }
     }
 }

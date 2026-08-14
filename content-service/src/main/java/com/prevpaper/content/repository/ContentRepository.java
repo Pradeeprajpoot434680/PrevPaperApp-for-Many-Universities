@@ -92,5 +92,19 @@ public interface ContentRepository extends JpaRepository<Content, UUID>, JpaSpec
             List<VerificationStatus> statuses
     );
 
+    // 🟢 COHORT-BASED: SessionRep verification filter
+    // Filters content where the computed batchStartYear matches the rep's assigned batch.
+    // Formula: batchStartYear = academicYear - FLOOR((semester - 1) / 2)
+    // This ensures a SessionRep only verifies papers from their own batch's academic progression.
+    // Example: Batch 2023 rep sees papers from 2023(sem1-2), 2024(sem3-4), 2025(sem5-6), 2026(sem7-8)
+    @Query("SELECT c FROM Content c WHERE c.programId = :programId " +
+            "AND c.verificationStatus IN :statuses " +
+            "AND (c.academicYear - FLOOR((c.semester - 1) / 2)) = :batchStartYear")
+    List<Content> findByProgramIdAndBatchStartYearAndVerificationStatusIn(
+            @Param("programId") UUID programId,
+            @Param("batchStartYear") Integer batchStartYear,
+            @Param("statuses") List<VerificationStatus> statuses
+    );
+
 
 }

@@ -234,12 +234,15 @@ public class SessionRepServiceImpl implements SessionRepService {
                 .orElseThrow(() -> new RuntimeException("Academic Session not found: " + sessionId));
 
         UUID programId = session.getProgram().getId();
-        Integer sessionStartYear = session.getStartYear();
+        // 🟢 COHORT-BASED: session.startYear IS the batchStartYear (e.g., Batch 2023)
+        // The content service will compute which (year, semester) pairs belong to this batch
+        // using the formula: batchStartYear = academicYear - FLOOR((semester - 1) / 2)
+        Integer batchStartYear = session.getStartYear();
 
-        log.info("Resolved session parameters: programId={}, startYear={}", programId, sessionStartYear);
+        log.info("Resolved session parameters: programId={}, batchStartYear={}", programId, batchStartYear);
 
-        // 🟢 Query content client by program track and session batch year
-        return contentClient.getPendingBySession(programId, sessionStartYear);
+        // 🟢 Query content client by program track and cohort batch year
+        return contentClient.getPendingBySession(programId, batchStartYear);
     }
 
     /**

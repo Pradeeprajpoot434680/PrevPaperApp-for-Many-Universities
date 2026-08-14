@@ -52,6 +52,31 @@ public class RedisService {
     }
 
     /**
+     * Atomically increment a counter in Redis and return the new value.
+     * Returns null if the key does not exist or on error.
+     */
+    public Long increment(String key) {
+        try {
+            return redisTemplate.opsForValue().increment(key);
+        } catch (Exception e) {
+            log.error("Error incrementing key [{}] in Redis: ", key, e);
+            return null;
+        }
+    }
+
+    /**
+     * Set a TTL on an existing key (used after INCR to initialize window expiry).
+     */
+    public boolean expire(String key, long timeout, TimeUnit unit) {
+        try {
+            return Boolean.TRUE.equals(redisTemplate.expire(key, timeout, unit));
+        } catch (Exception e) {
+            log.error("Error setting TTL on key [{}] in Redis: ", key, e);
+            return false;
+        }
+    }
+
+    /**
      * Evict a key from the cache explicitly
      */
     public void delete(String key) {
