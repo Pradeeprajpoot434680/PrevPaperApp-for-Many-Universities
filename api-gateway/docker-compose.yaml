@@ -1,9 +1,112 @@
+# services:
+#   # =========================================================================
+#   # 1. Nginx Reverse Proxy (nginx-proxy)
+#   #    Auto-detects containers with VIRTUAL_HOST via docker-gen and
+#   #    terminates HTTPS. TLS certificates come from the shared certs volume.
+#   # =========================================================================
+#   nginx-proxy:
+#     image: nginxproxy/nginx-proxy:1.11
+#     container_name: prevpaper-nginx-proxy
+#     restart: unless-stopped
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#     volumes:
+#       - /var/run/docker.sock:/tmp/docker.sock:ro
+#       - certs:/etc/nginx/certs
+#       - vhost:/etc/nginx/vhost.d
+#       - html:/usr/share/nginx/html
+#     environment:
+#       # Plain-HTTP requests get a 301 redirect to HTTPS (default behaviour)
+#       HTTPS_METHOD: redirect
+#       # Tell browsers to always use HTTPS for this domain (1 year)
+#       HSTS: "max-age=31536000"
+
+#   # =========================================================================
+#   # 2. acme-companion
+#   #    Automatically issues (and renews) Let's Encrypt certificates for any
+#   #    container declaring LETSENCRYPT_HOST. Nothing to manage manually.
+#   # =========================================================================
+#   acme-companion:
+#     image: nginxproxy/acme-companion:latest
+#     container_name: prevpaper-acme-companion
+#     restart: unless-stopped
+#     environment:
+#       # Registration email for Let's Encrypt (expiry warnings go here)
+#       DEFAULT_EMAIL: ${LETSENCRYPT_EMAIL:-you@example.com}
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock:ro
+#       - certs:/etc/nginx/certs:rw
+#       - vhost:/etc/nginx/vhost.d:rw
+#       - html:/usr/share/nginx/html:rw
+#       - acme:/etc/acme.sh
+#     volumes_from:
+#       - nginx-proxy
+#     depends_on:
+#       - nginx-proxy
+
+#   # =========================================================================
+#   # 3. Redis (required for rate limiting)
+#   # =========================================================================
+#   redis:
+#     image: redis:7.2-alpine
+#     container_name: prevpaper-redis
+#     restart: unless-stopped
+#     volumes:
+#       - redis_data:/data
+#     command: redis-server --appendonly yes
+#     networks:
+#       - prevpaper-network
+
+#   # =========================================================================
+#   # 4. Backend: Spring Boot API gateway
+#   #    NO LONGER exposed directly to the internet - only reachable through
+#   #    nginx-proxy on the internal docker network.
+#   # =========================================================================
+#   api-gateway:
+#     image: ${DOCKER_USERNAME}/prevpaper-api-gateway:${IMAGE_TAG:-latest}
+#     container_name: prevpaper-api-gateway
+#     restart: unless-stopped
+#     expose:
+#       - "8080"
+#     environment:
+#       # --- nginx-proxy routing ---
+#       VIRTUAL_HOST: ${VIRTUAL_HOST:-api.prevpaper.fun}
+#       VIRTUAL_PORT: "8080"
+#       # --- acme-companion certificate issuance ---
+#       LETSENCRYPT_HOST: ${VIRTUAL_HOST:-api.prevpaper.fun}
+#       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL:-pradeepkumar434680@gmail.com}
+#       # --- allow 20MB multipart uploads through nginx (default is 1MB!) ---
+#       CLIENT_MAX_BODY_SIZE: 25m
+#       # --- app config ---
+#       SERVER_PORT: "8080"
+#       SPRING_PROFILES_ACTIVE: docker
+#       SPRING_DATA_REDIS_HOST: redis
+#       SPRING_DATA_REDIS_PORT: "6379"
+#       AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
+#       USER_SERVICE_URL: ${USER_SERVICE_URL}
+#       UNIVERSITY_SERVICE_URL: ${UNIVERSITY_SERVICE_URL}
+#       CONTENT_SERVICE_URL: ${CONTENT_SERVICE_URL}
+#       NOTIFICATION_SERVICE_URL: ${NOTIFICATION_SERVICE_URL}
+#       MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: ${ZIPKIN_ENDPOINT}
+#       EUREKA_CLIENT_ENABLED: "false"
+#       EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+#       EUREKA_CLIENT_FETCH_REGISTRY: "false"
+#     depends_on:
+#       - redis
+
+# volumes:
+#   certs:
+#   vhost:
+#   html:
+#   acme:
+#   redis_data:
+
+
+
+
 services:
-  # =========================================================================
-  # 1. Nginx Reverse Proxy (nginx-proxy)
-  #    Auto-detects containers with VIRTUAL_HOST via docker-gen and
-  #    terminates HTTPS. TLS certificates come from the shared certs volume.
-  # =========================================================================
+  # 1. Nginx Reverse Proxy
   nginx-proxy:
     image: nginxproxy/nginx-proxy:1.11
     container_name: prevpaper-nginx-proxy
@@ -17,22 +120,17 @@ services:
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
     environment:
-      # Plain-HTTP requests get a 301 redirect to HTTPS (default behaviour)
       HTTPS_METHOD: redirect
-      # Tell browsers to always use HTTPS for this domain (1 year)
       HSTS: "max-age=31536000"
+    networks:
+      - prevpaper-network
 
-  # =========================================================================
   # 2. acme-companion
-  #    Automatically issues (and renews) Let's Encrypt certificates for any
-  #    container declaring LETSENCRYPT_HOST. Nothing to manage manually.
-  # =========================================================================
   acme-companion:
     image: nginxproxy/acme-companion:latest
     container_name: prevpaper-acme-companion
     restart: unless-stopped
     environment:
-      # Registration email for Let's Encrypt (expiry warnings go here)
       DEFAULT_EMAIL: ${LETSENCRYPT_EMAIL:-you@example.com}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -44,10 +142,10 @@ services:
       - nginx-proxy
     depends_on:
       - nginx-proxy
+    networks:
+      - prevpaper-network
 
-  # =========================================================================
-  # 3. Redis (required for rate limiting)
-  # =========================================================================
+  # 3. Redis
   redis:
     image: redis:7.2-alpine
     container_name: prevpaper-redis
@@ -58,11 +156,7 @@ services:
     networks:
       - prevpaper-network
 
-  # =========================================================================
-  # 4. Backend: Spring Boot API gateway
-  #    NO LONGER exposed directly to the internet - only reachable through
-  #    nginx-proxy on the internal docker network.
-  # =========================================================================
+  # 4. Spring Boot API Gateway
   api-gateway:
     image: ${DOCKER_USERNAME}/prevpaper-api-gateway:${IMAGE_TAG:-latest}
     container_name: prevpaper-api-gateway
@@ -70,15 +164,11 @@ services:
     expose:
       - "8080"
     environment:
-      # --- nginx-proxy routing ---
       VIRTUAL_HOST: ${VIRTUAL_HOST:-api.prevpaper.fun}
       VIRTUAL_PORT: "8080"
-      # --- acme-companion certificate issuance ---
       LETSENCRYPT_HOST: ${VIRTUAL_HOST:-api.prevpaper.fun}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL:-pradeepkumar434680@gmail.com}
-      # --- allow 20MB multipart uploads through nginx (default is 1MB!) ---
       CLIENT_MAX_BODY_SIZE: 25m
-      # --- app config ---
       SERVER_PORT: "8080"
       SPRING_PROFILES_ACTIVE: docker
       SPRING_DATA_REDIS_HOST: redis
@@ -94,6 +184,8 @@ services:
       EUREKA_CLIENT_FETCH_REGISTRY: "false"
     depends_on:
       - redis
+    networks:
+      - prevpaper-network
 
 volumes:
   certs:
@@ -101,3 +193,8 @@ volumes:
   html:
   acme:
   redis_data:
+
+# --- ADD THIS BLOCK AT THE BOTTOM ---
+networks:
+  prevpaper-network:
+    driver: bridge
