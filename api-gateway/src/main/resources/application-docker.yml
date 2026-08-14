@@ -13,6 +13,12 @@ spring:
         CONTENT-SERVICE:
           - uri: http://content-service:8090
 
+  data:
+    redis:
+      host: redis_server
+      port: 6379
+      timeout: 2000ms
+
 feign:
   client:
     config:
